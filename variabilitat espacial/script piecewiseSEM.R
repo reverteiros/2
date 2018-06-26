@@ -1,60 +1,35 @@
 
 library(piecewiseSEM)
 
-database2 <- read.table("Data.txt",header=T)
-names(database2)
-
-database2$pollen <- database2$ROF_pollen+database2$TVU_pollen
-database2$nectar <- database2$ROF_nectar+database2$TVU_nectar
-
+database2 <- read.table("dades/Database3.txt",header=T)
 datalog <- log(database2)
 
-
+## Path analysis wild abundance
 wildabundance = list(
-  lm(Honeybee_Visit_Rate ~ Overall_flowers + T_Max, data = datalog),
-  lm(Wild_Abundance ~ Overall_flowers + Honeybee_Visit_Rate + T_Max, data = datalog))
+  lm(Honeybeerate ~ OVERALL_Flowers + T_Max, data = datalog),
+  lm(Wild ~ OVERALL_Flowers + Honeybeerate + T_Max, data = datalog))
 
+coef.table = sem.coefs(wildabundance, datalog)
 (coef.table = sem.coefs(wildabundance, datalog))
-sem.plot(wildabundance, datalog, standardize = "scale")
+sem.plot(wildabundance, datalog, coef.table)
+sem.model.fits(wildabundance)
 
+## Wild visit rate
 wildrate = list(
-  lm(Honeybee_Visit_Rate ~ Overall_flowers + T_Max, data = datalog),
-  lm(Wild_Visit_Rate ~ Overall_flowers + Honeybee_Visit_Rate + T_Max, data = datalog))
+  lm(Honeybeerate ~ OVERALL_Flowers + T_Max, data = datalog),
+  lm(Wild_rate ~ OVERALL_Flowers + Honeybeerate + T_Max, data = datalog))
 
+coef.table = sem.coefs(wildrate, datalog)
 (coef.table = sem.coefs(wildrate, datalog))
-sem.plot(wildrate, datalog, standardize = "scale")
+sem.plot(wildrate, datalog, coef.table)
+sem.model.fits(wildrate)
 
+## Wild richness
 wildrichness = list(
-  lm(Honeybee_Visit_Rate ~ Overall_flowers + T_Max + Flower_Richness, data = datalog),
-  lm(Pollinator_Richness ~ Overall_flowers + Honeybee_Visit_Rate + T_Max + Flower_Richness, data = datalog))
+  lm(Honeybeerate ~ OVERALL_Flowers + T_Max + flower_richness, data = datalog),
+  lm(Pollinator_species ~ OVERALL_Flowers + Honeybeerate + T_Max + flower_richness, data = datalog))
 
+coef.table = sem.coefs(wildrichness, datalog)
 (coef.table = sem.coefs(wildrichness, datalog))
-sem.plot(wildrichness, datalog, standardize = "scale")
-
-wildabundancenectar = list(
-  lm(Honeybee_Visit_Rate ~ nectar + T_Max, data = datalog),
-  lm(Wild_Abundance ~ nectar + Honeybee_Visit_Rate + T_Max, data = datalog))
-
-(coef.table = sem.coefs(wildabundancenectar, datalog))
-sem.plot(wildabundancenectar, datalog, standardize = "scale")
-
-wildabundancepollen = list(
-  lm(Honeybee_Visit_Rate ~ pollen + T_Max, data = datalog),
-  lm(Wild_Abundance ~ pollen + Honeybee_Visit_Rate + T_Max, data = datalog))
-
-(coef.table = sem.coefs(wildabundancepollen, datalog))
-sem.plot(wildabundancepollen, datalog, standardize = "scale")
-
-wildvisitratenectar = list(
-  lm(Honeybee_Visit_Rate ~ nectar + T_Max, data = datalog),
-  lm(Wild_Visit_Rate ~ nectar + Honeybee_Visit_Rate + T_Max, data = datalog))
-
-(coef.table = sem.coefs(wildvisitratenectar, datalog))
-sem.plot(wildvisitratenectar, datalog, standardize = "scale")
-
-
-sem.fit(pathlist, database2)
-## dona error perque totes les vies estan testades, aquesta funcio et mira les vies no testades
-sem.model.fits(wildabundancepollen)
-(coef.table = sem.coefs(wildabundancepollen, database2))
-sem.plot(wildabundancepollen, database2, standardize = "scale")
+sem.plot(wildrichness, datalog, coef.table)
+sem.model.fits(wildrichness)
