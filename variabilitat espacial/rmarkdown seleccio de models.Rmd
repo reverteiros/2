@@ -1,0 +1,49 @@
+---
+title: "Selecció de models"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+setwd("D:/Usuarios/s.reverte/OneDrive - CREAF/TESI/DADES/dades")
+database2 <- read.table("mumin.txt",header=T)
+library(MuMIn)
+database2$Honeybee_visitrate <- database2$Honeybees/database2$Flower_abundance*1000
+database2$Wild_visitrate <- database2$Wild/database2$Flower_abundance*1000
+names(database2)
+```
+
+## Wild pollinators abundance
+
+```{r }
+options(na.action = "na.fail")
+fm1 <- lm(Wild ~ log(Honeybees)*Flower_abundance, data = database2)
+dd <- dredge(fm1)
+subset(dd, delta < 4)
+#'Best' model
+summary(get.models(dd, 1)[[1]])
+
+```
+
+## Wild pollinators visit rate
+
+```{r }
+options(na.action = "na.fail")
+fm1 <- lm(log(Wild_visitrate) ~ log(Honeybee_visitrate)*Flower_abundance, data = database2)
+dd <- dredge(fm1)
+subset(dd, delta < 4)
+#'Best' model
+summary(get.models(dd, 1)[[1]])
+```
+
+
+## Wild pollinators richness
+
+```{r }
+options(na.action = "na.fail")
+fm1 <- lm(Pollinator_richness ~ log(Honeybees)*(Flower_richness+Flower_abundance), data = database2)
+dd <- dredge(fm1)
+subset(dd, delta < 4)
+#'Best' model
+summary(get.models(dd, 1)[[1]])
+```
