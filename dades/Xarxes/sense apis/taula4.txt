@@ -1,0 +1,4 @@
+	Andrena_nigroaenea	Bibio_sp	Chrysotoxum_cautum	Hylaeus_hyalinatus	Lasioglossum_transitorium_planulum	Miridae_2	Pseudophilotes_panoptes	Sarcophagidae_1	
+ROF	2	16	1	0	2	1	0	0	
+TVUF	0	0	0	1	1	0	1	1	
+TVUH	0	0	0	1	0	0	0	0	

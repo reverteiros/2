@@ -1,0 +1,5 @@
+	Andrena_angustior_impressa	Andrena_djelfensis	Andrena_nigroaenea	Apis	Hylaeus_hyalinatus	Lasioglossum_mediterraneum	Oxythyrea_funesta
+CSA	0	4	0	0	0	0	1
+ROF	2	0	1	19	0	0	0
+TVUF	0	0	0	1	0	1	0
+TVUH	0	0	0	8	2	0	0

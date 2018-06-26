@@ -1,0 +1,6 @@
+	Andrena_djelfensis	Andrena_limata	Andrena_nigroaenea	Bibio_sp	Bombus_terrestris	Chrysotoxum_cautum	Dasytes_nigroaeneus	Lasioglossum_mediterraneum	Lasioglossum_transitorium_planulum	Malthinus	Oxythyrea_funesta	Pseudophilotes_panoptes	Rodanthidium_sticticum	Sarcophagidae_4	Scatophagidae??
+CAL	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+EFL	1	0	0	0	0	0	1	0	0	2	0	0	0	0	0
+ROF	1	1	0	3	1	1	0	1	5	0	1	0	1	0	1
+TVUF	1	0	1	0	0	0	0	0	1	0	0	1	0	1	0
+TVUH	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0

@@ -1,0 +1,4 @@
+	Apis	Bombylius_discolor	Meligethes_aeneus	Oxythyrea_funesta	Pseudophilotes_panoptes
+ROF	13	1	0	1	0
+TVUF	0	0	0	0	1
+TVUH	0	0	2	0	0

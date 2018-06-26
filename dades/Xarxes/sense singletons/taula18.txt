@@ -1,0 +1,4 @@
+	Adela_aldrovandella	Andrena_angustior_impressa	Andrena_nigroaenea	Apis	Euodynerus_bidentoides	Halictus_smaragdalus	Hylaeus_garrulus	Hylaeus_hyalinatus	Lasioglossum_transitorium_planulum
+FLA	0	0	0	0	0	0	0	0	1
+ROF	1	2	1	58	0	1	0	0	2
+TVUF	0	0	0	0	1	0	1	4	0

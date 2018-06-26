@@ -1,0 +1,7 @@
+	Anaspis	Andrena_vulpecula	Anthophora_dispar	Empididae	Lasioglossum_transitorium_planulum	Meligethes_aeneus	Mosca_mitjana_1	Paragus_tibialis	Rodanthidium_sticticum
+CSP	0	0	2	0	0	0	0	0	0
+EFL	0	0	0	1	0	1	0	0	0
+HOE	1	2	0	0	1	0	0	1	1
+ROF	0	0	1	0	0	0	0	0	0
+TVUF	0	0	0	0	0	2	1	0	0
+TVUH	0	0	0	0	0	0	0	0	0

@@ -1,0 +1,44 @@
+	Andrena_angustior_impressa	Anthrenus_1	Anthrenus_2	Chamaesyrphus	Dasytes_nigroaeneus	Dipter_elipse_1	Empididae	Hylaeus_hyalinatus	Lasioglossum_transitorium_planulum	Lobonyx_aeneus	Mordellistena_1	Mosca_16
+CSA	0	3	1	0	1	2	1	0	2	2	2	0
+ROF	2	0	0	0	0	0	0	0	0	0	0	0
+TVUF	0	0	0	1	0	0	2	1	1	0	0	1
+TVUH	0	0	0	0	0	0	1	0	0	0	0	0
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

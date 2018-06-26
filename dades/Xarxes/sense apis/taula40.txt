@@ -1,0 +1,44 @@
+	Bombylius_discolor	Hadrodemus_m-flavum	Meligethes_aeneus	Miridae_1	Mosca_poc_peluda_1	Oxythyrea_funesta	Pseudophilotes_panoptes			
+ROF	1	0	0	2	1	1	0			
+TVUF	0	0	0	0	0	0	1			
+TVUH	0	1	2	0	0	0	0			
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											

@@ -1,0 +1,25 @@
+	Andrena_djelfensis	Chalcididae_4	Empididae	Empididae_2	Euodynerus_bidentoides	Gymnosoma	Himenòpter_parasitoid	Hylaeus_garrulus	Hylaeus_hyalinatus	Lasioglossum_soror	Lasioglossum_transitorium_planulum	Lobonyx_aeneus	Meligethes_2	Oedemera_flavipes	Oxythyrea_funesta	Sarcophagidae_4	
+CSA	0	0	0	0	0	0	0	0	0	0	0	2	0	0	1	0	
+EFL	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	
+RGR	0	0	0	0	0	0	0	0	0	0	0	0	0	1	2	0	
+ROF	1	0	0	1	0	0	1	0	0	1	2	2	1	0	0	0	
+TVUF	0	0	0	0	0	0	0	1	0	0	2	0	0	0	0	1	
+TVUH	0	0	2	0	1	0	0	0	1	1	0	1	0	0	0	0	
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		
+																		

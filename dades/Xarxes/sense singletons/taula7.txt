@@ -1,0 +1,4 @@
+	Adela_aldrovandella	Anthophora_dispar	Apis	Bibio_sp	Calliphoridae_3	Dasytes_nigroaeneus	Empididae	Empididae_2	Hylaeus_garrulus	Lasioglossum_albocinctum	Malthinus	Oxythyrea_funesta	Smaragdina_diversipes	Tropinota_squalida
+CSP	0	1	1	0	0	0	0	0	0	0	0	1	1	0
+ROF	0	0	19	1	0	1	0	1	0	1	2	0	0	1
+TVUF	2	0	10	0	1	0	3	0	1	0	0	0	0	1

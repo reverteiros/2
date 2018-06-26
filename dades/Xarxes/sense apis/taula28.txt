@@ -1,0 +1,31 @@
+	Chalcididae_6	Dasytes_nigroaeneus	Dipter_2	Empididae	Lasioglossum_transitorium_planulum	Meligethes_aeneus	Mosca_petita_3			
+EFL	1	0	1	0	0	0	0			
+ROF	0	0	0	0	1	0	1			
+TVUF	0	0	0	1	1	1	0			
+TVUH	0	1	0	0	0	0	0			
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											

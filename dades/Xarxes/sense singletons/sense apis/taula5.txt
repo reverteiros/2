@@ -1,0 +1,6 @@
+	Andrena_angustior_impressa	Andrena_nigroaenea	Bibio_sp	Bombus_terrestris	Chrysotoxum_cautum	Lasioglossum_transitorium_planulum	Lobonyx_aeneus	Oxythyrea_funesta
+CSA	0	0	0	0	0	0	1	0
+EFL	0	0	0	0	1	0	0	0
+ROF	1	1	4	1	0	3	2	1
+TVUF	0	0	0	0	0	4	0	0
+TVUH	0	0	0	0	0	0	0	0

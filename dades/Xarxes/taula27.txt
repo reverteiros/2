@@ -1,0 +1,31 @@
+	Apis	Bibio_sp	Empididae	Megachile_pyrenaica	Sarcophagidae_2						
+LIN	0	0	0	2	0						
+ROF	11	1	0	0	0						
+TVUF	1	0	0	0	0						
+TVUH	1	0	1	0	1						
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											

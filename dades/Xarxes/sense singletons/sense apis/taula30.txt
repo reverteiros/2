@@ -1,0 +1,6 @@
+	Andrena_djelfensis	Anthrenus_1	Bibio_sp	Dasytes_nigroaeneus	Empididae	Gymnosoma	Lasioglossum_griseolum	Lasioglossum_interruptum	Lobonyx_aeneus	Mosca_9	Nomada_flavoguttata	Oxythyrea_funesta	Pseudophilotes_panoptes
+CSA	0	1	0	0	0	0	0	0	0	0	0	0	0
+EFL	1	2	0	0	0	2	0	0	0	0	0	0	0
+ROF	0	0	1	1	0	0	1	1	1	0	0	1	0
+TVUF	1	0	0	0	1	0	0	0	0	1	1	0	2
+TVUH	0	0	0	0	1	0	1	0	0	0	0	0	0

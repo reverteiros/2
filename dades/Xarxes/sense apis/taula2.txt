@@ -1,0 +1,5 @@
+	Andrena_angustior_impressa	Andrena_djelfensis	Andrena_fulva	Anthophora_acervorum	Bibio_sp	Bombus_terrestris	Bombylius_discolor	Empididae	Lasioglossum_subhirtum	Mosca_9	Mosca_petita_1	Oxythyrea_funesta	Pseudophilotes_panoptes	Stratyomidae_1	Stratyomidae_2
+EFL	0	4	0	0	0	0	0	0	0	0	0	0	0	0	0
+ROF	0	0	1	2	2	2	2	0	3	4	1	1	0	1	0
+TVUF	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+TVUH	1	0	0	0	0	0	0	0	0	0	0	0	1	0	1

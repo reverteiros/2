@@ -1,0 +1,31 @@
+	Anthophora_dispar	Anthrenus_2	Apis	Bombus_terrestris	Callophrys_rubi	Oxythyrea_funesta	Pieris_rapae				
+EFL	0	1	0	0	0	0	0				
+HOE	0	0	1	0	0	0	0				
+ROF	1	0	57	1	1	1	1				
+TVUF	0	0	2	0	0	0	0				
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											

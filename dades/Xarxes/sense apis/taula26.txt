@@ -1,0 +1,31 @@
+	Andrena_djelfensis	Andrena_nigroaenea	Anthaxia	Bibio_sp	Lasioglossum_griseolum	Oxythyrea_funesta				
+ROF	1	0	0	3	0	0				
+TVUF	0	0	0	0	1	0				
+TVUH	0	1	1	0	0	1				
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											

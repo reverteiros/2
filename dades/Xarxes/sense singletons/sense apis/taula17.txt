@@ -1,0 +1,7 @@
+	Adela_aldrovandella	Anaspis	Andrena_angustior_impressa	Andrena_djelfensis	Chamaesyrphus	Dasytes_nigroaeneus	Malthinus	Osmia_rufohirta	Rodanthidium_sticticum	Smaragdina_diversipes
+CSP	0	0	0	0	0	0	0	0	0	1
+EFL	0	1	0	1	0	0	2	0	0	0
+HOE	0	0	0	0	0	1	0	0	1	0
+ROF	2	0	1	0	1	0	1	0	0	0
+TVUF	0	0	0	0	0	0	0	1	0	0
+TVUH	0	0	0	0	1	0	0	0	0	0

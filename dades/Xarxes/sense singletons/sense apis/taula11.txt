@@ -1,0 +1,5 @@
+	Andrena_nigroaenea	Anthophora_dispar	Chamaesyrphus	Empididae	Fals_conòpid	Lasioglossum_griseolum	Oxythyrea_funesta	Rodanthidium_sticticum
+HOE	0	0	0	0	0	1	0	0
+ROF	0	1	0	0	0	0	1	1
+TVUF	0	0	1	2	1	0	0	0
+TVUH	1	0	0	0	0	0	0	0

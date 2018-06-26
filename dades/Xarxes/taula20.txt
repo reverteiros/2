@@ -1,0 +1,31 @@
+	Adela_aldrovandella	Anthophora_dispar	Apis	Bombus_terrestris	Ceratina_cyanea	Clanoptilus_abdominalis	Cryptocephalus_ramburi	Diodontus	Hylaeus_hyalinatus	Ichneumonidae_6	Lasioglossum_transitorium_planulum	Lobonyx_aeneus	Microhoria_plumbea	Microlepidoptera	Mosca_14	Mosca_15	Mosca_19	Mosca_9	Osmia_rufohirta	Oxythyrea_funesta	Pompilidae	Rodanthidium_sticticum	Symphyta	Tachinidae_2	
+AMO	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	
+CSP	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+HOE	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	1	0	0	0	0	0	
+OLA	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	
+ROF	3	0	133	1	0	1	0	0	0	1	1	4	0	1	2	4	1	1	0	1	1	0	1	1	
+TVUF	1	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+TVUH	0	0	0	0	0	0	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									

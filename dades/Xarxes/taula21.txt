@@ -1,0 +1,31 @@
+	Adela_aldrovandella	Andrena_angustior_impressa	Andrena_djelfensis	Anthophora_acervorum	Apis	Bombylius_cruciatus	Bombylius_discolor	Chalcididae_5	Chamaesyrphus	Dipter_molt_llarg,_mes_que_apis,_ales_fosques,_grisos	Empididae	Escarabat_rodonet_com_una_marieta_però_blau	Halictus_smaragdalus	Hylaeus_hyalinatus	Lasioglossum_bimaculatum	Lasioglossum_transitorium_planulum	Lobonyx_aeneus	Microhoria_plumbea	Oedemera_flavipes	Pseudophilotes_panoptes	Sarcophagidae_4	
+BLA	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	
+FLA	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	
+HOE	0	0	0	0	0	0	0	0	2	0	0	1	1	1	0	0	0	1	0	0	0	
+POT	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	
+ROF	2	1	0	0	35	1	1	0	0	1	0	0	0	0	1	1	8	0	1	0	1	
+TVUF	3	0	0	0	2	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	1	
+TVUH	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						
+																						

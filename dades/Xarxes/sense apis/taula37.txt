@@ -1,0 +1,44 @@
+	Anaspis	Andrena_djelfensis	Andrena_lepida	Andrena_nana	Anthophora_dispar	Bombus_terrestris	Bombylius_sp_1	Bruchid_2	Chrysotoxum_cautum	Clanoptilus_abdominalis	Coleoptera_3	Dasytes_nigroaeneus	Empididae	Fals_conòpid	Lasioglossum_interruptum	Lasioglossum_mediterraneum	Lasioglossum_transitorium_planulum	Microlepidoptera	Mosca_17	Mosca_20	Mosca_7	Oxythyrea_funesta	Pseudophilotes_panoptes	Pterophoridae	Tropinota_squalida	
+CAL	0	18	0	0	0	0	0	1	0	1	0	4	0	0	0	0	0	0	0	0	0	1	0	0	0	
+CSA	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	
+EFL	0	0	0	0	0	0	0	0	1	0	1	0	0	2	0	0	0	0	0	0	0	0	0	0	0	
+ESE	1	0	0	0	0	0	0	0	2	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+ROF	0	0	0	0	1	3	1	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	
+SHI	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+TVUF	0	1	1	1	0	0	0	0	1	0	0	0	0	0	1	0	1	1	0	0	1	0	0	0	0	
+TVUH	0	3	0	1	0	0	0	0	0	0	0	0	3	0	1	1	1	1	1	1	0	0	1	1	0	
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											

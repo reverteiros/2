@@ -1,0 +1,8 @@
+	Adela_aldrovandella	Anaspis	Anthophora_acervorum	Apis	Aplocnemus_calidus	Chamaesyrphus	Clanoptilus_abdominalis	Halictus_tetrazonius	Hylaeus_garrulus	Ichneumonidae_6	Lasioglossum_interruptum	Lasioglossum_mediterraneum	Lobonyx_aeneus	Microlepidoptera	Oxythyrea_funesta	Paragus_tibialis	Pseudophilotes_panoptes	Rodanthidium_sticticum	Sarcophagidae_4	Sarcophagidae_5
+AMO	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+DPE	1	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+HOE	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	0
+OLA	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0
+ROF	0	0	1	1	1	0	1	0	0	0	0	0	0	0	1	0	0	0	0	0
+TVUF	0	0	1	5	0	0	0	0	0	0	0	1	1	1	0	1	1	2	1	1
+TVUH	0	0	0	15	0	0	0	1	0	2	1	1	0	1	0	1	0	0	1	0

@@ -1,0 +1,8 @@
+	Andrena_djelfensis	Andrena_nigroaenea	Andrena_vulpecula	Apis	Chrysotoxum_cautum	Ichneumonidae_6	Lasioglossum_interruptum	Mosca_3	Oxythyrea_funesta	Polistes_gallicus	Pseudophilotes_panoptes	Sarcophagidae_4
+EFL	0	0	0	0	1	0	0	0	0	1	0	0
+HOE	0	0	1	0	0	0	0	0	0	0	0	0
+OLA	0	0	0	0	0	0	1	0	0	0	0	0
+ROF	0	1	0	19	0	0	1	0	1	0	0	0
+TVUF	0	1	0	9	0	0	1	0	0	0	1	2
+TVUH	1	0	0	20	0	1	0	1	0	0	1	0
+UMBE	0	0	0	0	0	0	0	0	0	0	0	0

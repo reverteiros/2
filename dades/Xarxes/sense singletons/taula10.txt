@@ -1,0 +1,4 @@
+	Andrena_djelfensis	Andrena_nigroaenea	Apis	Chrysotoxum_cautum	Lasioglossum_transitorium_planulum
+ROF	0	1	33	1	2
+TVUF	2	0	0	0	0
+TVUH	1	0	0	0	0

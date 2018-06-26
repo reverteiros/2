@@ -1,0 +1,35 @@
+	Empididae_2	Fals_conòpid	Halictus_tetrazonius	Lasioglossum_mediterraneum	Lasioglossum_transitorium_planulum	Microlepidoptera	Mosca_3	Nomada_succinta	Oxythyrea_funesta	Polistes_gallicus	Pseudophilotes_panoptes	Sarcophagidae_4	Sarcophagidae_5
+ROF	0	0	0	1	0	0	0	0	3	0	0	0	0
+TVUF	1	1	0	9	1	6	1	1	0	2	1	0	1
+TVUH	0	1	1	1	0	1	0	0	0	0	1	1	1
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														

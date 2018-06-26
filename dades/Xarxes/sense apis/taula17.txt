@@ -1,0 +1,25 @@
+	Adela_aldrovandella	Anaspis	Andrena_angustior_impressa	Andrena_djelfensis	Bombus_pascuorum	Chamaesyrphus	Dasytes_nigroaeneus	Escarabat_2	Heteropter_marró_sense_punts	Malthinus	Mosca_mitjana-gran_1	Osmia_rufohirta	Rodanthidium_sticticum	Smaragdina_diversipes	Syritta_pipiens	
+CSP	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	
+EFL	0	1	0	1	0	0	0	1	1	2	0	0	0	0	1	
+HOE	0	0	0	0	0	0	1	0	0	0	0	0	1	0	0	
+ROF	2	0	1	0	1	1	0	0	0	1	0	0	0	0	0	
+TVUF	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	
+TVUH	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	

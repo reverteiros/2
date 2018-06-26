@@ -1,0 +1,25 @@
+	Andrena_angustior_impressa	Bibio_sp	Chrysotoxum_cautum	Eucera_nigrilabris	Lasioglossum_albocinctum	Lasioglossum_interruptum	Lasioglossum_subhirtum	Lasioglossum_transitorium_planulum		
+ROF	2	16	0	1	1	1	1	3		
+TVUF	0	0	0	0	0	0	0	1		
+TVUH	0	0	1	0	0	0	0	6		
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
