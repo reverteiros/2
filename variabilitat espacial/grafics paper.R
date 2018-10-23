@@ -61,6 +61,52 @@ text(1.83,41.32,"Abundance",cex=0.8)
 
 
 
+############################## PIE CHART PER PARCELA
+
+database2<-read.table("dades/Database3.txt", header=T)
+plants<-read.table("dades/flors quantitatiu.txt", header=T)
+
+library(sp)
+library(ape)
+library(raster)
+library(ggmap)
+library(mapr)
+library(rgbif)
+library(dismo)
+library(mapplots)
+library(tidyr)
+library(vegan)
+library(SpatialTools)
+library(ggplot2)
+library(dplyr)
+
+filtered <- dplyr::select(database2, Wild, Honeybees)
+
+
+filtered <- filtered %>% 
+  gather(species, abundance) 
+
+filtered$Plot <- c(1:40)
+filtered$X <- database2$X
+filtered$Y <- database2$Y
+
+filtered$abundance <- as.numeric(filtered$abundance)
+
+xlim <- c(1.82,1.95)
+ylim <- c(41.26,41.32)
+xyz <- make.xyz(filtered$X,filtered$Y,filtered$abundance,filtered$species)
+col <- c("grey11","indianred1")
+basemap(xlim, ylim,bg='white')
+draw.pie(xyz$x, xyz$y, xyz$z, radius = 0.005, col=col)
+legend.pie(1.93,41.26,labels=unique(filtered$species), radius=0.005, bty="n", col=col,cex=0.8, label.dist=1.3)
+legend.z <- round(max(rowSums(xyz$z,na.rm=TRUE)),0)
+legend.bubble(1.83,41.30,z=legend.z,round=1,maxradius=0.009,bty="n",txt.cex=0.7)
+text(1.83,41.32,"Abundance",cex=0.8)
+
+# OJO!! ELS COLORS NO CORRESPONEN AMB L'ESPECIE QUE SE SUPOSA QUE CORRESPONEN
+
+
+
 
 # ############################## BARPLOT PER PARCELA
 # 
