@@ -1,22 +1,65 @@
 
-
-############################## PLOT APIS
-library(rgdal)
-library(ggmap)
-library(gstat)
+############################## PLOT BARRES APIS-WILD
+library(tidyr)
+library(ggplot2)
+library(dplyr)
 
 
 d<-read.table("dades/Database3.txt", header=T)
+filtered <- dplyr::select(d, Honeybees,Wild)
 
-coords <- SpatialPoints(d[, c("X", "Y")], proj4string = CRS("+proj=longlat"))
-plots <- SpatialPointsDataFrame(coords, d)
-ddll <- spTransform(plots, CRS("+proj=longlat"))
-pts <- as.data.frame(coordinates(ddll))
-names(pts) <- c("lon", "lat")
+filtered <- filtered %>% 
+  gather(species, abundance) 
 
-print(bubble(plots, "Honeybees", maxsize = 11,key.entries = 10*2^(1:4),col="blue"))
+filtered$Plot <- c(1:40)
+
+filtered$species <-factor(filtered$species, 
+                          levels = c("Honeybees", "Wild"))
+
+a <- 14
+filtered2 <- filtered %>% filter(., Plot == 29)
+
+ggplot(data=filtered2, aes(x=species,y=abundance,fill=species)) +
+  geom_bar(stat="identity") +
+  ylim(c(0,190))+
+  theme(axis.line=element_blank(),axis.text.x=element_blank(),
+        axis.text.y=element_blank(),axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),legend.position = "none",
+        panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),plot.background=element_blank()) +
+  scale_fill_manual(values=c("grey11","firebrick2"))
 
 
+############################## PLOT BARRES FLORS
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+
+d<-read.table("dades/Database3.txt", header=T)
+filtered <- dplyr::select(d, ROF_Flowers, TVU_Flowers,other_flowers_abundance)
+
+filtered <- filtered %>% 
+  gather(species, abundance) 
+
+filtered$Plot <- c(1:40)
+
+filtered$species <-factor(filtered$species, 
+                       levels = c("TVU_Flowers", "ROF_Flowers", "other_flowers_abundance"))
+
+filtered2 <- filtered %>% filter(., Plot == 30)
+
+ggplot(data=filtered2, aes(x=species,y=abundance,fill=species)) +
+  geom_bar(stat="identity") +
+  ylim(c(0,111280))+
+  theme(axis.line=element_blank(),axis.text.x=element_blank(),
+        axis.text.y=element_blank(),axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),legend.position = "none",
+        panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),plot.background=element_blank()) +
+  scale_fill_manual(values=c("mediumblue","green2","red2"))
 
 ############################## PIE CHART PER PARCELA
 
