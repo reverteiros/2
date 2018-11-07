@@ -120,31 +120,23 @@ bitxos<-read.table("dades/bitxos quantitatiu sense apis.txt",header=T)
 
 filtered <- dplyr::select(bitxos, Rodanthidium_sticticum, Pseudophilotes_panoptes,Lobonyx_aeneus,Oxythyrea_funesta,Adela_aldrovandella,Lasioglossum_transitorium_planulum,Empididae,Andrena_angustior_impressa,Andrena_nigroaenea,Chrysotoxum_cautum,Bibio_sp,Andrena_djelfensis)
 
-d<-read.table("dades/Database3.txt", header=T)
-wild <- dplyr::select(d, Wild)
-
-filtered$Other_species <- (wild$Wild - rowSums(filtered))
-
 filtered2 <- filtered %>% 
   gather(species, abundance) 
 
 filtered2$Plot <- c(1:40)
-filtered2$Wild <- wild$Wild
-filtered2$relative_abundance <- filtered2$abundance/filtered2$Wild
   
 filtered2$species <- factor(filtered2$species,
-                            levels = c("Other_species","Rodanthidium_sticticum", "Pseudophilotes_panoptes","Lobonyx_aeneus","Bibio_sp","Oxythyrea_funesta","Adela_aldrovandella","Lasioglossum_transitorium_planulum","Empididae","Andrena_angustior_impressa","Andrena_nigroaenea","Chrysotoxum_cautum","Andrena_djelfensis"))
+                            levels = c("Rodanthidium_sticticum", "Pseudophilotes_panoptes","Lobonyx_aeneus","Bibio_sp","Oxythyrea_funesta","Adela_aldrovandella","Lasioglossum_transitorium_planulum","Empididae","Andrena_angustior_impressa","Andrena_nigroaenea","Chrysotoxum_cautum","Andrena_djelfensis"))
 
 filtered3 <- filtered2 %>% filter(., Plot == 40)
 
-ggplot(data=filtered3, aes(x=species,y=Plot,fill=species)) +
+ggplot(data=filtered3, aes(x=species,y=abundance,fill=species)) +
   geom_bar(stat="identity") +
-  ylim(c(0,40))+
+  ylim(c(0,10))+
   theme(axis.line=element_blank(),axis.text.x=element_blank(),
         axis.text.y=element_blank(),axis.ticks=element_blank(),
         axis.title.x=element_blank(),
         axis.title.y=element_blank(),legend.position = "none",
         panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
         panel.grid.minor=element_blank(),plot.background=element_blank()) +
-  scale_fill_manual(values=c("grey11","darkolivegreen4","darkorchid1","darkmagenta","green4","orangered3","navyblue","indianred4","yellow4","thistle4","dodgerblue","chocolate","magenta2"))
-
+  scale_fill_manual(values=c("grey11","darkolivegreen4","darkmagenta","green4","orangered3","navyblue","indianred4","yellow4","thistle4","dodgerblue","chocolate","magenta2"))
