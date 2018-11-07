@@ -16,8 +16,7 @@ filtered$Plot <- c(1:40)
 filtered$species <-factor(filtered$species, 
                           levels = c("Honeybees", "Wild"))
 
-a <- 14
-filtered2 <- filtered %>% filter(., Plot == 29)
+filtered2 <- filtered %>% filter(., Plot == 40)
 
 ggplot(data=filtered2, aes(x=species,y=abundance,fill=species)) +
   geom_bar(stat="identity") +
@@ -48,7 +47,7 @@ filtered$Plot <- c(1:40)
 filtered$species <-factor(filtered$species, 
                        levels = c("TVU_Flowers", "ROF_Flowers", "other_flowers_abundance"))
 
-filtered2 <- filtered %>% filter(., Plot == 30)
+filtered2 <- filtered %>% filter(., Plot == 40)
 
 ggplot(data=filtered2, aes(x=species,y=abundance,fill=species)) +
   geom_bar(stat="identity") +
@@ -61,130 +60,91 @@ ggplot(data=filtered2, aes(x=species,y=abundance,fill=species)) +
         panel.grid.minor=element_blank(),plot.background=element_blank()) +
   scale_fill_manual(values=c("mediumblue","green2","red2"))
 
-############################## PIE CHART PER PARCELA
-
-database2<-read.table("dades/Database3.txt", header=T)
-plants<-read.table("dades/flors quantitatiu.txt", header=T)
-
-library(sp)
-library(ape)
-library(raster)
-library(ggmap)
-library(mapr)
-library(rgbif)
-library(dismo)
-library(mapplots)
-library(tidyr)
-library(vegan)
-library(SpatialTools)
-library(ggplot2)
-library(dplyr)
-
-plants <- bitxostt %>% 
-  gather(species, abundance) 
-
-plants$Plot <- c(1:40)
-plants$X <- database2$X
-plants$Y <- database2$Y
-
-plants$abundance <- as.numeric(plants$abundance)
-
-xlim <- c(1.82,1.95)
-ylim <- c(41.26,41.32)
-xyz <- make.xyz(plants$X,plants$Y,plants$abundance,plants$species)
-col <- c("grey11","darkolivegreen4","darkorchid1","darkmagenta","green4","orangered3","navyblue","indianred4","yellow4","thistle4","dodgerblue","chocolate","magenta2","darkorange1","gold","green","mediumblue","red","springgreen4","firebrick4")
-basemap(xlim, ylim,bg='white')
-draw.pie(xyz$x, xyz$y, xyz$z, radius = 0.005, col=col)
-legend.pie(1.93,41.26,labels=unique(plants$species), radius=0.005, bty="n", col=col,cex=0.8, label.dist=1.3)
-legend.z <- round(max(rowSums(xyz$z,na.rm=TRUE)),0)
-legend.bubble(1.83,41.30,z=legend.z,round=1,maxradius=0.015,bty="n",txt.cex=0.7)
-text(1.83,41.32,"Abundance",cex=0.8)
-
-# OJO!! ELS COLORS NO CORRESPONEN AMB L'ESPECIE QUE SE SUPOSA QUE CORRESPONEN
-
-
-
-############################## PIE CHART PER PARCELA
-
-database2<-read.table("dades/Database3.txt", header=T)
-plants<-read.table("dades/flors quantitatiu.txt", header=T)
-
-library(sp)
-library(ape)
-library(raster)
-library(ggmap)
-library(mapr)
-library(rgbif)
-library(dismo)
-library(mapplots)
-library(tidyr)
-library(vegan)
-library(SpatialTools)
-library(ggplot2)
-library(dplyr)
-
-filtered <- dplyr::select(database2, Wild, Honeybees)
-
-
-filtered <- filtered %>% 
-  gather(species, abundance) 
-
-filtered$Plot <- c(1:40)
-filtered$X <- database2$X
-filtered$Y <- database2$Y
-
-filtered$abundance <- as.numeric(filtered$abundance)
-
-xlim <- c(1.82,1.95)
-ylim <- c(41.26,41.32)
-xyz <- make.xyz(filtered$X,filtered$Y,filtered$abundance,filtered$species)
-col <- c("grey11","indianred1")
-basemap(xlim, ylim,bg='white')
-draw.pie(xyz$x, xyz$y, xyz$z, radius = 0.005, col=col)
-legend.pie(1.93,41.26,labels=unique(filtered$species), radius=0.005, bty="n", col=col,cex=0.8, label.dist=1.3)
-legend.z <- round(max(rowSums(xyz$z,na.rm=TRUE)),0)
-legend.bubble(1.83,41.30,z=legend.z,round=1,maxradius=0.009,bty="n",txt.cex=0.7)
-text(1.83,41.32,"Abundance",cex=0.8)
-
-# OJO!! ELS COLORS NO CORRESPONEN AMB L'ESPECIE QUE SE SUPOSA QUE CORRESPONEN
-
-
-
-
-# ############################## BARPLOT PER PARCELA
 # 
-# require(devtools)
-# library(tidyverse)
+# 
+# ############################## PIE CHART PER PARCELA
+# 
+# database2<-read.table("dades/Database3.txt", header=T)
+# plants<-read.table("dades/flors quantitatiu.txt", header=T)
+# 
+# library(sp)
+# library(ape)
+# library(raster)
+# library(ggmap)
+# library(mapr)
+# library(rgbif)
+# library(dismo)
+# library(mapplots)
+# library(tidyr)
+# library(vegan)
+# library(SpatialTools)
 # library(ggplot2)
+# library(dplyr)
 # 
-# speciess<-read.table("dades/llista sp grafics2.txt",header=T)
-# bitxos<-read.table("dades/bitxos quantitatiu sense apis.txt",header=T)
-# 
-# bitxost <- as.data.frame(t(bitxos))
-# bitxost$Species <- colnames(bitxos)
-# bitxosabundants <- bitxost %>% dplyr::inner_join(speciess, by=(c("Species")))
-# bitxosraros <- bitxost %>% dplyr::anti_join(speciess, by=(c("Species")))
-# bitxosraros <- colSums(bitxosraros[,1:40])
-# bitxosraros$Species <- 1
-# bitxosabundants[20,] <- bitxosraros
+# filtered <- dplyr::select(database2, Wild, Honeybees)
 # 
 # 
-# bitxostt <- as.data.frame(t(bitxosabundants))
-# names(bitxostt) <- c("Rodanthidium_sticticum","Pseudophilotes_panoptes","Microlepidoptera","Lasioglossum_mediterraneum","Chamaesyrphus","Lobonyx_aeneus","Oxythyrea_funesta","Adela_aldrovandella","Dasytes_nigroaeneus","Lasioglossum_transitorium_planulum","Empididae","Hylaeus_hyalinatus","Andrena_angustior_impressa","Andrena_nigroaenea","Bombus_terrestris","Anthophora_dispar","Chrysotoxum_cautum","Bibio_sp","Andrena_djelfensis","Other_species")
-# bitxostt <- bitxostt[-41,]
+# filtered <- filtered %>% 
+#   gather(species, abundance) 
 # 
-# barplot(bitxosabundants[,3])
+# filtered$Plot <- c(1:40)
+# filtered$X <- database2$X
+# filtered$Y <- database2$Y
 # 
+# filtered$abundance <- as.numeric(filtered$abundance)
 # 
-# ggplot(data=bitxosabundants, aes(x=Species,y=V40,fill=Species)) +
-#   geom_bar(stat="identity") +
-#   ylim(c(0,23))+
-#   theme(axis.line=element_blank(),axis.text.x=element_blank(),
-#         axis.text.y=element_blank(),axis.ticks=element_blank(),
-#         axis.title.x=element_blank(),
-#         axis.title.y=element_blank(),legend.position = "none",
-#         panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
-#         panel.grid.minor=element_blank(),plot.background=element_blank()) +
-#   scale_fill_manual(values=c("grey11","darkolivegreen4","darkorchid1","darkmagenta","green4","orangered3","navyblue","indianred4","yellow4","thistle4","dodgerblue","chocolate","magenta2","darkorange1","gold","green","mediumblue","red","springgreen4","firebrick4"))
+# xlim <- c(1.82,1.95)
+# ylim <- c(41.26,41.32)
+# xyz <- make.xyz(filtered$X,filtered$Y,filtered$abundance,filtered$species)
+# col <- c("grey11","indianred1")
+# basemap(xlim, ylim,bg='white')
+# draw.pie(xyz$x, xyz$y, xyz$z, radius = 0.005, col=col)
+# legend.pie(1.93,41.26,labels=unique(filtered$species), radius=0.005, bty="n", col=col,cex=0.8, label.dist=1.3)
+# legend.z <- round(max(rowSums(xyz$z,na.rm=TRUE)),0)
+# legend.bubble(1.83,41.30,z=legend.z,round=1,maxradius=0.009,bty="n",txt.cex=0.7)
+# text(1.83,41.32,"Abundance",cex=0.8)
+# 
+# # OJO!! ELS COLORS NO CORRESPONEN AMB L'ESPECIE QUE SE SUPOSA QUE CORRESPONEN
 
+
+
+
+############################## BARPLOT PER PARCELA
+
+require(devtools)
+library(tidyverse)
+library(ggplot2)
+
+speciess<-read.table("dades/llista sp grafics2.txt",header=T)
+bitxos<-read.table("dades/bitxos quantitatiu sense apis.txt",header=T)
+
+filtered <- dplyr::select(bitxos, Rodanthidium_sticticum, Pseudophilotes_panoptes,Lobonyx_aeneus,Oxythyrea_funesta,Adela_aldrovandella,Lasioglossum_transitorium_planulum,Empididae,Andrena_angustior_impressa,Andrena_nigroaenea,Chrysotoxum_cautum,Bibio_sp,Andrena_djelfensis)
+
+d<-read.table("dades/Database3.txt", header=T)
+wild <- dplyr::select(d, Wild)
+
+filtered$Other_species <- (wild$Wild - rowSums(filtered))
+
+filtered2 <- filtered %>% 
+  gather(species, abundance) 
+
+filtered2$Plot <- c(1:40)
+filtered2$Wild <- wild$Wild
+filtered2$relative_abundance <- filtered2$abundance/filtered2$Wild
+  
+filtered2$species <- factor(filtered2$species,
+                            levels = c("Other_species","Rodanthidium_sticticum", "Pseudophilotes_panoptes","Lobonyx_aeneus","Bibio_sp","Oxythyrea_funesta","Adela_aldrovandella","Lasioglossum_transitorium_planulum","Empididae","Andrena_angustior_impressa","Andrena_nigroaenea","Chrysotoxum_cautum","Andrena_djelfensis"))
+
+filtered3 <- filtered2 %>% filter(., Plot == 40)
+
+ggplot(data=filtered3, aes(x=species,y=Plot,fill=species)) +
+  geom_bar(stat="identity") +
+  ylim(c(0,40))+
+  theme(axis.line=element_blank(),axis.text.x=element_blank(),
+        axis.text.y=element_blank(),axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),legend.position = "none",
+        panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),plot.background=element_blank()) +
+  scale_fill_manual(values=c("grey11","darkolivegreen4","darkorchid1","darkmagenta","green4","orangered3","navyblue","indianred4","yellow4","thistle4","dodgerblue","chocolate","magenta2"))
 
