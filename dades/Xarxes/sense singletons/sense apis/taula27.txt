@@ -1,5 +1,0 @@
-	Bibio_sp	Empididae	Megachile_pyrenaica
-LIN	0	0	2
-ROF	1	0	0
-TVUF	0	0	0
-TVUH	0	1	0

@@ -1,7 +1,0 @@
-	Adela_aldrovandella	Andrena_angustior_impressa	Andrena_djelfensis	Andrena_nigroaenea	Ceratina_cyanea	Chamaesyrphus	Hylaeus_hyalinatus	Lasioglossum_transitorium_planulum	Osmia_rufohirta	Oxythyrea_funesta	Pseudophilotes_panoptes	Rodanthidium_sticticum	Sarcophagidae_6
-BLA	0	0	1	0	0	0	0	0	0	0	0	0	0
-FAB	0	0	0	0	0	0	0	0	1	0	0	0	0
-HOE	0	0	0	0	0	2	1	0	0	0	0	1	0
-ROF	0	1	0	1	1	0	0	1	0	3	0	1	0
-TVUF	0	0	0	0	0	2	0	1	0	0	1	0	0
-TVUH	2	0	0	0	0	0	0	0	0	0	0	0	1

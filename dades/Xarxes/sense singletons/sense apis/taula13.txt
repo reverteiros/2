@@ -1,5 +1,0 @@
-	Andrena_nigroaenea	Anthophora_dispar	Chamaesyrphus	Lasioglossum_transitorium_planulum	Oxythyrea_funesta	Pseudophilotes_panoptes	Sarcophagidae_1
-PRUNUS	0	0	0	0	1	0	0
-ROF	1	2	1	0	0	0	0
-TVUF	0	0	0	1	0	1	1
-TVUH	0	0	0	0	0	0	1

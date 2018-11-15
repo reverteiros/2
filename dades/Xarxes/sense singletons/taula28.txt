@@ -1,5 +1,0 @@
-	Apis	Dasytes_nigroaeneus	Empididae	Lasioglossum_transitorium_planulum	Meligethes_aeneus
-EFL	0	0	0	0	0
-ROF	1	0	0	1	0
-TVUF	4	0	1	1	1
-TVUH	1	1	0	0	0

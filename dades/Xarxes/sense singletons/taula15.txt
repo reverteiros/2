@@ -1,8 +1,0 @@
-	Adela_aldrovandella	Andrena_nigroaenea	Anthrenus_1	Apis	Ceratina_cyanea	Chrysotoxum_cautum	Halictus_smaragdalus	Lobonyx_aeneus	Mordellistena_1	Oedemera_flavipes	Oxythyrea_funesta	Rodanthidium_sticticum
-BLA	0	0	0	0	0	0	0	0	1	0	0	0
-CSA	0	1	0	0	0	0	0	9	0	0	0	0
-ECH	0	0	1	0	0	0	0	0	0	0	2	0
-OLA	0	0	0	0	0	0	0	0	0	0	0	1
-ROF	0	1	0	47	0	0	1	12	0	0	2	0
-TVUF	0	0	0	1	1	1	0	0	0	0	0	0
-TVUH	2	1	0	7	0	0	0	0	0	1	0	0

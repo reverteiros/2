@@ -1,5 +1,0 @@
-	Apis	Aplocnemus_calidus	Chrysotoxum_cautum	Clanoptilus_abdominalis	Dasytes_nigroaeneus	Lasioglossum_transitorium_planulum	Mosca_3	Oxythyrea_funesta	Rodanthidium_sticticum	Sarcophagidae_5
-OLA	0	0	0	0	0	0	0	0	0	0
-ROF	24	1	1	1	4	1	1	4	1	0
-TVUF	3	0	0	0	0	2	0	0	0	1
-TVUH	9	0	1	0	0	0	0	0	0	0

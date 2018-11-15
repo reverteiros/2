@@ -1,5 +1,0 @@
-	Andrena_angustior_impressa	Andrena_djelfensis	Anthophora_acervorum	Apis	Bibio_sp	Bombus_terrestris	Bombylius_discolor	Empididae	Lasioglossum_subhirtum	Mosca_9	Oxythyrea_funesta	Pseudophilotes_panoptes
-EFL	0	4	0	1	0	0	0	0	0	0	0	0
-ROF	0	0	2	161	2	2	2	0	3	4	1	0
-TVUF	0	0	0	4	0	0	0	1	0	0	0	0
-TVUH	1	0	0	12	0	0	0	0	0	0	0	1

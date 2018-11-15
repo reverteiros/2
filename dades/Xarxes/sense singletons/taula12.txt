@@ -1,4 +1,0 @@
-	Andrena_angustior_impressa	Apis	Bibio_sp	Chrysotoxum_cautum	Lasioglossum_albocinctum	Lasioglossum_interruptum	Lasioglossum_subhirtum	Lasioglossum_transitorium_planulum
-ROF	2	27	16	0	1	1	1	3
-TVUF	0	3	0	0	0	0	0	1
-TVUH	0	8	0	1	0	0	0	6

@@ -1,8 +1,0 @@
-	Andrena_angustior_impressa	Andrena_nana	Chamaesyrphus	Clanoptilus_abdominalis	Dasytes_nigroaeneus	Empididae	Fals_conòpid	Halictus_tetrazonius	Hylaeus_hyalinatus	Lasioglossum_griseolum	Lasioglossum_subhirtum	Lasioglossum_transitorium_planulum	Lobonyx_aeneus	Microlepidoptera	Mosca_16	Mosca_17	Mosca_7	Nomada_succinta	Oxythyrea_funesta	Rodanthidium_sticticum	Sarcophagidae_1	Sarcophagidae_5
-AZA	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
-CSA	0	1	0	2	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
-FLA	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0
-OLA	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
-ROF	2	0	0	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0	1	0	0	0
-TVUF	0	1	0	0	0	1	1	0	2	1	1	1	0	5	1	1	1	0	0	0	1	1
-TVUH	0	0	1	0	0	0	4	1	0	4	0	0	0	5	1	0	5	1	0	0	0	0
