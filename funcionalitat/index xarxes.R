@@ -88,127 +88,132 @@ w39<-data.frame(frame2webs(plot39, varnames= c("Codi_planta", "Nom_definitiu", "
 w40<-data.frame(frame2webs(plot40, varnames= c("Codi_planta", "Nom_definitiu", "Parcela", "Frequencia"), type.out="list", emptylist="F"))
 
 
-index<-matrix(0,40,6)
+networkmetrics<-matrix(0,40,6)
 
-colnames(index)<-c("Connectance", "Weighted NODF",  "H2", "Shannon diversity", "Generality", "Vulnerability")
+colnames(networkmetrics)<-c("Connectance", "Weighted NODF",  "H2", "Shannon diversity", "Generality", "Vulnerability")
 
 
 b<-networklevel(w1, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[1,]<-b
+networkmetrics[1,]<-b
 
 b<-networklevel(w2, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[2,]<-b
+networkmetrics[2,]<-b
 
 b<-networklevel(w3, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[3,]<-b
+networkmetrics[3,]<-b
 
 b<-networklevel(w4, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[4,]<-b
+networkmetrics[4,]<-b
 
 b<-networklevel(w5, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[5,]<-b
+networkmetrics[5,]<-b
 
 b<-networklevel(w6, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[6,]<-b
+networkmetrics[6,]<-b
 
 b<-networklevel(w7, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[7,]<-b
+networkmetrics[7,]<-b
 
 b<-networklevel(w8, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[8,]<-b
+networkmetrics[8,]<-b
 
 b<-networklevel(w9, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[9,]<-b
+networkmetrics[9,]<-b
 
 b<-networklevel(w10, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[10,]<-b
+networkmetrics[10,]<-b
 
 b<-networklevel(w11, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[11,]<-b
+networkmetrics[11,]<-b
 
 b<-networklevel(w12, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[12,]<-b
+networkmetrics[12,]<-b
 
 b<-networklevel(w13, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[13,]<-b
+networkmetrics[13,]<-b
 
 b<-networklevel(w14, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[14,]<-b
+networkmetrics[14,]<-b
 
 b<-networklevel(w15, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[15,]<-b
+networkmetrics[15,]<-b
 
 b<-networklevel(w16, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[16,]<-b
+networkmetrics[16,]<-b
 
 b<-networklevel(w17, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[17,]<-b
+networkmetrics[17,]<-b
 
 b<-networklevel(w18, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[18,]<-b
+networkmetrics[18,]<-b
 
 b<-networklevel(w19, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[19,]<-b
+networkmetrics[19,]<-b
 
 b<-networklevel(w20, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[20,]<-b
+networkmetrics[20,]<-b
 
 b<-networklevel(w21, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[21,]<-b
+networkmetrics[21,]<-b
 
 b<-networklevel(w22, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[22,]<-b
+networkmetrics[22,]<-b
 
 b<-networklevel(w23, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[23,]<-b
+networkmetrics[23,]<-b
 
 b<-networklevel(w24, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[24,]<-b
+networkmetrics[24,]<-b
 
 b<-networklevel(w25, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[25,]<-b
+networkmetrics[25,]<-b
 
 b<-networklevel(w26, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[26,]<-b
+networkmetrics[26,]<-b
 
 b<-networklevel(w27, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[27,]<-b
+networkmetrics[27,]<-b
 
 b<-networklevel(w28, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[28,]<-b
+networkmetrics[28,]<-b
 
 b<-networklevel(w29, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[29,]<-b
+networkmetrics[29,]<-b
 
 b<-networklevel(w30, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[30,]<-b
+networkmetrics[30,]<-b
 
 b<-networklevel(w31, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[31,]<-b
+networkmetrics[31,]<-b
 
 b<-networklevel(w32, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[32,]<-b
+networkmetrics[32,]<-b
 
 b<-networklevel(w33, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[33,]<-b
+networkmetrics[33,]<-b
 
 b<-networklevel(w34, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[34,]<-b
+networkmetrics[34,]<-b
 
 b<-networklevel(w35, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[35,]<-b
+networkmetrics[35,]<-b
 
 b<-networklevel(w36, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[36,]<-b
+networkmetrics[36,]<-b
 
 b<-networklevel(w37, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[37,]<-b
+networkmetrics[37,]<-b
 
 b<-networklevel(w38, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[38,]<-b
+networkmetrics[38,]<-b
 
 b<-networklevel(w39, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[39,]<-b
+networkmetrics[39,]<-b
 
 b<-networklevel(w40, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
-index[40,]<-b
+networkmetrics[40,]<-b
+
+
+networkmetrics <- as.data.frame(networkmetrics)
+
+networkmetrics$Plot <- c(1:40)
