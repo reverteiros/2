@@ -90,7 +90,7 @@ w40<-data.frame(frame2webs(plot40, varnames= c("Codi_planta", "Nom_definitiu", "
 
 networkmetrics<-matrix(0,40,6)
 
-colnames(networkmetrics)<-c("Connectance", "Weighted NODF",  "H2", "Shannon diversity", "Generality", "Vulnerability")
+colnames(networkmetrics)<-c("Connectance", "Nestedness",  "H2", "Shannon_diversity", "Generality", "Vulnerability")
 
 
 b<-networklevel(w1, index=c("connectance","weighted NODF","H2","Shannon diversity","generality","vulnerability"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
