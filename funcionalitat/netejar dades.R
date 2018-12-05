@@ -106,7 +106,7 @@ fruitandseedset <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total ==
 
 ############# JOIN ALL DATASETS
 
-datafunction <- pollen %>%
+datafunctionality <- pollen %>%
   dplyr::left_join(., seedweightandviability, by = c("Species","Plot")) %>%
   dplyr::left_join(., fruitandseedset, by = c("Species","Plot")) 
 
@@ -143,7 +143,7 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
   left_join(flowerabundance, by = c("Plot","Species")) %>%
   mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)
 
-datafunction <- left_join(datafunction,pollinators, by = c("Plot","Species"))
+datafunctionality <- left_join(datafunctionality,pollinators, by = c("Plot","Species"))
 
 
 # Honeybees
@@ -158,4 +158,6 @@ Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | S
   mutate(HB_Visitation_rate = HB_abundance/Flower_Abundance*1000)
 
 
-datafunction <- left_join(datafunction,Apis2, by = c("Plot","Species","Flower_Abundance"))
+datafunction <- left_join(datafunctionality, Apis2, by = c("Plot","Species","Flower_Abundance")) %>%
+  mutate(Wild_Visitation_rate = Visitation_rate - HB_Visitation_rate) #%>%
+  # select(., -c(Pollinator_abundance, HB_abundance, Flower_Abundance)) 
