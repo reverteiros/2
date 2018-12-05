@@ -54,11 +54,20 @@ seedweightraw <- read.table("dades/pesos llavors.txt",header=T)
 
 # mean and SD weight of seed weight
 seedweight <- seedweightraw %>%
-  filter(Embryo == "viable") %>%
+  # filter(Embryo == "viable") %>%
   group_by(Species,Plot) %>% 
   summarize(Weighted_seeds=n(),Mean_weigth=mean(Weight),SD_weight=sd(Weight)) %>%
   complete(Species, Plot) %>%
   distinct() 
+
+# mean and SD weight of seed weight only viable seeds
+seedweightviables <- seedweightraw %>%
+  filter(Embryo == "viable") %>%
+  group_by(Species,Plot) %>% 
+  summarize(Mean_weigth_viables=mean(Weight),SD_weight_viables=sd(Weight)) %>%
+  complete(Species, Plot) %>%
+  distinct() %>%
+  dplyr::left_join(., seedweight, by = c("Species","Plot"))
 
 # from the weighted seeds, proportion of them that has viable embryo
 seedweightandviability <- seedweightraw %>%
@@ -68,7 +77,7 @@ seedweightandviability <- seedweightraw %>%
   summarize(Percent_embryo=mean(Embryo_Numeric)) %>%
   complete(Species, Plot) %>%
   distinct() %>%
-  dplyr::left_join(., seedweight, by = c("Species","Plot"))
+  dplyr::left_join(., seedweightviables, by = c("Species","Plot"))
 
 
 ############# Fruits and seeds
@@ -101,3 +110,52 @@ datafunction <- pollen %>%
   dplyr::left_join(., seedweightandviability, by = c("Species","Plot")) %>%
   dplyr::left_join(., fruitandseedset, by = c("Species","Plot")) 
 
+
+############# join pollinator database
+
+database2 <- read.table("dades/Database3.txt",header=T)
+
+censos <- read.table("dades/censos.txt",header=T)
+
+names(censos) <- c("Plot","Pollinator","Species","Abundance")
+
+# general abundance and richness in the plot
+generalpollinators <- censos %>%
+  group_by(Plot) %>% 
+  summarize(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))
+
+
+# flower abundance per plot
+flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T)
+names(flors)
+
+flowerabundance <- select(flors, TVUF, ROF, TVUH)%>%
+  tidyr::gather(Species, "Flower_Abundance",1:3) 
+
+flowerabundance$Plot = c(1:40)
+
+# 
+pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
+  group_by(Plot, Species) %>% 
+  summarize(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
+  complete(Species, Plot) %>%
+  distinct() %>%
+  left_join(flowerabundance, by = c("Plot","Species")) %>%
+  mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)
+
+datafunction <- left_join(datafunction,pollinators, by = c("Plot","Species"))
+
+
+# Honeybees
+Apis <- filter(censos, Pollinator =="Apis")
+
+Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
+  group_by(Plot, Species) %>% 
+  summarize(HB_abundance=sum(Abundance))%>%
+  complete(Species, Plot) %>%
+  distinct() %>%
+  left_join(flowerabundance, by = c("Plot","Species")) %>%
+  mutate(HB_Visitation_rate = HB_abundance/Flower_Abundance*1000)
+
+
+datafunction <- left_join(datafunction,Apis2, by = c("Plot","Species","Flower_Abundance"))
