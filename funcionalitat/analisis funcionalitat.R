@@ -8,20 +8,39 @@ database2 <- read.table("dades/Database3.txt",header=T)
 library(corrplot)
 library(Hmisc)
 networkmetrics$T_Max <- database2$T_Max
-networkmetrics <- networkmetrics[,-7]
+networkmetrics <- networkmetrics[,-4]#remove plot column
 res2<-rcorr(as.matrix(networkmetrics))
 corrplot(res2$r, type="upper", order="hclust", 
          p.mat = res2$P, sig.level = 0.01, insig = "blank")
+
+### Shannon diversity is highly correlated with everything. Remove
+networkmetrics <- networkmetrics %>%
+  select(-Shannon_diversity)
+
+res2<-rcorr(as.matrix(networkmetrics))
+corrplot(res2$r, type="upper", order="hclust", 
+         p.mat = res2$P, sig.level = 0.01, insig = "blank")
+
+## d' ROF is correlated with everything too....
+
+
+
+hist(networkmetrics$Nestedness)    ## more or less normal
+hist(networkmetrics$H2)            ## more or less normal
+hist(unlist(networkmetrics$dROF))  ## more or less normal
+hist(unlist(networkmetrics$dTVUF)) ## skewed
+hist(unlist(networkmetrics$dTVUH)) ## skewed
+hist(networkmetrics$T_Max)         ## skewed
 
 
 
 ROF <- filter(datafunction, Species =="ROF")
 
-hist(ROF$Mean_pollen)
-hist(ROF$SD_pollen)
-hist(ROF$Mean_Homospecific)
-hist(ROF$SD_Homospecific)
-hist(ROF$Mean_Heterospecific)
+hist(ROF$Mean_pollen)         ## normal
+hist(ROF$SD_pollen)           ## normal
+hist(ROF$Mean_Homospecific)   ## normal
+hist(ROF$SD_Homospecific)     ## normal
+hist(ROF$Mean_Heterospecific) ## no normal
 
 a <- lm(database2$Honeybees_ROF_rate~ROF$Mean_pollen)
 summary(a)
@@ -29,26 +48,20 @@ a <- lm(database2$Honeybees_ROF_rate~ROF$SD_pollen)
 summary(a)
 a <- lm(networkmetrics$Nestedness~ROF$Mean_pollen)
 summary(a)
-a <- lm(networkmetrics$Connectance~ROF$Mean_pollen)
-summary(a)
-a <- lm(networkmetrics$`Shannon diversity`~ROF$Mean_pollen)
-summary(a)
 a <- lm(networkmetrics$H2~ROF$Mean_pollen)
-summary(a)
-a <- lm(networkmetrics$Generality~ROF$Mean_pollen)
 summary(a)
 
 TVUF <- filter(datafunction, Species =="TVUF")
 
-hist(TVUF$Mean_pollen)
-hist(TVUF$SD_pollen)
-hist(TVUF$Mean_Homospecific)
-hist(TVUF$SD_Homospecific)
-hist(TVUF$Mean_Heterospecific)
-hist(TVUF$Mean_weigth)
-hist(TVUF$Percent_embryo)
-hist(TVUF$Fruit_set)
-hist(TVUF$Seed_set)
+hist(TVUF$Mean_pollen)         ## more or less normal
+hist(TVUF$SD_pollen)           ## normal
+hist(TVUF$Mean_Homospecific)   ## more or less normal
+hist(TVUF$SD_Homospecific)     ## more or less normal
+hist(TVUF$Mean_Heterospecific) ## zero inflated
+hist(TVUF$Mean_weigth)         ## skewed
+hist(TVUF$Percent_embryo)      ## skewed
+hist(TVUF$Fruit_set)           ## more or less normal
+hist(TVUF$Seed_set)            ## more or less normal
 
 a <- lm(database2$Honeybees_TVU_rate~TVUF$Mean_pollen)
 summary(a)
@@ -86,13 +99,13 @@ summary(a)
 
 TVUH <- filter(datafunction, Species =="TVUH")
 
-hist(TVUH$Mean_pollen)
-hist(TVUH$SD_pollen)
-hist(TVUH$Mean_Homospecific)
-hist(TVUH$SD_Homospecific)
-hist(TVUH$Mean_Heterospecific)
-hist(TVUH$Mean_weigth)
-hist(TVUH$Percent_embryo)
-hist(TVUH$Fruit_set)
-hist(TVUH$Seed_set)
+hist(TVUH$Mean_pollen)         ## skewed
+hist(TVUH$SD_pollen)           ## more or less normal
+hist(TVUH$Mean_Homospecific)   ## skewed
+hist(TVUH$SD_Homospecific)     ## more or less normal
+hist(TVUH$Mean_Heterospecific) ## zero inflated
+hist(TVUH$Mean_weigth)         ## normal
+hist(TVUH$Percent_embryo)      ## skewed
+hist(TVUH$Fruit_set)           ## normal
+hist(TVUH$Seed_set)            ## more or less normal
 

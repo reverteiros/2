@@ -35,7 +35,7 @@ pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
 
 # generate final pollen dataset
 pollen <- group_by(pollentotal, Plot, Species) %>% 
-  summarize(Samples_pollen=n(),Percent_pollinated=mean(Pollen),Mean_pollen=mean(Total),
+  summarise(Samples_pollen=n(),Percent_pollinated=mean(Pollen),Mean_pollen=mean(Total),
             SD_pollen=sd(Total),Max_pollen=max(Total),Mean_Homospecific=mean(Homospecific),
             SD_Homospecific=sd(Homospecific),Max_Homospecific=max(Homospecific),
             Mean_Heterospecific=mean(Heterospecific),SD_Heterospecific=sd(Heterospecific),
@@ -56,7 +56,7 @@ seedweightraw <- read.table("dades/pesos llavors.txt",header=T)
 seedweight <- seedweightraw %>%
   # filter(Embryo == "viable") %>%
   group_by(Species,Plot) %>% 
-  summarize(Weighted_seeds=n(),Mean_weigth=mean(Weight),SD_weight=sd(Weight)) %>%
+  summarise(Weighted_seeds=n(),Mean_weigth=mean(Weight),SD_weight=sd(Weight)) %>%
   complete(Species, Plot) %>%
   distinct() 
 
@@ -64,7 +64,7 @@ seedweight <- seedweightraw %>%
 seedweightviables <- seedweightraw %>%
   filter(Embryo == "viable") %>%
   group_by(Species,Plot) %>% 
-  summarize(Mean_weigth_viables=mean(Weight),SD_weight_viables=sd(Weight)) %>%
+  summarise(Mean_weigth_viables=mean(Weight),SD_weight_viables=sd(Weight)) %>%
   complete(Species, Plot) %>%
   distinct() %>%
   dplyr::left_join(., seedweight, by = c("Species","Plot"))
@@ -74,7 +74,7 @@ seedweightandviability <- seedweightraw %>%
   filter(!is.na(Embryo)) %>%
   mutate(Embryo_Numeric=if_else(Embryo=="morta",0,1)) %>%
   group_by(Species,Plot) %>% 
-  summarize(Percent_embryo=mean(Embryo_Numeric)) %>%
+  summarise(Percent_embryo=mean(Embryo_Numeric)) %>%
   complete(Species, Plot) %>%
   distinct() %>%
   dplyr::left_join(., seedweightviables, by = c("Species","Plot"))
@@ -91,7 +91,7 @@ fruits <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>%
   mutate(Pollinated = Avorted + Seed) %>% 
   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
   group_by(Plot, Species) %>% 
-  summarize(Samples_seeds=n(),Fruits=sum(Fruits),Pollination=(mean(Pollinated)/4*100))%>%
+  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Pollination=(mean(Pollinated)/4*100))%>%
   mutate(Fruit_set=(Fruits/Samples_seeds)) %>%
   select(., -c(Fruits)) 
 
@@ -100,7 +100,7 @@ fruitandseedset <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total ==
   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
   filter(.,Fruits==1) %>%
   group_by(Plot, Species) %>% 
-  summarize(Seed_set=mean(Seed))%>%
+  summarise(Seed_set=mean(Seed))%>%
   left_join(fruits, by = c("Plot","Species"))
 
 
@@ -122,12 +122,11 @@ names(censos) <- c("Plot","Pollinator","Species","Abundance")
 # general abundance and richness in the plot
 generalpollinators <- censos %>%
   group_by(Plot) %>% 
-  summarize(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))
+  summarise(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))
 
 
 # flower abundance per plot
 flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T)
-names(flors)
 
 flowerabundance <- select(flors, TVUF, ROF, TVUH)%>%
   tidyr::gather(Species, "Flower_Abundance",1:3) 
@@ -137,7 +136,7 @@ flowerabundance$Plot = c(1:40)
 # 
 pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
   group_by(Plot, Species) %>% 
-  summarize(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
+  summarise(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
   complete(Species, Plot) %>%
   distinct() %>%
   left_join(flowerabundance, by = c("Plot","Species")) %>%
@@ -151,7 +150,7 @@ Apis <- filter(censos, Pollinator =="Apis")
 
 Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
   group_by(Plot, Species) %>% 
-  summarize(HB_abundance=sum(Abundance))%>%
+  summarise(HB_abundance=sum(Abundance))%>%
   complete(Species, Plot) %>%
   distinct() %>%
   left_join(flowerabundance, by = c("Plot","Species")) %>%

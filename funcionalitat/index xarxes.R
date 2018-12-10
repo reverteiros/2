@@ -217,3 +217,745 @@ networkmetrics[40,]<-b
 networkmetrics <- as.data.frame(networkmetrics)
 
 networkmetrics$Plot <- c(1:40)
+
+networkmetrics$dROF <- NA
+networkmetrics$dTVUF <- NA
+networkmetrics$dTVUH <- NA
+
+######## ROF
+a <- specieslevel(w1, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[1] <- a
+
+a <- specieslevel(w2, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[2] <- a
+
+a <- specieslevel(w3, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[3] <- a
+
+a <- specieslevel(w4, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[4] <- a
+
+a <- specieslevel(w5, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[5] <- a
+
+a <- specieslevel(w6, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[6] <- a
+
+a <- specieslevel(w7, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[7] <- a
+
+a <- specieslevel(w8, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[8] <- a
+
+a <- specieslevel(w9, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[9] <- a
+
+a <- specieslevel(w10, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[10] <- a
+
+a <- specieslevel(w11, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[11] <- a
+
+a <- specieslevel(w12, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[12] <- a
+
+a <- specieslevel(w13, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[13] <- a
+
+a <- specieslevel(w14, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[14] <- a
+
+a <- specieslevel(w15, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[15] <- a
+
+a <- specieslevel(w16, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[16] <- a
+
+a <- specieslevel(w17, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[17] <- a
+
+a <- specieslevel(w18, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[18] <- a
+
+a <- specieslevel(w19, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[19] <- a
+
+a <- specieslevel(w20, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[20] <- a
+
+a <- specieslevel(w21, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[21] <- a
+
+a <- specieslevel(w22, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[22] <- a
+
+a <- specieslevel(w23, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[23] <- a
+
+a <- specieslevel(w24, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[24] <- a
+
+a <- specieslevel(w25, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[25] <- a
+
+a <- specieslevel(w26, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[26] <- a
+
+a <- specieslevel(w27, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[27] <- a
+
+a <- specieslevel(w28, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[28] <- a
+
+a <- specieslevel(w29, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[29] <- a
+
+a <- specieslevel(w30, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[30] <- a
+
+a <- specieslevel(w31, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[31] <- a
+
+a <- specieslevel(w32, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[32] <- a
+
+a <- specieslevel(w33, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[33] <- a
+
+a <- specieslevel(w34, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[34] <- a
+
+a <- specieslevel(w35, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[35] <- a
+
+a <- specieslevel(w36, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[36] <- a
+
+a <- specieslevel(w37, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[37] <- a
+
+a <- specieslevel(w38, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[38] <- a
+
+a <- specieslevel(w39, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[39] <- a
+
+a <- specieslevel(w40, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "ROF") %>%
+  select(.,d)
+networkmetrics$dROF[40] <- a
+
+
+######## TVUF
+a <- specieslevel(w1, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[1] <- a
+
+a <- specieslevel(w2, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[2] <- a
+
+a <- specieslevel(w3, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[3] <- a
+
+a <- specieslevel(w4, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[4] <- a
+
+a <- specieslevel(w5, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[5] <- a
+
+a <- specieslevel(w6, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[6] <- a
+
+a <- specieslevel(w7, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[7] <- a
+
+a <- specieslevel(w8, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[8] <- a
+
+a <- specieslevel(w9, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[9] <- a
+
+a <- specieslevel(w10, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[10] <- a
+
+a <- specieslevel(w11, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[11] <- a
+
+a <- specieslevel(w12, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[12] <- a
+
+a <- specieslevel(w13, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[13] <- a
+
+a <- specieslevel(w14, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[14] <- a
+
+a <- specieslevel(w15, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[15] <- a
+
+a <- specieslevel(w16, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[16] <- a
+
+a <- specieslevel(w17, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[17] <- a
+
+a <- specieslevel(w18, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[18] <- a
+
+a <- specieslevel(w19, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[19] <- a
+
+a <- specieslevel(w20, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[20] <- a
+
+a <- specieslevel(w21, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[21] <- a
+
+a <- specieslevel(w22, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[22] <- a
+
+a <- specieslevel(w23, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[23] <- a
+
+a <- specieslevel(w24, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[24] <- a
+
+a <- specieslevel(w25, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[25] <- a
+
+a <- specieslevel(w26, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[26] <- a
+
+a <- specieslevel(w27, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[27] <- a
+
+a <- specieslevel(w28, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[28] <- a
+
+a <- specieslevel(w29, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[29] <- a
+
+a <- specieslevel(w30, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[30] <- a
+
+a <- specieslevel(w31, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[31] <- a
+
+a <- specieslevel(w32, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[32] <- a
+
+a <- specieslevel(w33, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[33] <- a
+
+a <- specieslevel(w34, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[34] <- a
+
+a <- specieslevel(w35, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[35] <- a
+
+a <- specieslevel(w36, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[36] <- a
+
+a <- specieslevel(w37, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[37] <- a
+
+a <- specieslevel(w38, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[38] <- a
+
+a <- specieslevel(w39, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[39] <- a
+
+a <- specieslevel(w40, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUF") %>%
+  select(.,d)
+networkmetrics$dTVUF[40] <- a
+
+
+
+######## TVUH
+a <- specieslevel(w1, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[1] <- a
+
+a <- specieslevel(w2, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[2] <- a
+
+a <- specieslevel(w3, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[3] <- a
+
+a <- specieslevel(w4, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[4] <- a
+
+a <- specieslevel(w5, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[5] <- a
+
+a <- specieslevel(w6, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[6] <- a
+
+a <- specieslevel(w7, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[7] <- a
+
+a <- specieslevel(w8, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[8] <- a
+
+a <- specieslevel(w9, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[9] <- a
+
+a <- specieslevel(w10, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[10] <- a
+
+a <- specieslevel(w11, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[11] <- a
+
+a <- specieslevel(w12, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[12] <- a
+
+a <- specieslevel(w13, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[13] <- a
+
+a <- specieslevel(w14, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[14] <- a
+
+a <- specieslevel(w15, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[15] <- a
+
+a <- specieslevel(w16, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[16] <- a
+
+a <- specieslevel(w17, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[17] <- a
+
+a <- specieslevel(w18, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[18] <- a
+
+a <- specieslevel(w19, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[19] <- a
+
+a <- specieslevel(w20, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[20] <- a
+
+a <- specieslevel(w21, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[21] <- a
+
+a <- specieslevel(w22, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[22] <- a
+
+a <- specieslevel(w23, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[23] <- a
+
+a <- specieslevel(w24, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[24] <- a
+
+a <- specieslevel(w25, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[25] <- a
+
+a <- specieslevel(w26, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[26] <- a
+
+a <- specieslevel(w27, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[27] <- a
+
+
+
+a <- specieslevel(w28, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[28] <- a
+
+a <- specieslevel(w29, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[29] <- a
+
+a <- specieslevel(w30, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[30] <- a
+
+a <- specieslevel(w31, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[31] <- a
+
+a <- specieslevel(w32, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[32] <- a
+
+a <- specieslevel(w33, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[33] <- a
+
+a <- specieslevel(w34, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[34] <- a
+
+a <- specieslevel(w35, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[35] <- a
+
+a <- specieslevel(w36, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[36] <- a
+
+a <- specieslevel(w37, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[37] <- a
+
+a <- specieslevel(w38, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[38] <- a
+
+a <- specieslevel(w39, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[39] <- a
+
+a <- specieslevel(w40, index="d", level="lower") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "TVUH") %>%
+  select(.,d)
+networkmetrics$dTVUH[40] <- a
+
+
+networkmetrics$dROF[29] <- NA
+networkmetrics$dTVUH[25]<- NA
+networkmetrics$dTVUH[18]<- NA
+networkmetrics$dTVUH[23]<- NA
+networkmetrics$dTVUH[7]<- NA
+
+networkmetrics <- networkmetrics %>%
+  select(Nestedness,H2,Shannon_diversity,Plot,dROF,dTVUF,dTVUH)

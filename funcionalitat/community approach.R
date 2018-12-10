@@ -1,6 +1,9 @@
 
 library(piecewiseSEM)
 
+source("funcionalitat/netejar dades.R")
+source("funcionalitat/index xarxes.R")
+
 ############ ROSMARINUS
 
 # datalog <- log(database2)
