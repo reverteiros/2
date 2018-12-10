@@ -1,5 +1,17 @@
 
 
+
+
+
+#lo primer que s.ha de fer es decidir les transformacions de les dades per a que siguin normals, llavors ja després anirà tot, perquè si transformes les dades també les has de transformar per fer el model de correlacions entre variables
+
+
+
+
+
+
+
+
 source("funcionalitat/netejar dades.R")
 source("funcionalitat/index xarxes.R")
 
@@ -23,14 +35,18 @@ corrplot(res2$r, type="upper", order="hclust",
 
 ## d' ROF is correlated with everything too....
 
+plot(unlist(networkmetrics$dROF)~unlist(networkmetrics$dTVUF))
+plot(unlist(networkmetrics$dROF)~unlist(networkmetrics$dTVUH))
+plot(unlist(networkmetrics$dTVUH)~unlist(networkmetrics$dTVUF))
 
 
-hist(networkmetrics$Nestedness)    ## more or less normal
-hist(networkmetrics$H2)            ## more or less normal
-hist(unlist(networkmetrics$dROF))  ## more or less normal
-hist(unlist(networkmetrics$dTVUF)) ## skewed
-hist(unlist(networkmetrics$dTVUH)) ## skewed
-hist(networkmetrics$T_Max)         ## skewed
+
+hist(networkmetrics$Nestedness)          ## normal
+hist(networkmetrics$H2)                  ## normal
+hist(unlist(networkmetrics$dROF))        ## almost normal
+hist(sqrt(unlist(networkmetrics$dTVUF))) ## normal
+hist(sqrt(unlist(networkmetrics$dTVUH))) ## almost normal
+hist(sqrt(networkmetrics$T_Max) )        ## almost normal
 
 
 
@@ -40,7 +56,7 @@ hist(ROF$Mean_pollen)         ## normal
 hist(ROF$SD_pollen)           ## normal
 hist(ROF$Mean_Homospecific)   ## normal
 hist(ROF$SD_Homospecific)     ## normal
-hist(ROF$Mean_Heterospecific) ## no normal
+hist((ROF$Mean_Heterospecific)) ## no normal
 
 a <- lm(database2$Honeybees_ROF_rate~ROF$Mean_pollen)
 summary(a)
