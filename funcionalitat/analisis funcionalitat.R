@@ -1,17 +1,4 @@
 
-
-
-
-
-#lo primer que s.ha de fer es decidir les transformacions de les dades per a que siguin normals, llavors ja després anirà tot, perquè si transformes les dades també les has de transformar per fer el model de correlacions entre variables
-
-
-
-
-
-
-
-
 source("funcionalitat/netejar dades.R")
 source("funcionalitat/index xarxes.R")
 
@@ -24,6 +11,9 @@ networkmetrics <- networkmetrics[,-4]#remove plot column
 res2<-rcorr(as.matrix(networkmetrics))
 corrplot(res2$r, type="upper", order="hclust", 
          p.mat = res2$P, sig.level = 0.01, insig = "blank")
+
+length(!is.na(networkmetrics$dTVUH))
+
 
 ### Shannon diversity is highly correlated with everything. Remove
 networkmetrics <- networkmetrics %>%
@@ -69,15 +59,24 @@ summary(a)
 
 TVUF <- filter(datafunction, Species =="TVUF")
 
+hist(TVUF$Flowers_with_pollen)         ## more or less normal
 hist(TVUF$Mean_pollen)         ## more or less normal
 hist(TVUF$SD_pollen)           ## normal
 hist(TVUF$Mean_Homospecific)   ## more or less normal
 hist(TVUF$SD_Homospecific)     ## more or less normal
 hist(TVUF$Mean_Heterospecific) ## zero inflated
 hist(TVUF$Mean_weigth)         ## skewed
-hist(TVUF$Percent_embryo)      ## skewed
+hist(TVUF$SD_weight)           ## normal
+hist(TVUF$Mean_weigth_viables) ## normal
+hist(TVUF$SD_weight_viables)   ## normal
 hist(TVUF$Fruit_set)           ## more or less normal
 hist(TVUF$Seed_set)            ## more or less normal
+hist(TVUF$Seed_viability)      ## skewed
+hist(TVUF$Weighted_seeds)      ## skewed
+hist(TVUF$Samples_seeds)      ## skewed
+hist(TVUF$Percent_pollination)      ## skewed
+
+
 
 a <- lm(database2$Honeybees_TVU_rate~TVUF$Mean_pollen)
 summary(a)
@@ -115,13 +114,19 @@ summary(a)
 
 TVUH <- filter(datafunction, Species =="TVUH")
 
+hist(TVUH$Flowers_with_pollen)         ## more or less normal
 hist(TVUH$Mean_pollen)         ## skewed
 hist(TVUH$SD_pollen)           ## more or less normal
 hist(TVUH$Mean_Homospecific)   ## skewed
 hist(TVUH$SD_Homospecific)     ## more or less normal
 hist(TVUH$Mean_Heterospecific) ## zero inflated
-hist(TVUH$Mean_weigth)         ## normal
-hist(TVUH$Percent_embryo)      ## skewed
+hist(TVUH$Percent_pollination)      ## skewed
 hist(TVUH$Fruit_set)           ## normal
+hist(TVUH$Samples_seeds)      ## skewed
 hist(TVUH$Seed_set)            ## more or less normal
-
+hist(TVUH$Mean_weigth)         ## normal
+hist(TVUH$SD_weight)           ## normal
+hist(TVUH$Seed_viability)      ## skewed
+hist(TVUH$Mean_weigth_viables) ## normal
+hist(TVUH$SD_weight_viables)   ## normal
+hist(TVUH$Weighted_seeds)      ## skewed

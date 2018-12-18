@@ -35,11 +35,10 @@ pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
 
 # generate final pollen dataset
 pollen <- group_by(pollentotal, Plot, Species) %>% 
-  summarise(Samples_pollen=n(),Percent_pollinated=mean(Pollen),Mean_pollen=mean(Total),
-            SD_pollen=sd(Total),Max_pollen=max(Total),Mean_Homospecific=mean(Homospecific),
-            SD_Homospecific=sd(Homospecific),Max_Homospecific=max(Homospecific),
-            Mean_Heterospecific=mean(Heterospecific),SD_Heterospecific=sd(Heterospecific),
-            Max_Heterospecific=max(Heterospecific))%>%
+  summarise(Samples_pollen=n(),Flowers_with_pollen=mean(Pollen),
+            Mean_pollen=mean(Total),SD_pollen=sd(Total),
+            Mean_Homospecific=mean(Homospecific),SD_Homospecific=sd(Homospecific),
+            Mean_Heterospecific=mean(Heterospecific),SD_Heterospecific=sd(Heterospecific))%>%
   complete(Species, Plot) %>%
   distinct() 
 
@@ -74,7 +73,7 @@ seedweightandviability <- seedweightraw %>%
   filter(!is.na(Embryo)) %>%
   mutate(Embryo_Numeric=if_else(Embryo=="morta",0,1)) %>%
   group_by(Species,Plot) %>% 
-  summarise(Percent_embryo=mean(Embryo_Numeric)) %>%
+  summarise(Seed_viability=mean(Embryo_Numeric)) %>%
   complete(Species, Plot) %>%
   distinct() %>%
   dplyr::left_join(., seedweightviables, by = c("Species","Plot"))
@@ -91,7 +90,7 @@ fruits <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>%
   mutate(Pollinated = Avorted + Seed) %>% 
   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
   group_by(Plot, Species) %>% 
-  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Pollination=(mean(Pollinated)/4*100))%>%
+  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Percent_pollination=(mean(Pollinated)/4*100))%>%
   mutate(Fruit_set=(Fruits/Samples_seeds)) %>%
   select(., -c(Fruits)) 
 
