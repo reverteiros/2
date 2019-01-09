@@ -1,20 +1,20 @@
-setwd("D:/Usuarios/s.reverte/OneDrive - CREAF/TESI/DADES/dades")
+
 
 library(betapart)
 library(SpatialTools)
 library(ggplot2)
 
-b <- read.table("Database3.txt",header=T)
-names(b)
-x <- as.matrix(b[,7:8])
+database2 <- read.table("dades/Database3.txt",header=T)
+
+x <- as.matrix(database2[,7:8])
 c<-dist1(x)
 d<-c*100
 d.dist<-as.dist(d)
 
 
-pollinators<-read.table("bitxos quantitatiu.txt",header=T)
-senseapis<-read.table("bitxos quantitatiu sense apis.txt",header=T)
-plants<-read.table("flors quantitatiu.txt", header=T)
+pollinators<-read.table("dades/bitxos quantitatiu.txt",header=T)
+senseapis<-read.table("dades/bitxos quantitatiu sense apis.txt",header=T)
+plants<-read.table("dades/flors quantitatiu.txt", header=T)
 
 quantitative.pollinators<-bray.part(pollinators)
 quantitative.plants<-bray.part(plants)

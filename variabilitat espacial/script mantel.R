@@ -1,18 +1,16 @@
 
 ##### QUANTITATIU
 
-setwd("D:/Usuarios/s.reverte/OneDrive - CREAF/TESI/DADES/dades")
-
 library(vegan)
 library(betapart)
 library(SpatialTools)
 
-names(database2)
-
-database2 <- read.table("Database3.txt",header=T)
-a<-read.table("flors quantitatiu.txt", header=T)
-b<-read.table("bitxos quantitatiu.txt", header=T)
-c<-read.table("bitxos quantitatiu sense apis.txt", header=T)
+database2<-read.table("dades/Database3.txt", header=T)
+database3<-read.table("dades/Databasealt.txt", header=T)
+a<-read.table("dades/flors quantitatiu.txt", header=T)
+b<-read.table("dades/bitxos quantitatiu.txt", header=T)
+c<-read.table("dades/bitxos quantitatiu sense apis.txt", header=T)
+database2$Altura <- database3$Altura
 
 x <- as.matrix(database2[,7:8])
 c<-dist1(x)
@@ -27,28 +25,27 @@ quantitative.plants<-bray.part(a)
 
 apisrate <- dist(database2$Honeybeerate)
 tempdist <- dist(database2$T_Max)
+altdist <- dist(database3$Altura)
 
-mantel(quantitative.plants$bray, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
-
-mantel(quantitative.bitxos$bray, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
 
 mantel(quantitative.senseapis$bray, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
-
-mantel(quantitative.plants$bray, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
-
-mantel(quantitative.bitxos$bray, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
-
-mantel(quantitative.senseapis$bray, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
-
-mantel(quantitative.plants$bray, quantitative.bitxos$bray, method = "pearson", permutations = 9999, na.rm = FALSE)
-mantel(quantitative.bitxos$bray, apisrate, method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel(quantitative.plants$bray, altdist, method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel(quantitative.senseapis$bray, altdist, method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel(quantitative.plants$bray, quantitative.senseapis$bray, method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel(quantitative.senseapis$bray, apisrate, method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel(apisrate, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
 mantel(quantitative.plants$bray, apisrate, method = "pearson", permutations = 9999, na.rm = FALSE)
-mantel(quantitative.bitxos$bray, tempdist, method = "pearson", permutations = 9999, na.rm = FALSE)
-mantel(tempdist, apisrate, method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel(apisrate, altdist, method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel(quantitative.plants$bray, altdist, method = "pearson", permutations = 9999, na.rm = FALSE)
 
-mantel.partial(quantitative.senseapis$bray, quantitative.plants$bray, tempdist,method = "pearson", permutations = 9999, na.rm = FALSE)
-mantel.partial(quantitative.bitxos$bray, tempdist, quantitative.plants$bray,method = "pearson", permutations = 9999, na.rm = FALSE)
-mantel.partial(quantitative.bitxos$bray, apis, tempdist,method = "pearson", permutations = 9999, na.rm = FALSE)
-mantel.partial(tempdist, apis, quantitative.plants$bray,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, apisrate,quantitative.plants$bray,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, quantitative.plants$bray, apisrate,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, altdist,quantitative.plants$bray,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, quantitative.plants$bray,altdist,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, apisrate, altdist,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, altdist, apisrate,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, apisrate, tempdist,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.senseapis$bray, tempdist, apisrate,method = "pearson", permutations = 9999, na.rm = FALSE)
 
-
+mantel.partial(quantitative.plants$bray, apisrate, altdist,method = "pearson", permutations = 9999, na.rm = FALSE)
+mantel.partial(quantitative.plants$bray, altdist,apisrate,method = "pearson", permutations = 9999, na.rm = FALSE)
