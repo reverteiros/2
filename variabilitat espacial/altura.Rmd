@@ -1,0 +1,250 @@
+---
+title: "Altura"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+library(vegan)
+library(SpatialTools)
+library(betapart)
+library(ape)
+library(ggplot2)
+
+setwd("D:/Usuarios/s.reverte/Desktop/TESI")
+
+database2<-read.table("dades/Database3.txt", header=T)
+database3<-read.table("dades/Databasealt.txt", header=T)
+polls<-read.table("dades/bitxos quantitatiu.txt", header=T)
+noapis<-read.table("dades/bitxos quantitatiu sense apis.txt", header=T)
+flowers<-read.table("dades/flors quantitatiu.txt", header=T)
+database2$Altura <- database3$Altura
+database2$Poll_rate <- database2$Pollinator_count/database2$OVERALL_Flowers*1000
+```
+
+## Distribució espacial altura
+
+Primer de tot, el mapa de les altures del Garraf.
+
+
+
+L'altura està espacialment autocorrelacionada d'una manera molt forta. 
+
+```{r , echo=FALSE}
+zone.dists <- as.matrix(dist(cbind(database2$X, database2$Y)))
+zone.dists.inv <- 1/zone.dists
+diag(zone.dists.inv) <- 0
+a <- Moran.I(database2$Altura, zone.dists.inv)
+```
+
+Moran's I (l'entrada és una variable simple, només contemplem l'altura a cada parcel·la com a valor individual). És altament significatiu: p = `r a$p.value`, i = `r a$observed`.
+
+```{r, echo=FALSE}
+d <- as.matrix(database2[,7:8])
+f<-dist1(d)
+d.dist<-as.dist(f*100)
+altdist <- dist(database3$Altura)
+mite.correlog <- mantel.correlog(altdist, D.geo=d.dist, nperm=999)
+```
+
+El Mantel correlogram de l'altura contempla les diferències en l'altura entre parells de parcel·les i la distància geogràfica entre les mateixes. Els quadrets negres signifiquen que és significatiu.
+
+```{r, echo=FALSE}
+plot(mite.correlog)
+```
+
+Per veure de manera gràfica la relació entre l'altura entre parcel·les i la distància que les separa, cada punt representa un parell de parcel·les. 
+
+```{r, echo=FALSE}
+
+geographicdists <- data.frame(t(combn(rownames(database2),2)), as.numeric(d.dist))
+names(geographicdists) <- c("Plot", "Plot", "Geographicaldistance")
+
+altdists <- data.frame(t(combn(rownames(database2),2)), as.numeric(altdist))
+names(altdists) <- c("Plot", "Plot", "altdists")
+
+quantitatiu<-data.frame(geographicdists$Geographicaldistance, altdists$altdists)
+zz<-c("geographicdist","altdists")
+names(quantitatiu)<-zz
+
+g <- ggplot(quantitatiu, aes(x=geographicdist))
+g <- g + geom_point(aes(y=altdists), colour="blue")
+g <- g + geom_smooth(aes(y=altdists), colour="blue")
+g <- g + theme_light()
+g <- g +labs( x = "Geographical distance (km)", y = "Altitude difference (m)")
+g
+
+```
+
+
+## Relació altura i distància amb composició vegetal i animal
+
+## Altura
+
+Relació de l'ALTURA amb la composició de pol·linitzadors (incloent apis).
+```{r, echo=FALSE}
+quantitative.bitxos<-bray.part(polls)
+quantitative.senseapis<-bray.part(noapis)
+quantitative.plants<-bray.part(flowers)
+```
+```{r, echo=FALSE}
+polldist <- data.frame(t(combn(rownames(database2),2)), as.numeric(quantitative.bitxos$bray))
+names(polldist) <- c("Plot", "Plot", "Pollinatorsdistance")
+
+senseapisdist <- data.frame(t(combn(rownames(database2),2)), as.numeric(quantitative.senseapis$bray))
+names(senseapisdist) <- c("Plot", "Plot", "Senseapisdistance")
+
+plantdist <- data.frame(t(combn(rownames(database2),2)), as.numeric(quantitative.plants$bray))
+names(plantdist) <- c("Plot", "Plot", "Plantdistance")
+
+
+quantitatiu<-data.frame(geographicdists$Geographicaldistance, polldist$Pollinatorsdistance,plantdist$Plantdistance,senseapisdist$Senseapisdistance, altdists$altdists)
+zz<-c("geographicdist","polldist","plantdist","senseapis","altdist")
+names(quantitatiu)<-zz
+
+g <- ggplot(quantitatiu, aes(x=altdist))
+g <- g + geom_point(aes(y=polldist), colour="green")+coord_cartesian(ylim = c(0, 1))
+g <- g + geom_smooth(aes(y=polldist), colour="brown")+coord_cartesian(ylim = c(0, 1))
+g <- g + theme_light()
+g <- g +labs( x = "Altitude difference (m)", y = "Bray-Curtis dissimilarity")
+g
+
+```
+
+```{r, echo=FALSE}
+
+mantel(quantitative.bitxos$bray, altdist, method = "pearson", permutations = 9999, na.rm = FALSE)
+
+
+
+mite.correlog <- mantel.correlog(quantitative.bitxos$bray, D.geo=altdist, nperm=999)
+mite.correlog  
+plot(mite.correlog)
+```
+
+Relació de l'ALTURA amb la composició de pol·linitzadors (excloent apis).
+
+```{r, echo=FALSE}
+mantel(quantitative.senseapis$bray, altdist, method = "pearson", permutations = 9999, na.rm = FALSE)
+
+g <- ggplot(quantitatiu, aes(x=altdist))
+g <- g + geom_point(aes(y=senseapis), colour="green")+coord_cartesian(ylim = c(0, 1))
+g <- g + geom_smooth(aes(y=senseapis), colour="brown")+coord_cartesian(ylim = c(0, 1))
+g <- g + theme_light()
+g <- g +labs( x = "Altitude difference (m)", y = "Bray-Curtis dissimilarity")
+g
+
+mite.correlog <- mantel.correlog(quantitative.senseapis$bray, D.geo=altdist, nperm=999)
+mite.correlog  
+plot(mite.correlog)
+```
+
+Relació de l'ALTURA amb la composició de flors.
+
+```{r, echo=FALSE}
+mantel(quantitative.plants$bray, altdist,method = "pearson", permutations = 9999, na.rm = FALSE)
+
+g <- ggplot(quantitatiu, aes(x=altdist))
+g <- g + geom_point(aes(y=plantdist), colour="green")+coord_cartesian(ylim = c(0, 1))
+g <- g + geom_smooth(aes(y=plantdist), colour="brown")+coord_cartesian(ylim = c(0, 1))
+g <- g + theme_light()
+g <- g +labs( x = "Altitude difference (m)", y = "Bray-Curtis dissimilarity")
+g
+
+mite.correlog <- mantel.correlog(quantitative.plants$bray, D.geo=altdist, nperm=999)
+mite.correlog  
+plot(mite.correlog)
+```
+
+Relació de l'ALTURA amb les apis.
+
+```{r, echo=FALSE}
+
+aaa <- lm((database2$Altura)~database2$T_Max)
+summary(aaa)
+plot((database2$Altura)~database2$T_Max)
+
+apisrate <- dist(database2$Honeybeerate)
+mantel(apisrate, altdist,method = "pearson", permutations = 9999, na.rm = FALSE)
+
+g <- ggplot(quantitatiu, aes(x=altdist))
+g <- g + geom_point(aes(y=apisrate), colour="green")
+g <- g + geom_smooth(aes(y=apisrate), colour="brown")
+g <- g + theme_light()
+g <- g +labs(x = "Altitude difference (m)", y = "")
+g
+
+mite.correlog <- mantel.correlog(apisrate, D.geo=altdist, nperm=999)
+mite.correlog  
+plot(mite.correlog)
+
+zone.dists <- as.matrix(dist(database2$Altura))
+zone.dists.inv <- 1/zone.dists
+diag(zone.dists.inv) <- 0
+zone.dists.inv[which(zone.dists.inv=="Inf")] <- 0
+a <- Moran.I(database2$Honeybeerate, zone.dists.inv)
+a
+```
+
+
+
+
+## Distància
+
+Relació de la DISTANCIA amb la composició de pol·linitzadors (incloent apis).
+
+```{r, echo=FALSE}
+mantel(quantitative.bitxos$bray, d.dist,method = "pearson", permutations = 9999, na.rm = FALSE)
+
+g <- ggplot(quantitatiu, aes(x=geographicdist))
+g <- g + geom_point(aes(y=polldist), colour="blue")+coord_cartesian(ylim = c(0, 1))
+g <- g + geom_smooth(aes(y=polldist), colour="blue")+coord_cartesian(ylim = c(0, 1))
+g <- g + theme_light()
+g <- g +labs( x = "Geographical distance (km)", y = "Bray-Curtis dissimilarity")
+g
+
+mite.correlog <- mantel.correlog(quantitative.bitxos$bray, D.geo=d.dist, nperm=999)
+mite.correlog  
+plot(mite.correlog)
+```
+
+Relació de la DISTANCIA amb la composició de pol·linitzadors (excloent apis).
+
+```{r, echo=FALSE}
+mantel(quantitative.senseapis$bray, d.dist, method = "pearson", permutations = 9999, na.rm = FALSE)
+
+g <- ggplot(quantitatiu, aes(x=geographicdist))
+g <- g + geom_point(aes(y=senseapis), colour="blue")+coord_cartesian(ylim = c(0, 1))
+g <- g + geom_smooth(aes(y=senseapis), colour="blue")+coord_cartesian(ylim = c(0, 1))
+g <- g + theme_light()
+g <- g +labs( x = "Geographical distance (km)", y = "Bray-Curtis dissimilarity")
+g
+
+mite.correlog <- mantel.correlog(quantitative.senseapis$bray, D.geo=d.dist, nperm=999)
+mite.correlog  
+plot(mite.correlog)
+```
+
+Relació de la DISTANCIA amb la composició de flors.
+
+```{r, echo=FALSE}
+mantel(quantitative.plants$bray, d.dist,method = "pearson", permutations = 9999, na.rm = FALSE)
+
+g <- ggplot(quantitatiu, aes(x=geographicdist))
+g <- g + geom_point(aes(y=plantdist), colour="blue")+coord_cartesian(ylim = c(0, 1))
+g <- g + geom_smooth(aes(y=plantdist), colour="blue")+coord_cartesian(ylim = c(0, 1))
+g <- g + theme_light()
+g <- g +labs( x = "Geographical distance (km)", y = "Bray-Curtis dissimilarity")
+g
+
+mite.correlog <- mantel.correlog(quantitative.plants$bray, D.geo=d.dist, nperm=999)
+mite.correlog  
+plot(mite.correlog)
+```
+
+
+
+
+
+
+
+
