@@ -33,6 +33,7 @@ plot(unlist(networkmetrics$dTVUH)~unlist(networkmetrics$dTVUF))
 
 hist(networkmetrics$Nestedness)          ## normal
 hist(networkmetrics$H2)                  ## normal
+hist(networkmetrics$Shannon_diversity)
 hist(unlist(networkmetrics$dROF))        ## almost normal
 hist(sqrt(unlist(networkmetrics$dTVUF))) ## normal
 hist(sqrt(unlist(networkmetrics$dTVUH))) ## almost normal
@@ -42,22 +43,58 @@ hist(sqrt(networkmetrics$T_Max) )        ## almost normal
 
 ROF <- filter(datafunction, Species =="ROF")
 
-hist(ROF$Mean_pollen)         ## normal
-hist(ROF$SD_pollen)           ## normal
-hist(ROF$Mean_Homospecific)   ## normal
-hist(ROF$SD_Homospecific)     ## normal
-hist((ROF$Mean_Heterospecific)) ## no normal
+hist(ROF$Samples_pollen)
+hist(ROF$Flowers_with_pollen)
+hist(ROF$Mean_pollen_all_flowers)
 
-a <- lm(database2$Honeybees_ROF_rate~ROF$Mean_pollen)
-summary(a)
-a <- lm(database2$Honeybees_ROF_rate~ROF$SD_pollen)
-summary(a)
-a <- lm(networkmetrics$Nestedness~ROF$Mean_pollen)
-summary(a)
-a <- lm(networkmetrics$H2~ROF$Mean_pollen)
-summary(a)
+hist(ROF$Mean_pollen_flowers_with_pollen)
+hist(ROF$Mean_Homospecific_flowers_with_pollen)
+hist(ROF$Mean_Heterospecific_flowers_with_pollen)
+
+hist(ROF$Mean_pollen_all_flowers)            ## normal
+hist(ROF$SD_pollen_all_flowers)              ## normal
+hist(ROF$Mean_Homospecific_all_flowers)      ## normal
+hist(ROF$SD_Homospecific_all_flowers)        ## normal
+hist((ROF$Mean_Heterospecific_all_flowers))  ## no normal
+
+a <- lm(database2$Honeybees_ROF_rate~ROF$Flowers_with_pollen)
+summary(a) 
+a <- lm(networkmetrics$Nestedness~ROF$Flowers_with_pollen)
+summary(a) 
+a <- lm(networkmetrics$H2~ROF$Flowers_with_pollen)
+summary(a) # significatiu negatiu
+plot((networkmetrics$H2~ROF$Flowers_with_pollen))
+abline(a)
+a <- lm(unlist(networkmetrics$dROF)~ROF$Flowers_with_pollen)
+summary(a) 
+
+a <- lm(database2$Honeybees_ROF_rate~ROF$Mean_Heterospecific_flowers_with_pollen)
+summary(a) 
+a <- lm(networkmetrics$Nestedness~ROF$Mean_Heterospecific_flowers_with_pollen)
+summary(a) 
+a <- lm(networkmetrics$H2~ROF$Mean_Heterospecific_flowers_with_pollen)
+summary(a) 
+a <- lm(unlist(networkmetrics$dROF)~ROF$Mean_Heterospecific_flowers_with_pollen)
+summary(a) 
+
+a <- lm(database2$Honeybees_ROF_rate~ROF$Mean_Homospecific_flowers_with_pollen)
+summary(a) 
+a <- lm(networkmetrics$Nestedness~ROF$Mean_Homospecific_flowers_with_pollen)
+summary(a) 
+a <- lm(networkmetrics$H2~ROF$Mean_Homospecific_flowers_with_pollen)
+summary(a) # significatiu negatiu
+a <- lm(unlist(networkmetrics$dROF)~ROF$Mean_Homospecific_flowers_with_pollen)
+summary(a) 
+
 
 TVUF <- filter(datafunction, Species =="TVUF")
+
+hist(TVUF$Samples_pollen)
+hist(TVUF$Flowers_with_pollen)
+
+hist(TVUF$Mean_pollen_flowers_with_pollen)
+hist(TVUF$Mean_Homospecific_flowers_with_pollen)
+hist(TVUF$Mean_Heterospecific_flowers_with_pollen)
 
 hist(TVUF$Flowers_with_pollen)         ## more or less normal
 hist(TVUF$Mean_pollen)         ## more or less normal
@@ -78,41 +115,48 @@ hist(TVUF$Percent_pollination)      ## skewed
 
 
 
-a <- lm(database2$Honeybees_TVU_rate~TVUF$Mean_pollen)
+a <- lm(database2$Honeybees_TVU_rate~TVUF$Mean_Heterospecific_flowers_with_pollen)
 summary(a)
-a <- lm(database2$Honeybees_TVU_rate~TVUF$SD_pollen)
+a <- lm(networkmetrics$Nestedness~TVUF$Mean_Heterospecific_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$Nestedness~TVUF$Mean_pollen)
+a <- lm(networkmetrics$Shannon_diversity~TVUF$Mean_Heterospecific_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$Connectance~TVUF$Mean_pollen)
+a <- lm(networkmetrics$H2~TVUF$Mean_Heterospecific_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$`Shannon diversity`~TVUF$Mean_pollen)
-summary(a)
-a <- lm(networkmetrics$H2~TVUF$Mean_pollen)
-summary(a)
-a <- lm(networkmetrics$Generality~TVUF$Mean_pollen)
-summary(a)
-a <- lm(TVUF$Mean_Homospecific~TVUF$Mean_Heterospecific)
-summary(a)
-# nothing shos relationship with mean pollen deposition
-plot(TVUF$Mean_Homospecific~TVUF$Mean_Heterospecific)
-# looks like when there is few homospecific heterospecific rises and vice versa
+a <- lm(unlist(networkmetrics$dTVUF)~TVUF$Mean_Heterospecific_flowers_with_pollen)
+summary(a) # significatiu positiu
 
-a <- lm(database2$Honeybees_TVU_rate~TVUF$Mean_Homospecific)
+a <- lm(database2$Honeybees_TVU_rate~TVUF$Mean_Homospecific_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$Nestedness~TVUF$Mean_Homospecific)
+a <- lm(networkmetrics$Nestedness~TVUF$Mean_Homospecific_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$Connectance~TVUF$Mean_Homospecific)
+a <- lm(networkmetrics$Shannon_diversity~TVUF$Mean_pollen_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$`Shannon diversity`~TVUF$Mean_Homospecific)
+a <- lm(networkmetrics$H2~TVUF$Mean_Homospecific_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$H2~TVUF$Mean_Homospecific)
+a <- lm(unlist(networkmetrics$dTVUF)~TVUF$Mean_Homospecific_flowers_with_pollen)
 summary(a)
-a <- lm(networkmetrics$Generality~TVUF$Mean_Homospecific)
+
+a <- lm(database2$Honeybees_TVU_rate~TVUF$Flowers_with_pollen)
+summary(a) # significatiu positiu
+a <- lm(networkmetrics$Nestedness~TVUF$Flowers_with_pollen)
 summary(a)
+a <- lm(networkmetrics$Shannon_diversity~TVUF$Flowers_with_pollen)
+summary(a) # significatiu negatiu
+a <- lm(networkmetrics$H2~TVUF$Flowers_with_pollen)
+summary(a)
+a <- lm(unlist(networkmetrics$dTVUF)~TVUF$Flowers_with_pollen)
+summary(a) # significatiu negatiu
 
 
 TVUH <- filter(datafunction, Species =="TVUH")
+
+hist(TVUH$Samples_pollen)
+hist(TVUH$Flowers_with_pollen)
+
+hist(TVUH$Mean_pollen_flowers_with_pollen)
+hist(TVUH$Mean_Homospecific_flowers_with_pollen)
+hist(TVUH$Mean_Heterospecific_flowers_with_pollen)
 
 hist(TVUH$Flowers_with_pollen)         ## more or less normal
 hist(TVUH$Mean_pollen)         ## skewed
@@ -130,3 +174,36 @@ hist(TVUH$Seed_viability)      ## skewed
 hist(TVUH$Mean_weigth_viables) ## normal
 hist(TVUH$SD_weight_viables)   ## normal
 hist(TVUH$Weighted_seeds)      ## skewed
+
+a <- lm(database2$Honeybees_TVU_rate~TVUH$Mean_Heterospecific_flowers_with_pollen)
+summary(a)# no significatiu
+a <- lm(networkmetrics$Nestedness~TVUH$Mean_Heterospecific_flowers_with_pollen)
+summary(a)# no significatiu
+a <- lm(networkmetrics$Shannon_diversity~TVUH$Mean_Heterospecific_flowers_with_pollen)
+summary(a)# no significatiu
+a <- lm(networkmetrics$H2~TVUH$Mean_Heterospecific_flowers_with_pollen)
+summary(a)# significatiu negatiu
+a <- lm(unlist(networkmetrics$dTVUF)~TVUH$Mean_Heterospecific_flowers_with_pollen)
+summary(a) # no
+
+a <- lm(database2$Honeybees_TVU_rate~TVUH$Mean_Homospecific_flowers_with_pollen)
+summary(a)
+a <- lm(networkmetrics$Nestedness~TVUH$Mean_Homospecific_flowers_with_pollen)
+summary(a)
+a <- lm(networkmetrics$Shannon_diversity~TVUH$Mean_pollen_flowers_with_pollen)
+summary(a)
+a <- lm(networkmetrics$H2~TVUH$Mean_Homospecific_flowers_with_pollen)
+summary(a)
+a <- lm(unlist(networkmetrics$dTVUF)~TVUH$Mean_Homospecific_flowers_with_pollen)
+summary(a)
+
+a <- lm(database2$Honeybees_TVU_rate~TVUH$Flowers_with_pollen)
+summary(a) #no
+a <- lm(networkmetrics$Nestedness~TVUH$Flowers_with_pollen)
+summary(a)
+a <- lm(networkmetrics$Shannon_diversity~TVUH$Flowers_with_pollen)
+summary(a) 
+a <- lm(networkmetrics$H2~TVUH$Flowers_with_pollen)
+summary(a) # significatiu negatiu
+a <- lm(unlist(networkmetrics$dTVUF)~TVUH$Flowers_with_pollen)
+summary(a)  

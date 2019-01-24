@@ -17,17 +17,17 @@ pollenwtNA <- droplevels(dplyr::filter(pollenraw, !is.na(TVU) & !is.na(ROF)& !is
 
 # define homospecific and heterospecific pollen per species
 ROFpollen <- filter(pollenwtNA, Species == "ROF") %>%
-  mutate(Pollen=if_else(Total>0,1,0)) %>%
+  mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
   mutate(Homospecific = ROF) %>%
   mutate(Heterospecific = TVU+OTHERS)
 
 TVUFpollen <- filter(pollenwtNA, Species == "TVUF") %>%
-  mutate(Pollen=if_else(Total>0,1,0)) %>%
+  mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
   mutate(Homospecific = TVU) %>%
   mutate(Heterospecific = ROF+OTHERS)
   
 TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
-  mutate(Pollen=if_else(Total>0,1,0)) %>%
+  mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
   mutate(Homospecific = TVU) %>%
   mutate(Heterospecific = ROF+OTHERS)
 
@@ -35,13 +35,16 @@ pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
 
 # generate final pollen dataset
 pollen <- group_by(pollentotal, Plot, Species) %>% 
-  summarise(Samples_pollen=n(),Flowers_with_pollen=mean(Pollen),
-            Mean_pollen=mean(Total),SD_pollen=sd(Total),
-            Mean_Homospecific=mean(Homospecific),SD_Homospecific=sd(Homospecific),
-            Mean_Heterospecific=mean(Heterospecific),SD_Heterospecific=sd(Heterospecific))%>%
+  summarise(Samples_pollen=n(),Flowers_with_pollen=mean(Pollen_presence),
+            Mean_pollen_all_flowers=mean(Total),SD_pollen_all_flowers=sd(Total),
+            Mean_Homospecific_all_flowers=mean(Homospecific),SD_Homospecific_all_flowers=sd(Homospecific),
+            Mean_Heterospecific_all_flowers=mean(Heterospecific),SD_Heterospecific_all_flowers=sd(Heterospecific))%>%
   complete(Species, Plot) %>%
-  distinct() 
-
+  distinct() %>%
+  mutate(Mean_pollen_flowers_with_pollen=(Mean_pollen_all_flowers/Flowers_with_pollen)) %>%
+  mutate(Mean_Homospecific_flowers_with_pollen=(Mean_Homospecific_all_flowers/Flowers_with_pollen)) %>%
+  mutate(Mean_Heterospecific_flowers_with_pollen=(Mean_Heterospecific_all_flowers/Flowers_with_pollen))
+  
 
 ############## Seed viability and weight
 
