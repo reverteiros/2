@@ -36,14 +36,11 @@ pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
 # generate final pollen dataset
 pollen <- group_by(pollentotal, Plot, Species) %>% 
   summarise(Samples_pollen=n(),Flowers_with_pollen=mean(Pollen_presence),
-            Mean_pollen_all_flowers=mean(Total),SD_pollen_all_flowers=sd(Total),
-            Mean_Homospecific_all_flowers=mean(Homospecific),SD_Homospecific_all_flowers=sd(Homospecific),
-            Mean_Heterospecific_all_flowers=mean(Heterospecific),SD_Heterospecific_all_flowers=sd(Heterospecific))%>%
+            Mean_pollen=mean(Total),SD_pollen=sd(Total),Mean_Homospecific=mean(Homospecific),
+            SD_Homospecific=sd(Homospecific),Mean_Heterospecific=mean(Heterospecific),
+            SD_Heterospecific=sd(Heterospecific))%>%
   complete(Species, Plot) %>%
-  distinct() %>%
-  mutate(Mean_pollen_flowers_with_pollen=(Mean_pollen_all_flowers/Flowers_with_pollen)) %>%
-  mutate(Mean_Homospecific_flowers_with_pollen=(Mean_Homospecific_all_flowers/Flowers_with_pollen)) %>%
-  mutate(Mean_Heterospecific_flowers_with_pollen=(Mean_Heterospecific_all_flowers/Flowers_with_pollen))
+  distinct() 
   
 
 ############## Seed viability and weight
@@ -130,12 +127,16 @@ generalpollinators <- censos %>%
 # flower abundance per plot
 flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T)
 
+flors$TVU <- flors$TVUH + flors$TVUF
+flors$proporcioF <- flors$TVUF*100/flors$TVU
+
+hist(flors$proporcioF )
 flowerabundance <- select(flors, TVUF, ROF, TVUH)%>%
   tidyr::gather(Species, "Flower_Abundance",1:3) 
 
 flowerabundance$Plot = c(1:40)
 
-# 
+# Pollinators 
 pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
   group_by(Plot, Species) %>% 
   summarise(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
@@ -162,3 +163,5 @@ Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | S
 datafunction <- left_join(datafunctionality, Apis2, by = c("Plot","Species","Flower_Abundance")) %>%
   mutate(Wild_Visitation_rate = Visitation_rate - HB_Visitation_rate) #%>%
   # select(., -c(Pollinator_abundance, HB_abundance, Flower_Abundance)) 
+
+
