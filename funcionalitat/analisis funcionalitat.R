@@ -2,32 +2,35 @@
 source("funcionalitat/netejar dades.R")
 source("funcionalitat/index xarxes.R")
 
-###### Correlation matrix between network indices and temperature
-database2 <- read.table("dades/Database3.txt",header=T)
-library(corrplot)
-library(Hmisc)
-networkmetrics$T_Max <- database2$T_Max
-networkmetrics <- networkmetrics[,-4]#remove plot column
-res2<-rcorr(as.matrix(networkmetrics))
-corrplot(res2$r, type="upper", order="hclust", 
-         p.mat = res2$P, sig.level = 0.01, insig = "blank")
+library(ggplot2)
+library(ggExtra)
 
-length(!is.na(networkmetrics$dTVUH))
-
-
-### Shannon diversity is highly correlated with everything. Remove
-networkmetrics <- networkmetrics %>%
-  select(-Shannon_diversity)
-
-res2<-rcorr(as.matrix(networkmetrics))
-corrplot(res2$r, type="upper", order="hclust", 
-         p.mat = res2$P, sig.level = 0.01, insig = "blank")
-
-## d' ROF is correlated with everything too....
-
-plot(unlist(networkmetrics$dROF)~unlist(networkmetrics$dTVUF))
-plot(unlist(networkmetrics$dROF)~unlist(networkmetrics$dTVUH))
-plot(unlist(networkmetrics$dTVUH)~unlist(networkmetrics$dTVUF))
+# ###### Correlation matrix between network indices and temperature
+# database2 <- read.table("dades/Database3.txt",header=T)
+# library(corrplot)
+# library(Hmisc)
+# networkmetrics$T_Max <- database2$T_Max
+# networkmetrics <- networkmetrics[,-4]#remove plot column
+# res2<-rcorr(as.matrix(networkmetrics))
+# corrplot(res2$r, type="upper", order="hclust", 
+#          p.mat = res2$P, sig.level = 0.01, insig = "blank")
+# 
+# length(!is.na(networkmetrics$dTVUH))
+# 
+# 
+# ### Shannon diversity is highly correlated with everything. Remove
+# networkmetrics <- networkmetrics %>%
+#   select(-Shannon_diversity)
+# 
+# res2<-rcorr(as.matrix(networkmetrics))
+# corrplot(res2$r, type="upper", order="hclust", 
+#          p.mat = res2$P, sig.level = 0.01, insig = "blank")
+# 
+# ## d' ROF is correlated with everything too....
+# 
+# plot(unlist(networkmetrics$dROF)~unlist(networkmetrics$dTVUF))
+# plot(unlist(networkmetrics$dROF)~unlist(networkmetrics$dTVUH))
+# plot(unlist(networkmetrics$dTVUH)~unlist(networkmetrics$dTVUF))
 
 ## proporcio femelles de thymus
 hist(flors$proporcioF)
@@ -44,9 +47,10 @@ pollen <- group_by(pollentotal, Plot, Species, Plant) %>%
 
 fruits <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>% 
   mutate(Pollinated = Avorted + Seed) %>% 
+  mutate(Proportion_avorted = Avorted / Pollinated) %>%
   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
   group_by(Plot, Species, Plant) %>% 
-  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Percent_pollination=(mean(Pollinated)/4*100))%>%
+  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Percent_pollination=(mean(Pollinated)/4*100),Proportion_avorted=mean(Proportion_avorted))%>%
   mutate(Fruit_set=(Fruits/Samples_seeds)) %>%
   select(., -c(Fruits)) %>%
   complete(Species, Plot, Plant) %>%
@@ -88,9 +92,19 @@ a <- lm(TVUF$Mean_Homospecific~TVUF$Mean_Heterospecific)
 summary(a)# no significatiu
 plot(TVUF$Mean_Homospecific~TVUF$Mean_Heterospecific)
 
-a <- lm(TVUH$Mean_Homospecific~TVUH$Mean_Heterospecific)
+a <- lm(TVUH$Fruit_set~TVUH$Seed_set)
 summary(a)# no significatiu
-plot(TVUH$Mean_Homospecific~TVUH$Mean_Heterospecific)
+plot(TVUH$Fruit_set~TVUH$Proportion_avorted)
+
+
+
+#### Plot tongue vs depth with histograms at margins
+ggplot(TVUH, aes(y=Seed_set, x=Mean_Homospecific)) + 
+  geom_point(alpha=0.3) + 
+  geom_smooth() +
+  theme_classic() 
+  
+TVUF$Fruit_set
 
 # el polen heterospecífic no té gaire pes, de manera que no cal perdre-hi temps
 
