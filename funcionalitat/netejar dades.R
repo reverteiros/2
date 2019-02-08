@@ -76,7 +76,9 @@ seedweightandviability <- seedweightraw %>%
   summarise(Seed_viability=mean(Embryo_Numeric)) %>%
   complete(Species, Plot) %>%
   distinct() %>%
-  dplyr::left_join(., seedweightviables, by = c("Species","Plot"))
+  dplyr::left_join(., seedweightviables, by = c("Species","Plot"))%>%
+  mutate(Viable_seeds=Weighted_seeds*Seed_viability)%>%
+  mutate(No_viable_seeds=Weighted_seeds*(1-Seed_viability))
 
 
 ############# Fruits and seeds

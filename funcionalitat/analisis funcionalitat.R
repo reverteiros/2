@@ -76,13 +76,16 @@ datafunctionalityperplant <- pollen %>%
 
 # homospecific vs heterospecific
 
-ROF <- filter(datafunctionalityperplant, Species =="ROF")
-TVUF <- filter(datafunctionalityperplant, Species =="TVUF")
-TVUH <- filter(datafunctionalityperplant, Species =="TVUH")
+ROF <- filter(datafunctionality, Species =="ROF")
+TVUF <- filter(datafunctionality, Species =="TVUF")
+TVUH <- filter(datafunctionality, Species =="TVUH")
 
-hist(ROF$Mean_Heterospecific)
-hist(TVUF$Mean_Heterospecific)
-hist(TVUH$Mean_Heterospecific)
+plot(TVUF$Viable_seeds~TVUF$No_viable_seeds)
+class(TVUF$Viable_seeds)
+
+#hist(ROF$Mean_Heterospecific)
+hist(TVUF$SD_weight_viables,xlim=c(0,0.15),ylim=c(0,20),breaks=5)
+hist(TVUH$SD_weight_viables,xlim=c(0,0.15),ylim=c(0,20),breaks=10)
 
 a <- lm(ROF$Mean_Homospecific~ROF$Mean_Heterospecific)
 summary(a)# no significatiu
