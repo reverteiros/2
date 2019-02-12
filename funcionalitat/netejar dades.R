@@ -1,6 +1,8 @@
 
 require(devtools)
 library(tidyverse)
+library(DataCombine)
+library(vegan)
 
 ############# POllen
 pollenraw<-read.table("dades/polen.txt",header=T)
@@ -67,6 +69,16 @@ seedweightviables <- seedweightraw %>%
   complete(Species, Plot) %>%
   distinct() %>%
   dplyr::left_join(., seedweight, by = c("Species","Plot"))
+
+seedweightviablesraw <- seedweightraw %>%
+  filter(Embryo == "viable")
+
+hist(seedweightviablesraw$Weight,xlim=c(0,0.4),breaks=20)
+
+seedweightnoviablesraw <- seedweightraw %>%
+  filter(Embryo == "morta") 
+
+hist(seedweightnoviablesraw$Weight,xlim=c(0,0.4),breaks=5)
 
 # from the weighted seeds, proportion of them that has viable embryo
 seedweightandviability <- seedweightraw %>%
@@ -147,7 +159,55 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
   left_join(flowerabundance, by = c("Plot","Species")) %>%
   mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)
 
-datafunctionality <- left_join(datafunctionality,pollinators, by = c("Plot","Species"))
+
+## diversitat ROF
+diversitatROF <- censos %>%
+  dplyr::filter(., Species == "ROF") %>%
+  spread(Pollinator, Abundance) %>%
+  InsertRow(., NewRow = numeric(81),RowNum = 29)
+diversitatROF[is.na(diversitatROF)] <- 0
+diversitatROF <- diversitatROF[,-(1:2)]
+diversitatROF <- diversity(diversitatROF, "shannon")
+diversitatROF <- as.data.frame(diversitatROF)
+names(diversitatROF) <- "Diversity"
+diversitatROF$Plot <- c(1:40)
+diversitatROF$Species <- "ROF"
+
+## diversitat TVUF
+diversitatTVUF <- censos %>%
+  dplyr::filter(., Species == "TVUF") %>%
+  spread(Pollinator, Abundance) 
+diversitatTVUF[is.na(diversitatTVUF)] <- 0
+diversitatTVUF <- diversitatTVUF[,-(1:2)]
+diversitatTVUF <- diversity(diversitatTVUF, "shannon")
+diversitatTVUF <- as.data.frame(diversitatTVUF)
+names(diversitatTVUF) <- "Diversity"
+diversitatTVUF$Plot <- c(1:40)
+diversitatTVUF$Species <- "TVUF"
+
+## diversitat TVUH
+diversitatTVUH <- (dplyr::filter(censos, Species == "TVUH")) %>%
+  spread(Pollinator, Abundance) %>%
+  InsertRow(., NewRow = numeric(57),RowNum = 7)%>%
+  InsertRow(., NewRow = numeric(57),RowNum = 18)%>%
+  InsertRow(., NewRow = numeric(57),RowNum = 23)%>%
+  InsertRow(., NewRow = numeric(57),RowNum = 25)
+diversitatTVUH[is.na(diversitatTVUH)] <- 0
+diversitatTVUH <- diversitatTVUH[,-(1:2)]
+diversitatTVUH <- diversity(diversitatTVUH, "shannon")
+diversitatTVUH <- as.data.frame(diversitatTVUH)
+names(diversitatTVUH) <- "Diversity"
+diversitatTVUH$Plot <- c(1:40)
+diversitatTVUH$Species <- "TVUH"
+
+
+diversity <- diversitatTVUH %>%
+  bind_rows(.,diversitatTVUF) %>%
+  bind_rows(.,diversitatROF)
+
+datafunctionality2 <- left_join(datafunctionality,pollinators, by = c("Plot","Species")) 
+
+datafunctionality3 <- left_join(datafunctionality2,diversity, by = c("Plot","Species")) 
 
 
 # Honeybees
@@ -162,7 +222,7 @@ Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | S
   mutate(HB_Visitation_rate = HB_abundance/Flower_Abundance*1000)
 
 
-datafunction <- left_join(datafunctionality, Apis2, by = c("Plot","Species","Flower_Abundance")) %>%
+datafunction <- left_join(datafunctionality3, Apis2, by = c("Plot","Species","Flower_Abundance")) %>%
   mutate(Wild_Visitation_rate = Visitation_rate - HB_Visitation_rate) #%>%
   # select(., -c(Pollinator_abundance, HB_abundance, Flower_Abundance)) 
 
