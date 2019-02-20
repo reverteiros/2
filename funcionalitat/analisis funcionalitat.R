@@ -4,7 +4,8 @@ source("funcionalitat/index xarxes.R")
 
 library(ggplot2)
 library(ggExtra)
-
+library(corrplot)
+library(Hmisc)
 
 ### Anàlisis a nivell de planta 
 
@@ -44,28 +45,44 @@ datafunctionalityperplant <- pollen %>%
 
 ########################################################
 
-ROF <- filter(datafunction, Species =="ROF")
-TVUF <- filter(datafunction, Species =="TVUF")
-TVUH <- filter(datafunction, Species =="TVUH") #%>%
-#  filter(Plot != 22)
+ROF <- filter(datafunctionalityperplant, Species =="ROF")
+TVUF <- filter(datafunctionalityperplant, Species =="TVUF")%>%
+  select(Mean_Homospecific,Percent_pollination,Seed_set,Fruit_set,Proportion_avorted,Flowers_with_pollen)
+
+is.nan.data.frame <- function(x)
+  do.call(cbind, lapply(x, is.nan))
+
+TVUF[is.nan(TVUF)] <- 0
+
+TVUH <- filter(datafunction, Species =="TVUH") %>%
+  select(Mean_Homospecific,Percent_pollination,Seed_set,Fruit_set,Proportion_avorted,Flowers_with_pollen)
+
+TVUH[is.nan(TVUH)] <- 0
  
 
+a <- lm(TVUH$Fruit_set~TVUH$Percent_pollination)
+summary(a)# significatiu
+plot(TVUH$Fruit_set~TVUH$Percent_pollination)
+abline(a)
 
+ggplot(TVUF, aes(y=Seed_set, x=Proportion_avorted)) + 
+  geom_point(alpha=0.3) + 
+  geom_smooth() +
+  theme_classic() +
+  xlim(0, 1)
 
-fruitset-percent pollination
-taula correlacions variables p.8
-
+res2<-rcorr(as.matrix(TVUH))
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.01, insig = "blank")
 
 
 
 
 #hist(ROF$Mean_Heterospecific)
 hist(TVUF$SD_weight_viables,xlim=c(0,0.15),ylim=c(0,20),breaks=5)
-hist(TVUH$SD_weight_viables,xlim=c(0,0.15),ylim=c(0,20),breaks=10)
+hist(TVUF$Mean_weigth_viables,xlim=c(0.05,0.25),breaks=5)
 
-a <- lm(TVUH$Mean_Homospecific~TVUH$Diversity)
-summary(a)# significatiu
-plot(TVUH$Mean_Homospecific~TVUH$Diversity)
+
 
 a <- lm(TVUH$Mean_Homospecific~(TVUH$Pollinator_richness))
 summary(a)# significatiu
@@ -168,18 +185,34 @@ hist(TVUH$SD_weight_viables)   ## normal
 hist(TVUH$Weighted_seeds)      ## skewed
 
 
-# ###### Correlation matrix between network indices and temperature
-# database2 <- read.table("dades/Database3.txt",header=T)
-# library(corrplot)
-# library(Hmisc)
-# networkmetrics$T_Max <- database2$T_Max
-# networkmetrics <- networkmetrics[,-4]#remove plot column
-# res2<-rcorr(as.matrix(networkmetrics))
-# corrplot(res2$r, type="upper", order="hclust", 
-#          p.mat = res2$P, sig.level = 0.01, insig = "blank")
-# 
-# length(!is.na(networkmetrics$dTVUH))
-# 
+###### Correlation matrix between network indices and temperature
+database2 <- read.table("dades/Database3.txt",header=T)
+
+networkmetrics$T_Max <- database2$T_Max
+networkmetrics <- networkmetrics[,-4]#remove plot column
+res2<-rcorr(as.matrix(networkmetrics))
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.01, insig = "blank")
+
+length(!is.na(networkmetrics$dTVUH))
+
+networkmetrics$Plot <- c(1:40)
+
+datafunctionalitynetwork <- datafunction %>%
+  dplyr::left_join(., networkmetrics, by = c("Plot")) 
+
+ROF <- filter(datafunctionalitynetwork, Species =="ROF")
+TVUF <- filter(datafunctionalitynetwork, Species =="TVUF")
+TVUH <- filter(datafunctionalitynetwork, Species =="TVUH")
+
+
+ggplot(TVUH, aes(y=Mean_Homospecific, x=as.numeric(dTVUH))) + 
+  geom_point(alpha=0.3) + 
+  geom_smooth() +
+  theme_classic() 
+
+
+
 # 
 # ### Shannon diversity is highly correlated with everything. Remove
 # networkmetrics <- networkmetrics %>%

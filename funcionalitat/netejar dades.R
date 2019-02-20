@@ -4,7 +4,7 @@ library(tidyverse)
 library(DataCombine)
 library(vegan)
 
-############# POllen
+############# POllen #######################################################################################
 pollenraw<-read.table("dades/polen.txt",header=T)
 
 names(pollenraw) <- c("Plot","Species","Plant","Flower","TVU","ROF","OTHERS","Total")
@@ -102,9 +102,10 @@ names(seedsraw) <- c("Plot","Species","Plant","Flower","Avorted","Ovule","Seed",
 # 
 fruits <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>% 
   mutate(Pollinated = Avorted + Seed) %>% 
+  mutate(Proportion_avorted = Avorted / Pollinated) %>%
   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
   group_by(Plot, Species) %>% 
-  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Percent_pollination=(mean(Pollinated)/4*100))%>%
+  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Percent_pollination=(mean(Pollinated)/4*100),Proportion_avorted=mean(Proportion_avorted))%>%
   mutate(Fruit_set=(Fruits/Samples_seeds)) %>%
   select(., -c(Fruits)) 
 
