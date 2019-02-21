@@ -951,6 +951,249 @@ a <- specieslevel(w40, index="d", level="lower") %>%
 networkmetrics$dTVUH[40] <- a
 
 
+######## APIS
+a <- specieslevel(w1, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X1.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[1] <- a
+
+a <- specieslevel(w2, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X2.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[2] <- a
+
+a <- specieslevel(w3, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X3.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[3] <- a
+
+a <- specieslevel(w4, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X4.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[4] <- a
+
+a <- specieslevel(w5, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X5.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[5] <- a
+
+a <- specieslevel(w6, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X6.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[6] <- a
+
+a <- specieslevel(w7, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X7.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[7] <- a
+
+a <- specieslevel(w8, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X8.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[8] <- a
+
+a <- specieslevel(w9, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X9.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[9] <- a
+
+a <- specieslevel(w10, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X10.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[10] <- a
+
+a <- specieslevel(w11, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X11.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[11] <- a
+
+a <- specieslevel(w12, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X12.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[12] <- a
+
+a <- specieslevel(w13, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X13.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[13] <- a
+
+a <- specieslevel(w14, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X14.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[14] <- a
+
+a <- specieslevel(w15, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X15.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[15] <- a
+
+a <- specieslevel(w16, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X16.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[16] <- a
+
+a <- specieslevel(w17, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X17.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[17] <- a
+
+a <- specieslevel(w18, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X18.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[18] <- a
+
+a <- specieslevel(w19, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X19.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[19] <- a
+
+a <- specieslevel(w20, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X20.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[20] <- a
+
+a <- specieslevel(w21, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X21.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[21] <- a
+
+a <- specieslevel(w22, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X22.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[22] <- a
+
+a <- specieslevel(w23, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X23.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[23] <- a
+
+a <- specieslevel(w24, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X24.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[24] <- a
+
+a <- specieslevel(w25, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X25.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[25] <- a
+
+a <- specieslevel(w26, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X26.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[26] <- a
+
+a <- specieslevel(w27, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X27.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[27] <- a
+
+
+
+a <- specieslevel(w28, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X28.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[28] <- a
+
+a <- specieslevel(w29, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X29.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[29] <- a
+
+a <- specieslevel(w30, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X30.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[30] <- a
+
+a <- specieslevel(w31, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X31.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[31] <- a
+
+a <- specieslevel(w32, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X32.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[32] <- a
+
+a <- specieslevel(w33, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X33.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[33] <- a
+
+a <- specieslevel(w34, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X34.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[34] <- a
+
+a <- specieslevel(w35, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X35.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[35] <- a
+
+a <- specieslevel(w36, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X36.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[36] <- a
+
+a <- specieslevel(w37, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X37.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[37] <- a
+
+a <- specieslevel(w38, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X38.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[38] <- a
+
+a <- specieslevel(w39, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X39.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[39] <- a
+
+a <- specieslevel(w40, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "X40.Apis") %>%
+  select(.,d)
+networkmetrics$dApis[40] <- a
+
 networkmetrics$dROF[29] <- NA
 networkmetrics$dTVUH[25]<- NA
 networkmetrics$dTVUH[18]<- NA
@@ -958,4 +1201,4 @@ networkmetrics$dTVUH[23]<- NA
 networkmetrics$dTVUH[7]<- NA
 
 networkmetrics <- networkmetrics %>%
-  select(Nestedness,H2,Shannon_diversity,Plot,dROF,dTVUF,dTVUH)
+  select(Nestedness,H2,Shannon_diversity,Plot,dROF,dTVUF,dTVUH,dApis)
