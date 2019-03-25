@@ -38,7 +38,7 @@ pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
 # generate final pollen dataset
 pollen <- group_by(pollentotal, Plot, Species) %>% 
   summarise(Samples_pollen=n(),Flowers_with_pollen=mean(Pollen_presence),
-            Mean_pollen=mean(Total),SD_pollen=sd(Total),Mean_Homospecific=mean(Homospecific),
+            Mean_pollen=mean(Total),Mean_Homospecific=mean(Homospecific),
             SD_Homospecific=sd(Homospecific),Mean_Heterospecific=mean(Heterospecific),
             SD_Heterospecific=sd(Heterospecific))%>%
   complete(Species, Plot) %>%
@@ -102,17 +102,25 @@ names(seedsraw) <- c("Plot","Species","Plant","Flower","Avorted","Ovule","Seed",
 # 
 fruits <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>% 
   mutate(Pollinated = Avorted + Seed) %>% 
-  mutate(Proportion_avorted = Avorted / Pollinated) %>%
   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
   group_by(Plot, Species) %>% 
-  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Percent_pollination=(mean(Pollinated)/4*100),Proportion_avorted=mean(Proportion_avorted))%>%
+  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Pollinated_ovules=(mean(Pollinated)),Avorted=mean(Avorted))%>%
   mutate(Fruit_set=(Fruits/Samples_seeds)) %>%
-  select(., -c(Fruits)) 
+  select(., -c(Fruits))
+
+# ggplot(fruits) +
+#   geom_jitter(aes(Fruit_set,Pollinated_ovules, colour=Species)) +
+#   geom_smooth(aes(Fruit_set,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
+#   theme_classic() +
+#   labs(x="Fruit_set", y="Pollinated_ovules")+
+#   scale_colour_manual(values = c("red", "blue", "green3"))+
+#   xlim(0, 1)
+
 
 fruitandseedset <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>% 
   mutate(Pollinated = Avorted + Seed) %>% 
-  mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
-  filter(.,Fruits==1) %>%
+  mutate(Fruits_llavor = if_else(Seed > 0, 1,0)) %>%
+  filter(.,Fruits_llavor==1) %>%
   group_by(Plot, Species) %>% 
   summarise(Seed_set=mean(Seed))%>%
   left_join(fruits, by = c("Plot","Species"))
@@ -123,6 +131,15 @@ fruitandseedset <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total ==
 datafunctionality <- pollen %>%
   dplyr::left_join(., seedweightandviability, by = c("Species","Plot")) %>%
   dplyr::left_join(., fruitandseedset, by = c("Species","Plot")) 
+
+
+# ggplot(datafunctionality) +
+#   geom_jitter(aes(Fruits_pollinated,Seed_set, colour=Species)) +
+#   geom_smooth(aes(Fruits_pollinated,Seed_set, colour=Species), method=lm, se=FALSE) +
+#   theme_classic() +
+#   labs(x="Fruits_pollinated", y="Seed_set")+
+#   scale_colour_manual(values = c("red", "blue", "green3"))+
+#   xlim(0, 1)
 
 
 ############# join pollinator database

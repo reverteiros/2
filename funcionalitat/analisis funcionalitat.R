@@ -1,5 +1,5 @@
 
-source("funcionalitat/netejar dades2.R")
+source("funcionalitat/netejar dades.R")
 source("funcionalitat/index xarxes.R")
 
 library(ggplot2)
@@ -7,13 +7,29 @@ library(ggExtra)
 library(corrplot)
 library(Hmisc)
 
-
+database2 <- database2 %>%
+  mutate(Plot = PLOT) %>%
+  select(Plot,T_Max)
+  
 dataanalysis <- datafunction %>%
   left_join(dprime,by=c("Plot","Species")) %>%
   left_join(closenesss,by=c("Plot","Species"))%>%
   mutate(Proportion_Homospecific = Mean_Homospecific / Mean_pollen) %>%
   mutate(Proportion_Heterospecific = Mean_Heterospecific / Mean_pollen)%>%
-  left_join(networkmetrics, by="Plot") 
+  left_join(networkmetrics, by="Plot") %>%
+  left_join(database2, by="Plot") 
+
+
+### GLM
+ROF <- filter(dataanalysis, Species =="TVUF")
+lm1 <- lm(ROF$Pollinated_ovules ~ ROF$Mean_Homospecific)
+summary(lm1)
+plot(lm1)
+glm1 <- glm(ROF$Pollinated_ovules ~ ROF$Mean_Homospecific, family = quasi(link = "identity", variance = "constant"))
+summary(glm1)
+plot(glm1)
+hist(glm1$residuals)
+plot(ROF$Pollinated_ovules ~ ROF$Mean_Homospecific)
 
 
 #### ROF
@@ -22,7 +38,6 @@ ROF <- filter(dataanalysis, Species =="ROF")%>%
 
 ROF <- as.data.frame(ROF) %>%
   select(.,-Plot)
-ROF$T_Max <- database2$T_Max
 ROF <- ROF[-29,]
 
 # PCA
@@ -34,14 +49,21 @@ biplot(ROF.pca, scale = 0)
 res2<-rcorr(as.matrix(ROF))
 corrplot(res2$r, type="upper", order="hclust",
          p.mat = res2$P, sig.level = 0.05, insig = "blank")
+# Taula de correlacions amb grafics
+# install.packages("PerformanceAnalytics")
+library("PerformanceAnalytics")
+chart.Correlation(ROFfinal, histogram=TRUE, pch=19)
+
+
+
+
 
 
 #### TVUF
 TVUF <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,Seed_set,Pollinated_ovules,Avorted,Mean_weigth_viables,H2,Shannon_diversity,d,weighted.closeness)
+  select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,Seed_set,Mean_weigth_viables,H2,Shannon_diversity,d,weighted.closeness)
 TVUF <- as.data.frame(TVUF) %>%
   select(.,-Plot)
-TVUF$T_Max <- database2$T_Max
 
 # PCA
 TVUFfinal <- TVUF[complete.cases(TVUF), ]
@@ -52,6 +74,14 @@ biplot(TVUF.pca, scale = 0)
 res2<-rcorr(as.matrix(TVUF))
 corrplot(res2$r, type="upper", order="hclust",
          p.mat = res2$P, sig.level = 0.05, insig = "blank")
+# Taula de correlacions amb grafics
+# install.packages("PerformanceAnalytics")
+TVUFnetwork <- filter(dataanalysis, Species =="TVUF")%>%
+  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness)
+TVUFnetwork2 <- as.data.frame(TVUFnetwork)
+TVUFnetwork2 <- TVUFnetwork2[,-1]
+chart.Correlation(TVUFnetwork2, histogram=TRUE, pch=19)
+
 
 
 #### TVUH
@@ -59,7 +89,6 @@ TVUH <- filter(dataanalysis, Species =="TVUH") %>%
   select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,Seed_set,Pollinated_ovules,Avorted,Mean_weigth_viables,Seed_viability,H2,Shannon_diversity,d,weighted.closeness)
 TVUH <- as.data.frame(TVUH) %>%
   select(.,-Plot)
-TVUH$T_Max <- database2$T_Max
 
 # PCA
 TVUHfinal <- TVUH[complete.cases(TVUH),]
@@ -72,79 +101,180 @@ corrplot(res2$r, type="upper", order="hclust",
          p.mat = res2$P, sig.level = 0.07, insig = "blank")
 
 
+
+#################### TEMPERATURA I BITXOS
+ggplot(dataanalysis) +
+  geom_jitter(aes(T_Max,Wild_Visitation_rate, colour=Species)) + 
+  geom_smooth(aes(T_Max,Wild_Visitation_rate, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="T_Max", y="Wild_Visitation_rate")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(T_Max,HB_Visitation_rate, colour=Species)) + 
+  geom_smooth(aes(T_Max,HB_Visitation_rate, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="T_Max", y="HB_Visitation_rate")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+#################### RELACIONS ENTRE VARIABLES DESCRIPTORES
+ggplot(dataanalysis) +
+  geom_jitter(aes(Pollinator_richness,Diversity, colour=Species)) + 
+  geom_smooth(aes(Pollinator_richness,Diversity, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Pollinator_richness", y="Diversity")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(HB_Visitation_rate,Diversity, colour=Species)) + 
+  geom_smooth(aes(HB_Visitation_rate,Diversity, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="HB_Visitation_rate", y="Diversity")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Wild_Visitation_rate,Diversity, colour=Species)) + 
+  geom_smooth(aes(Wild_Visitation_rate,Diversity, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Wild_Visitation_rate", y="Diversity")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(d,H2, colour=Species)) + 
+  geom_smooth(aes(d,H2, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="d'", y="H2")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Avorted,Seed_set, colour=Species)) + 
+  geom_smooth(aes(Avorted,Seed_set, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Avorted", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Pollinated_ovules,Seed_set, colour=Species)) + 
+  geom_smooth(aes(Pollinated_ovules,Seed_set, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Pollinated_ovules", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Avorted,Fruit_set, colour=Species)) + 
+  geom_smooth(aes(Avorted,Fruit_set, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Avorted", y="Fruit_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Pollinated_ovules,Fruit_set, colour=Species)) + 
+  geom_smooth(aes(Pollinated_ovules,Fruit_set, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Pollinated_ovules", y="Fruit_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Pollinated_ovules,Avorted, colour=Species)) + 
+  geom_smooth(aes(Pollinated_ovules,Avorted, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Pollinated_ovules", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  ylim(0, 2.5)
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Mean_Homospecific,Mean_Heterospecific, colour=Species)) + 
+  geom_smooth(aes(Mean_Homospecific,Mean_Heterospecific, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Mean_Homospecific", y="Mean_Heterospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
 #################### COMMUNITY DESCRIPTORS AND HOMOSPECIFIC
 ggplot(dataanalysis) +
   geom_jitter(aes(Wild_Visitation_rate,Mean_Homospecific, colour=Species)) + 
   geom_smooth(aes(Wild_Visitation_rate,Mean_Homospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Wild_Visitation_rate", y="Mean_Homospecific")
+  labs(x="Wild_Visitation_rate", y="Mean_Homospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Diversity,Mean_Homospecific, colour=Species)) + 
   geom_smooth(aes(Diversity,Mean_Homospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Diversity", y="Mean_Homospecific")
+  labs(x="Diversity", y="Mean_Homospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Pollinator_richness,Mean_Homospecific, colour=Species)) + 
   geom_smooth(aes(Pollinator_richness,Mean_Homospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Pollinator_richness", y="Mean_Homospecific")
+  labs(x="Pollinator_richness", y="Mean_Homospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(HB_Visitation_rate,Mean_Homospecific, colour=Species)) + 
   geom_smooth(aes(HB_Visitation_rate,Mean_Homospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="HB_Visitation_rate", y="Mean_Homospecific")
+  labs(x="HB_Visitation_rate", y="Mean_Homospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  xlim(0, 8)
 
 ggplot(dataanalysis) +
   geom_jitter(aes(d,Mean_Homospecific, colour=Species)) + 
   geom_smooth(aes(d,Mean_Homospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="d'", y="Mean_Homospecific")
+  labs(x="d'", y="Mean_Homospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(H2,Mean_Homospecific, colour=Species)) + 
   geom_smooth(aes(H2,Mean_Homospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="H2", y="Mean_Homospecific")
+  labs(x="H2", y="Mean_Homospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 #################### NETWORK SPECIALIZATION AND HETEROSPECIFIC
 ggplot(dataanalysis) +
   geom_jitter(aes(weighted.closeness,Mean_Heterospecific, colour=Species)) + 
   geom_smooth(aes(weighted.closeness,Mean_Heterospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="weighted.closeness", y="Mean_Heterospecific")
+  labs(x="weighted.closeness", y="Mean_Heterospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(H2,Mean_Heterospecific, colour=Species)) + 
   geom_smooth(aes(H2,Mean_Heterospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="H2", y="Mean_Heterospecific")
+  labs(x="H2", y="Mean_Heterospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(d,Mean_Heterospecific, colour=Species)) + 
   geom_smooth(aes(d,Mean_Heterospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="d'", y="Mean_Heterospecific")
+  labs(x="d'", y="Mean_Heterospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Shannon_diversity,Mean_Heterospecific, colour=Species)) + 
   geom_smooth(aes(Shannon_diversity,Mean_Heterospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Shannon_diversity", y="Mean_Heterospecific")
+  labs(x="Shannon_diversity", y="Mean_Heterospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Diversity,Mean_Heterospecific, colour=Species)) + 
   geom_smooth(aes(Diversity,Mean_Heterospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Diversity", y="Mean_Heterospecific")
+  labs(x="Diversity", y="Mean_Heterospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Pollinator_richness,Mean_Heterospecific, colour=Species)) + 
   geom_smooth(aes(Pollinator_richness,Mean_Heterospecific, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Pollinator_richness", y="Mean_Heterospecific")
+  labs(x="Pollinator_richness", y="Mean_Heterospecific")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 
 ################### HOMOSPECIFIC AND POLLINATION SUCCESS
@@ -152,149 +282,179 @@ ggplot(dataanalysis) +
   geom_jitter(aes(Mean_Homospecific,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(Mean_Homospecific,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Mean_Homospecific", y="Pollinated_ovules")
+  labs(x="Mean_Homospecific", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Mean_Homospecific,Avorted, colour=Species)) + 
   geom_smooth(aes(Mean_Homospecific,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Mean_Homospecific", y="Avorted")
+  labs(x="Mean_Homospecific", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Mean_Homospecific,Seed_set, colour=Species)) + 
   geom_smooth(aes(Mean_Homospecific,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Mean_Homospecific", y="Seed_set")
+  labs(x="Mean_Homospecific", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ################### HETEROSPECIFIC AND POLLINATION SUCCESS
 ggplot(dataanalysis) +
   geom_jitter(aes(Mean_Heterospecific,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(Mean_Heterospecific,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Mean_Heterospecific", y="Pollinated_ovules")
+  labs(x="Mean_Heterospecific", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Mean_Heterospecific,Avorted, colour=Species)) + 
   geom_smooth(aes(Mean_Heterospecific,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Mean_Heterospecific", y="Avorted")
+  labs(x="Mean_Heterospecific", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Mean_Heterospecific,Seed_set, colour=Species)) + 
   geom_smooth(aes(Mean_Heterospecific,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Mean_Heterospecific", y="Seed_set")
+  labs(x="Mean_Heterospecific", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ################## HONEYBEES AND POLLINATIOON SUCCESS
 ggplot(dataanalysis) +
   geom_jitter(aes(HB_Visitation_rate,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(HB_Visitation_rate,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="HB_Visitation_rate", y="Pollinated_ovules")
+  labs(x="HB_Visitation_rate", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  xlim(0, 8)
 
 ggplot(dataanalysis) +
   geom_jitter(aes(HB_Visitation_rate,Avorted, colour=Species)) + 
   geom_smooth(aes(HB_Visitation_rate,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="HB_Visitation_rate", y="Avorted")
+  labs(x="HB_Visitation_rate", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  xlim(0, 8)
 
 ggplot(dataanalysis) +
   geom_jitter(aes(HB_Visitation_rate,Seed_set, colour=Species)) + 
   geom_smooth(aes(HB_Visitation_rate,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="HB_Visitation_rate", y="Seed_set")
+  labs(x="HB_Visitation_rate", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  xlim(0, 8)
 
 ################### WILD POLLINATORS AND POLLINATION SUCCESS
 ggplot(dataanalysis) +
   geom_jitter(aes(Wild_Visitation_rate,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(Wild_Visitation_rate,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Wild_Visitation_rate", y="Pollinated_ovules")
+  labs(x="Wild_Visitation_rate", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Wild_Visitation_rate,Avorted, colour=Species)) + 
   geom_smooth(aes(Wild_Visitation_rate,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Wild_Visitation_rate", y="Avorted")
+  labs(x="Wild_Visitation_rate", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Wild_Visitation_rate,Seed_set, colour=Species)) + 
   geom_smooth(aes(Wild_Visitation_rate,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Wild_Visitation_rate", y="Seed_set")
+  labs(x="Wild_Visitation_rate", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 #################### NETWORK METRICS AND POLLLINATION SUCCESS
 ggplot(dataanalysis) +
   geom_jitter(aes(H2,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(H2,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="H2", y="Pollinated_ovules")
+  labs(x="H2", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(H2,Avorted, colour=Species)) + 
   geom_smooth(aes(H2,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="H2", y="Avorted")
+  labs(x="H2", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(H2,Seed_set, colour=Species)) + 
   geom_smooth(aes(H2,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="H2", y="Seed_set")
+  labs(x="H2", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(weighted.closeness,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(weighted.closeness,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="weighted.closeness", y="Pollinated_ovules")
+  labs(x="weighted.closeness", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  xlim(0, 1.5)
 
 ggplot(dataanalysis) +
   geom_jitter(aes(weighted.closeness,Avorted, colour=Species)) + 
   geom_smooth(aes(weighted.closeness,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="weighted.closeness", y="Avorted")
+  labs(x="weighted.closeness", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  xlim(0, 1.5)
 
 ggplot(dataanalysis) +
   geom_jitter(aes(weighted.closeness,Seed_set, colour=Species)) + 
   geom_smooth(aes(weighted.closeness,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="weighted.closeness", y="Seed_set")
+  labs(x="weighted.closeness", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))+
+  xlim(0, 1.5)
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Shannon_diversity,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(Shannon_diversity,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Shannon_diversity", y="Pollinated_ovules")
+  labs(x="Shannon_diversity", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Shannon_diversity,Avorted, colour=Species)) + 
   geom_smooth(aes(Shannon_diversity,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Shannon_diversity", y="Avorted")
+  labs(x="Shannon_diversity", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(Shannon_diversity,Seed_set, colour=Species)) + 
   geom_smooth(aes(Shannon_diversity,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="Shannon_diversity", y="Seed_set")
+  labs(x="Shannon_diversity", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(d,Pollinated_ovules, colour=Species)) + 
   geom_smooth(aes(d,Pollinated_ovules, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="d'", y="Pollinated_ovules")
+  labs(x="d'", y="Pollinated_ovules")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(d,Avorted, colour=Species)) + 
   geom_smooth(aes(d,Avorted, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="d'", y="Avorted")
+  labs(x="d'", y="Avorted")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
   geom_jitter(aes(d,Seed_set, colour=Species)) + 
   geom_smooth(aes(d,Seed_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="d'", y="Seed_set")
+  labs(x="d'", y="Seed_set")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
 
 
 
