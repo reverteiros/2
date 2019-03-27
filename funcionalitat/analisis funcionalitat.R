@@ -8,17 +8,24 @@ library(corrplot)
 library(Hmisc)
 library("PerformanceAnalytics")
 
-database2 <- database2 %>%
-  mutate(Plot = PLOT) %>%
-  select(Plot,T_Max)
-  
-dataanalysis <- datafunction %>%
-  left_join(dprime,by=c("Plot","Species")) %>%
-  left_join(closenesss,by=c("Plot","Species"))%>%
-  mutate(Proportion_Homospecific = Mean_Homospecific / Mean_pollen) %>%
-  mutate(Proportion_Heterospecific = Mean_Heterospecific / Mean_pollen)%>%
-  left_join(networkmetrics, by="Plot") %>%
-  left_join(database2, by="Plot") 
+
+ggplot(dataanalysis, aes(y=Heterospecific_only, x=Species)) +
+  geom_boxplot() +
+  theme_classic()
+
+ggplot(dataanalysis) +
+  geom_jitter(aes(Flowers_with_Heterospecific,Heterospecific_only, colour=Species)) +
+  geom_smooth(aes(Flowers_with_Heterospecific,Heterospecific_only, colour=Species), method=lm, se=FALSE) +
+  theme_classic() +
+  labs(x="Flowers_with_Heterospecific", y="Heterospecific_only")+
+  scale_colour_manual(values = c("red", "blue", "green3"))
+
+
+ROFnetwork <- filter(dataanalysis, Species =="TVUH")%>%
+  select(Flowers_with_Heterospecific,Heterospecific_only,Mean_Heterospecific)
+ROFnetwork <- as.data.frame(ROFnetwork)
+ROFnetwork <- ROFnetwork[,-1]
+chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
 
 
 ### GLM
@@ -52,7 +59,7 @@ corrplot(res2$r, type="upper", order="hclust",
          p.mat = res2$P, sig.level = 0.05, insig = "blank")
 
 ROFnetwork <- filter(dataanalysis, Species =="ROF")%>%
-  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness)
+  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Proportion_HB,Mean_Homospecific,Mean_Heterospecific)
 ROFnetwork <- as.data.frame(ROFnetwork)
 ROFnetwork <- ROFnetwork[,-1]
 chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
@@ -84,13 +91,13 @@ TVUFnetwork2 <- TVUFnetwork2[,-1]
 chart.Correlation(TVUFnetwork2, histogram=TRUE, pch=19)
 
 TVUFfunction <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted,Mean_weigth_viables)
+  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability)
 TVUFfunction2 <- as.data.frame(TVUFfunction)
 TVUFfunction2 <- TVUFfunction2[,-1]
 chart.Correlation(TVUFfunction2, histogram=TRUE, pch=19)
 
 TVUFeffects <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted,weighted.closeness,Shannon_diversity)
+  select(Pollinator_richness,Wild_Visitation_rate,HB_Visitation_rate,H2,d,weighted.closeness,Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables)
 TVUFeffects <- as.data.frame(TVUFeffects)
 TVUFeffects <- TVUFeffects[,-1]
 chart.Correlation(TVUFeffects, histogram=TRUE, pch=19)
@@ -120,13 +127,13 @@ TVUHnetwork <- TVUHnetwork[,-1]
 chart.Correlation(TVUHnetwork, histogram=TRUE, pch=19)
 
 TVUHfunction <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted,Mean_weigth_viables)
+  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability)
 TVUHfunction <- as.data.frame(TVUHfunction)
 TVUHfunction <- TVUHfunction[,-1]
 chart.Correlation(TVUHfunction, histogram=TRUE, pch=19)
 
 TVUHeffects <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted,Pollinator_richness,Diversity)
+  select(Pollinator_richness,Wild_Visitation_rate,HB_Visitation_rate,H2,d,weighted.closeness,Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables)
 TVUHeffects <- as.data.frame(TVUHeffects)
 TVUHeffects <- TVUHeffects[,-1]
 chart.Correlation(TVUHeffects, histogram=TRUE, pch=19)
@@ -487,11 +494,6 @@ ggplot(dataanalysis) +
 #   scale_colour_manual(values = c("red", "blue", "green3"))
 
 
-
-ggplot(datafunction, aes(y=Avorted, x=Species)) + 
-  geom_boxplot() + 
-  theme_classic() +
-  ylim(0,4)
 
 ggplot(TVUF, aes(y=Diversity, x=Pollinator_richness)) + 
   geom_point() + 

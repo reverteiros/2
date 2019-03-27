@@ -21,28 +21,42 @@ pollenwtNA <- droplevels(dplyr::filter(pollenraw, !is.na(TVU) & !is.na(ROF)& !is
 ROFpollen <- filter(pollenwtNA, Species == "ROF") %>%
   mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
   mutate(Homospecific = ROF) %>%
-  mutate(Heterospecific = TVU+OTHERS)
+  mutate(Heterospecific = TVU+OTHERS)%>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) %>%
+  mutate(Homospecific_presence=if_else(Homospecific>0,1,0))  
 
 TVUFpollen <- filter(pollenwtNA, Species == "TVUF") %>%
   mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
   mutate(Homospecific = TVU) %>%
-  mutate(Heterospecific = ROF+OTHERS)
+  mutate(Heterospecific = ROF+OTHERS)%>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) %>%
+  mutate(Homospecific_presence=if_else(Homospecific>0,1,0))  
   
 TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
   mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
   mutate(Homospecific = TVU) %>%
-  mutate(Heterospecific = ROF+OTHERS)
+  mutate(Heterospecific = ROF+OTHERS) %>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) %>%
+  mutate(Homospecific_presence=if_else(Homospecific>0,1,0))  
 
 pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
+
+heterospecific <- pollentotal %>% 
+  filter(.,Heterospecific_presence==1) %>%
+  group_by(Plot, Species) %>% 
+  summarise(Heterospecific_only=mean(Heterospecific))
 
 # generate final pollen dataset
 pollen <- group_by(pollentotal, Plot, Species) %>% 
   summarise(Samples_pollen=n(),Flowers_with_pollen=mean(Pollen_presence),
+            Flowers_with_Homospecific=mean(Homospecific_presence),
+            Flowers_with_Heterospecific=mean(Heterospecific_presence),
             Mean_pollen=mean(Total),Mean_Homospecific=mean(Homospecific),
             SD_Homospecific=sd(Homospecific),Mean_Heterospecific=mean(Heterospecific),
             SD_Heterospecific=sd(Heterospecific))%>%
   complete(Species, Plot) %>%
-  distinct() 
+  distinct() %>%
+  left_join(heterospecific)
   
 
 ############## Seed viability and weight
@@ -104,7 +118,7 @@ fruits <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>%
   mutate(Pollinated = Avorted + Seed) %>% 
   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
   group_by(Plot, Species) %>% 
-  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Pollinated_ovules=(mean(Pollinated)),Avorted=mean(Avorted))%>%
+  summarise(Samples_seeds=n(),Fruits=sum(Fruits),Pollinated_ovules=(mean(Pollinated)),Avorted_total=mean(Avorted))%>%
   mutate(Fruit_set=(Fruits/Samples_seeds)) %>%
   select(., -c(Fruits))
 
@@ -122,7 +136,7 @@ fruitandseedset <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total ==
   mutate(Fruits_llavor = if_else(Seed > 0, 1,0)) %>%
   filter(.,Fruits_llavor==1) %>%
   group_by(Plot, Species) %>% 
-  summarise(Seed_set=mean(Seed))%>%
+  summarise(Seed_set=mean(Seed),Avorted_fruits=mean(Avorted))%>%
   left_join(fruits, by = c("Plot","Species"))
 
 
@@ -242,7 +256,21 @@ Apis2[is.na(Apis2)] <- 0
 datafunction <- left_join(datafunctionality3, Apis2, by = c("Plot","Species","Flower_Abundance")) %>%
   mutate(Wild_abundance = Pollinator_abundance - HB_abundance) %>%
   mutate(HB_Visitation_rate = HB_abundance/Flower_Abundance*1000) %>%
-  mutate(Wild_Visitation_rate = Wild_abundance/Flower_Abundance*1000)
+  mutate(Wild_Visitation_rate = Wild_abundance/Flower_Abundance*1000) %>%
+  mutate(Proportion_Wild = Wild_Visitation_rate/Visitation_rate) %>%
+  mutate(Proportion_HB = HB_Visitation_rate/Visitation_rate)
+
+database2 <- database2 %>%
+  mutate(Plot = PLOT) %>%
+  select(Plot,T_Max)
+
+dataanalysis <- datafunction %>%
+  left_join(dprime,by=c("Plot","Species")) %>%
+  left_join(closenesss,by=c("Plot","Species"))%>%
+  mutate(Proportion_Homospecific = Mean_Homospecific / Mean_pollen) %>%
+  mutate(Proportion_Heterospecific = Mean_Heterospecific / Mean_pollen)%>%
+  left_join(networkmetrics, by="Plot") %>%
+  left_join(database2, by="Plot") 
 
 
 # ### Anàlisis a nivell de planta
