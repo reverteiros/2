@@ -3,6 +3,7 @@ require(devtools)
 library(tidyverse)
 library(DataCombine)
 library(vegan)
+source("funcionalitat/index xarxes.R")
 
 ############# POllen #######################################################################################
 pollenraw<-read.table("dades/polen.txt",header=T)
@@ -171,16 +172,22 @@ generalpollinators <- censos %>%
 
 
 # flower abundance per plot
-flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T)
+flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
+  mutate(Overall_flowers = rowSums(.)) %>%
+  mutate(TVU = flors$TVUH + flors$TVUF) %>%
+  mutate(proporcioF = TVUF/TVU) %>%
+  mutate(ROFrelatiu = ROF/Overall_flowers)%>%
+  mutate(TVUFrelatiu = TVUF/Overall_flowers)%>%
+  mutate(TVUHrelatiu = TVUH/Overall_flowers)
 
-flors$TVU <- flors$TVUH + flors$TVUF
-flors$proporcioF <- flors$TVUF*100/flors$TVU
+flowerproportion <- select(flors, ROFrelatiu, TVUFrelatiu, TVUHrelatiu)%>%
+  tidyr::gather(Species, "Flower_relative_abundance",1:3) 
 
-hist(flors$proporcioF )
-flowerabundance <- select(flors, TVUF, ROF, TVUH)%>%
+flowerabundance <- select(flors, ROF, TVUF, TVUH)%>%
   tidyr::gather(Species, "Flower_Abundance",1:3) 
 
 flowerabundance$Plot = c(1:40)
+flowerabundance$Flower_relative_abundance = flowerproportion$Flower_relative_abundance
 
 # Pollinators 
 pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
@@ -253,7 +260,7 @@ Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | S
   left_join(flowerabundance, by = c("Plot","Species")) 
 Apis2[is.na(Apis2)] <- 0
 
-datafunction <- left_join(datafunctionality3, Apis2, by = c("Plot","Species","Flower_Abundance")) %>%
+datafunction <- left_join(datafunctionality3, Apis2, by = c("Plot","Species","Flower_Abundance","Flower_relative_abundance")) %>%
   mutate(Wild_abundance = Pollinator_abundance - HB_abundance) %>%
   mutate(HB_Visitation_rate = HB_abundance/Flower_Abundance*1000) %>%
   mutate(Wild_Visitation_rate = Wild_abundance/Flower_Abundance*1000) %>%
