@@ -163,6 +163,14 @@ database2 <- read.table("dades/Database3.txt",header=T)
 
 censos <- read.table("dades/censos.txt",header=T)
 
+grupsfuncionals <- read.table("dades/grups funcionals per planta.txt",header=T) %>%
+  filter(.,Group!="Heteroptera"&Group!="Mecoptera") %>%
+  group_by(Plot,Species) %>% 
+  summarise(Functional_groups=n_distinct(Group)) %>%
+  complete(Species, Plot) %>%
+  distinct() 
+
+
 names(censos) <- c("Plot","Pollinator","Species","Abundance")
 
 # general abundance and richness in the plot
@@ -196,7 +204,8 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
   complete(Species, Plot) %>%
   distinct() %>%
   left_join(flowerabundance, by = c("Plot","Species")) %>%
-  mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)
+  mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)%>%
+  left_join(grupsfuncionals,by=c("Plot","Species"))
 
 
 ## diversitat ROF
@@ -278,6 +287,10 @@ dataanalysis <- datafunction %>%
   mutate(Proportion_Heterospecific = Mean_Heterospecific / Mean_pollen)%>%
   left_join(networkmetrics, by="Plot") %>%
   left_join(database2, by="Plot") 
+
+
+
+
 
 
 # ### Anàlisis a nivell de planta

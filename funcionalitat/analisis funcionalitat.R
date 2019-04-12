@@ -13,11 +13,11 @@ library("PerformanceAnalytics")
 dataclean <- select(dataanalysis, Species, Plot, Flowers_with_pollen, Mean_Homospecific, Mean_Heterospecific, 
                     Mean_weigth_viables, Seed_set, Avorted_fruits, Avorted_total, Fruit_set,
                     Pollinator_richness, Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, 
-                    Shannon_diversity, d, weighted.closeness, Proportion_HB,
+                    Shannon_diversity, d, weighted.closeness, Proportion_HB,Functional_groups,
                     Flower_relative_abundance ) 
 
 ## boxplots
-ggplot(dataanalysis, aes(y=Heterospecific_only, x=Species)) +
+ggplot(dataanalysis, aes(y=Functional_groups, x=Species)) +
   geom_boxplot() +
   theme_classic()
 
@@ -70,7 +70,7 @@ plot(ROF$Pollinated_ovules ~ ROF$Mean_Homospecific)
 
 ------------------------------------------------------------------------------------------------
 
-#### ROF
+####################      ROF      #############################
 ROF <- filter(dataanalysis, Species =="ROF")%>%
   select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,HB_Visitation_rate,Wild_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness) 
 
@@ -89,15 +89,20 @@ corrplot(res2$r, type="upper", order="hclust",
          p.mat = res2$P, sig.level = 0.05, insig = "blank")
 
 ROFnetwork <- filter(dataanalysis, Species =="ROF")%>%
-  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Proportion_HB,Mean_Homospecific,Mean_Heterospecific,Flower_relative_abundance)
+  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Proportion_HB,Functional_groups,Mean_Homospecific,Mean_Heterospecific,Flower_relative_abundance)
+ROFnetwork <- as.data.frame(ROFnetwork)
+ROFnetwork <- ROFnetwork[,-1]
+chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
+
+ROFnetwork <- filter(dataanalysis, Species =="ROF")%>%
+  select(Pollinator_richness,Functional_groups,Mean_Homospecific,Mean_Heterospecific,Flower_relative_abundance)
 ROFnetwork <- as.data.frame(ROFnetwork)
 ROFnetwork <- ROFnetwork[,-1]
 chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
 
 
 
-
-#### TVUF
+#########################     TVUF     #############################
 TVUF <- filter(dataanalysis, Species =="TVUF")%>%
   select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,Seed_set,Fruit_set,Avorted,Flowers_with_pollen,Pollinated_ovules,Mean_weigth_viables,H2,Shannon_diversity,d,weighted.closeness)
 TVUF <- as.data.frame(TVUF) %>%
@@ -115,7 +120,7 @@ corrplot(res2$r, type="upper", order="hclust",
 # Taula de correlacions amb grafics
 # install.packages("PerformanceAnalytics")
 TVUFnetwork <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Flower_relative_abundance)
+  select(Pollinator_richness,Functional_groups,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Flower_relative_abundance)
 TVUFnetwork2 <- as.data.frame(TVUFnetwork)
 TVUFnetwork2 <- TVUFnetwork2[,-1]
 TVUFnetwork2$proporcioF <- flors$proporcioF
@@ -135,7 +140,7 @@ TVUFeffects <- TVUFeffects[,-1]
 chart.Correlation(TVUFeffects, histogram=TRUE, pch=19)
 
 
-#### TVUH
+#######################     TVUH      ##########################
 TVUH <- filter(dataanalysis, Species =="TVUH") %>%
   select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,Seed_set,Fruit_set,Pollinated_ovules,Avorted,Mean_weigth_viables,Seed_viability,H2,Shannon_diversity,d,weighted.closeness)
 TVUH <- as.data.frame(TVUH) %>%
@@ -152,7 +157,7 @@ corrplot(res2$r, type="upper", order="hclust",
          p.mat = res2$P, sig.level = 0.07, insig = "blank")
 # Taula de correlacions amb grafics
 TVUHnetwork <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Flower_relative_abundance)
+  select(Pollinator_richness,Functional_groups,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Flower_relative_abundance)
 TVUHnetwork <- as.data.frame(TVUHnetwork)
 TVUHnetwork <- TVUHnetwork[,-1]
 TVUHnetwork$proporcioF <- flors$proporcioF
