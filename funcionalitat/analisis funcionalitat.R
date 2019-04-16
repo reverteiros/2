@@ -14,7 +14,7 @@ dataclean <- select(dataanalysis, Species, Plot, Flowers_with_pollen, Mean_Homos
                     Mean_weigth_viables, Seed_set, Avorted_fruits, Avorted_total, Fruit_set,
                     Pollinator_richness, Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, 
                     Shannon_diversity, d, weighted.closeness, Proportion_HB,Functional_groups,
-                    Flower_relative_abundance ) 
+                    Flower_relative_abundance, d_apis ) 
 
 ## boxplots
 ggplot(dataanalysis, aes(y=Functional_groups, x=Species)) +
@@ -30,10 +30,10 @@ ggplot(dataanalysis) +
   scale_colour_manual(values = c("red", "blue", "green3"))
 
 ggplot(dataanalysis) +
-  geom_point(aes(T_Max,HB_Visitation_rate, colour=Species)) + 
-  geom_smooth(aes(T_Max,HB_Visitation_rate, colour=Species), method=lm, se=FALSE) +
+  geom_point(aes(d_apis,Fruit_set, colour=Species)) + 
+  geom_smooth(aes(d_apis,Fruit_set, colour=Species), method=lm, se=FALSE) +
   theme_classic() +
-  labs(x="T_Max", y="HB_Visitation_rate")+
+  labs(x="d_apis", y="Fruit_set")+
   scale_colour_manual(values = c("red", "blue", "green3"))
 
 ## grafic proporcio apis i wild
@@ -89,7 +89,7 @@ corrplot(res2$r, type="upper", order="hclust",
          p.mat = res2$P, sig.level = 0.05, insig = "blank")
 
 ROFnetwork <- filter(dataanalysis, Species =="ROF")%>%
-  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Proportion_HB,Functional_groups,Mean_Homospecific,Mean_Heterospecific,Flower_relative_abundance)
+  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Proportion_HB,Functional_groups,Mean_Homospecific,Mean_Heterospecific,Flower_relative_abundance,d_apis)
 ROFnetwork <- as.data.frame(ROFnetwork)
 ROFnetwork <- ROFnetwork[,-1]
 chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
@@ -127,7 +127,7 @@ TVUFnetwork2$proporcioF <- flors$proporcioF
 chart.Correlation(TVUFnetwork2, histogram=TRUE, pch=19)
 
 TVUFfunction <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability,Flower_relative_abundance)
+  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability,Flower_relative_abundance,d_apis)
 TVUFfunction2 <- as.data.frame(TVUFfunction)
 TVUFfunction2 <- TVUFfunction2[,-1]
 TVUFfunction2$proporcioF <- flors$proporcioF
@@ -164,7 +164,7 @@ TVUHnetwork$proporcioF <- flors$proporcioF
 chart.Correlation(TVUHnetwork, histogram=TRUE, pch=19)
 
 TVUHfunction <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability,Flower_relative_abundance)
+  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability,Flower_relative_abundance,d_apis)
 TVUHfunction <- as.data.frame(TVUHfunction)
 TVUHfunction <- TVUHfunction[,-1]
 TVUHfunction$proporcioF <- flors$proporcioF

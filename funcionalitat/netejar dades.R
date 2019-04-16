@@ -3,7 +3,7 @@ require(devtools)
 library(tidyverse)
 library(DataCombine)
 library(vegan)
-source("funcionalitat/index xarxes.R")
+source("funcionalitat/index xarxes 2.R")
 
 ############# POllen #######################################################################################
 pollenraw<-read.table("dades/polen.txt",header=T)
@@ -182,7 +182,7 @@ generalpollinators <- censos %>%
 # flower abundance per plot
 flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
   mutate(Overall_flowers = rowSums(.)) %>%
-  mutate(TVU = flors$TVUH + flors$TVUF) %>%
+  mutate(TVU = TVUH + TVUF) %>%
   mutate(proporcioF = TVUF/TVU) %>%
   mutate(ROFrelatiu = ROF/Overall_flowers)%>%
   mutate(TVUFrelatiu = TVUF/Overall_flowers)%>%
@@ -286,7 +286,8 @@ dataanalysis <- datafunction %>%
   mutate(Proportion_Homospecific = Mean_Homospecific / Mean_pollen) %>%
   mutate(Proportion_Heterospecific = Mean_Heterospecific / Mean_pollen)%>%
   left_join(networkmetrics, by="Plot") %>%
-  left_join(database2, by="Plot") 
+  left_join(database2, by="Plot") %>%
+  left_join(apis, by="Plot")
 
 
 

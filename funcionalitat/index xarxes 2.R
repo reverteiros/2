@@ -1162,6 +1162,213 @@ closenesss <- bind_rows(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a
 
 
 
+####### apis d'
+
+a1 <- specieslevel(w1, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 1)
+
+a2 <- specieslevel(w2, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 2)
+
+a3 <- specieslevel(w3, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 3)
+
+a4 <- specieslevel(w4, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 4)
+
+a5 <- specieslevel(w5, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 5)
+
+a6 <- specieslevel(w6, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 6)
+
+a7 <- specieslevel(w7, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 7)
+
+a8 <- specieslevel(w8, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 8)
+
+a9 <- specieslevel(w9, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 9)
+
+a10 <- specieslevel(w10, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 10)
+
+a11 <- specieslevel(w11, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 11)
+
+a12 <- specieslevel(w12, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 12)
+
+a13 <- specieslevel(w13, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 13)
+
+a14 <- specieslevel(w14, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 14)
+
+a15 <- specieslevel(w15, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 15)
+
+a16 <- specieslevel(w16, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 16)
+
+a17 <- specieslevel(w17, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 17)
+
+a18 <- specieslevel(w18, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 18)
+
+a19 <- specieslevel(w19, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 19)
+
+a20 <- specieslevel(w20, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 20)
+
+a21 <- specieslevel(w21, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 21)
+
+a22 <- specieslevel(w22, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 22)
+
+a23 <- specieslevel(w23, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 23)
+
+a24 <- specieslevel(w24, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 24)
+
+a25 <- specieslevel(w25, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 25)
+
+a26 <- specieslevel(w26, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 26)
+
+a27 <- specieslevel(w27, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 27)
+
+a28 <- specieslevel(w28, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 28)
+
+a29 <- specieslevel(w29, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 29)
+
+a30 <- specieslevel(w30, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 30)
+
+a31 <- specieslevel(w31, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 31)
+
+a32 <- specieslevel(w32, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 32)
+
+a33 <- specieslevel(w33, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 33)
+
+a34 <- specieslevel(w34, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 34)
+
+a35 <- specieslevel(w35, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 35)
+
+a36 <- specieslevel(w36, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 36)
+
+a37 <- specieslevel(w37, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 37)
+
+a38 <- specieslevel(w38, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 38)
+
+a39 <- specieslevel(w39, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 39)
+
+a40 <- specieslevel(w40, index="d", level="higher") %>%
+  mutate(Species = rownames(.)) %>%
+  filter(., Species == "Apis")%>%
+  mutate(Plot = 40)
+
+apis <- bind_rows(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40) %>%
+  select(d,Plot)
+
+names(apis) <- c("d_apis","Plot") 
+
 
 
 
