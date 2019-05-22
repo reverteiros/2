@@ -3,7 +3,7 @@ require(devtools)
 library(tidyverse)
 library(DataCombine)
 library(vegan)
-source("funcionalitat/index xarxes 2.R")
+source("funcionalitat/index xarxes.R")
 
 ############# POllen #######################################################################################
 pollenraw<-read.table("dades/polen.txt",header=T)
@@ -54,11 +54,14 @@ pollen <- group_by(pollentotal, Plot, Species) %>%
             Flowers_with_Heterospecific=mean(Heterospecific_presence),
             Mean_pollen=mean(Total),Mean_Homospecific=mean(Homospecific),
             SD_Homospecific=sd(Homospecific),Mean_Heterospecific=mean(Heterospecific),
-            SD_Heterospecific=sd(Heterospecific))%>%
+            SD_Heterospecific=sd(Heterospecific),
+            Ratio_Heterosp_Homosp=(Mean_Heterospecific/Mean_Homospecific),
+            Proporcio_Heterosp=(Mean_Heterospecific/Mean_pollen),
+            Proporcio_Homosp=(Mean_Homospecific/Mean_pollen))%>%
   complete(Species, Plot) %>%
   distinct() %>%
   left_join(heterospecific)
-  
+
 
 ############## Seed viability and weight
 
@@ -80,7 +83,7 @@ seedweight <- seedweightraw %>%
 seedweightviables <- seedweightraw %>%
   filter(Embryo == "viable") %>%
   group_by(Species,Plot) %>% 
-  summarise(Mean_weigth_viables=mean(Weight),SD_weight_viables=sd(Weight)) %>%
+  summarise(Mean_weight_viables=mean(Weight),SD_weight_viables=sd(Weight)) %>%
   complete(Species, Plot) %>%
   distinct() %>%
   dplyr::left_join(., seedweight, by = c("Species","Plot"))
@@ -217,7 +220,7 @@ diversitatROF[is.na(diversitatROF)] <- 0
 diversitatROF <- diversitatROF[,-(1:2)]
 diversitatROF <- diversity(diversitatROF, "shannon")
 diversitatROF <- as.data.frame(diversitatROF)
-names(diversitatROF) <- "Diversity"
+names(diversitatROF) <- "Shannon_Diversity"
 diversitatROF$Plot <- c(1:40)
 diversitatROF$Species <- "ROF"
 
@@ -229,7 +232,7 @@ diversitatTVUF[is.na(diversitatTVUF)] <- 0
 diversitatTVUF <- diversitatTVUF[,-(1:2)]
 diversitatTVUF <- diversity(diversitatTVUF, "shannon")
 diversitatTVUF <- as.data.frame(diversitatTVUF)
-names(diversitatTVUF) <- "Diversity"
+names(diversitatTVUF) <- "Shannon_Diversity"
 diversitatTVUF$Plot <- c(1:40)
 diversitatTVUF$Species <- "TVUF"
 
@@ -244,7 +247,7 @@ diversitatTVUH[is.na(diversitatTVUH)] <- 0
 diversitatTVUH <- diversitatTVUH[,-(1:2)]
 diversitatTVUH <- diversity(diversitatTVUH, "shannon")
 diversitatTVUH <- as.data.frame(diversitatTVUH)
-names(diversitatTVUH) <- "Diversity"
+names(diversitatTVUH) <- "Shannon_Diversity"
 diversitatTVUH$Plot <- c(1:40)
 diversitatTVUH$Species <- "TVUH"
 
