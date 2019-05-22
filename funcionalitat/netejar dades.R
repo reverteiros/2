@@ -189,7 +189,9 @@ flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T
   mutate(proporcioF = TVUF/TVU) %>%
   mutate(ROFrelatiu = ROF/Overall_flowers)%>%
   mutate(TVUFrelatiu = TVUF/Overall_flowers)%>%
-  mutate(TVUHrelatiu = TVUH/Overall_flowers)
+  mutate(TVUHrelatiu = TVUH/Overall_flowers)%>%
+  mutate(TVU_pollen = TVUH*2800)%>%
+  mutate(ROF_pollen = ROF*4800)
 
 flowerproportion <- select(flors, ROFrelatiu, TVUFrelatiu, TVUHrelatiu)%>%
   tidyr::gather(Species, "Flower_relative_abundance",1:3) 
@@ -291,46 +293,6 @@ dataanalysis <- datafunction %>%
   left_join(networkmetrics, by="Plot") %>%
   left_join(database2, by="Plot") %>%
   left_join(apis, by="Plot")
-
-
-
-
-
-
-# ### Anàlisis a nivell de planta
-# 
-# pollen <- group_by(pollentotal, Plot, Species, Plant) %>%
-#   summarise(Samples_pollen=n(),Flowers_with_pollen=mean(Pollen_presence),
-#             Mean_pollen=mean(Total),Mean_Homospecific=mean(Homospecific),
-#             Mean_Heterospecific=mean(Heterospecific))%>%
-#   complete(Species, Plot) %>%
-#   distinct()
-# 
-# fruits <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>%
-#   mutate(Pollinated = Avorted + Seed) %>%
-#   mutate(Proportion_avorted = Avorted / Pollinated) %>%
-#   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
-#   group_by(Plot, Species, Plant) %>%
-#   summarise(Samples_seeds=n(),Fruits=sum(Fruits),Percent_pollination=(mean(Pollinated)/4*100),Proportion_avorted=mean(Proportion_avorted))%>%
-#   mutate(Fruit_set=(Fruits/Samples_seeds)) %>%
-#   select(., -c(Fruits)) %>%
-#   complete(Species, Plot, Plant) %>%
-#   distinct()
-# 
-# fruitandseedset <- droplevels(dplyr::filter(seedsraw, !is.na(Avorted) & Total == 4)) %>%
-#   mutate(Pollinated = Avorted + Seed) %>%
-#   mutate(Fruits = if_else(Seed > 0, 1,0)) %>%
-#   filter(.,Fruits==1) %>%
-#   group_by(Plot, Species, Plant) %>%
-#   summarise(Seed_set=mean(Seed))%>%
-#   left_join(fruits, by = c("Plot","Species","Plant"))%>%
-#   complete(Species, Plot, Plant) %>%
-#   distinct()
-# 
-# 
-# datafunctionalityperplant <- pollen %>%
-#   dplyr::left_join(., fruitandseedset, by = c("Species","Plot","Plant"))
-# 
 
 
 

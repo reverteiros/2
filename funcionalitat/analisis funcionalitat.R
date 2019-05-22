@@ -1,61 +1,215 @@
 
 source("funcionalitat/netejar dades.R")
 
-
 library(ggplot2)
 library(ggExtra)
 library(corrplot)
 library(Hmisc)
 # install.packages("PerformanceAnalytics")
 library("PerformanceAnalytics")
+library(vegan)
+library(betapart)
 
 
-dataclean <- select(dataanalysis, Species, Plot, Flowers_with_pollen, Mean_Homospecific, Mean_Heterospecific, 
-                    Mean_weigth_viables, Seed_set, Avorted_fruits, Avorted_total, Fruit_set,
-                    Pollinator_richness, Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, 
-                    Shannon_diversity, d, weighted.closeness, Proportion_HB,Functional_groups,
-                    Flower_relative_abundance, d_apis ) 
+dataclean <- select(dataanalysis, Species, Plot, Flowers_with_pollen, Mean_pollen, Mean_Homospecific, 
+                    Mean_Heterospecific, Ratio_Heterosp_Homosp, 
+                    # Mean_weigth_viables, Seed_set, Avorted_fruits, Avorted_total, Fruit_set,
+                    Pollinator_richness, Shannon_Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, 
+                    Proportion_HB, Flower_relative_abundance) %>%
+            mutate(Visitation_rate = HB_Visitation_rate+Wild_Visitation_rate)
+
+dataclean$TVU_pollen <- flors$TVU_pollen
+dataclean$ROF_pollen <- flors$ROF_pollen
+
 
 ## boxplots
-ggplot(dataanalysis, aes(y=Functional_groups, x=Species)) +
+ggplot(dataclean, aes(y=Ratio_Heterosp_Homosp, x=Species)) +
+  geom_boxplot() +
+  theme_classic()
+# 
+# #### TEMPERATURA I BITXOS
+# ggplot(dataanalysis) +
+#   geom_point(aes(T_Max,Wild_Visitation_rate, colour=Species)) + 
+#   geom_smooth(aes(T_Max,Wild_Visitation_rate, colour=Species), method=lm, se=FALSE) +
+#   theme_classic() +
+#   labs(x="T_Max", y="Wild_Visitation_rate")+
+#   scale_colour_manual(values = c("red", "blue", "green3"))
+# 
+# ## grafic proporcio apis i wild
+# TVUF <- filter(datafunction, Species =="ROF") %>%
+#   mutate(Honeybees = HB_Visitation_rate/Visitation_rate) %>%
+#   mutate(Wild = Wild_Visitation_rate/Visitation_rate) %>%
+#   select(Honeybees, Wild) %>%
+#   gather(Pollinator,Proportion,-Plot)
+
+
+
+####################      ROF      #############################
+ROF <- filter(dataclean, Species =="ROF")%>%
+  select(Pollinator_richness, Shannon_Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, Visitation_rate,
+         Proportion_HB, TVU_pollen, ROF_pollen
+         )
+
+Pollinator_richness, Shannon_Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, Visitation_rate,
+Proportion_HB, TVU_pollen, ROF_pollen
+
+ROF <- ROF %>%
+  mutate(Homospecific_pollen = ROF_pollen) %>%
+  mutate(Heterospecific_pollen = TVU_pollen) %>%
+  mutate(Pollen_Heterosp_Total = Heterospecific_pollen/(ROF_pollen+TVU_pollen))
+
+ggplot(ROF, aes(y=Pollen_Heterosp_Total)) +
   geom_boxplot() +
   theme_classic()
 
-#### TEMPERATURA I BITXOS
-ggplot(dataanalysis) +
-  geom_point(aes(T_Max,Wild_Visitation_rate, colour=Species)) + 
-  geom_smooth(aes(T_Max,Wild_Visitation_rate, colour=Species), method=lm, se=FALSE) +
-  theme_classic() +
-  labs(x="T_Max", y="Wild_Visitation_rate")+
-  scale_colour_manual(values = c("red", "blue", "green3"))
+hist(ROF$Pollen_Heterosp_Total)
 
-ggplot(dataanalysis) +
-  geom_point(aes(d_apis,Fruit_set, colour=Species)) + 
-  geom_smooth(aes(d_apis,Fruit_set, colour=Species), method=lm, se=FALSE) +
-  theme_classic() +
-  labs(x="d_apis", y="Fruit_set")+
-  scale_colour_manual(values = c("red", "blue", "green3"))
+ROF <- as.data.frame(ROF) %>%
+  select(.,-Plot)
+ROF <- ROF[-29,]
 
-## grafic proporcio apis i wild
-TVUF <- filter(datafunction, Species =="ROF") %>%
-  mutate(Honeybees = HB_Visitation_rate/Visitation_rate) %>%
-  mutate(Wild = Wild_Visitation_rate/Visitation_rate) %>%
-  select(Honeybees, Wild) %>%
-  gather(Pollinator,Proportion,-Plot)
-
-### heterospecific
-ROFnetwork <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Flowers_with_Heterospecific,Heterospecific_only,Mean_Heterospecific)
-ROFnetwork <- as.data.frame(ROFnetwork)
+# Corrplot
+res2<-rcorr(as.matrix(ROF))
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.05, insig = "blank")
+# Taula correlacions
+ROFnetwork <- as.data.frame(ROF)
 ROFnetwork <- ROFnetwork[,-1]
 chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
 
-ggplot(dataanalysis) +
-  geom_jitter(aes(Flowers_with_Heterospecific,Heterospecific_only, colour=Species)) +
-  geom_smooth(aes(Flowers_with_Heterospecific,Heterospecific_only, colour=Species), method=lm, se=FALSE) +
-  theme_classic() +
-  labs(x="Flowers_with_Heterospecific", y="Heterospecific_only")+
-  scale_colour_manual(values = c("red", "blue", "green3"))
+
+#########################     TVUF     #############################
+TVUF <- filter(dataclean, Species =="TVUF")%>%
+  select( Pollinator_richness, Shannon_Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, Visitation_rate,
+         Proportion_HB, Flower_relative_abundance)
+,
+         Pollinator_richness, Shannon_Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, Visitation_rate,
+         Proportion_HB, Flower_relative_abundance
+TVUF <- TVUF %>%
+  mutate(Homospecific_pollen = TVU_pollen) %>%
+  mutate(Heterospecific_pollen = ROF_pollen) %>%
+  mutate(Pollen_Heterosp_Total = Heterospecific_pollen/(ROF_pollen+TVU_pollen))
+
+ggplot(TVUF, aes(y=Pollen_Heterosp_Total)) +
+  geom_boxplot() +
+  theme_classic()
+
+hist(ROF$Pollen_Heterosp_Total)
+
+TVUF <- TVUF %>%
+  left_join(databaserecursos, by = "Plot") %>%
+  mutate(Homospecific_pollen = TVU_pollen) %>%
+  mutate(Heterospecific_pollen = ROF_pollen) %>%
+  mutate(Pollen_Heterosp_Total = Heterospecific_pollen/Pollen_total)
+
+TVUF <- as.data.frame(TVUF) %>%
+  select(.,-Plot)
+
+
+
+# Corrplot
+res2<-rcorr(as.matrix(TVUF))
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.05, insig = "blank")
+
+#######################     TVUH      ##########################
+TVUH <- filter(dataclean, Species =="ROF")%>%
+  select(Pollinator_richness, Shannon_Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, Visitation_rate,
+         Proportion_HB, Flower_relative_abundance)
+
+, 
+Pollinator_richness, Shannon_Diversity, HB_Visitation_rate, Wild_Visitation_rate, H2, Visitation_rate,
+Proportion_HB, Flower_relative_abundance
+
+TVUH <- TVUH %>%
+  left_join(databaserecursos, by = "Plot") %>%
+  mutate(Homospecific_pollen = TVU_pollen) %>%
+  mutate(Heterospecific_pollen = ROF_pollen) %>%
+  mutate(Pollen_Heterosp_Total = Heterospecific_pollen/Pollen_total)
+
+TVUH <- as.data.frame(TVUH) %>%
+  select(.,-Plot)
+
+
+
+# Corrplot
+res2<-rcorr(as.matrix(TVUH))
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.07, insig = "blank")
+
+
+
+################################## models lineals
+
+aa <- lm(Ratio_Heterosp_Homosp ~ Pollen_Heterosp_Total + H2, data = TVUF)
+summary(aa)
+
+
+
+aa <- lm(Ratio_Heterosp_Homosp ~ Pollen_Heterosp_Total + H2, data = ROF)
+summary(aa)
+
+
+
+aa <- lm(Ratio_Heterosp_Homosp ~ Pollen_Heterosp_Total + H2, data = TVUH)
+summary(aa)
+
+
+
+
+
+######### composicio
+
+##  ROF
+diversitatROF <- censos %>%
+  dplyr::filter(., Species == "ROF") %>%
+  spread(Pollinator, Abundance) %>%
+  InsertRow(., NewRow = numeric(81),RowNum = 29)
+diversitatROF[is.na(diversitatROF)] <- 0
+diversitatROF <- diversitatROF[,-(1:2)]
+composicioROF<-bray.part(diversitatROF)
+
+##  TVUF
+diversitatTVUF <- censos %>%
+  dplyr::filter(., Species == "TVUF") %>%
+  spread(Pollinator, Abundance) 
+diversitatTVUF[is.na(diversitatTVUF)] <- 0
+diversitatTVUF <- diversitatTVUF[,-(1:2)]
+composicioTVUF<-bray.part(diversitatTVUF)
+
+##  TVUH
+diversitatTVUH <- (dplyr::filter(censos, Species == "TVUH")) %>%
+  spread(Pollinator, Abundance) %>%
+  InsertRow(., NewRow = numeric(57),RowNum = 7)%>%
+  InsertRow(., NewRow = numeric(57),RowNum = 18)%>%
+  InsertRow(., NewRow = numeric(57),RowNum = 23)%>%
+  InsertRow(., NewRow = numeric(57),RowNum = 25)
+diversitatTVUH[is.na(diversitatTVUH)] <- 0
+diversitatTVUH <- diversitatTVUH[,-(1:2)]
+composicioTVUH <-bray.part(diversitatTVUH)
+
+Ratio_Heterosp_HomospdistTVUF <- dist(TVUF$Ratio_Heterosp_Homosp)
+Ratio_Heterosp_HomospdistTVUH <- dist(TVUH$Ratio_Heterosp_Homosp)
+Ratio_Heterosp_HomospdistROF <- dist(ROF$Ratio_Heterosp_Homosp)
+Mean_pollenROFdist <- dist(ROF$Mean_pollen)
+Mean_pollenTVUFdist <- dist(TVUF$Mean_pollen)
+Mean_pollenTVUHdist <- dist(TVUH$Mean_pollen)
+
+mantel(composicioTVUF$bray, Ratio_Heterosp_HomospdistTVUF, method = "pearson", permutations = 999, na.rm = FALSE)
+mantel(composicioTVUH$bray, Ratio_Heterosp_HomospdistTVUH, method = "pearson", permutations = 999, na.rm = FALSE)
+mantel(composicioROF$bray, Ratio_Heterosp_HomospdistROF, method = "pearson", permutations = 999, na.rm = FALSE)
+
+mantel(composicioROF$bray, Mean_pollenROFdist, method = "pearson", permutations = 999, na.rm = FALSE)
+mantel(composicioTVUF$bray, Mean_pollenTVUFdist, method = "pearson", permutations = 999, na.rm = FALSE)
+mantel(composicioTVUH$bray, Mean_pollenTVUHdist, method = "pearson", permutations = 999, na.rm = FALSE)
+
+
+
+# PCA
+TVUFfinal <- TVUF[complete.cases(TVUF), ]
+TVUF.pca <- prcomp(TVUFfinal, center = TRUE,scale. = TRUE)
+summary(TVUF.pca)
+biplot(TVUF.pca, scale = 0)
 
 ### GLM
 ROF <- filter(dataanalysis, Species =="TVUF")
@@ -67,112 +221,3 @@ summary(glm1)
 plot(glm1)
 hist(glm1$residuals)
 plot(ROF$Pollinated_ovules ~ ROF$Mean_Homospecific)
-
-------------------------------------------------------------------------------------------------
-
-####################      ROF      #############################
-ROF <- filter(dataanalysis, Species =="ROF")%>%
-  select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,HB_Visitation_rate,Wild_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness) 
-
-ROF <- as.data.frame(ROF) %>%
-  select(.,-Plot)
-ROF <- ROF[-29,]
-
-# PCA
-ROFfinal <- ROF[complete.cases(ROF), ]
-ROF.pca <- prcomp(ROFfinal, center = TRUE,scale. = TRUE)
-summary(ROF.pca)
-biplot(ROF.pca, scale = 0)
-# Corrplot
-res2<-rcorr(as.matrix(ROF))
-corrplot(res2$r, type="upper", order="hclust",
-         p.mat = res2$P, sig.level = 0.05, insig = "blank")
-
-ROFnetwork <- filter(dataanalysis, Species =="ROF")%>%
-  select(Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Proportion_HB,Functional_groups,Mean_Homospecific,Mean_Heterospecific,Flower_relative_abundance,d_apis)
-ROFnetwork <- as.data.frame(ROFnetwork)
-ROFnetwork <- ROFnetwork[,-1]
-chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
-
-ROFnetwork <- filter(dataanalysis, Species =="ROF")%>%
-  select(Pollinator_richness,Functional_groups,Mean_Homospecific,Mean_Heterospecific,Flower_relative_abundance)
-ROFnetwork <- as.data.frame(ROFnetwork)
-ROFnetwork <- ROFnetwork[,-1]
-chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
-
-
-
-#########################     TVUF     #############################
-TVUF <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,Seed_set,Fruit_set,Avorted,Flowers_with_pollen,Pollinated_ovules,Mean_weigth_viables,H2,Shannon_diversity,d,weighted.closeness)
-TVUF <- as.data.frame(TVUF) %>%
-  select(.,-Plot)
-
-# PCA
-TVUFfinal <- TVUF[complete.cases(TVUF), ]
-TVUF.pca <- prcomp(TVUFfinal, center = TRUE,scale. = TRUE)
-summary(TVUF.pca)
-biplot(TVUF.pca, scale = 0)
-# Corrplot
-res2<-rcorr(as.matrix(TVUF))
-corrplot(res2$r, type="upper", order="hclust",
-         p.mat = res2$P, sig.level = 0.05, insig = "blank")
-# Taula de correlacions amb grafics
-# install.packages("PerformanceAnalytics")
-TVUFnetwork <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Pollinator_richness,Functional_groups,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Flower_relative_abundance)
-TVUFnetwork2 <- as.data.frame(TVUFnetwork)
-TVUFnetwork2 <- TVUFnetwork2[,-1]
-TVUFnetwork2$proporcioF <- flors$proporcioF
-chart.Correlation(TVUFnetwork2, histogram=TRUE, pch=19)
-
-TVUFfunction <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability,Flower_relative_abundance,d_apis)
-TVUFfunction2 <- as.data.frame(TVUFfunction)
-TVUFfunction2 <- TVUFfunction2[,-1]
-TVUFfunction2$proporcioF <- flors$proporcioF
-chart.Correlation(TVUFfunction2, histogram=TRUE, pch=19)
-
-TVUFeffects <- filter(dataanalysis, Species =="TVUF")%>%
-  select(Pollinator_richness,Wild_Visitation_rate,HB_Visitation_rate,H2,d,weighted.closeness,Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables)
-TVUFeffects <- as.data.frame(TVUFeffects)
-TVUFeffects <- TVUFeffects[,-1]
-chart.Correlation(TVUFeffects, histogram=TRUE, pch=19)
-
-
-#######################     TVUH      ##########################
-TVUH <- filter(dataanalysis, Species =="TVUH") %>%
-  select(Mean_Homospecific,Mean_Heterospecific,Pollinator_richness,Diversity,Wild_Visitation_rate,HB_Visitation_rate,Seed_set,Fruit_set,Pollinated_ovules,Avorted,Mean_weigth_viables,Seed_viability,H2,Shannon_diversity,d,weighted.closeness)
-TVUH <- as.data.frame(TVUH) %>%
-  select(.,-Plot)
-
-# PCA
-TVUHfinal <- TVUH[complete.cases(TVUH),]
-TVUH.pca <- prcomp(TVUHfinal, center = TRUE,scale. = TRUE)
-summary(TVUH.pca)
-biplot(TVUH.pca, scale = 0)
-# Corrplot
-res2<-rcorr(as.matrix(TVUH))
-corrplot(res2$r, type="upper", order="hclust",
-         p.mat = res2$P, sig.level = 0.07, insig = "blank")
-# Taula de correlacions amb grafics
-TVUHnetwork <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Pollinator_richness,Functional_groups,Diversity,Wild_Visitation_rate,HB_Visitation_rate,H2,Shannon_diversity,d,weighted.closeness,Flower_relative_abundance)
-TVUHnetwork <- as.data.frame(TVUHnetwork)
-TVUHnetwork <- TVUHnetwork[,-1]
-TVUHnetwork$proporcioF <- flors$proporcioF
-chart.Correlation(TVUHnetwork, histogram=TRUE, pch=19)
-
-TVUHfunction <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Pollinated_ovules, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables,Seed_viability,Flower_relative_abundance,d_apis)
-TVUHfunction <- as.data.frame(TVUHfunction)
-TVUHfunction <- TVUHfunction[,-1]
-TVUHfunction$proporcioF <- flors$proporcioF
-chart.Correlation(TVUHfunction, histogram=TRUE, pch=19)
-
-TVUHeffects <- filter(dataanalysis, Species =="TVUH")%>%
-  select(Pollinator_richness,Wild_Visitation_rate,HB_Visitation_rate,H2,d,weighted.closeness,Flowers_with_pollen,Mean_Homospecific,Mean_Heterospecific,Seed_set, Fruit_set, Avorted_fruits,Avorted_total,Mean_weigth_viables)
-TVUHeffects <- as.data.frame(TVUHeffects)
-TVUHeffects <- TVUHeffects[,-1]
-chart.Correlation(TVUHeffects, histogram=TRUE, pch=19)
-
