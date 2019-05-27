@@ -2,27 +2,70 @@
 source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades plantes.R")
 
-library(ggplot2)
-library(ggExtra)
-library(corrplot)
-library(Hmisc)
-# install.packages("PerformanceAnalytics")
-library("PerformanceAnalytics")
-library(vegan)
-library(betapart)
-
-datapollinatorsall
-ROFpollen
-TVUFpollen
-TVUHpollen
+library(lme4)
 
 
-fit1 <- glm(pay~gender/year, data=Dat, family=Gamma(link = "log"))  
+######################################### MEAN POLLEN ####################################
 
-hist(dataclean$Mean_pollen)
-hist(dataclean$Ratio_Heterosp_Homosp)
+###### ROF
+databaseglmROF <- ROFpollen %>%
+  left_join(datapollinatorsall,by=c("Species","Plot")) %>%
+  mutate(logVisitation_rate = log(Visitation_rate)) %>%
+  mutate(logHB_Visitation_rate = log(HB_Visitation_rate)) %>%
+  filter(logHB_Visitation_rate < 0)
 
-hist(dataclean$Pollinator_richness)
-hist(dataclean$Shannon_Diversity)
-hist(dataclean$HB_Visitation_rate)
-hist(dataclean$H2)
+hist(databaseglmROF$Pollinator_richness)
+hist(databaseglmROF$Visitation_rate)
+hist(databaseglmROF$logVisitation_rate)
+hist(databaseglmROF$Shannon_Diversity)
+hist(databaseglmROF$HB_Visitation_rate)
+hist(databaseglmROF$logHB_Visitation_rate)
+
+fitROFTotal_richness <- glmer(Total~Pollinator_richness+(1|Plot/Plant), data=databaseglmROF, family=poisson)  
+summary(fitROFTotal_richness)
+
+fitROFTotal_vr <- glmer(Total~Visitation_rate+(1|Plot/Plant), data=databaseglmROF, family=poisson)  
+summary(fitROFTotal_vr)
+
+fitROFTotal_logvr <- glmer(Total~logVisitation_rate+(1|Plot/Plant), data=databaseglmROF, family=poisson)  
+summary(fitROFTotal_logvr)
+
+fitROFTotal_diversity <- glmer(Total~Shannon_Diversity+(1|Plot/Plant), data=databaseglmROF, family=poisson)  
+summary(fitROFTotal_diversity)
+
+fitROFTotal_loghb <- glmer(Total~logHB_Visitation_rate+(1|Plot/Plant), data=databaseglmROF, family=poisson)  
+summary(fitROFTotal_loghb)
+
+
+###### TVUF
+databaseglmTVUF <- TVUFpollen %>%
+  left_join(datapollinatorsall,by=c("Species","Plot"))
+
+fitTVUFTotal_richness <- glmer(Total~Pollinator_richness+(1|Plot/Plant), data=databaseglmTVUF, family=poisson)  
+summary(fitTVUFTotal_richness) ### significatiu!
+
+fitTVUFTotal_vr <- glmer(Total~Visitation_rate+(1|Plot/Plant), data=databaseglmTVUF, family=poisson)  
+summary(fitTVUFTotal_vr)
+
+fitTVUFTotal_diversity <- glmer(Total~Shannon_Diversity+(1|Plot/Plant), data=databaseglmTVUF, family=poisson)  
+summary(fitTVUFTotal_diversity)
+
+fitTVUFTotal_hb <- glmer(Total~HB_Visitation_rate+(1|Plot/Plant), data=databaseglmTVUF, family=poisson)  
+summary(fitTVUFTotal_hb) ### casi significatiu
+
+
+###### TVUH
+databaseglmTVUH <- TVUHpollen %>%
+  left_join(datapollinatorsall,by=c("Species","Plot"))
+
+fitTVUHTotal_richness <- glmer(Total~Pollinator_richness+(1|Plot/Plant), data=databaseglmTVUH, family=poisson)  
+summary(fitTVUHTotal_richness) 
+
+fitTVUHTotal_vr <- glmer(Total~Visitation_rate+(1|Plot/Plant), data=databaseglmTVUH, family=poisson)  
+summary(fitTVUHTotal_vr) ## significatiu negatiu!!
+
+fitTVUHTotal_diversity <- glmer(Total~Shannon_Diversity+(1|Plot/Plant), data=databaseglmTVUH, family=poisson)  
+summary(fitTVUHTotal_diversity)
+
+fitTVUHTotal_hb <- glmer(Total~HB_Visitation_rate+(1|Plot/Plant), data=databaseglmTVUH, family=poisson)  
+summary(fitTVUHTotal_hb) ### significatiu negatiu!!

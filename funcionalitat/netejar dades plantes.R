@@ -32,3 +32,25 @@ TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
 
 # pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
 
+
+################### comunitat floral - quantitat de polen
+
+granspolenrof<-read.table("dades/grans polen.txt",header=T) %>%
+  gather(Species, "Pollen_disponible",2:25) %>%
+  filter(Species == "ROF")
+
+granspolentvuh<-read.table("dades/grans polen.txt",header=T) %>%
+  gather(Species, "Pollen_disponible",2:25) %>%
+  filter(Species == "TVUH")
+
+granspolenaltresflors<-read.table("dades/grans polen.txt",header=T) %>%
+  gather(Species, "Pollen_disponible",2:25) %>%
+  filter(Species != "ROF" & Species != "TVUH") %>%
+  group_by(Plot) %>%
+  summarise(Grans_pollen = sum(Pollen_disponible))
+
+granspollen <- diversitatTVUH %>%
+  bind_rows(.,diversitatTVUF) %>%
+  bind_rows(.,diversitatROF)
+
+
