@@ -4,6 +4,34 @@ library(tidyverse)
 library(DataCombine)
 library(vegan)
 
+################### comunitat floral - quantitat de polen
+
+granspolenrof<-read.table("dades/grans polen.txt",header=T) %>%
+  gather(Species, "Pollen_disponible",2:25) %>%
+  filter(Species == "ROF")
+
+granspolentvuh<-read.table("dades/grans polen.txt",header=T) %>%
+  gather(Species, "Pollen_disponible",2:25) %>%
+  filter(Species == "TVUH")
+
+granspolenaltresflors<-read.table("dades/grans polen.txt",header=T) %>%
+  gather(Species, "Pollen_disponible",2:25) %>%
+  filter(Species != "ROF" & Species != "TVUH") %>%
+  group_by(Plot) %>%
+  summarise(Pollen_disponible = sum(Pollen_disponible)) %>%
+  mutate(Species = "Others")
+
+granspollen <- granspolenrof %>%
+  bind_rows(.,granspolentvuh) %>%
+  bind_rows(.,granspolenaltresflors)%>%
+  spread(Species,Pollen_disponible) %>%
+  mutate(ROF_pollen = ROF) %>%
+  mutate(Other_pollen = Others) %>%
+  mutate(TVU_pollen = TVUH) %>%
+  select(-c(Others,ROF,TVUH))
+
+
+
 ############# Pollen #######################################################################################
 pollenraw<-read.table("dades/polen.txt",header=T)
 
@@ -20,37 +48,18 @@ pollenwtNA <- droplevels(dplyr::filter(pollenraw, !is.na(TVU) & !is.na(ROF)& !is
 # define homospecific and heterospecific pollen per species
 ROFpollen <- filter(pollenwtNA, Species == "ROF") %>%
   mutate(Homospecific = ROF) %>%
-  mutate(Heterospecific = TVU+OTHERS)
+  mutate(Heterospecific = TVU+OTHERS) %>%
+  left_join(granspollen,by="Plot")
 
 TVUFpollen <- filter(pollenwtNA, Species == "TVUF") %>%
   mutate(Homospecific = TVU) %>%
-  mutate(Heterospecific = ROF+OTHERS)
+  mutate(Heterospecific = ROF+OTHERS)%>%
+  left_join(granspollen,by="Plot")
 
 TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
   mutate(Homospecific = TVU) %>%
-  mutate(Heterospecific = ROF+OTHERS)
+  mutate(Heterospecific = ROF+OTHERS)%>%
+  left_join(granspollen,by="Plot")
 
 # pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
-
-
-################### comunitat floral - quantitat de polen
-
-granspolenrof<-read.table("dades/grans polen.txt",header=T) %>%
-  gather(Species, "Pollen_disponible",2:25) %>%
-  filter(Species == "ROF")
-
-granspolentvuh<-read.table("dades/grans polen.txt",header=T) %>%
-  gather(Species, "Pollen_disponible",2:25) %>%
-  filter(Species == "TVUH")
-
-granspolenaltresflors<-read.table("dades/grans polen.txt",header=T) %>%
-  gather(Species, "Pollen_disponible",2:25) %>%
-  filter(Species != "ROF" & Species != "TVUH") %>%
-  group_by(Plot) %>%
-  summarise(Grans_pollen = sum(Pollen_disponible))
-
-granspollen <- diversitatTVUH %>%
-  bind_rows(.,diversitatTVUF) %>%
-  bind_rows(.,diversitatROF)
-
 

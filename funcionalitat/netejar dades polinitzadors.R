@@ -88,8 +88,7 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
   complete(Species, Plot) %>%
   distinct() %>%
   left_join(flors, by = c("Plot","Species")) %>%
-  mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)%>%
-  left_join(grupsfuncionals,by=c("Plot","Species"))
+  mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)
 
 
 ## diversitat ROF
@@ -149,7 +148,7 @@ Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | S
   summarise(HB_abundance=sum(Abundance))%>%
   complete(Species, Plot) %>%
   distinct() %>%
-  left_join(flowerabundance, by = c("Plot","Species")) 
+  left_join(flors, by = c("Plot","Species")) 
 Apis2[is.na(Apis2)] <- 0
 
 # wild pollinators
