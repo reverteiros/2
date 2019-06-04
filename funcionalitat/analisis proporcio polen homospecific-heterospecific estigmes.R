@@ -4,6 +4,7 @@ source("funcionalitat/netejar dades plantes.R")
 
 library(lme4)
 library(MuMIn)
+library(lmerTest)
 
 ########################################### RATIO HOMOSP-HETEROSP #############################
 
@@ -26,15 +27,24 @@ hist(ROFratioglm$H2)                             #normal
 fitROFratioglm_prophomosp <- lmer(Proportion_Homosp_Stigma~Proportion_Homosp_Community+(1|Plot/Plant), data=ROFratioglm)  
 summary(fitROFratioglm_prophomosp) # significatiu
 
-fitROFratioglm_h2 <- glmer(Proportion_Homosp_Stigma~H2+(1|Plot/Plant), data=ROFratioglm, family=poisson)  
+fitROFratioglm_h2 <- lmer(Proportion_Homosp_Stigma~H2+(1|Plot/Plant), data=ROFratioglm)  
 summary(fitROFratioglm_h2) 
 
-ROFratio$Proportion_Homosp_Stigma
+
 
 ## model incloent totes les variables juntes
 
-fitROFratioglm_tot <- glmer(Total~Proportion_Homosp_Community+H2+(1|Plot/Plant), data=ROFratioglm, family=poisson)  
-summary(fitROFratioglm_tot) ## el primer significatiu
+fitROFratioglm_tot <- lmer(Proportion_Homosp_Stigma~Proportion_Homosp_Community+H2+(1|Plot/Plant), data=ROFratioglm)  
+summary(fitROFratioglm_tot) 
+
+
+# selecció de models
+
+options(na.action = "na.fail")
+dd <- dredge(fitROFratioglm_tot)
+subset(dd, delta < 4)
+#'Best' model
+summary(get.models(dd, 4)[[1]])
 
 
 
@@ -55,18 +65,32 @@ hist(TVUFratioglm$Proportion_Homosp_Community)    #skewed
 hist(TVUFratioglm$sqrtProportion_Homosp_Community)#normal
 hist(TVUFratioglm$H2)                             #normal
 
-fitTVUFratioglm_sqrtprophomosp <- glmer(Total~sqrtProportion_Homosp_Community+(1|Plot/Plant), data=TVUFratioglm, family=poisson)  
+
+TVUFratioglmwithoutnas <- TVUFratioglm %>%
+  filter(Proportion_Homosp_Stigma > -100) 
+
+fitTVUFratioglm_sqrtprophomosp <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
 summary(fitTVUFratioglm_sqrtprophomosp) 
 
-fitTVUFratioglm_h2 <- glmer(Total~H2+(1|Plot/Plant), data=TVUFratioglm, family=poisson)  
+fitTVUFratioglm_h2 <- lmer(Proportion_Homosp_Stigma~H2+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
 summary(fitTVUFratioglm_h2) 
-
 
 
 ## model incloent totes les variables juntes
 
-fitTVUHratioglm_tot <- glmer(Total~sqrtProportion_Homosp_Community+H2+(1|Plot/Plant), data=TVUHratioglm, family=poisson)  
+fitTVUHratioglm_tot <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+H2+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
 summary(fitTVUHratioglm_tot) ## res significatiu
+
+
+# selecció de models
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUHratioglm_tot)
+subset(dd, delta < 4)
+#'Best' model
+summary(get.models(dd, 1)[[1]])
+
+
 
 
 
@@ -88,17 +112,20 @@ hist(TVUHratioglm$Proportion_Homosp_Community)    #skewed
 hist(TVUHratioglm$sqrtProportion_Homosp_Community)#normal
 hist(TVUHratioglm$H2)                             #normal
 
-fitTVUHratioglm_sqrtprophomosp <- glmer(Total~sqrtProportion_Homosp_Community+(1|Plot/Plant), data=TVUHratioglm, family=poisson)  
+TVUHratioglmwithoutnas <- TVUHratioglm %>%
+  filter(Proportion_Homosp_Stigma > -100)
+
+fitTVUHratioglm_sqrtprophomosp <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+(1|Plot/Plant), data=TVUHratioglmwithoutnas)  
 summary(fitTVUHratioglm_sqrtprophomosp) 
 
-fitTVUHratioglm_h2 <- glmer(Total~H2+(1|Plot/Plant), data=TVUHratioglm, family=poisson)  
+fitTVUHratioglm_h2 <- lmer(Proportion_Homosp_Stigma~H2+(1|Plot/Plant), data=TVUHratioglmwithoutnas)  
 summary(fitTVUHratioglm_h2) 
 
 
 
 ## model incloent totes les variables juntes
 
-fitTVUHratioglm_tot <- glmer(Total~sqrtProportion_Homosp_Community+H2+(1|Plot/Plant), data=TVUHratioglm, family=poisson)  
+fitTVUHratioglm_tot <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+H2+(1|Plot/Plant), data=TVUHratioglmwithoutnas)  
 summary(fitTVUHratioglm_tot) ## res significatiu
 
 

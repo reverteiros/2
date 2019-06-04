@@ -274,7 +274,7 @@ Apis2 <- droplevels(dplyr::filter(Apis, Species == "ROF" | Species == "TVUF" | S
   left_join(flowerabundance, by = c("Plot","Species")) 
 Apis2[is.na(Apis2)] <- 0
 
-datafunction <- left_join(datafunctionality3, Apis2, by = c("Plot","Species","Flower_Abundance","Flower_relative_abundance")) %>%
+datafunction <- left_join(datafunctionality3, Apis2, by = c("Plot","Species","Flower_Abundance")) %>%
   mutate(Wild_abundance = Pollinator_abundance - HB_abundance) %>%
   mutate(HB_Visitation_rate = HB_abundance/Flower_Abundance*1000) %>%
   mutate(Wild_Visitation_rate = Wild_abundance/Flower_Abundance*1000) %>%

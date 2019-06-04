@@ -63,3 +63,13 @@ TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
 
 # pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
 
+
+###### mitjana per parcela
+
+pollenclean <- bind_rows(ROFpollen,TVUFpollen,TVUHpollen)
+
+meanpollenperplot <- pollenclean %>%
+  group_by(Plot, Species) %>% 
+  summarise(Mean_pollen=mean(Total),Mean_Homospecific = mean(Homospecific),Mean_Heterospecific = mean(Heterospecific))%>%
+  complete(Species, Plot) %>%
+  distinct() 
