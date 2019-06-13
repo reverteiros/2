@@ -21,7 +21,7 @@ ggplot(databaseglmROF) +
 
 datanalysis <- datapollinatorsall %>%
   left_join(meanpollenperplot,by=c("Species","Plot")) %>%
-  filter(Species == "TVUH")
+  filter(Species == "ROF")
 
 ggplot(datanalysis) +
   geom_point(aes(Visitation_rate,Mean_pollen,colour=Species)) +

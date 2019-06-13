@@ -36,7 +36,7 @@ summary(fitROFTotal_tot) ## res significatiu
 
 options(na.action = "na.fail")
 dd <- dredge(fitROFTotal_tot)
-subset(dd, delta < 4)
+subset(dd, delta < 2)
 #'Best' model
 summary(get.models(dd, 1)[[1]])
 
@@ -49,7 +49,7 @@ summary(fitROFTotal_tot) ## res significatiu
 
 options(na.action = "na.fail")
 dd <- dredge(fitROFTotal_tot)
-subset(dd, delta < 4)
+subset(dd, delta < 2)
 #'Best' model
 summary(get.models(dd, 1)[[1]])
 
@@ -88,10 +88,23 @@ summary(fitTVUFTotal_tot) ## res significatiu
 
 options(na.action = "na.fail")
 dd <- dredge(fitTVUFTotal_tot)
-subset(dd, delta < 4)
+subset(dd, delta < 2)
 #'Best' model
 summary(get.models(dd, 1)[[1]])
 
+
+## model incloent totes les variables juntes
+
+fitTVUFTotal_tot <- glmer(Total~ProporcioF+Pollinator_richness+logVisitation_rate+Shannon_Diversity+(1|Plot/Plant), data=databaseglmTVUF, family=poisson)  
+summary(fitTVUFTotal_tot) ## res significatiu
+
+# selecció de models
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUFTotal_tot)
+subset(dd, delta < 2)
+#'Best' model
+summary(get.models(dd, 1)[[1]])
 
 
 ###### TVUH
@@ -129,10 +142,24 @@ summary(fitTVUHTotal_tot) ## res significatiu
 
 options(na.action = "na.fail")
 dd <- dredge(fitTVUHTotal_tot)
-subset(dd, delta < 4)
+subset(dd, delta < 2)
 #'Best' model
 summary(get.models(dd, 1)[[1]])
-summary(get.models(dd, 2)[[1]])
 
+
+
+
+## model incloent totes les variables juntes
+
+fitTVUHTotal_tot <- glmer(Total~ProporcioF+Pollinator_richness+logVisitation_rate+Shannon_Diversity+(1|Plot/Plant), data=databaseglmTVUH, family=poisson)  
+summary(fitTVUHTotal_tot) ## res significatiu
+
+# selecció de models
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUHTotal_tot)
+subset(dd, delta < 2)
+#'Best' model
+summary(get.models(dd, 1)[[1]])
 
 

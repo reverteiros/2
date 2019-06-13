@@ -24,14 +24,6 @@ ROFratioglm <- ROFratio %>%
 hist(ROFratioglm$Proportion_Homosp_Community)    #normal
 hist(ROFratioglm$H2)                             #normal
 
-fitROFratioglm_prophomosp <- lmer(Proportion_Homosp_Stigma~Proportion_Homosp_Community+(1|Plot/Plant), data=ROFratioglm)  
-summary(fitROFratioglm_prophomosp) # significatiu
-
-fitROFratioglm_h2 <- lmer(Proportion_Homosp_Stigma~H2+(1|Plot/Plant), data=ROFratioglm)  
-summary(fitROFratioglm_h2) 
-
-
-
 ## model incloent totes les variables juntes
 
 fitROFratioglm_tot <- lmer(Proportion_Homosp_Stigma~Proportion_Homosp_Community+H2+(1|Plot/Plant), data=ROFratioglm)  
@@ -42,9 +34,9 @@ summary(fitROFratioglm_tot)
 
 options(na.action = "na.fail")
 dd <- dredge(fitROFratioglm_tot)
-subset(dd, delta < 4)
+subset(dd, delta < 2)
 #'Best' model
-summary(get.models(dd, 4)[[1]])
+summary(get.models(dd, 1)[[1]])
 
 
 
@@ -69,24 +61,17 @@ hist(TVUFratioglm$H2)                             #normal
 TVUFratioglmwithoutnas <- TVUFratioglm %>%
   filter(Proportion_Homosp_Stigma > -100) 
 
-fitTVUFratioglm_sqrtprophomosp <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
-summary(fitTVUFratioglm_sqrtprophomosp) 
-
-fitTVUFratioglm_h2 <- lmer(Proportion_Homosp_Stigma~H2+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
-summary(fitTVUFratioglm_h2) 
-
-
 ## model incloent totes les variables juntes
 
-fitTVUHratioglm_tot <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+H2+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
-summary(fitTVUHratioglm_tot) ## res significatiu
+fitTVUFratioglm_tot <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+H2+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
+summary(fitTVUFratioglm_tot) ## res significatiu
 
 
 # selecció de models
 
 options(na.action = "na.fail")
-dd <- dredge(fitTVUHratioglm_tot)
-subset(dd, delta < 4)
+dd <- dredge(fitTVUFratioglm_tot)
+subset(dd, delta < 2)
 #'Best' model
 summary(get.models(dd, 1)[[1]])
 
@@ -115,18 +100,21 @@ hist(TVUHratioglm$H2)                             #normal
 TVUHratioglmwithoutnas <- TVUHratioglm %>%
   filter(Proportion_Homosp_Stigma > -100)
 
-fitTVUHratioglm_sqrtprophomosp <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+(1|Plot/Plant), data=TVUHratioglmwithoutnas)  
-summary(fitTVUHratioglm_sqrtprophomosp) 
-
-fitTVUHratioglm_h2 <- lmer(Proportion_Homosp_Stigma~H2+(1|Plot/Plant), data=TVUHratioglmwithoutnas)  
-summary(fitTVUHratioglm_h2) 
-
-
 
 ## model incloent totes les variables juntes
 
 fitTVUHratioglm_tot <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+H2+(1|Plot/Plant), data=TVUHratioglmwithoutnas)  
 summary(fitTVUHratioglm_tot) ## res significatiu
+
+
+
+# selecció de models
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUHratioglm_tot)
+subset(dd, delta < 2)
+#'Best' model
+summary(get.models(dd, 1)[[1]])
 
 
 

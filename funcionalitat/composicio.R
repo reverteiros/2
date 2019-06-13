@@ -1,4 +1,6 @@
 
+source("funcionalitat/netejar dades.R")
+
 ######### composicio
 
 ##  ROF
@@ -25,9 +27,9 @@ diversitatTVUH <- diversitatTVUH[,-(1:2)]
 composicioTVUH <-bray.part(diversitatTVUH)
 
 
-ROF <- filter(dataanalysis, Species =="ROF" & Plot != 29) 
-TVUF <- filter(dataanalysis, Species =="TVUF")
-TVUH <- filter(dataanalysis, Species =="TVUH" & Plot != 7 & Plot != 23 & Plot != 18 & Plot != 25)
+ROF <- filter(pollen, Species =="ROF" & Plot != 29) 
+TVUF <- filter(pollen, Species =="TVUF")
+TVUH <- filter(pollen, Species =="TVUH" & Plot != 7 & Plot != 23 & Plot != 18 & Plot != 25)
 
 #### Mean pollen
 
@@ -45,6 +47,6 @@ Ratio_Heterosp_HomospdistTVUF <- dist(TVUF$Ratio_Heterosp_Homosp)
 Ratio_Heterosp_HomospdistTVUH <- dist(TVUH$Ratio_Heterosp_Homosp)
 Ratio_Heterosp_HomospdistROF <- dist(ROF$Ratio_Heterosp_Homosp)
 
+mantel(composicioROF$bray, Ratio_Heterosp_HomospdistROF, method = "pearson", permutations = 999, na.rm = FALSE)
 mantel(composicioTVUF$bray, Ratio_Heterosp_HomospdistTVUF, method = "pearson", permutations = 999, na.rm = FALSE)
 mantel(composicioTVUH$bray, Ratio_Heterosp_HomospdistTVUH, method = "pearson", permutations = 999, na.rm = FALSE)
-mantel(composicioROF$bray, Ratio_Heterosp_HomospdistROF, method = "pearson", permutations = 999, na.rm = FALSE)
