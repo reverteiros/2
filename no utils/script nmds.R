@@ -3,11 +3,11 @@ setwd("D:/Usuarios/s.reverte/OneDrive - CREAF/TESI/DADES/dades")
 
 library(vegan)
 
-## No volem que la funció ens transformi les dades, això és dolent.
+## No volem que la funci? ens transformi les dades, aix? ?s dolent.
 ## El nombre de dimensions (k) ha de ser baix, idealment 2 o 3. Volem
-## que la funció arribi a una solució, si no arriba podem pujar el
-## nombre de dimensions. En qualsevol cas, perquè ens en fiem de la 
-## solució, ha de tenir un stress menor de 0.2
+## que la funci? arribi a una soluci?, si no arriba podem pujar el
+## nombre de dimensions. En qualsevol cas, perqu? ens en fiem de la 
+## soluci?, ha de tenir un stress menor de 0.2
 
 set.seed(2)
 
@@ -29,10 +29,3 @@ florsscores$Bitx3 <- senseapisscores$NMDS3
 ordiplot(senseapis_NMDS,type="n")
 orditorp(flors_NMDS,display="sites",col="red",air=0.01)
 orditorp(senseapis_NMDS,display="sites",cex=1.25,air=0.01)
-
-library(MuMIn)
-options(na.action = "na.fail")
-fm1 <- lm(Bitx3 ~ Flors1+Flors2, data = florsscores)
-dd <- dredge(fm1)
-dd
-summary(get.models(dd, 1)[[1]])

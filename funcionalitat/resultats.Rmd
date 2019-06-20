@@ -1,0 +1,45 @@
+---
+title: "Function"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+
+# source("funcionalitat/netejar dades polinitzadors.R")
+# source("funcionalitat/netejar dades fruits i llavors.R")
+# source("funcionalitat/grups funcionals.R")#dona error no rellevant
+library(tidyverse)
+library(lme4)
+library(MuMIn)
+
+```
+
+## Relació pol·linitzadors - fruit set
+
+# TVUF
+
+# Functional groups
+```{r , echo=FALSE}
+
+####################################### Fruits
+
+###### TVUF
+
+databaseglmTVUFfruits <- fruitset %>%
+  filter(Species == "TVUF") %>%
+  left_join(datapollinatorsall,by=c("Species","Plot"))%>%
+  left_join(numerogrupsfuncionals,by=c("Species","Plot")) %>%
+  mutate(logPollinator_richness = log(Pollinator_richness)) %>%
+  mutate(logVisitation_rate = log(Visitation_rate)) 
+
+fitTVUFfruits_fg <- glmer(Fruits~Functional_group_Rocka+logVisitation_rate+Shannon_Diversity+(1|Plot/Plant), data=databaseglmTVUFfruits, family=poisson)  
+summary(fitTVUFfruits_fg) ## res significatiu
+
+
+# selecció de models
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUFfruits_fg)
+subset(dd, delta < 2)
+```
+

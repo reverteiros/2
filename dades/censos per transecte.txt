@@ -1,4 +1,4 @@
-Parcela	Transecte	Ronda	Nom_definitiu	Codi_planta	Frequencia
+Plot	Transect	Round	Pollinator	Species	Abundance
 1	1	1	Apis	ROF	1
 1	1	1	Apis	ROF	2
 1	1	1	Apis	ROF	1
