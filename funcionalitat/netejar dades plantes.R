@@ -32,7 +32,8 @@ granspollen <- granspolenrof %>%
 
 
 
-############# Pollen #######################################################################################
+############# Pollen estigmes ###############################################################################
+
 pollenraw<-read.table("dades/polen.txt",header=T)
 
 names(pollenraw) <- c("Plot","Species","Plant","Flower","TVU","ROF","OTHERS","Total")
@@ -61,15 +62,5 @@ TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
   mutate(Heterospecific = ROF+OTHERS)%>%
   left_join(granspollen,by="Plot")
 
-# pollentotal <- bind_rows(ROFpollen, TVUFpollen, TVUHpollen)
-
-
-###### mitjana per parcela
-
 pollenclean <- bind_rows(ROFpollen,TVUFpollen,TVUHpollen)
 
-meanpollenperplot <- pollenclean %>%
-  group_by(Plot, Species) %>% 
-  summarise(Mean_pollen=mean(Total),Mean_Homospecific = mean(Homospecific),Mean_Heterospecific = mean(Heterospecific))%>%
-  complete(Species, Plot) %>%
-  distinct() 

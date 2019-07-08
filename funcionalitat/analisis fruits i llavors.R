@@ -1,7 +1,7 @@
 
 source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades fruits i llavors.R")
-source("funcionalitat/grups funcionals.R")#dona error no rellevant
+
 
 library(lme4)
 library(MuMIn)

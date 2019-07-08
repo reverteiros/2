@@ -3,7 +3,7 @@
 source("funcionalitat/netejar dades fruits i llavors.R")
 source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades plantes.R")
-source("funcionalitat/grups funcionals.R")
+
 
 library(lme4)
 library(MuMIn)

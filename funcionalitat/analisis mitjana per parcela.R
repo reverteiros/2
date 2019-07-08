@@ -1,151 +1,179 @@
 
 source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades plantes.R")
-source("funcionalitat/grups funcionals.R")
+source("funcionalitat/netejar dades fruits i llavors.R")
 
-library(lme4)
 library(MuMIn)
 
 
 
-######################################### MEAN POLLEN ####################################
-
-###### ROF
-databaseglmROF <- ROFpollen %>%
-  group_by(Plot, Species) %>% 
-  summarise(Mean_pollen=mean(Total))%>%
-  left_join(datapollinatorsall,by=c("Species","Plot")) %>%
-  left_join(numerogrupsfuncionals,by=c("Species","Plot")) %>%
-  mutate(logVisitation_rate = log(Visitation_rate))
-
-# hist(databaseglmROF$Pollinator_richness)  #normal
-hist(databaseglmROF$Visitation_rate)        #skewed
-hist(databaseglmROF$logVisitation_rate)     #normal
-hist(databaseglmROF$Functional_group_Rocka) #normal
-
-
-## model incloent totes les variables juntes
-
-fitROFTotal_tot <- lm(Mean_pollen~Functional_group_Rocka+logVisitation_rate, data=databaseglmROF)
-summary(fitROFTotal_tot) ## res significatiu
-
-hist(resid(fitROFTotal_tot))
-
-# selecció de models
-
-options(na.action = "na.fail")
-dd <- dredge(fitROFTotal_tot)
-subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
-
-
-
-
-###### TVUF
-flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
+proporcioF <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
   select(., TVUF, TVUH) %>%
   mutate(Plot = c(1:40)) %>%
   mutate(TVU = TVUF+TVUH) %>%
   mutate(ProporcioF = TVUF / TVU) %>%
   select(., c(Plot,ProporcioF))
 
-databaseglmTVUF <- TVUFpollen %>%
+pollenperplot <- pollenclean %>%
   group_by(Plot, Species) %>% 
-  summarise(Mean_pollen=mean(Total))%>%
-  left_join(datapollinatorsall,by=c("Species","Plot")) %>%
-  left_join(numerogrupsfuncionals,by=c("Species","Plot")) %>%
-  mutate(logVisitation_rate = log(Visitation_rate))%>%
-  mutate(logFunctional_group_Rocka = log(Functional_group_Rocka))%>%
-  mutate(logPollinator_richness = log(Pollinator_richness))%>%
-  left_join(flors,by="Plot")
+  summarise(Mean_pollen=mean(Total))
 
-
-
-hist(databaseglmTVUF$Visitation_rate)           #skewed
-hist(databaseglmTVUF$logVisitation_rate)        #normal
-hist(databaseglmTVUF$Functional_group_Rocka)    #normal
-hist(databaseglmTVUF$logFunctional_group_Rocka) #normal
-hist(databaseglmTVUF$ProporcioF)               #normal
-hist(databaseglmTVUF$Pollinator_richness)               #skewed
-hist(databaseglmTVUF$logPollinator_richness)               #normal
-
-## model incloent totes les variables juntes
-
-fitTVUFTotal_tot <- lm(Mean_pollen~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=databaseglmTVUF)
-summary(fitTVUFTotal_tot) ## res significatiu
-
-
-# selecció de models
-
-options(na.action = "na.fail")
-dd <- dredge(fitTVUFTotal_tot)
-subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
-
-## model incloent totes les variables juntes
-
-fitTVUFTotal_tot <- lm(Mean_pollen~ProporcioF+logPollinator_richness+logVisitation_rate, data=databaseglmTVUF)
-summary(fitTVUFTotal_tot) ## res significatiu
-
-
-# selecció de models
-
-options(na.action = "na.fail")
-dd <- dredge(fitTVUFTotal_tot)
-subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
-
-###### TVUH
-databaseglmTVUH <- TVUHpollen %>%
+seeds <- fruitset %>%
+  filter(Fruits == 1) %>%
   group_by(Plot, Species) %>% 
-  summarise(Mean_pollen=mean(Total))%>%
-  left_join(datapollinatorsall,by=c("Species","Plot")) %>%
-  left_join(numerogrupsfuncionals,by=c("Species","Plot")) %>%
-  mutate(logVisitation_rate = log(Visitation_rate))%>%
+  summarise(Seed_set=mean(Seed))
+
+fruitsandfecundity <- fruitset %>%
+  group_by(Plot, Species) %>% 
+  summarise(Fecundity=mean(Seed),Fruit_set=mean(Fruits))
+
+meandataperplot <- datapollinatorsall %>%
+  left_join(fruitsandfecundity,by=c("Species","Plot")) %>%
+  left_join(seeds,by=c("Species","Plot")) %>%
+  left_join(pollenperplot,by=c("Species","Plot")) %>%
+  left_join(proporcioF,by="Plot")%>%
+  mutate(logPollinator_richness = log(Pollinator_richness)) %>%
+  mutate(logVisitation_rate = log(Visitation_rate)) %>%
   mutate(logFunctional_group_Rocka = log(Functional_group_Rocka))%>%
-  mutate(logPollinator_richness = log(Pollinator_richness))%>%
-  left_join(flors,by="Plot")%>%
-  filter(Pollinator_richness > -10)
-
-hist(databaseglmTVUH$Pollinator_richness)    #skewed
-hist(databaseglmTVUH$logPollinator_richness) #normal
-hist(databaseglmTVUH$Visitation_rate)        #skewed
-hist(databaseglmTVUH$logVisitation_rate)     #normal
-hist(databaseglmTVUH$Functional_group_Rocka) #sweked
-hist(databaseglmTVUH$logFunctional_group_Rocka) #normal
+  mutate(logMean_pollen = log(Mean_pollen))
 
 
 
-## model incloent totes les variables juntes
 
-fitTVUHTotal_tot <- lm(Mean_pollen~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=databaseglmTVUH)
-summary(fitTVUHTotal_tot) ## res significatiu
+################################### ROF ####################################
+
+meandataperplotROF <- meandataperplot %>%
+  filter(Species=="ROF") %>%
+  filter(!is.na(Pollinator_richness))
+
+hist(meandataperplotROF$Visitation_rate)        #skewed
+hist(meandataperplotROF$logVisitation_rate)     #normal
+hist(meandataperplotROF$Functional_group_Rocka) #normal
 
 
+###### Mean pollen
 
-# selecció de models
-
+fitROFpollen <- lm(Mean_pollen~Functional_group_Rocka+logVisitation_rate, data=meandataperplotROF)
 options(na.action = "na.fail")
-dd <- dredge(fitTVUHTotal_tot)
+dd <- dredge(fitROFpollen)
 subset(dd, delta < 2)
-#'Best' model
 summary(get.models(dd, 1)[[1]])
 
-
-## model incloent totes les variables juntes
-
-fitTVUHTotal_tot <- lm(Mean_pollen~ProporcioF+logPollinator_richness+logVisitation_rate, data=databaseglmTVUH)
-summary(fitTVUHTotal_tot) ## res significatiu
+hist(resid(fitROFpollen))
 
 
+################################### TVUF ####################################
 
-# selecció de models
+meandataperplotTVUF <- meandataperplot %>%
+  filter(Species=="TVUF") 
 
-options(na.action = "na.fail")
-dd <- dredge(fitTVUHTotal_tot)
+hist(meandataperplotTVUF$Mean_pollen)                 #skewed
+hist(meandataperplotTVUF$logMean_pollen)              #normal
+hist(meandataperplotTVUF$Fecundity)                   #normal
+hist(meandataperplotTVUF$Fruit_set)                   #normal
+hist(meandataperplotTVUF$Seed_set)                    #normal
+hist(meandataperplotTVUF$Visitation_rate)             #skewed
+hist(meandataperplotTVUF$logVisitation_rate)          #normal
+hist(meandataperplotTVUF$Functional_group_Rocka)      #skewed
+hist(meandataperplotTVUF$logFunctional_group_Rocka)   #normal
+hist(meandataperplotTVUF$ProporcioF)                  #normal
+hist(meandataperplotTVUF$Pollinator_richness)         #skewed
+hist(meandataperplotTVUF$logPollinator_richness)      #normal
+
+
+###### Mean pollen
+
+fitTVUFpollen <- lm(logMean_pollen~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)
+dd <- dredge(fitTVUFpollen)
 subset(dd, delta < 2)
-#'Best' model
 summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUFpollen))
+
+
+###### Fecunditat
+
+fitTVUFfecundity <- lm(Fecundity~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)  
+dd <- dredge(fitTVUFfecundity)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUFfecundity))
+
+
+###### Fruit set
+
+fitTVUFfruitset <- lm(Fruit_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)  
+dd <- dredge(fitTVUFfruitset)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUFfruitset))
+
+
+###### Seed set
+
+fitTVUFseeds <- lm(Seed_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)  
+dd <- dredge(fitTVUFseeds)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUFseeds))
+
+
+################################### TVUH ####################################
+
+meandataperplotTVUH <- meandataperplot %>%
+  filter(Species=="TVUH") %>%
+  filter(!is.na(Pollinator_richness))
+
+hist(meandataperplotTVUH$Mean_pollen)               #skewed
+hist(meandataperplotTVUH$logMean_pollen)            #normal
+hist(meandataperplotTVUH$Fecundity)                 #normal
+hist(meandataperplotTVUH$Fruit_set)                 #normal
+hist(meandataperplotTVUH$Seed_set)                  #normal
+hist(meandataperplotTVUH$Pollinator_richness)       #skewed
+hist(meandataperplotTVUH$logPollinator_richness)    #normal
+hist(meandataperplotTVUH$Visitation_rate)           #skewed
+hist(meandataperplotTVUH$logVisitation_rate)        #normal
+hist(meandataperplotTVUH$Functional_group_Rocka)    #sweked
+hist(meandataperplotTVUH$logFunctional_group_Rocka) #normal
+
+######  Mean pollen
+
+fitTVUHpollen <- lm(logMean_pollen~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)
+dd <- dredge(fitTVUHpollen)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUHpollen))
+
+
+####### Fecunditat
+
+fitTVUHfecundity <- lm(Fecundity~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)  
+dd <- dredge(fitTVUHfecundity)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUHfecundity))
+
+
+###### Fruit set
+
+fitTVUHfruitset <- lm(Fruit_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)  
+dd <- dredge(fitTVUHfruitset)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUHfruitset))
+
+
+###### Seed set
+
+fitTVUHseeds <- lm(Seed_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)  
+dd <- dredge(fitTVUHseeds)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+hist(resid(fitTVUHseeds))
