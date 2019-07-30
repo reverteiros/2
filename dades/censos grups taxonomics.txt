@@ -1,0 +1,1301 @@
+Parcela	X	Y	Nom_definitiu	Solitary	Separing_honeybees	Group	Functional_group_Rocka	Familia	Nom_planta	Codi_planta	Plant	Frequencia
+19	1.92	41.31	Andrena_limata	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	1
+14	1.93	41.31	Andrena_limata	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+15	1.88	41.30	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Cistus_salviifolius	CSA	CSA	1
+39	1.88	41.26	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Cistus_salviifolius	CSA	CSA	2
+4	1.88	41.28	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	2
+5	1.87	41.28	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+6	1.86	41.29	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+8	1.87	41.30	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+10	1.91	41.28	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+13	1.88	41.31	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+15	1.88	41.30	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+16	1.89	41.30	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+18	1.90	41.31	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+24	1.92	41.31	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	3
+14	1.93	41.31	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+16	1.89	41.30	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+19	1.92	41.31	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	2
+11	1.87	41.29	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+15	1.88	41.30	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+26	1.91	41.29	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+32	1.87	41.28	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+21	1.88	41.30	Anthophora_acervorum	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Fumana	FLA	FLA	1
+34	1.84	41.28	Anthophora_acervorum	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Helianthemum_oelandicum	HOE	HOE	1
+2	1.91	41.30	Anthophora_acervorum	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	2
+34	1.84	41.28	Anthophora_acervorum	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Anthophora_acervorum	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+7	1.86	41.30	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Calicotome_spinosa	CSP	CSP	1
+20	1.91	41.31	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Calicotome_spinosa	CSP	CSP	1
+35	1.83	41.28	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Calicotome_spinosa	CSP	CSP	2
+1	1.92	41.27	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+11	1.87	41.29	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+13	1.88	41.31	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	2
+25	1.87	41.30	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+32	1.87	41.28	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	2
+35	1.83	41.28	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+37	1.86	41.27	Anthophora_dispar	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+17	1.92	41.31	Bombus_pascuorum	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+1	1.92	41.27	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	4
+2	1.91	41.30	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	2
+3	1.90	41.28	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+5	1.87	41.28	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+14	1.93	41.31	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+23	1.88	41.29	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+25	1.87	41.30	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+32	1.87	41.28	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+37	1.86	41.27	Bombus_terrestris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	3
+12	1.92	41.29	Eucera_nigrilabris	Solitary	Bee	Large_bee	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Halictus_tetrazonius	Solitary	Bee	Large_bee	Short-tongued_large_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+36	1.84	41.27	Halictus_tetrazonius	Solitary	Bee	Large_bee	Short-tongued_large_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Halictus_tetrazonius	Solitary	Bee	Large_bee	Short-tongued_large_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+7	1.86	41.30	Lasioglossum_albocinctum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+12	1.92	41.29	Lasioglossum_albocinctum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+27	1.91	41.29	Megachile_pyrenaica	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Linaria	LIN	LIN	2
+3	1.90	41.28	Megachile_pyrenaica	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Rosmarinus_officinalis	ROF	ROF	1
+38	1.88	41.27	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Argyrolobium_zanonii	AZA	AZA	1
+38	1.88	41.27	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Fumana	FLA	FLA	1
+8	1.87	41.30	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Helianthemum_oelandicum	HOE	HOE	1
+17	1.92	41.31	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Helianthemum_oelandicum	HOE	HOE	1
+35	1.83	41.28	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Helianthemum_oelandicum	HOE	HOE	1
+15	1.88	41.30	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Orobanche_latisquama	OLA	OLA	1
+20	1.91	41.31	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Orobanche_latisquama	OLA	OLA	1
+22	1.94	41.31	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Orobanche_latisquama	OLA	OLA	1
+34	1.84	41.28	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Orobanche_latisquama	OLA	OLA	3
+38	1.88	41.27	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Orobanche_latisquama	OLA	OLA	1
+8	1.87	41.30	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Rosmarinus_officinalis	ROF	ROF	1
+11	1.87	41.29	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Rosmarinus_officinalis	ROF	ROF	1
+14	1.93	41.31	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Rosmarinus_officinalis	ROF	ROF	1
+39	1.88	41.26	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Rodanthidium_sticticum	Solitary	Bee	Large_bee	Short-tongued_large_bees	Megachilidae	Thymus_vulgaris_Female	TVUF	TVU	2
+2	1.91	41.30	Andrena_fulva	Solitary	Bee	Large_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+19	1.92	41.31	Halictus_quadricinctus	Solitary	Bee	Large_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+8	1.87	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Biscutella_laevigata	BLA	BLA	1
+24	1.92	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Biscutella_laevigata	BLA	BLA	1
+1	1.92	41.27	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Cistus_albidus	CAL	CAL	1
+37	1.86	41.27	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Cistus_albidus	CAL	CAL	18
+6	1.86	41.29	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Cistus_salviifolius	CSA	CSA	4
+37	1.86	41.27	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Cistus_salviifolius	CSA	CSA	1
+2	1.91	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	4
+14	1.93	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	1
+17	1.92	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	1
+19	1.92	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	1
+24	1.92	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	3
+29	1.91	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	2
+30	1.90	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	1
+19	1.92	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Helianthemum_oelandicum	HOE	HOE	1
+29	1.91	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Helianthemum_oelandicum	HOE	HOE	1
+9	1.90	41.32	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+14	1.93	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+26	1.91	41.29	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+10	1.91	41.28	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	2
+14	1.93	41.31	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+30	1.90	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+10	1.91	41.28	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+16	1.89	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+21	1.88	41.30	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Andrena_djelfensis	Solitary	Bee	Small_bee	Short-tongued_small_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	3
+24	1.92	41.31	Andrena_nana	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Biscutella_laevigata	BLA	BLA	1
+38	1.88	41.27	Andrena_nana	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Cistus_salviifolius	CSA	CSA	1
+20	1.91	41.31	Ceratina_cyanea	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Aphyllanthes_monspeliensis	AMO	AMO	1
+15	1.88	41.30	Ceratina_cyanea	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+7	1.86	41.30	Hylaeus_garrulus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	1
+9	1.90	41.32	Hylaeus_garrulus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	1
+4	1.88	41.28	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	1
+19	1.92	41.31	Lasioglossum_bimaculatum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+22	1.94	41.31	Lasioglossum_bimaculatum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Fumana	FLA	FLA	1
+39	1.88	41.26	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Fumana	FLA	FLA	1
+11	1.87	41.29	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Helianthemum_oelandicum	HOE	HOE	1
+22	1.94	41.31	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Orobanche_latisquama	OLA	OLA	1
+3	1.90	41.28	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+30	1.90	41.30	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+26	1.91	41.29	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+30	1.90	41.30	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Lasioglossum_griseolum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	4
+1	1.92	41.27	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Cistus_albidus	CAL	CAL	1
+16	1.89	41.30	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+1	1.92	41.27	Lasioglossum_malachurum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+6	1.86	41.29	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+34	1.84	41.28	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	9
+9	1.90	41.32	Lasioglossum_soror	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+9	1.90	41.32	Lasioglossum_soror	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+2	1.91	41.30	Lasioglossum_subhirtum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	3
+3	1.90	41.28	Lasioglossum_subhirtum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+12	1.92	41.29	Lasioglossum_subhirtum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+19	1.92	41.31	Lasioglossum_subhirtum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	3
+19	1.92	41.31	Lasioglossum_subhirtum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	2
+38	1.88	41.27	Lasioglossum_subhirtum	Solitary	Bee	Small_bee	Short-tongued_small_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+1	1.92	41.27	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	2
+3	1.90	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	5
+4	1.88	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	2
+5	1.87	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	3
+8	1.87	41.30	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+9	1.90	41.32	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	2
+10	1.91	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	2
+12	1.92	41.29	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	3
+14	1.93	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	5
+18	1.90	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	2
+19	1.92	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+21	1.88	41.30	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+24	1.92	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	3
+28	1.93	41.29	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+38	1.88	41.27	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+4	1.88	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+5	1.87	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	4
+8	1.87	41.30	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+9	1.90	41.32	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	2
+8	1.87	41.30	Nomada_1	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+5	1.87	41.28	Nomada_sheppardana	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+1	1.92	41.27	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+3	1.90	41.28	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+5	1.87	41.28	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+6	1.86	41.29	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	2
+8	1.87	41.30	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+12	1.92	41.29	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	2
+17	1.92	41.31	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+18	1.90	41.31	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	2
+21	1.88	41.30	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+24	1.92	41.31	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+32	1.87	41.28	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
+33	1.85	41.28	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	2
+38	1.88	41.27	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	2
+2	1.91	41.30	Andrena_angustior_impressa	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+24	1.92	41.31	Andrena_lepida	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	1
+22	1.94	41.31	Andrena_lepida	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Andrena_lepida	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Andrena_nana	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Andrena_nana	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Andrena_nana	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+16	1.89	41.30	Andrena_vulpecula	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Helianthemum_oelandicum	HOE	HOE	1
+35	1.83	41.28	Andrena_vulpecula	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Andrenidae	Helianthemum_oelandicum	HOE	HOE	2
+8	1.87	41.30	Ceratina_cyanea	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+21	1.88	41.30	Halictus_smaragdalus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Helianthemum_oelandicum	HOE	HOE	1
+15	1.88	41.30	Halictus_smaragdalus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+18	1.90	41.31	Halictus_smaragdalus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Hylaeus_garrulus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Dorycnium_pentaphyllum	DPE	DPE	1
+18	1.90	41.31	Hylaeus_garrulus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	1
+8	1.87	41.30	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Helianthemum_oelandicum	HOE	HOE	1
+21	1.88	41.30	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Helianthemum_oelandicum	HOE	HOE	1
+18	1.90	41.31	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	4
+29	1.91	41.30	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	1
+33	1.85	41.28	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	2
+4	1.88	41.28	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+6	1.86	41.29	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+9	1.90	41.32	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+20	1.91	41.31	Hylaeus_hyalinatus	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+18	1.90	41.31	Hylaeus_sp_1	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Colletidae	Thymus_vulgaris_Female	TVUF	TVU	1
+24	1.92	41.31	Lasioglossum_bimaculatum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Helianthemum_oelandicum	HOE	HOE	1
+21	1.88	41.30	Lasioglossum_bimaculatum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+22	1.94	41.31	Lasioglossum_bimaculatum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+8	1.87	41.30	Lasioglossum_ibericum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+16	1.89	41.30	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Orobanche_latisquama	OLA	OLA	1
+3	1.90	41.28	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+12	1.92	41.29	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+16	1.89	41.30	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+30	1.90	41.30	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Lasioglossum_interruptum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+39	1.88	41.26	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Cistus_salviifolius	CSA	CSA	2
+14	1.93	41.31	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+36	1.84	41.27	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+36	1.84	41.27	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Lasioglossum_mediterraneum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+33	1.85	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Cistus_salviifolius	CSA	CSA	2
+18	1.90	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Fumana	FLA	FLA	1
+20	1.91	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Helianthemum_oelandicum	HOE	HOE	1
+35	1.83	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Helianthemum_oelandicum	HOE	HOE	1
+12	1.92	41.29	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+13	1.88	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+14	1.93	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+23	1.88	41.29	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+24	1.92	41.31	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+28	1.93	41.29	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+31	1.85	41.30	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	2
+32	1.87	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+33	1.85	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+39	1.88	41.26	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Female	TVUF	TVU	1
+12	1.92	41.29	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	6
+32	1.87	41.28	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+39	1.88	41.26	Lasioglossum_transitorium_planulum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Halictidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+29	1.91	41.30	Nomada_flavoguttata	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+30	1.90	41.30	Nomada_flavoguttata	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+22	1.94	41.31	Nomada_succinta	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Nomada_succinta	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Nomada_succinta	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+24	1.92	41.31	Osmia_gallarum	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Megachilidae	Rosmarinus_officinalis	ROF	ROF	1
+8	1.87	41.30	Osmia_rufohirta	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Megachilidae	Fabaceae	FAB	FAB	1
+20	1.91	41.31	Osmia_rufohirta	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Megachilidae	Helianthemum_oelandicum	HOE	HOE	1
+17	1.92	41.31	Osmia_rufohirta	Solitary	Bee	Small_bee	Short-tongued_medium-sized_bees	Megachilidae	Thymus_vulgaris_Female	TVUF	TVU	1
+34	1.84	41.28	Anaspis	Solitary	Coleoptera	Coleoptera	Beetles	Scraptiidae	Aphyllanthes_monspeliensis	AMO	AMO	1
+17	1.92	41.31	Anaspis	Solitary	Coleoptera	Coleoptera	Beetles	Scraptiidae	Euphorbia_flavicoma	EFL	EFL	1
+37	1.86	41.27	Anaspis	Solitary	Coleoptera	Coleoptera	Beetles	Scraptiidae	Euphorbia_serrata	ESE	ESE	1
+35	1.83	41.28	Anaspis	Solitary	Coleoptera	Coleoptera	Beetles	Scraptiidae	Helianthemum_oelandicum	HOE	HOE	1
+37	1.86	41.27	Anaspis	Solitary	Coleoptera	Coleoptera	Beetles	Scraptiidae	Sideritis_hirsuta	SHI	SHI	1
+24	1.92	41.31	Anthaxia	Solitary	Coleoptera	Coleoptera	Beetles	Buprestidae	Biscutella_laevigata	BLA	BLA	1
+24	1.92	41.31	Anthaxia	Solitary	Coleoptera	Coleoptera	Beetles	Buprestidae	Helianthemum_oelandicum	HOE	HOE	1
+26	1.91	41.29	Anthaxia	Solitary	Coleoptera	Coleoptera	Beetles	Buprestidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+30	1.90	41.30	Anthrenus_1	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Cistus_salviifolius	CSA	CSA	1
+33	1.85	41.28	Anthrenus_1	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Cistus_salviifolius	CSA	CSA	3
+15	1.88	41.30	Anthrenus_1	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Euphorbia_characias	ECH	ECH	1
+19	1.92	41.31	Anthrenus_1	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Euphorbia_flavicoma	EFL	EFL	3
+30	1.90	41.30	Anthrenus_1	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Euphorbia_flavicoma	EFL	EFL	2
+33	1.85	41.28	Anthrenus_2	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Cistus_salviifolius	CSA	CSA	1
+25	1.87	41.30	Anthrenus_2	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Euphorbia_flavicoma	EFL	EFL	1
+38	1.88	41.27	Anthrenus_3	Solitary	Coleoptera	Coleoptera	Beetles	Dermestidae	Cistus_salviifolius	CSA	CSA	1
+3	1.90	41.28	Aplocnemus_calidus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Aplocnemus_calidus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Aplocnemus_calidus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Attalus_pictus	Solitary	Coleoptera	Coleoptera	Beetles	Malachiidae	Rosmarinus_officinalis	ROF	ROF	7
+37	1.86	41.27	Bruchid_2	Solitary	Coleoptera	Coleoptera	Beetles	Chrysomelidae	Cistus_albidus	CAL	CAL	1
+29	1.91	41.30	Bruchidius_1	Solitary	Coleoptera	Coleoptera	Beetles	Chrysomelidae	Euphorbia_flavicoma	EFL	EFL	3
+14	1.93	41.31	Bruchidius_2	Solitary	Coleoptera	Coleoptera	Beetles	Chrysomelidae	Euphorbia_flavicoma	EFL	EFL	1
+37	1.86	41.27	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Cistus_albidus	CAL	CAL	1
+32	1.87	41.28	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Cistus_salviifolius	CSA	CSA	2
+38	1.88	41.27	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Cistus_salviifolius	CSA	CSA	2
+37	1.86	41.27	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Euphorbia_serrata	ESE	ESE	1
+20	1.91	41.31	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+37	1.86	41.27	Clanoptilus_abdominalis	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+35	1.83	41.28	Clytra_quadripunctata	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Helianthemum_oelandicum	HOE	HOE	1
+30	1.90	41.30	Coleòpter_vermell_gruixut	Solitary	Coleoptera	Coleoptera	Beetles	Coleoptera	Cistus_salviifolius	CSA	CSA	1
+37	1.86	41.27	Coleoptera_3	Solitary	Coleoptera	Coleoptera	Beetles	Coleoptera	Euphorbia_flavicoma	EFL	EFL	1
+20	1.91	41.31	Cryptocephalus_ramburi	Solitary	Coleoptera	Coleoptera	Beetles	Chrysomelidae	Aphyllanthes_monspeliensis	AMO	AMO	1
+5	1.87	41.28	Danacea_longiceps	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+37	1.86	41.27	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Cistus_albidus	CAL	CAL	4
+33	1.85	41.28	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Cistus_salviifolius	CSA	CSA	1
+14	1.93	41.31	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Euphorbia_flavicoma	EFL	EFL	1
+29	1.91	41.30	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Euphorbia_flavicoma	EFL	EFL	1
+17	1.92	41.31	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Helianthemum_oelandicum	HOE	HOE	1
+7	1.86	41.30	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+30	1.90	41.30	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	4
+38	1.88	41.27	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Rosmarinus_officinalis	ROF	ROF	1
+28	1.93	41.29	Dasytes_nigroaeneus	Solitary	Coleoptera	Coleoptera	Beetles	Melyridae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+17	1.92	41.31	Escarabat_2	Solitary	Coleoptera	Coleoptera	Beetles	Coleoptera	Euphorbia_flavicoma	EFL	EFL	1
+22	1.94	41.31	Escarabat_petit_1	Solitary	Coleoptera	Coleoptera	Beetles	Coleoptera	Fumana	FLA	FLA	1
+21	1.88	41.30	Escarabat_rodonet_com_una_marieta_però_blau	Solitary	Coleoptera	Coleoptera	Beetles	Coleoptera	Helianthemum_oelandicum	HOE	HOE	1
+5	1.87	41.28	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Cistus_salviifolius	CSA	CSA	1
+9	1.90	41.32	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Cistus_salviifolius	CSA	CSA	2
+15	1.88	41.30	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Cistus_salviifolius	CSA	CSA	9
+32	1.87	41.28	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Cistus_salviifolius	CSA	CSA	1
+33	1.85	41.28	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Cistus_salviifolius	CSA	CSA	2
+38	1.88	41.27	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Cistus_salviifolius	CSA	CSA	1
+5	1.87	41.28	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Rosmarinus_officinalis	ROF	ROF	2
+9	1.90	41.32	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Rosmarinus_officinalis	ROF	ROF	2
+15	1.88	41.30	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Rosmarinus_officinalis	ROF	ROF	12
+20	1.91	41.31	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Rosmarinus_officinalis	ROF	ROF	4
+21	1.88	41.30	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Rosmarinus_officinalis	ROF	ROF	8
+30	1.90	41.30	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Thymus_vulgaris_Female	TVUF	TVU	1
+9	1.90	41.32	Lobonyx_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Prionoceridae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+14	1.93	41.31	Malthinus	Solitary	Coleoptera	Coleoptera	Beetles	Cantharidae	Euphorbia_flavicoma	EFL	EFL	2
+17	1.92	41.31	Malthinus	Solitary	Coleoptera	Coleoptera	Beetles	Cantharidae	Euphorbia_flavicoma	EFL	EFL	2
+7	1.86	41.30	Malthinus	Solitary	Coleoptera	Coleoptera	Beetles	Cantharidae	Rosmarinus_officinalis	ROF	ROF	2
+17	1.92	41.31	Malthinus	Solitary	Coleoptera	Coleoptera	Beetles	Cantharidae	Rosmarinus_officinalis	ROF	ROF	1
+9	1.90	41.32	Meligethes_2	Solitary	Coleoptera	Coleoptera	Beetles	Nitidulidae	Rosmarinus_officinalis	ROF	ROF	1
+35	1.83	41.28	Meligethes_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Nitidulidae	Euphorbia_flavicoma	EFL	EFL	1
+28	1.93	41.29	Meligethes_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Nitidulidae	Thymus_vulgaris_Female	TVUF	TVU	1
+35	1.83	41.28	Meligethes_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Nitidulidae	Thymus_vulgaris_Female	TVUF	TVU	2
+40	1.90	41.29	Meligethes_aeneus	Solitary	Coleoptera	Coleoptera	Beetles	Nitidulidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+20	1.91	41.31	Microhoria_plumbea	Solitary	Coleoptera	Coleoptera	Beetles	Anthicidae	Helianthemum_oelandicum	HOE	HOE	1
+21	1.88	41.30	Microhoria_plumbea	Solitary	Coleoptera	Coleoptera	Beetles	Anthicidae	Helianthemum_oelandicum	HOE	HOE	1
+15	1.88	41.30	Mordellistena_1	Solitary	Coleoptera	Coleoptera	Beetles	Mordellidae	Biscutella_laevigata	BLA	BLA	1
+33	1.85	41.28	Mordellistena_1	Solitary	Coleoptera	Coleoptera	Beetles	Mordellidae	Cistus_salviifolius	CSA	CSA	2
+19	1.92	41.31	Mordellistena_1	Solitary	Coleoptera	Coleoptera	Beetles	Mordellidae	Euphorbia_flavicoma	EFL	EFL	1
+21	1.88	41.30	Oedemera_flavipes	Solitary	Coleoptera	Coleoptera	Beetles	Oedemeridae	Biscutella_laevigata	BLA	BLA	2
+21	1.88	41.30	Oedemera_flavipes	Solitary	Coleoptera	Coleoptera	Beetles	Oedemeridae	Potentilla	POT	POT	1
+9	1.90	41.32	Oedemera_flavipes	Solitary	Coleoptera	Coleoptera	Beetles	Oedemeridae	Ranunculus_gramineus	RGR	RGR	1
+21	1.88	41.30	Oedemera_flavipes	Solitary	Coleoptera	Coleoptera	Beetles	Oedemeridae	Rosmarinus_officinalis	ROF	ROF	1
+15	1.88	41.30	Oedemera_flavipes	Solitary	Coleoptera	Coleoptera	Beetles	Oedemeridae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+20	1.91	41.31	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Aphyllanthes_monspeliensis	AMO	AMO	2
+1	1.92	41.27	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Cistus_albidus	CAL	CAL	2
+37	1.86	41.27	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Cistus_albidus	CAL	CAL	1
+6	1.86	41.29	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Cistus_salviifolius	CSA	CSA	1
+9	1.90	41.32	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Cistus_salviifolius	CSA	CSA	1
+32	1.87	41.28	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Cistus_salviifolius	CSA	CSA	1
+37	1.86	41.27	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Cistus_salviifolius	CSA	CSA	1
+39	1.88	41.26	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Cistus_salviifolius	CSA	CSA	3
+7	1.86	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Calicotome_spinosa	CSP	CSP	1
+15	1.88	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Euphorbia_characias	ECH	ECH	2
+13	1.88	41.31	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Prunus_sp.	PRUNUS	PRUNUS	1
+9	1.90	41.32	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Ranunculus_gramineus	RGR	RGR	2
+2	1.91	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+3	1.90	41.28	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+5	1.87	41.28	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+8	1.87	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	3
+11	1.87	41.29	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+14	1.93	41.31	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+15	1.88	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	2
+16	1.89	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+22	1.94	41.31	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	2
+23	1.88	41.29	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	2
+25	1.87	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+30	1.90	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	4
+34	1.84	41.28	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+36	1.84	41.27	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	3
+38	1.88	41.27	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+39	1.88	41.26	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+40	1.90	41.29	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Rosmarinus_officinalis	ROF	ROF	1
+26	1.91	41.29	Oxythyrea_funesta	Solitary	Coleoptera	Coleoptera	Beetles	Cetoniidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+7	1.86	41.30	Smaragdina_diversipes	Solitary	Coleoptera	Coleoptera	Beetles	Chrysomelidae	Calicotome_spinosa	CSP	CSP	1
+17	1.92	41.31	Smaragdina_diversipes	Solitary	Coleoptera	Coleoptera	Beetles	Chrysomelidae	Calicotome_spinosa	CSP	CSP	1
+39	1.88	41.26	Tropinota_squalida	Solitary	Coleoptera	Coleoptera	Beetles	Scarabeidae	Cistus_salviifolius	CSA	CSA	4
+7	1.86	41.30	Tropinota_squalida	Solitary	Coleoptera	Coleoptera	Beetles	Scarabeidae	Rosmarinus_officinalis	ROF	ROF	1
+37	1.86	41.27	Tropinota_squalida	Solitary	Coleoptera	Coleoptera	Beetles	Scarabeidae	Rosmarinus_officinalis	ROF	ROF	1
+39	1.88	41.26	Tropinota_squalida	Solitary	Coleoptera	Coleoptera	Beetles	Scarabeidae	Rosmarinus_officinalis	ROF	ROF	2
+7	1.86	41.30	Tropinota_squalida	Solitary	Coleoptera	Coleoptera	Beetles	Scarabeidae	Thymus_vulgaris_Female	TVUF	TVU	1
+21	1.88	41.30	Bombylius_cruciatus	Solitary	Diptera	Diptera	Beeflies	Bombylidae	Rosmarinus_officinalis	ROF	ROF	1
+2	1.91	41.30	Bombylius_discolor	Solitary	Diptera	Diptera	Beeflies	Bombylidae	Rosmarinus_officinalis	ROF	ROF	2
+21	1.88	41.30	Bombylius_discolor	Solitary	Diptera	Diptera	Beeflies	Bombylidae	Rosmarinus_officinalis	ROF	ROF	1
+40	1.90	41.29	Bombylius_discolor	Solitary	Diptera	Diptera	Beeflies	Bombylidae	Rosmarinus_officinalis	ROF	ROF	1
+32	1.87	41.28	Bombylius_discolor	Solitary	Diptera	Diptera	Beeflies	Bombylidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Bombylius_sp_1	Solitary	Diptera	Diptera	Beeflies	Bombylidae	Rosmarinus_officinalis	ROF	ROF	1
+38	1.88	41.27	Conophorus	Solitary	Diptera	Diptera	Beeflies	Bombylidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+19	1.92	41.31	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_flavicoma	EFL	EFL	1
+21	1.88	41.30	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Fumana	FLA	FLA	1
+8	1.87	41.30	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Helianthemum_oelandicum	HOE	HOE	2
+21	1.88	41.30	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Helianthemum_oelandicum	HOE	HOE	2
+34	1.84	41.28	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Helianthemum_oelandicum	HOE	HOE	1
+13	1.88	41.31	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+17	1.92	41.31	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+8	1.87	41.30	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	2
+11	1.87	41.29	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	1
+33	1.85	41.28	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	1
+17	1.92	41.31	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Chamaesyrphus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+5	1.87	41.28	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_flavicoma	EFL	EFL	1
+16	1.89	41.30	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_flavicoma	EFL	EFL	1
+19	1.92	41.31	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_flavicoma	EFL	EFL	1
+37	1.86	41.27	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_flavicoma	EFL	EFL	1
+37	1.86	41.27	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_serrata	ESE	ESE	2
+4	1.88	41.28	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+10	1.91	41.28	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+14	1.93	41.31	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+19	1.92	41.31	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+23	1.88	41.29	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+31	1.85	41.30	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+37	1.86	41.27	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+15	1.88	41.30	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	1
+12	1.92	41.29	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+31	1.85	41.30	Chrysotoxum_cautum	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+13	1.88	41.31	Chrysotoxum_intermedium	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	1
+6	1.86	41.29	Epysirphus_balteatus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+35	1.83	41.28	Eristalinus_aeneus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	1
+1	1.92	41.27	Eristalis_tenax	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+32	1.87	41.28	Merodon	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+35	1.83	41.28	Paragus_tibialis	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Helianthemum_oelandicum	HOE	HOE	1
+34	1.84	41.28	Paragus_tibialis	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Female	TVUF	TVU	1
+34	1.84	41.28	Paragus_tibialis	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+35	1.83	41.28	Platynochaetus_setosus	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+1	1.92	41.27	Scaeva_albomaculata	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+17	1.92	41.31	Syritta_pipiens	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_flavicoma	EFL	EFL	1
+24	1.92	41.31	Syrphidae_1	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_characias	ECH	ECH	1
+3	1.90	41.28	Syrphidae_1	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Rosmarinus_officinalis	ROF	ROF	1
+29	1.91	41.30	Syrphidae_2	Solitary	Diptera	Diptera	Hoverflies	Syrphidae	Euphorbia_flavicoma	EFL	EFL	1
+1	1.92	41.27	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	1
+2	1.91	41.30	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	2
+3	1.90	41.28	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	52
+4	1.88	41.28	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	16
+5	1.87	41.28	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	4
+7	1.86	41.30	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	1
+12	1.92	41.29	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	16
+14	1.93	41.31	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	3
+26	1.91	41.29	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	3
+27	1.91	41.29	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	1
+30	1.90	41.30	Bibio_sp	Solitary	Diptera	Diptera	Large_flies	Bibionidae	Rosmarinus_officinalis	ROF	ROF	1
+24	1.92	41.31	Calliphoridae_3	Solitary	Diptera	Diptera	Large_flies	Calliphoridae	Rosmarinus_officinalis	ROF	ROF	2
+7	1.86	41.30	Calliphoridae_3	Solitary	Diptera	Diptera	Large_flies	Calliphoridae	Thymus_vulgaris_Female	TVUF	TVU	1
+30	1.90	41.30	Conòpid_llarg_vermell	Solitary	Diptera	Diptera	Large_flies	Red_fly	Rosmarinus_officinalis	ROF	ROF	1
+28	1.93	41.29	Dipter_2	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_flavicoma	EFL	EFL	1
+31	1.85	41.30	Dipter_blanc	Solitary	Diptera	Diptera	Large_flies	Fly	Orobanche_latisquama	OLA	OLA	1
+33	1.85	41.28	Dipter_elipse_1	Solitary	Diptera	Diptera	Large_flies	Fly	Cistus_salviifolius	CSA	CSA	2
+19	1.92	41.31	Dipter_gran_1	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_flavicoma	EFL	EFL	1
+21	1.88	41.30	Dipter_molt_llarg,_mes_que_apis,_ales_fosques,_grisos	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+7	1.86	41.30	Empididae_2	Solitary	Diptera	Diptera	Large_flies	Empididae	Rosmarinus_officinalis	ROF	ROF	1
+9	1.90	41.32	Empididae_2	Solitary	Diptera	Diptera	Large_flies	Empididae	Rosmarinus_officinalis	ROF	ROF	1
+19	1.92	41.31	Empididae_2	Solitary	Diptera	Diptera	Large_flies	Empididae	Rosmarinus_officinalis	ROF	ROF	1
+22	1.94	41.31	Empididae_2	Solitary	Diptera	Diptera	Large_flies	Empididae	Rosmarinus_officinalis	ROF	ROF	2
+36	1.84	41.27	Empididae_2	Solitary	Diptera	Diptera	Large_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Fals_conòpid	Solitary	Diptera	Diptera	Large_flies	Red_fly	Euphorbia_flavicoma	EFL	EFL	2
+11	1.87	41.29	Fals_conòpid	Solitary	Diptera	Diptera	Large_flies	Red_fly	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Fals_conòpid	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Fals_conòpid	Solitary	Diptera	Diptera	Large_flies	Red_fly	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Fals_conòpid	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Fals_conòpid	Solitary	Diptera	Diptera	Large_flies	Red_fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	4
+38	1.88	41.27	Lucilia	Solitary	Diptera	Diptera	Large_flies	Calliphoridae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+1	1.92	41.27	Mosca_1	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+3	1.90	41.28	Mosca_11	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	3
+29	1.91	41.30	Mosca_14	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_characias	ECH	ECH	1
+19	1.92	41.31	Mosca_14	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Mosca_14	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	2
+24	1.92	41.31	Mosca_15	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_characias	ECH	ECH	4
+29	1.91	41.30	Mosca_15	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_characias	ECH	ECH	4
+20	1.91	41.31	Mosca_15	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	4
+24	1.92	41.31	Mosca_15	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+33	1.85	41.28	Mosca_16	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Mosca_16	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Mosca_16	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Mosca_17	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+37	1.86	41.27	Mosca_17	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Mosca_18	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	3
+20	1.91	41.31	Mosca_19	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+37	1.86	41.27	Mosca_20	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+31	1.85	41.30	Mosca_3	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+39	1.88	41.26	Mosca_3	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+36	1.84	41.27	Mosca_3	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+16	1.89	41.30	Mosca_3	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Mosca_7	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Mosca_7	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+1	1.92	41.27	Mosca_7	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Mosca_7	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	5
+34	1.84	41.28	Mosca_8	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+19	1.92	41.31	Mosca_9	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_characias	ECH	ECH	1
+29	1.91	41.30	Mosca_9	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_characias	ECH	ECH	1
+2	1.91	41.30	Mosca_9	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	4
+19	1.92	41.31	Mosca_9	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	2
+20	1.91	41.31	Mosca_9	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+30	1.90	41.30	Mosca_9	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+19	1.92	41.31	Mosca_mitjana_1	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+35	1.83	41.28	Mosca_mitjana_1	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+17	1.92	41.31	Mosca_mitjana-gran_1	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+35	1.83	41.28	Mosca_normal_1	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+40	1.90	41.29	Mosca_poc_peluda_1	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+19	1.92	41.31	Mosca_prima_1	Solitary	Diptera	Diptera	Large_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+19	1.92	41.31	Mosca_taques_ales_1	Solitary	Diptera	Diptera	Large_flies	Fly	Euphorbia_flavicoma	EFL	EFL	1
+35	1.83	41.28	Musca_1	Solitary	Diptera	Diptera	Large_flies	Fly	Thymus_vulgaris_Female	TVUF	TVU	1
+24	1.92	41.31	Sarcophagidae_1	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Euphorbia_flavicoma	EFL	EFL	1
+24	1.92	41.31	Sarcophagidae_1	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Rosmarinus_officinalis	ROF	ROF	1
+4	1.88	41.28	Sarcophagidae_1	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+13	1.88	41.31	Sarcophagidae_1	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Sarcophagidae_1	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+13	1.88	41.31	Sarcophagidae_1	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+32	1.87	41.28	Sarcophagidae_1	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+27	1.91	41.29	Sarcophagidae_2	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+34	1.84	41.28	Sarcophagidae_3	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+19	1.92	41.31	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Euphorbia_flavicoma	EFL	EFL	1
+19	1.92	41.31	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Rosmarinus_officinalis	ROF	ROF	1
+21	1.88	41.30	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Rosmarinus_officinalis	ROF	ROF	1
+9	1.90	41.32	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+14	1.93	41.31	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+16	1.89	41.30	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	2
+21	1.88	41.30	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+34	1.84	41.28	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+34	1.84	41.28	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+36	1.84	41.27	Sarcophagidae_4	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+31	1.85	41.30	Sarcophagidae_5	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+34	1.84	41.28	Sarcophagidae_5	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Sarcophagidae_5	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Sarcophagidae_5	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Sarcophagidae_5	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+8	1.87	41.30	Sarcophagidae_6	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+32	1.87	41.28	Sarcophagidae_6	Solitary	Diptera	Diptera	Large_flies	Sarcophagidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+24	1.92	41.31	Scatophagidae??	Solitary	Diptera	Diptera	Large_flies	Scatophagidae??	Euphorbia_characias	ECH	ECH	1
+14	1.93	41.31	Scatophagidae??	Solitary	Diptera	Diptera	Large_flies	Scatophagidae??	Rosmarinus_officinalis	ROF	ROF	1
+2	1.91	41.30	Stratyomidae_1	Solitary	Diptera	Diptera	Large_flies	Stratyomidae	Rosmarinus_officinalis	ROF	ROF	1
+2	1.91	41.30	Stratyomidae_2	Solitary	Diptera	Diptera	Large_flies	Stratyomidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+35	1.83	41.28	Stratyomidae_3	Solitary	Diptera	Diptera	Large_flies	Stratyomidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+7	1.86	41.30	Tachinidae_1	Solitary	Diptera	Diptera	Large_flies	Tachinidae	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Tachinidae_2	Solitary	Diptera	Diptera	Large_flies	Tachinidae	Rosmarinus_officinalis	ROF	ROF	1
+33	1.85	41.28	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Cistus_salviifolius	CSA	CSA	1
+24	1.92	41.31	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Euphorbia_flavicoma	EFL	EFL	1
+35	1.83	41.28	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Euphorbia_flavicoma	EFL	EFL	1
+24	1.92	41.31	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Helianthemum_oelandicum	HOE	HOE	1
+29	1.91	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Helianthemum_oelandicum	HOE	HOE	1
+2	1.91	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	1
+3	1.90	41.28	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	5
+7	1.86	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	3
+11	1.87	41.29	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	2
+21	1.88	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	1
+23	1.88	41.29	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	2
+28	1.93	41.29	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	1
+29	1.91	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	2
+30	1.90	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	1
+32	1.87	41.28	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	1
+33	1.85	41.28	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	2
+38	1.88	41.27	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Female	TVUF	TVU	1
+9	1.90	41.32	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+24	1.92	41.31	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+27	1.91	41.29	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+29	1.91	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+30	1.90	41.30	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+33	1.85	41.28	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Empididae	Solitary	Diptera	Diptera	Small_flies	Empididae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	3
+9	1.90	41.32	Gymnosoma	Solitary	Diptera	Diptera	Small_flies	Tachinidae	Euphorbia_flavicoma	EFL	EFL	1
+30	1.90	41.30	Gymnosoma	Solitary	Diptera	Diptera	Small_flies	Tachinidae	Euphorbia_flavicoma	EFL	EFL	2
+2	1.91	41.30	Mosca_petita_1	Solitary	Diptera	Diptera	Small_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+5	1.87	41.28	Mosca_petita_2	Solitary	Diptera	Diptera	Small_flies	Fly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+28	1.93	41.29	Mosca_petita_3	Solitary	Diptera	Diptera	Small_flies	Fly	Rosmarinus_officinalis	ROF	ROF	1
+14	1.93	41.31	Eurydema_oleracea	Solitary	Heteroptera	Heteroptera	Bugs	Pentatomidae	Euphorbia_flavicoma	EFL	EFL	2
+40	1.90	41.29	Hadrodemus_m-flavum	Solitary	Heteroptera	Heteroptera	Bugs	Miridae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+17	1.92	41.31	Heteropter_marró_sense_punts	Solitary	Heteroptera	Heteroptera	Bugs	Heteroptera	Euphorbia_flavicoma	EFL	EFL	1
+40	1.90	41.29	Miridae_1	Solitary	Heteroptera	Heteroptera	Bugs	Miridae	Rosmarinus_officinalis	ROF	ROF	2
+4	1.88	41.28	Miridae_2	Solitary	Heteroptera	Heteroptera	Bugs	Miridae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Miridae_3	Solitary	Heteroptera	Heteroptera	Bugs	Miridae	Helianthemum_oelandicum	HOE	HOE	1
+14	1.93	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Cistus_albidus	CAL	CAL	1
+37	1.86	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Cistus_albidus	CAL	CAL	4
+32	1.87	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Cistus_salviifolius	CSA	CSA	3
+33	1.85	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Cistus_salviifolius	CSA	CSA	4
+38	1.88	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Cistus_salviifolius	CSA	CSA	2
+39	1.88	41.26	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Cistus_salviifolius	CSA	CSA	1
+7	1.86	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Calicotome_spinosa	CSP	CSP	1
+2	1.91	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Euphorbia_flavicoma	EFL	EFL	1
+5	1.87	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Euphorbia_flavicoma	EFL	EFL	1
+3	1.90	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Erica_multiflora	EMU	EMU	1
+39	1.88	41.26	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Fumana	FLA	FLA	1
+25	1.87	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Helianthemum_oelandicum	HOE	HOE	1
+13	1.88	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Prunus_sp.	PRUNUS	PRUNUS	3
+1	1.92	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	40
+2	1.91	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	161
+3	1.90	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	120
+4	1.88	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	106
+5	1.87	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	60
+6	1.86	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	19
+7	1.86	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	19
+8	1.87	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	24
+9	1.90	41.32	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	69
+10	1.91	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	33
+11	1.87	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	14
+12	1.92	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	27
+13	1.88	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	20
+14	1.93	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	137
+15	1.88	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	47
+16	1.89	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	19
+17	1.92	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	59
+18	1.90	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	58
+19	1.92	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	126
+20	1.91	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	133
+21	1.88	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	35
+22	1.94	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	20
+23	1.88	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	93
+24	1.92	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	184
+25	1.87	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	57
+26	1.91	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	2
+27	1.91	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	11
+28	1.93	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+30	1.90	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	70
+31	1.85	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	24
+32	1.87	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	66
+33	1.85	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	34
+34	1.84	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	1
+36	1.84	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	11
+37	1.86	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	13
+38	1.88	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	21
+39	1.88	41.26	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	8
+40	1.90	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Rosmarinus_officinalis	ROF	ROF	13
+1	1.92	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	3
+2	1.91	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	4
+4	1.88	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	10
+5	1.87	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	4
+6	1.86	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+7	1.86	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	10
+8	1.87	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	2
+9	1.90	41.32	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	2
+11	1.87	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	4
+12	1.92	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	3
+13	1.88	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	2
+14	1.93	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	4
+15	1.88	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+16	1.89	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	9
+19	1.92	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	14
+20	1.91	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	2
+21	1.88	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	2
+22	1.94	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	3
+23	1.88	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+24	1.92	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+25	1.87	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	2
+26	1.91	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+27	1.91	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+28	1.93	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	4
+29	1.91	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	12
+30	1.90	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	4
+31	1.85	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	3
+32	1.87	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	20
+33	1.85	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	16
+34	1.84	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	5
+35	1.83	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	71
+37	1.86	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	23
+38	1.88	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	11
+39	1.88	41.26	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Female	TVUF	TVU	6
+1	1.92	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	16
+2	1.91	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	12
+3	1.90	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+4	1.88	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	3
+6	1.86	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	8
+8	1.87	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	6
+9	1.90	41.32	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	11
+11	1.87	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	3
+12	1.92	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	8
+13	1.88	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	5
+14	1.93	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+15	1.88	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	7
+16	1.89	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	20
+19	1.92	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	3
+22	1.94	41.31	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+27	1.91	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+28	1.93	41.29	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+29	1.91	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	20
+30	1.90	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+31	1.85	41.30	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	9
+32	1.87	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	17
+33	1.85	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	4
+34	1.84	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	15
+35	1.83	41.28	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+36	1.84	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	56
+37	1.86	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	41
+38	1.88	41.27	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	49
+39	1.88	41.26	Apis	Honeybees	Honeybees	Honeybees	Long-tongued_large_bees	Apidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	7
+29	1.91	41.30	Butterfly	Solitary	Lepidoptera	Lepidoptera	Butterfly	Butterfly	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+25	1.87	41.30	Callophrys_rubi	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Gonopteryx_cleopatra	Solitary	Lepidoptera	Lepidoptera	Butterfly	Pieridae	Aphyllanthes_monspeliensis	AMO	AMO	1
+15	1.88	41.30	Leptidea_sinapis	Solitary	Lepidoptera	Lepidoptera	Butterfly	Pieridae	Rosmarinus_officinalis	ROF	ROF	1
+25	1.87	41.30	Pieris_rapae	Solitary	Lepidoptera	Lepidoptera	Butterfly	Pieridae	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Helianthemum_oelandicum	HOE	HOE	1
+1	1.92	41.27	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+4	1.88	41.28	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+8	1.87	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+13	1.88	41.31	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+14	1.93	41.31	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+16	1.89	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+19	1.92	41.31	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	4
+23	1.88	41.29	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+29	1.91	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+30	1.90	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	2
+34	1.84	41.28	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+40	1.90	41.29	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+2	1.91	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+16	1.89	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+21	1.88	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+22	1.94	41.31	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+29	1.91	41.30	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	3
+32	1.87	41.28	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+36	1.84	41.27	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Pseudophilotes_panoptes	Solitary	Lepidoptera	Lepidoptera	Butterfly	Lycaenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+24	1.92	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Biscutella_laevigata	BLA	BLA	1
+34	1.84	41.28	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Dorycnium_pentaphyllum	DPE	DPE	1
+17	1.92	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Rosmarinus_officinalis	ROF	ROF	2
+18	1.90	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Rosmarinus_officinalis	ROF	ROF	3
+21	1.88	41.30	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Rosmarinus_officinalis	ROF	ROF	2
+23	1.88	41.29	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Rosmarinus_officinalis	ROF	ROF	1
+24	1.92	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Rosmarinus_officinalis	ROF	ROF	6
+7	1.86	41.30	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Female	TVUF	TVU	2
+19	1.92	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Female	TVUF	TVU	1
+20	1.91	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Female	TVUF	TVU	1
+21	1.88	41.30	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Female	TVUF	TVU	3
+22	1.94	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Female	TVUF	TVU	4
+8	1.87	41.30	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+15	1.88	41.30	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+21	1.88	41.30	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+22	1.94	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	5
+24	1.92	41.31	Adela_aldrovandella	Solitary	Lepidoptera	Lepidoptera	Moth	Adelidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+20	1.91	41.31	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Rosmarinus_officinalis	ROF	ROF	1
+34	1.84	41.28	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Female	TVUF	TVU	6
+37	1.86	41.27	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Female	TVUF	TVU	1
+38	1.88	41.27	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Female	TVUF	TVU	5
+34	1.84	41.28	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+36	1.84	41.27	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+38	1.88	41.27	Microlepidoptera	Solitary	Lepidoptera	Lepidoptera	Moth	Microlepidoptera	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	5
+30	1.90	41.30	Moth_1	Solitary	Lepidoptera	Lepidoptera	Moth	Moth	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+37	1.86	41.27	Pterophoridae	Solitary	Lepidoptera	Lepidoptera	Moth	Pterophoridae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+24	1.92	41.31	Mecoptera	Solitary	Mecoptera	Mecoptera	Others	Mecoptera	Rosmarinus_officinalis	ROF	ROF	1
+16	1.89	41.30	Chrysura_dichroa	Solitary	Wasp	Wasp	Large_wasps	Chrysididae	Umbelifera	UMBE	UMBE	1
+19	1.92	41.31	Eumenes_coarctatus	Solitary	Wasp	Wasp	Large_wasps	Eumenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+22	1.94	41.31	Eumenes_coarctatus	Solitary	Wasp	Wasp	Large_wasps	Eumenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+18	1.90	41.31	Euodynerus_bidentoides	Solitary	Wasp	Wasp	Large_wasps	Eumenidae	Thymus_vulgaris_Female	TVUF	TVU	1
+9	1.90	41.32	Euodynerus_bidentoides	Solitary	Wasp	Wasp	Large_wasps	Eumenidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+18	1.90	41.31	Gasteruption_1	Solitary	Wasp	Wasp	Large_wasps	Gasteruptiidae	Thymus_vulgaris_Female	TVUF	TVU	1
+9	1.90	41.32	Himenòpter_parasitoid	Solitary	Wasp	Wasp	Large_wasps	Hymenoptera	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Ichneumonidae_6	Solitary	Wasp	Wasp	Large_wasps	Ichneumonnidae	Rosmarinus_officinalis	ROF	ROF	1
+16	1.89	41.30	Ichneumonidae_6	Solitary	Wasp	Wasp	Large_wasps	Ichneumonnidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+34	1.84	41.28	Ichneumonidae_6	Solitary	Wasp	Wasp	Large_wasps	Ichneumonnidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	2
+16	1.89	41.30	Polistes_gallicus	Solitary	Wasp	Wasp	Large_wasps	Vespidae	Euphorbia_flavicoma	EFL	EFL	1
+12	1.92	41.29	Polistes_gallicus	Solitary	Wasp	Wasp	Large_wasps	Vespidae	Thymus_vulgaris_Female	TVUF	TVU	1
+36	1.84	41.27	Polistes_gallicus	Solitary	Wasp	Wasp	Large_wasps	Vespidae	Thymus_vulgaris_Female	TVUF	TVU	2
+20	1.91	41.31	Pompilidae	Solitary	Wasp	Wasp	Large_wasps	Pompilidae	Rosmarinus_officinalis	ROF	ROF	1
+8	1.87	41.30	Sphecodes	Solitary	Wasp	Wasp	Large_wasps	Sphecidae	Rosmarinus_officinalis	ROF	ROF	1
+20	1.91	41.31	Symphyta	Solitary	Wasp	Wasp	Large_wasps	Symphyta	Rosmarinus_officinalis	ROF	ROF	1
+38	1.88	41.27	Vespa_parasita_negra_potes_taronja	Solitary	Wasp	Wasp	Large_wasps	Hymenoptera	Thymus_vulgaris_Female	TVUF	TVU	1
+18	1.90	41.31	Braconidae	Solitary	Wasp	Wasp	Small_wasps	Braconidae	Thymus_vulgaris_Female	TVUF	TVU	1
+3	1.90	41.28	Chalcididae_1	Solitary	Wasp	Wasp	Small_wasps	Chalcididae	Thymus_vulgaris_Female	TVUF	TVU	1
+3	1.90	41.28	Chalcididae_3	Solitary	Wasp	Wasp	Small_wasps	Chalcididae	Rosmarinus_officinalis	ROF	ROF	1
+3	1.90	41.28	Chalcididae_3	Solitary	Wasp	Wasp	Small_wasps	Chalcididae	Thymus_vulgaris_Female	TVUF	TVU	1
+9	1.90	41.32	Chalcididae_4	Solitary	Wasp	Wasp	Small_wasps	Chalcididae	Euphorbia_flavicoma	EFL	EFL	1
+21	1.88	41.30	Chalcididae_5	Solitary	Wasp	Wasp	Small_wasps	Chalcididae	Thymus_vulgaris_Female	TVUF	TVU	1
+28	1.93	41.29	Chalcididae_6	Solitary	Wasp	Wasp	Small_wasps	Chalcididae	Euphorbia_flavicoma	EFL	EFL	1
+20	1.91	41.31	Diodontus	Solitary	Wasp	Wasp	Small_wasps	Cabronidae	Thymus_vulgaris_Hermaphrodite	TVUH	TVU	1
+35	1.83	41.28	Himenopter_molt_petit	Solitary	Wasp	Wasp	Small_wasps	Hymenoptera	Helianthemum_oelandicum	HOE	HOE	1
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												

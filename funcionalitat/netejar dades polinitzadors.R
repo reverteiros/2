@@ -30,6 +30,17 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
 
 
 
+### grups taxonomics
+grupstaxonomics <- read.table("dades/censos grups taxonomics.txt",header=T) %>%
+  mutate(Taxonomic_group=Separing_honeybees) %>%
+  select(Parcela,Taxonomic_group,Codi_planta,Frequencia) %>%
+  group_by(Parcela,Taxonomic_group,Codi_planta) %>% 
+  summarise(Abundance=sum(Frequencia)) %>%
+  complete(Parcela,Codi_planta) %>%
+  distinct() %>% 
+  filter(.,Codi_planta =="ROF" | Codi_planta =="TVUF" | Codi_planta =="TVUH")
+
+
 ### grups funcionals rocka
 grupsfuncionals <- read.table("dades/grups funcionals rocka.txt",header=T) %>%
   select(Parcela,Functional_group_Rocka,Codi_planta,Frequencia) %>%
