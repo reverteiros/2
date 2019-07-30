@@ -15,7 +15,8 @@ names(censos) <- c("Plot","Pollinator","Species","Abundance")
 ############# flower abundance per plot
 flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
   select(., ROF, TVUF, TVUH)%>%
-  tidyr::gather(Species, "Flower_Abundance",1:3) 
+  tidyr::gather(Species, "Flower_Abundance",1:3) %>%
+  mutate(Flower_Abundance = Flower_Abundance*3)
 
 flors$Plot = c(1:40)
 
