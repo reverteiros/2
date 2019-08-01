@@ -1,129 +1,144 @@
 
 source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades plantes.R")
-
+source("funcionalitat/netejar dades databases analisis.R")
 
 library(lme4)
 library(MuMIn)
 
 
-
 ######################################### MEAN POLLEN ####################################
 
-###### ROF
-databaseglmROF <- ROFpollen %>%
-  left_join(datapollinatorsall,by=c("Species","Plot")) %>%
-  mutate(logVisitation_rate = log(Visitation_rate))
+###################### ROF
 
-# hist(databaseglmROF$Pollinator_richness)   #normal
-hist(databaseglmROF$Visitation_rate)        #skewed
-hist(databaseglmROF$logVisitation_rate)     #normal
-hist(databaseglmROF$Shannon_Diversity)      #normal
-hist(databaseglmROF$Functional_group_Rocka) #normal
+hist(ROFpollenbitxos$Pollinator_richness)   
+hist(ROFpollenbitxos$Visitation_rate)       
+hist(ROFpollenbitxos$logVisitation_rate)    
+hist(ROFpollenbitxos$Functional_group_Rocka) 
+hist(ROFpollenbitxos$Bee_VR)        
+hist(ROFpollenbitxos$Coleoptera_VR) 
+hist(ROFpollenbitxos$Diptera_VR)    
+hist(ROFpollenbitxos$Lepidoptera_VR) 
+hist(ROFpollenbitxos$Wasp_VR) 
+hist(ROFpollenbitxos$Honeybees_VR) 
 
+## Functional_group_Rocka
 
-## model incloent totes les variables juntes
-
-fitROFTotal_tot <- glmer(Total~Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=databaseglmROF, family=poisson)  
-summary(fitROFTotal_tot) ## res significatiu
+fitROFTotal_tot <- glmer(Total~Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=poisson)  
 
 hist(resid(fitROFTotal_tot))
 
-# selecció de models
-
 options(na.action = "na.fail")
 dd <- dredge(fitROFTotal_tot)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
-## model incloent totes les variables juntes
+## Pollinator_richness
 
-fitROFTotal_tot <- glmer(Total~Pollinator_richness+logVisitation_rate+(1|Plot/Plant), data=databaseglmROF, family=poisson)  
-summary(fitROFTotal_tot) ## res significatiu
+fitROFTotal_tot <- glmer(Total~Pollinator_richness+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=poisson)  
 
-# selecció de models
+hist(resid(fitROFTotal_tot))
 
-options(na.action = "na.fail")
 dd <- dredge(fitROFTotal_tot)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
+## Taxonomic groups per separat 
 
-###### TVUF
-proporciomorfs <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
-  select(., TVUF, TVUH) %>%
-  mutate(Plot = c(1:40)) %>%
-  mutate(TVU = TVUF+TVUH) %>%
-  mutate(ProporcioF = TVUF / TVU) %>%
-  select(., c(Plot,ProporcioF))
+roftot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=ROFpollenbitxos, family=poisson)  
 
-databaseglmTVUF <- TVUFpollen %>%
-  left_join(datapollinatorsall,by=c("Species","Plot"))%>%
-  mutate(logPollinator_richness = log(Pollinator_richness)) %>%
-  mutate(logVisitation_rate = log(Visitation_rate)) %>%
-  left_join(proporciomorfs,by="Plot")
+hist(resid(roftot))
 
-hist(databaseglmTVUF$Pollinator_richness)    #skewed
-hist(databaseglmTVUF$logPollinator_richness) #normal
-hist(databaseglmTVUF$Visitation_rate)        #skewed
-hist(databaseglmTVUF$logVisitation_rate)     #normal
-hist(databaseglmTVUF$Functional_group_Rocka) #normal
-hist(databaseglmTVUF$ProporcioF)             #normal
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
 
+###################### TVUF
 
-## model incloent totes les variables juntes
+hist(TVUFpollenbitxos$Pollinator_richness)    
+hist(TVUFpollenbitxos$logPollinator_richness) 
+hist(TVUFpollenbitxos$Visitation_rate)        
+hist(TVUFpollenbitxos$logVisitation_rate)     
+hist(TVUFpollenbitxos$Functional_group_Rocka)
+hist(TVUFpollenbitxos$ProporcioF)             
+hist(TVUFpollenbitxos$Bee_VR)       
+hist(TVUFpollenbitxos$Coleoptera_VR)   
+hist(TVUFpollenbitxos$Diptera_VR)      
+hist(TVUFpollenbitxos$Lepidoptera_VR) 
+hist(TVUFpollenbitxos$Wasp_VR) 
+hist(TVUFpollenbitxos$Honeybees_VR)
 
-fitTVUFTotal_tot <- glmer(Total~ProporcioF+Pollinator_richness+logVisitation_rate+(1|Plot/Plant), data=databaseglmTVUF, family=poisson)  
-summary(fitTVUFTotal_tot) ## res significatiu
+## Functional_group_Rocka
 
-hist(resid(fitTVUFTotal_tot))
+fitTVUFTotal_fg <- glmer(Total~Functional_group_Rocka+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUFpollenbitxos, family=poisson)  
 
-# selecció de models
+hist(resid(fitTVUFTotal_fg))
 
 options(na.action = "na.fail")
-dd <- dredge(fitTVUFTotal_tot)
+dd <- dredge(fitTVUFTotal_fg)
+# summary(get.models(dd, 1)[[1]])
+
+## Pollinator_richness
+
+fitTVUFTotal_rich <- glmer(Total~Pollinator_richness+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUFpollenbitxos, family=poisson)  
+
+hist(resid(fitTVUFTotal_rich))
+
+dd <- dredge(fitTVUFTotal_rich)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 2)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
+## Taxonomic groups per separat 
 
+tvuftot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUFpollenbitxos, family=poisson)  
 
-###### TVUH
-databaseglmTVUH <- TVUHpollen %>%
-  left_join(datapollinatorsall,by=c("Species","Plot"))%>%
-  mutate(logPollinator_richness = log(Pollinator_richness)) %>%
-  mutate(logVisitation_rate = log(Visitation_rate)) %>%
-  mutate(logFunctional_group_Rocka = log(Functional_group_Rocka)) %>%
-  # filter(Plant != 11) %>%
-  left_join(proporciomorfs,by="Plot")%>%
-  filter(Pollinator_richness > -10)
+hist(resid(tvuftot))
 
-hist(databaseglmTVUH$Pollinator_richness)    #skewed
-hist(databaseglmTVUH$logPollinator_richness) #normal
-hist(databaseglmTVUH$Visitation_rate)        #skewed
-hist(databaseglmTVUH$logVisitation_rate)     #normal
-hist(databaseglmTVUH$HB_Visitation_rate)     #sweked
-hist(databaseglmTVUH$logHB_Visitation_rate)  #normal
-hist(databaseglmTVUH$Functional_group_Rocka) #sweked
-hist(databaseglmTVUH$logFunctional_group_Rocka) #normal
+dd <- dredge(tvuftot)
+subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
 
+###################### TVUH
 
+hist(TVUHpollenbitxos$Pollinator_richness)    
+hist(TVUHpollenbitxos$logPollinator_richness) 
+hist(TVUHpollenbitxos$Visitation_rate)        
+hist(TVUHpollenbitxos$logVisitation_rate)     
+hist(TVUHpollenbitxos$Functional_group_Rocka)
+hist(TVUHpollenbitxos$ProporcioF)             
+hist(TVUHpollenbitxos$Bee_VR)       
+hist(TVUHpollenbitxos$Coleoptera_VR)   
+hist(TVUHpollenbitxos$Diptera_VR)      
+hist(TVUHpollenbitxos$Lepidoptera_VR) 
+hist(TVUHpollenbitxos$Wasp_VR) 
+hist(TVUHpollenbitxos$Honeybees_VR)
 
-## model incloent totes les variables juntes
+## Functional_group_Rocka
 
-fitTVUHTotal_tot <- glmer(Total~ProporcioF+logPollinator_richness+logVisitation_rate+(1|Plot/Plant), data=databaseglmTVUH, family=poisson)  
-summary(fitTVUHTotal_tot) ## res significatiu
+fitTVUHTotal_fg <- glmer(Total~Functional_group_Rocka+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUHpollenbitxos, family=poisson)  
 
-
-
-# selecció de models
+hist(resid(fitTVUHTotal_fg))
 
 options(na.action = "na.fail")
-dd <- dredge(fitTVUHTotal_tot)
+dd <- dredge(fitTVUHTotal_fg)
+# summary(get.models(dd, 1)[[1]])
+
+## Pollinator_richness
+
+fitTVUHTotal_rich <- glmer(Total~Pollinator_richness+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUHpollenbitxos, family=poisson) 
+
+hist(resid(fitTVUHTotal_rich))
+
+dd <- dredge(fitTVUHTotal_rich)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
+## Taxonomic groups per separat 
 
+tvuhtot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUHpollenbitxos, family=poisson)  
+
+hist(resid(tvuhtot))
+
+dd <- dredge(tvuhtot)
+subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])

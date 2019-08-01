@@ -12,17 +12,38 @@ library(pvclust)
 
 set.seed(2)
 
+## grups funcionals
+
 taulacomposicioFG_ROF <- grupsfuncionals %>%
-  filter(.,Codi_planta =="TVUF") %>%
+  filter(.,Codi_planta =="TVUH") %>%
   spread(Functional_group_Rocka, Abundance) %>%
   select(-c(Bugs,Others))
 taulacomposicioFG_ROF[is.na(taulacomposicioFG_ROF)] <- 0
 taulacomposicioFG_ROF <- as.data.frame(taulacomposicioFG_ROF)
-taulacomposicioFG_ROF <- taulacomposicioFG_ROF[,-(1:2)]
+taulacomposicioFG_ROF <- taulacomposicioFG_ROF[-c(7,18,23,25),-(1:2)]
 
 senseapis_NMDS <- metaMDS(taulacomposicioFG_ROF, k=3,trymax=100,autotransform = F)
 senseapis_NMDS$stress
+stressplot(senseapis_NMDS)
 senseapisscores <- scores(senseapis_NMDS, display=c("species"))
+
+
+ordiplot(senseapis_NMDS,type="n")
+orditorp(senseapis_NMDS,display="sites",cex=1.25,air=0.01)
+orditorp(senseapis_NMDS,display="species",cex=1.25,air=0.01)
+
+## grups taxonomics
+
+taulacomposicioFG_ROF <- grupstaxonomics %>%
+  filter(.,Codi_planta =="TVUH") %>%
+  spread(Taxonomic_group, Abundance) %>%
+  select(-c(Mecoptera,Heteroptera))
+taulacomposicioFG_ROF[is.na(taulacomposicioFG_ROF)] <- 0
+taulacomposicioFG_ROF <- as.data.frame(taulacomposicioFG_ROF)
+taulacomposicioFG_ROF <- taulacomposicioFG_ROF[-c(7,18,23,25),-(1:2)]
+
+senseapis_NMDS <- metaMDS(taulacomposicioFG_ROF, k=3,trymax=100,autotransform = F)
+senseapis_NMDS$stress
 
 
 ordiplot(senseapis_NMDS,type="n")
@@ -33,9 +54,9 @@ orditorp(senseapis_NMDS,display="species",cex=1.25,air=0.01)
 
 # Ward Hierarchical Clustering with Bootstrapped p values
 
-tsenseapisscores<-t(senseapisscores)
+ttaulacomposicioFG_ROF<-t(taulacomposicioFG_ROF)
 
-fit <- pvclust(taulacomposicioFG_ROF, method.hclust="ward.D",method.dist="euclidean")
+fit <- pvclust(ttaulacomposicioFG_ROF, method.hclust="ward.D",method.dist="euclidean")
 plot(fit) 
 pvrect(fit, alpha=.95)
 

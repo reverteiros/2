@@ -1,6 +1,7 @@
 
 source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades plantes.R")
+source("funcionalitat/netejar dades databases analisis.R")
 
 library(lme4)
 library(MuMIn)
@@ -8,46 +9,25 @@ library(lmerTest)
 
 ################################## RATIO HOMOSP-HETEROSP #######################
 
-
 ###### TVUF
 
-TVUFratio <- TVUFpollen%>%
-  mutate(Grains_Homospecific = TVU_pollen) %>%
-  mutate(Grains_Heterospecific = Other_pollen+ROF_pollen) %>%
-  mutate(Grains_Total = ROF_pollen+Other_pollen+TVU_pollen) %>%
-  mutate(Proportion_Homosp_Community = Grains_Homospecific/Grains_Total)%>%
-  mutate(Proportion_Homosp_Stigma = Homospecific / Total) 
+hist(TVUFpollenbitxos$Pollinator_richness)    
+hist(TVUFpollenbitxos$logPollinator_richness) 
+hist(TVUFpollenbitxos$Proportion_Homosp_Stigma)
+hist(TVUFpollenbitxos$Proportion_Homosp_Community)
+hist(TVUFpollenbitxos$sqrtProportion_Homosp_Community)
+hist(TVUFpollenbitxos$H2)                             
 
-TVUFratioglm <- TVUFratio %>%
-  left_join(datapollinatorsall,by=c("Species","Plot"))%>%
-  mutate(sqrtProportion_Homosp_Community = sqrt(Proportion_Homosp_Community)) %>%
-  mutate(logPollinator_richness = log(Pollinator_richness)) 
+## 
 
-hist(TVUFratioglm$Pollinator_richness)    #skewed
-hist(TVUFratioglm$logPollinator_richness)    #skewed
-hist(TVUFratioglm$Proportion_Homosp_Stigma)    #skewed
-hist(TVUFratioglm$Proportion_Homosp_Community)    #skewed
-hist(TVUFratioglm$sqrtProportion_Homosp_Community)#normal
-hist(TVUFratioglm$H2)                             #normal
-
-
-TVUFratioglmwithoutnas <- TVUFratioglm %>%
-  filter(Proportion_Homosp_Stigma > -100) 
-
-## model incloent totes les variables juntes
-
-fitTVUFratioglm_tot <- lmer(Proportion_Homosp_Stigma~sqrtProportion_Homosp_Community+logPollinator_richness+H2+(1|Plot/Plant), data=TVUFratioglmwithoutnas)  
-summary(fitTVUFratioglm_tot) ## res significatiu
+fitTVUFratioglm_tot <- lmer(Proportion_Homosp_Stigma~logFunctional_group_Rocka+logPollinator_richness+H2+(1|Plot/Plant), data=TVUFpollenbitxoswtna)  
 
 hist(resid(fitTVUFratioglm_tot))
-
-# selecció de models
 
 options(na.action = "na.fail")
 dd <- dredge(fitTVUFratioglm_tot)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
 
 

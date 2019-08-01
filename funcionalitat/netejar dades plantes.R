@@ -25,9 +25,9 @@ granspollen <- granspolenrof %>%
   bind_rows(.,granspolentvuh) %>%
   bind_rows(.,granspolenaltresflors)%>%
   spread(Species,Pollen_disponible) %>%
-  mutate(ROF_pollen = ROF) %>%
-  mutate(Other_pollen = Others) %>%
-  mutate(TVU_pollen = TVUH) %>%
+  mutate(ROF_pollen_community = ROF) %>%
+  mutate(Other_pollen_community = Others) %>%
+  mutate(TVU_pollen_community = TVUH) %>%
   select(-c(Others,ROF,TVUH))
 
 
@@ -63,4 +63,11 @@ TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
   left_join(granspollen,by="Plot")
 
 pollenclean <- bind_rows(ROFpollen,TVUFpollen,TVUHpollen)
+
+proporciomorfs <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
+  select(., TVUF, TVUH) %>%
+  mutate(Plot = c(1:40)) %>%
+  mutate(TVU = TVUF+TVUH) %>%
+  mutate(ProporcioF = TVUF / TVU) %>%
+  select(., c(Plot,ProporcioF))
 

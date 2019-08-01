@@ -16,16 +16,16 @@ proporcioF <- read.table("dades/flors quantitatiu separant thymus morfs.txt",hea
 
 pollenperplot <- pollenclean %>%
   group_by(Plot, Species) %>% 
-  summarise(Mean_pollen=mean(Total))
+  summarise(Mean_pollen=mean(Total),Mean_Homospecific=mean(Homospecific),Mean_Heterospecific=mean(Heterospecific))
 
 seeds <- fruitset %>%
   filter(Fruits == 1) %>%
   group_by(Plot, Species) %>% 
-  summarise(Seed_set=mean(Seed))
+  summarise(Seed_set=mean(Seed),Avorted_per_fruit=mean(Avorted))
 
 fruitsandfecundity <- fruitset %>%
   group_by(Plot, Species) %>% 
-  summarise(Fecundity=mean(Seed),Fruit_set=mean(Fruits))
+  summarise(Fecundity=mean(Seed),Fruit_set=mean(Fruits),Pollinated_ovules=mean(Pollinated),Avorted_total=mean(Avorted))
 
 meandataperplot <- datapollinatorsall %>%
   left_join(fruitsandfecundity,by=c("Species","Plot")) %>%

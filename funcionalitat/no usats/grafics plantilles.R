@@ -2,6 +2,7 @@
 source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades.R")
 source("funcionalitat/grups funcionals.R")
+source("funcionalitat/analisis mitjana per parcela.R")
 
 library(ggplot2)
 library(ggExtra)
@@ -27,6 +28,9 @@ ggplot(dataclean, aes(y=Ratio_Heterosp_Homosp, x=Species)) +
 
 
 ## Corrplot
+ROF <- meandataperplot %>%
+  filter(Species=="ROF") %>%
+  select(-c(Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit,ProporcioF,logVisitation_rate,logMean_pollen,logFunctional_group_Rocka,logPollinator_richness,Pollinator_abundance,Flower_Abundance,Mean_pollen))
 ROF <- as.data.frame(ROF) %>%
   select(.,-c(Plot,Species))
 ROF <- ROF[-29,]
@@ -37,9 +41,30 @@ corrplot(res2$r, type="upper", order="hclust",
 
 
 ## Taula correlacions
-ROFnetwork <- as.data.frame(ROF)
-ROFnetwork <- ROFnetwork[,-1]
-chart.Correlation(ROFnetwork, histogram=TRUE, pch=19)
+chart.Correlation(ROF, histogram=TRUE, pch=19)
+
+
+## Corrplot
+TVUF <- meandataperplot %>%
+  filter(Species=="TVUF") %>%
+  select(-c(Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit,ProporcioF,logVisitation_rate,logMean_pollen,logFunctional_group_Rocka,logPollinator_richness,Pollinator_abundance,Flower_Abundance,Mean_pollen))
+TVUF <- as.data.frame(TVUF) %>%
+  select(.,-c(Plot,Species))
+
+res2<-rcorr(as.matrix(TVUF))
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.05, insig = "blank")
+
+
+## Taula correlacions
+chart.Correlation(TVUF, histogram=TRUE, pch=19)
+
+
+
+
+
+
+
 
 
 ## PCA
