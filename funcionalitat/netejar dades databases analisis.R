@@ -12,7 +12,7 @@ grupstaxonomicsspread <- grupstaxonomics %>%
   spread(Taxonomic_group, Abundance) %>%
   select(-c(Heteroptera,Mecoptera))
 grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
-names(grupstaxonomicsspread) <- c("Plot","Species","Bee","Coleoptera","Diptera","Honeybees","Lepidoptera","Wasp")
+
 
 ROFpollenbitxos <- ROFpollen %>%
   left_join(datapollinatorsall,by=c("Species","Plot")) %>%

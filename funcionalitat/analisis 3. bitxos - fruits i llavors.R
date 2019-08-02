@@ -11,12 +11,12 @@ library(MuMIn)
 
 ###### TVUF
 
-hist(TVUFfruitsbitxos$Pollinator_richness)    #skewed
-hist(TVUFfruitsbitxos$logPollinator_richness) #normal
-hist(TVUFfruitsbitxos$Visitation_rate)        #skewed
-hist(TVUFfruitsbitxos$logVisitation_rate)     #normal
-hist(TVUFfruitsbitxos$Shannon_Diversity)      #normal
-hist(TVUFfruitsbitxos$Functional_group_Rocka) #normal
+hist(TVUFfruitsbitxos$Pollinator_richness)   
+hist(TVUFfruitsbitxos$logPollinator_richness)
+hist(TVUFfruitsbitxos$Visitation_rate)       
+hist(TVUFfruitsbitxos$logVisitation_rate)    
+hist(TVUFfruitsbitxos$Shannon_Diversity)     
+hist(TVUFfruitsbitxos$Functional_group_Rocka)
 
 
 ## FUNCTIONAL GROUPS
@@ -54,136 +54,119 @@ hist(TVUHfruitsbitxos$logFunctional_group_Rocka)
 hist(TVUHfruitsbitxos$Seed) 
 
 
-## model incloent totes les variables juntes
+## FUNCTIONAL GROUPS
 
 fitTVUHfruits_fg <- glmer(Fruits~ProporcioF+logFunctional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=TVUHfruitsbitxos, family=binomial)  
-summary(fitTVUHfruits_fg) ## res significatiu
-
 
 hist(resid(fitTVUHfruits_fg))
 
-# selecció de models
-
-options(na.action = "na.fail")
 dd <- dredge(fitTVUHfruits_fg)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
+## RICHNESS
+
+fitTVUHfruits_rich <- glmer(Fruits~ProporcioF+logPollinator_richness+logVisitation_rate+(1|Plot/Plant), data=TVUHfruitsbitxos, family=binomial)  
+
+hist(resid(fitTVUHfruits_rich))
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUHfruits_rich)
+subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
 
 
 ####################################### Llavors
 
 ###### TVUF
 
-## model incloent totes les variables juntes - FUNCTIONAL GROUPS
+## FUNCTIONAL GROUPS
 
-fitTVUFseeds_fg <- glmer(Seed~ProporcioF+Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=databaseglmTVUFseeds, family=poisson)  
-summary(fitTVUFseeds_fg) ## res significatiu
+fitTVUFseeds_fg <- glmer(Seed~ProporcioF+Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=TVUFseedsbitxos, family=poisson)  
 
 hist(resid(fitTVUFseeds_fg))
 
-# selecció de models
-
-options(na.action = "na.fail")
 dd <- dredge(fitTVUFseeds_fg)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
+## RICHNESS
+
+fitTVUFseeds_rich <- glmer(Fruits~ProporcioF+logPollinator_richness+logVisitation_rate+(1|Plot/Plant), data=TVUFseedsbitxos, family=binomial)  
+
+hist(resid(fitTVUFseeds_rich))
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUFseeds_rich)
+subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
 
 
 ###### TVUH
 
-databaseglmTVUHseeds <- databaseglmTVUHsoratio %>%
-  filter(Fruits == 1) 
+## FUNCTIONAL GROUPS
 
+fitTVUHseeds_fg <- glmer(Seed~ProporcioF+logPollinator_richness+logVisitation_rate+(1|Plot/Plant), data=TVUHseedsbitxos, family=poisson)  
 
-## model incloent totes les variables juntes
+hist(resid(fitTVUFseeds_fg))
 
-fitTVUHseeds_fg <- glmer(Seed~ProporcioF+logPollinator_richness+logVisitation_rate+(1|Plot/Plant), data=databaseglmTVUHseeds, family=poisson)  
-summary(fitTVUHseeds_fg) ## res significatiu
-
-
-
-# selecció de models
-
-options(na.action = "na.fail")
 dd <- dredge(fitTVUHseeds_fg)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
+## RICHNESS
 
+fitTVUHseeds_rich <- glmer(Fruits~ProporcioF+logPollinator_richness+logVisitation_rate+(1|Plot/Plant), data=TVUHseedsbitxos, family=binomial)  
+
+hist(resid(fitTVUHseeds_rich))
+
+options(na.action = "na.fail")
+dd <- dredge(fitTVUHseeds_rich)
+subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
 
 
 ################### separant grups taxonomics bixos
 
 ## Fruit set
+
 ## TVUF
 
-grupstaxonomicsfruitsTVUF <- databaseglmTVUFsoratio %>%
-  left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))
-
-
-## model incloent totes les variables juntes
-
-fitTVUFtaxonimicfruits <- glmer(Fruits~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+Lepidoptera_VR+(1|Plot/Plant), data=grupstaxonomicsfruitsTVUF, family=binomial)  
-summary(fitTVUFtaxonimicfruits) ## res significatiu
+fitTVUFtaxonimicfruits <- glmer(Fruits~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+Lepidoptera_VR+(1|Plot/Plant), data=TVUFfruitsbitxos, family=binomial)  
 
 hist(resid(fitTVUFtaxonimicfruits))
 
-# selecció de models
-
-options(na.action = "na.fail")
 dd <- dredge(fitTVUFtaxonimicfruits)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
-
+# summary(get.models(dd, 1)[[1]])
 
 
 ## TVUH
-grupstaxonomicsfruitsTVUH <- databaseglmTVUHsoratio %>%
-  left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))
 
-## model incloent totes les variables juntes
+fitTVUHtaxonimicfruits <- glmer(Fruits~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUHfruitsbitxos, family=binomial)  
 
-fitTVUHtaxonimicfruits <- glmer(Fruits~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=grupstaxonomicsfruitsTVUH, family=binomial)  
-summary(fitTVUHtaxonimicfruits) ## res significatiu
+hist(resid(fitTVUHtaxonimicfruits))
 
-# selecció de models
-
-options(na.action = "na.fail")
 dd <- dredge(fitTVUHtaxonimicfruits)
 subset(dd, delta < 2)
-#'Best' model
-summary(get.models(dd, 1)[[1]])
+# summary(get.models(dd, 1)[[1]])
 
 
 ## Seed set
 ## TVUF
 
-fitTVUFtaxonimicseeds <- glmer(Seed~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+Lepidoptera_VR+(1|Plot/Plant), data=grupstaxonomicsseedsTVUF, family=poisson)  
+fitTVUFtaxonimicseeds <- glmer(Seed~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+Lepidoptera_VR+(1|Plot/Plant), data=TVUFseedsbitxos, family=poisson)  
+
+hist(resid(fitTVUHtaxonimicfruits))
 
 dd <- dredge(fitTVUFtaxonimicseeds)
 subset(dd, delta < 2)
 
 ## TVUH
 
-fitTVUHtaxonimicseeds <- glmer(Seed~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=grupstaxonomicsseedsTVUH, family=poisson)  
+fitTVUHtaxonimicseeds <- glmer(Seed~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUHseedsbitxos, family=poisson)  
+
+hist(resid(fitTVUHtaxonimicfruits))
 
 dd <- dredge(fitTVUHtaxonimicseeds)
 subset(dd, delta < 2)

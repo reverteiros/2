@@ -1,4 +1,4 @@
-Parcela	X	Y	Nom_definitiu	Solitary	Separing_honeybees	Group	Functional_group_Rocka	Familia	Nom_planta	Codi_planta	Plant	Frequencia
+Plot	X	Y	Nom_definitiu	Solitary	Taxonomic_group	Group	Functional_group_Rocka	Familia	Nom_planta	Species	Plant	Abundance
 19	1.92	41.31	Andrena_limata	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Euphorbia_flavicoma	EFL	EFL	1
 14	1.93	41.31	Andrena_limata	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Rosmarinus_officinalis	ROF	ROF	1
 15	1.88	41.30	Andrena_nigroaenea	Solitary	Bee	Large_bee	Short-tongued_large_bees	Andrenidae	Cistus_salviifolius	CSA	CSA	1

@@ -22,7 +22,8 @@ datagroups <- read.table("dades/pollinator groups.txt",header=T) %>%
 a1 <- ggplot(datagroups, aes(fill=Pollinator_group, y=Visitation_rate, x=Species)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  theme(legend.position = "top")
+  theme(legend.position = "top")+ 
+  scale_fill_manual("legend", values = c("Bee" = "red", "Coleoptera" = "blue", "Diptera" = "black", "Honeybees" = "pink", "Lepidoptera" = "green", "Wasp" = "brown"))
 
 # Visitation rate total
 a2 <- ggplot(meandataperplot, aes(y=Visitation_rate, x=Species))+

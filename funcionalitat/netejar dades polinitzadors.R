@@ -33,31 +33,30 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
 
 ### grups taxonomics
 grupstaxonomics <- read.table("dades/censos grups taxonomics.txt",header=T) %>%
-  mutate(Taxonomic_group=Separing_honeybees) %>%
-  select(Parcela,Taxonomic_group,Codi_planta,Frequencia) %>%
-  group_by(Parcela,Taxonomic_group,Codi_planta) %>% 
-  summarise(Abundance=sum(Frequencia)) %>%
-  complete(Parcela,Codi_planta) %>%
+  select(Plot,Taxonomic_group,Species,Abundance) %>%
+  group_by(Plot,Taxonomic_group,Species) %>% 
+  summarise(Abundance=sum(Abundance)) %>%
+  complete(Plot,Species) %>%
   distinct() %>% 
-  filter(.,Codi_planta =="ROF" | Codi_planta =="TVUF" | Codi_planta =="TVUH")
+  filter(.,Species =="ROF" | Species =="TVUF" | Species =="TVUH")
 
 
 ### grups funcionals rocka
 grupsfuncionals <- read.table("dades/grups funcionals rocka.txt",header=T) %>%
-  select(Parcela,Functional_group_Rocka,Codi_planta,Frequencia) %>%
-  group_by(Parcela,Functional_group_Rocka,Codi_planta) %>% 
-  summarise(Abundance=sum(Frequencia)) %>%
-  complete(Parcela,Codi_planta) %>%
+  select(Plot,Functional_group_Rocka,Species,Abundance) %>%
+  group_by(Plot,Functional_group_Rocka,Species) %>% 
+  summarise(Abundance=sum(Abundance)) %>%
+  complete(Plot,Species) %>%
   distinct() %>% 
-  filter(.,Codi_planta =="ROF" | Codi_planta =="TVUF" | Codi_planta =="TVUH")
+  filter(.,Species =="ROF" | Species =="TVUF" | Species =="TVUH")
 
 ## nombre grups funcionals
 numerogrupsfuncionals <- read.table("dades/grups funcionals rocka.txt",header=T) %>%
-  group_by(Parcela,Codi_planta) %>% 
+  group_by(Plot,Species) %>% 
   summarise(Functional_groups=n_distinct(Functional_group_Rocka)) %>%
-  complete(Parcela,Codi_planta) %>%
+  complete(Plot,Species) %>%
   distinct() %>% 
-  filter(.,Codi_planta =="ROF" | Codi_planta =="TVUF" | Codi_planta =="TVUH")
+  filter(.,Species =="ROF" | Species =="TVUF" | Species =="TVUH")
 names(numerogrupsfuncionals) <- c("Plot","Species","Functional_group_Rocka")
 
 
