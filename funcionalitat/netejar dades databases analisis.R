@@ -15,6 +15,8 @@ grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
 
 
 ROFpollenbitxos <- ROFpollen %>%
+  mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) %>%
   left_join(datapollinatorsall,by=c("Species","Plot")) %>%
   mutate(logVisitation_rate = log(Visitation_rate))%>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
@@ -26,6 +28,8 @@ ROFpollenbitxos <- ROFpollen %>%
   mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))
 
 TVUFpollenbitxos <- TVUFpollen %>%
+  mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) %>%
   left_join(datapollinatorsall,by=c("Species","Plot"))%>%
   left_join(proporciomorfs,by="Plot")%>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
@@ -49,6 +53,8 @@ TVUFpollenbitxoswtna <- TVUFpollenbitxos %>%
   filter(Proportion_Homosp_Stigma > -10)
 
 TVUHpollenbitxos <- TVUHpollen %>%
+  mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) %>%
   left_join(datapollinatorsall,by=c("Species","Plot"))%>%
   left_join(proporciomorfs,by="Plot")%>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
@@ -137,7 +143,7 @@ TVUFpollenseedsperplanta <- seedset %>%
 TVUHpollenfruitsperplanta <- fruitset %>%
   filter(Species == "TVUH") %>%
   group_by(Plot, Plant, Species) %>% 
-  summarise(Seed_set=mean(Seed))%>%
+  summarise(Fruit_set=mean(Fruits),Fecundity=mean(Seed))%>%
   left_join(TVUHpollenperplanta,by=c("Plot", "Plant","Species"))%>%
   left_join(proporciomorfs,by="Plot")%>%
   filter(Mean_Homospecific > -1) 

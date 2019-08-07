@@ -29,9 +29,14 @@ ggplot(dataclean, aes(y=Ratio_Heterosp_Homosp, x=Species)) +
   geom_boxplot() +
   theme_classic()
 
+pollenpergraph <- pollenclean %>%
+  mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
+  group_by(Plot, Species) %>% 
+  summarise(Flowers_with_pollen=mean(Pollen_presence))
 
 ## Corrplot
 ROF <- meandataperplot %>%
+  left_join(pollenpergraph,by=c("Plot","Species"))%>%
   filter(Species=="ROF") %>%
   select(-c(Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit,ProporcioF,logVisitation_rate,logMean_pollen,logFunctional_group_Rocka,logPollinator_richness,Pollinator_abundance,Flower_Abundance,Mean_pollen))
 ROF <- as.data.frame(ROF) %>%
@@ -49,9 +54,10 @@ chart.Correlation(ROF, histogram=TRUE, pch=19)
 
 ## Corrplot
 TVUF <- meandataperplot %>%
+  left_join(pollenpergraph,by=c("Plot","Species"))%>%
   filter(Species=="TVUF") %>%
   # select(-c(ProporcioF,logVisitation_rate,logMean_pollen,logFunctional_group_Rocka,logPollinator_richness,Pollinator_abundance,Flower_Abundance,Mean_pollen,Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit))
-select(Species,Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit,Mean_pollen,Mean_Homospecific,Mean_Heterospecific)
+select(Species,Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit,Mean_pollen,Mean_Homospecific,Flowers_with_pollen)
 
 TVUF <- as.data.frame(TVUF) %>%
   select(.,-c(Plot,Species))

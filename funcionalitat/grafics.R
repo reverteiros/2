@@ -104,6 +104,15 @@ final <- ggarrange(polls,pollen,nrow=2)
 final
 
 
+
+## logit regression presencia polen - taxa de visites
+
+ggplot(data = TVUFpollenbitxos, aes(x=Visitation_rate, y=Homospecific_presence)) + 
+  geom_point(alpha = .15) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
+  theme_classic()
+
+
 # taxa de visites i polen depositat
 p <- ggplot(data = meandataperplot, aes(x=Visitation_rate, y=Mean_pollen,color=Species)) + 
   geom_point()+
