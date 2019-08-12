@@ -13,31 +13,32 @@ grupstaxonomicsspread <- grupstaxonomics %>%
   select(-c(Heteroptera,Mecoptera))
 grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
 
-
 ROFpollenbitxos <- ROFpollen %>%
   mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
   mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) %>%
   left_join(datapollinatorsall,by=c("Species","Plot")) %>%
   mutate(logVisitation_rate = log(Visitation_rate))%>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)
 
 ROFpollenflowerswithpollen <- ROFpollen %>%
   filter(Homospecific>0)%>%
   left_join(datapollinatorsall,by=c("Species","Plot")) %>%
   mutate(logVisitation_rate = log(Visitation_rate))%>%
-  left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))
+  left_join(grupstaxonomicsspread,by=c("Species","Plot"))%>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)
 
 TVUFpollenbitxos <- TVUFpollen %>%
   mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
@@ -48,12 +49,13 @@ TVUFpollenbitxos <- TVUFpollen %>%
   mutate(logVisitation_rate = log(Visitation_rate)) %>%
   mutate(logFunctional_group_Rocka = log(Functional_group_Rocka)) %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))%>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
@@ -71,12 +73,13 @@ TVUFpollenflowerswithpollen <- TVUFpollen %>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
   mutate(logVisitation_rate = log(Visitation_rate)) %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))%>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
@@ -95,12 +98,13 @@ TVUHpollenbitxos <- TVUHpollen %>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
   mutate(logVisitation_rate = log(Visitation_rate)) %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))%>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
@@ -116,12 +120,13 @@ TVUHpollenflowerswithpollen <- TVUHpollen %>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
   mutate(logVisitation_rate = log(Visitation_rate)) %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))%>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
@@ -147,12 +152,13 @@ TVUFpollenfruitsperplanta <- fruitset %>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
   mutate(logVisitation_rate = log(Visitation_rate)) %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))%>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
   filter(Mean_Homospecific > -1)
 
 TVUFtotperplanta <- seedset %>%
@@ -179,12 +185,13 @@ TVUHpollenfruitsperplanta <- fruitset %>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
   mutate(logVisitation_rate = log(Visitation_rate)) %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(3*Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(3*Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(3*Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(3*Flower_Abundance)))
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)
 
 
 TVUHpollenperplanta <- TVUHpollen %>%

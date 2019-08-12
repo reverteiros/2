@@ -11,24 +11,24 @@ library(MuMIn)
 
 ## Functional_group_Rocka
 
-fitROFTotal_tot <- glmer(Homospecific_presence~Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
+fitROFTotal_tot <- glmer(Homospecific_presence~Functional_group_Rocka+logVisitation_rate+Proportion_HB+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
 
 hist(resid(fitROFTotal_tot))
 
 options(na.action = "na.fail")
 dd <- dredge(fitROFTotal_tot)
 subset(dd, delta < 2)
-# summary(get.models(dd, 1)[[1]])
+summary(get.models(dd, 1)[[1]])
 
 ## Pollinator richness
 
-fitROFTotal_tot <- glmer(Homospecific_presence~Pollinator_richness+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
+fitROFTotal_tot <- glmer(Homospecific_presence~Pollinator_richness+logVisitation_rate+Proportion_HB+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
 
 hist(resid(fitROFTotal_tot))
 
 dd <- dredge(fitROFTotal_tot)
 subset(dd, delta < 2)
-# summary(get.models(dd, 1)[[1]])
+summary(get.models(dd, 1)[[1]])
 
 ## Taxonomic groups per separat 
 
@@ -38,7 +38,7 @@ hist(resid(roftot))
 
 dd <- dredge(roftot)
 subset(dd, delta < 2)
-# summary(get.models(dd, 1)[[1]])
+summary(get.models(dd, 2)[[1]])
 
 
 

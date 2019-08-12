@@ -27,7 +27,7 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
   complete(Species, Plot) %>%
   distinct() %>%
   left_join(flors, by = c("Plot","Species")) %>%
-  mutate(Visitation_rate = Pollinator_abundance/Flower_Abundance*1000)
+  mutate(Visitation_rate = Pollinator_abundance*1000/Flower_Abundance)
 
 
 
