@@ -3,6 +3,8 @@ source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades plantes.R")
 source("funcionalitat/netejar dades databases analisis.R")
 
+# install.packages("glmmADMB", repos="http://R-Forge.R-project.org")
+library(glmmADMB)
 library(lme4)
 library(MuMIn)
 
@@ -23,8 +25,7 @@ hist(ROFpollenbitxos$Wasp_VR)
 hist(ROFpollenbitxos$Honeybees_VR) 
 
 ## Functional_group_Rocka
-
-fitROFTotal_tot <- glmer(Total~Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=poisson)  
+fitROFTotal_tot <- glmer(Total~Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=ROFpollenflowerswithpollen, family=poisson)  
 
 hist(resid(fitROFTotal_tot))
 
@@ -35,7 +36,7 @@ subset(dd, delta < 2)
 
 ## Pollinator_richness
 
-fitROFTotal_tot <- glmer(Total~Pollinator_richness+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=poisson)  
+fitROFTotal_tot <- glmer(Total~Pollinator_richness+logVisitation_rate+(1|Plot/Plant), data=ROFpollenflowerswithpollen, family=poisson)  
 
 hist(resid(fitROFTotal_tot))
 
@@ -45,7 +46,7 @@ subset(dd, delta < 2)
 
 ## Taxonomic groups per separat 
 
-roftot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=ROFpollenbitxos, family=poisson)  
+roftot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=ROFpollenflowerswithpollen, family=poisson)  
 
 hist(resid(roftot))
 
@@ -55,32 +56,34 @@ subset(dd, delta < 2)
 
 ###################### TVUF
 
-hist(TVUFpollenbitxos$Pollinator_richness)    
-hist(TVUFpollenbitxos$logPollinator_richness) 
-hist(TVUFpollenbitxos$Visitation_rate)        
-hist(TVUFpollenbitxos$logVisitation_rate)     
-hist(TVUFpollenbitxos$Functional_group_Rocka)
-hist(TVUFpollenbitxos$ProporcioF)             
-hist(TVUFpollenbitxos$Bee_VR)       
-hist(TVUFpollenbitxos$Coleoptera_VR)   
-hist(TVUFpollenbitxos$Diptera_VR)      
-hist(TVUFpollenbitxos$Lepidoptera_VR) 
-hist(TVUFpollenbitxos$Wasp_VR) 
-hist(TVUFpollenbitxos$Honeybees_VR)
+hist(TVUFpollenflowerswithpollen$Total)    
+hist(TVUFpollenflowerswithpollen$Pollinator_richness)    
+hist(TVUFpollenflowerswithpollen$logPollinator_richness) 
+hist(TVUFpollenflowerswithpollen$Visitation_rate)        
+hist(TVUFpollenflowerswithpollen$logVisitation_rate)     
+hist(TVUFpollenflowerswithpollen$Functional_group_Rocka)
+hist(TVUFpollenflowerswithpollen$ProporcioF)             
+hist(TVUFpollenflowerswithpollen$Bee_VR)       
+hist(TVUFpollenflowerswithpollen$Coleoptera_VR)   
+hist(TVUFpollenflowerswithpollen$Diptera_VR)      
+hist(TVUFpollenflowerswithpollen$Lepidoptera_VR) 
+hist(TVUFpollenflowerswithpollen$Wasp_VR) 
+hist(TVUFpollenflowerswithpollen$Honeybees_VR)
 
 ## Functional_group_Rocka
 
-fitTVUFTotal_fg <- glmer(Total~Functional_group_Rocka+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUFpollenbitxos, family=poisson)  
+fitTVUFTotal_fg <- glmer(Total~Functional_group_Rocka+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUFpollenflowerswithpollen, family="poisson")  
 
 hist(resid(fitTVUFTotal_fg))
 
 options(na.action = "na.fail")
 dd <- dredge(fitTVUFTotal_fg)
+subset(dd, delta < 2)
 # summary(get.models(dd, 1)[[1]])
 
 ## Pollinator_richness
 
-fitTVUFTotal_rich <- glmer(Total~Pollinator_richness+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUFpollenbitxos, family=poisson)  
+fitTVUFTotal_rich <- glmer(Total~Pollinator_richness+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUFpollenflowerswithpollen, family=poisson)  
 
 hist(resid(fitTVUFTotal_rich))
 
@@ -90,7 +93,7 @@ subset(dd, delta < 2)
 
 ## Taxonomic groups per separat 
 
-tvuftot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUFpollenbitxos, family=poisson)  
+tvuftot <- glmer(Total~Bee_VR+Lepidoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUFpollenflowerswithpollen, family=poisson)  
 
 hist(resid(tvuftot))
 
@@ -115,7 +118,7 @@ hist(TVUHpollenbitxos$Honeybees_VR)
 
 ## Functional_group_Rocka
 
-fitTVUHTotal_fg <- glmer(Total~Functional_group_Rocka+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUHpollenbitxos, family=poisson)  
+fitTVUHTotal_fg <- glmer(Total~Functional_group_Rocka+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUHpollenflowerswithpollen, family=poisson)  
 
 hist(resid(fitTVUHTotal_fg))
 
@@ -125,7 +128,7 @@ dd <- dredge(fitTVUHTotal_fg)
 
 ## Pollinator_richness
 
-fitTVUHTotal_rich <- glmer(Total~Pollinator_richness+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUHpollenbitxos, family=poisson) 
+fitTVUHTotal_rich <- glmer(Total~Pollinator_richness+ProporcioF+logVisitation_rate+(1|Plot/Plant), data=TVUHpollenflowerswithpollen, family=poisson) 
 
 hist(resid(fitTVUHTotal_rich))
 
@@ -135,7 +138,7 @@ subset(dd, delta < 2)
 
 ## Taxonomic groups per separat 
 
-tvuhtot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUHpollenbitxos, family=poisson)  
+tvuhtot <- glmer(Total~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUHpollenflowerswithpollen, family=poisson)  
 
 hist(resid(tvuhtot))
 

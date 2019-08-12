@@ -64,7 +64,7 @@ hist(resid(fitROFTotal_tot))
 
 dd <- dredge(fitROFTotal_tot)
 subset(dd, delta < 2)
-# summary(get.models(dd, 1)[[1]])
+summary(get.models(dd, 1)[[1]])
 
 
 ## Taxonomic groups per separat 
@@ -75,7 +75,7 @@ hist(resid(roftot))
 
 dd <- dredge(roftot)
 subset(dd, delta < 2)
-# summary(get.models(dd, 1)[[1]])
+summary(get.models(dd, 6)[[1]])
 
 
 
@@ -90,7 +90,7 @@ hist(resid(fitROFTotal_tot))
 options(na.action = "na.fail")
 dd <- dredge(fitROFTotal_tot)
 subset(dd, delta < 2)
-# summary(get.models(dd, 1)[[1]])
+summary(get.models(dd, 3)[[1]])
 
 
 fitROFTotal_tot <- glmer(Homospecific_presence~logPollinator_richness+logVisitation_rate+ProporcioF+(1|Plot/Plant), data=TVUHpollenbitxos, family=binomial)  
@@ -109,7 +109,7 @@ hist(resid(roftot))
 
 dd <- dredge(roftot)
 subset(dd, delta < 2)
-# summary(get.models(dd, 1)[[1]])
+summary(get.models(dd, 3)[[1]])
 
 
 
