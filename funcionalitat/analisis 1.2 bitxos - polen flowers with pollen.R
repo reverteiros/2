@@ -54,6 +54,20 @@ dd <- dredge(roftot)
 subset(dd, delta < 2)
 # summary(get.models(dd, 1)[[1]])
 
+
+
+## Taxonomic groups proporcions
+
+roftot <- glmer(Total~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Coleoptera+(1|Plot/Plant), data=ROFpollenflowerswithpollen, family=poisson)  
+
+hist(resid(roftot))
+
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+
+
 ###################### TVUF
 
 hist(TVUFpollenflowerswithpollen$Total)    
@@ -101,6 +115,21 @@ dd <- dredge(tvuftot)
 subset(dd, delta < 2)
 # summary(get.models(dd, 1)[[1]])
 
+
+
+## Taxonomic groups proporcions
+
+roftot <- glmer(Total~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Lepidoptera+(1|Plot/Plant), data=TVUFpollenflowerswithpollen, family=poisson)  
+
+hist(resid(roftot))
+
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+
+
+
 ###################### TVUH
 
 hist(TVUHpollenbitxos$Pollinator_richness)    
@@ -145,3 +174,15 @@ hist(resid(tvuhtot))
 dd <- dredge(tvuhtot)
 subset(dd, delta < 2)
 # summary(get.models(dd, 1)[[1]])
+
+
+
+## Taxonomic groups proporcions
+
+roftot <- glmer(Total~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Lepidoptera+(1|Plot/Plant), data=TVUHpollenflowerswithpollen, family=poisson)  
+
+hist(resid(roftot))
+
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])

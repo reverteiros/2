@@ -6,21 +6,24 @@ source("funcionalitat/netejar dades databases analisis.R")
 library(lme4)
 library(MuMIn)
 library(lmerTest)
+library(glmmADMB)
 
 ################################## RATIO HOMOSP-HETEROSP #######################
 
 ###### TVUF
 
-hist(TVUFpollenbitxos$Pollinator_richness)    
-hist(TVUFpollenbitxos$logPollinator_richness) 
-hist(TVUFpollenbitxos$Proportion_Homosp_Stigma)
-hist(TVUFpollenbitxos$Proportion_Homosp_Community)
-hist(TVUFpollenbitxos$sqrtProportion_Homosp_Community)
-hist(TVUFpollenbitxos$H2)                             
+hist(TVUFpollenbitxoswtna$Pollinator_richness)    
+hist(TVUFpollenbitxoswtna$logPollinator_richness) 
+hist(TVUFpollenbitxoswtna$Proportion_Heterosp_Stigma)
+hist(TVUFpollenbitxoswtna$Proportion_Heterosp_Community)
+hist(TVUFpollenbitxoswtna$logProportion_Heterosp_Community)
+hist(TVUFpollenbitxoswtna$H2)                             
 
 ## 
 
-fitTVUFratioglm_tot <- glmer(Heterospecific~logPollinator_richness+logVisitation_rate+H2+sqrtProportion_Homosp_Community+(1|Plot/Plant), data=TVUFpollenbitxoswtna, family=poisson)  
+zipmodel <- glmmadmb(y~x+(1|f),data=d,family="poisson",zeroInflation=TRUE)
+
+fitTVUFratioglm_tot <- lmer(Proportion_Heterosp_Stigma~logPollinator_richness+logVisitation_rate+H2+Proportion_Heterosp_Community+(1|Plot/Plant), data=TVUFpollenbitxoswtna)  
 
 hist(resid(fitTVUFratioglm_tot))
 
@@ -29,7 +32,7 @@ dd <- dredge(fitTVUFratioglm_tot)
 subset(dd, delta < 2)
 summary(get.models(dd, 1)[[1]])
 
-tvuftot <- glmer(Heterospecific~Bee_VR+Lepidoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUFpollenbitxos, family=poisson)  
+tvuftot <- lmer(Proportion_Heterosp_Stigma~Bee_VR+Lepidoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUFpollenbitxoswtna)  
 
 hist(resid(tvuftot))
 
@@ -39,29 +42,24 @@ subset(dd, delta < 2)
 summary(get.models(dd, 1)[[1]])
 
 
-aaa <- ggplot(TVUFpollenbitxos) +
-  geom_point(aes(Bee_VR,Heterospecific,alpha=0.2)) +
-  theme_classic() +
-  theme(legend.position = "none")
 
-bbb <- ggplot(TVUFpollenbitxos) +
-  geom_point(aes(Lepidoptera_VR,Heterospecific,alpha=0.2)) +
-  theme_classic() +
-  theme(legend.position = "none")
 
-ccc <- ggplot(TVUFpollenbitxos) +
-  geom_point(aes(Honeybees_VR,Heterospecific,alpha=0.2)) +
-  theme_classic() +
-  theme(legend.position = "none")
+## Taxonomic groups proporcions
 
-ddd <- ggplot(TVUFpollenbitxos) +
-  geom_point(aes(Diptera_VR,Heterospecific,alpha=0.2)) +
-  theme_classic() +
-  theme(legend.position = "none")
+roftot <- lmer(Proportion_Heterosp_Stigma~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Lepidoptera+(1|Plot/Plant), data=TVUFpollenbitxoswtna)  
 
-polls <- ggarrange(aaa, bbb, ccc, ddd, ncol = 4, nrow = 1)
+hist(resid(roftot))
 
-sum(table(TVUFpollenbitxos$Heterospecific))
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
+
+library(ggplot2)
+p <- ggplot(TVUFpollenbitxoswtna, aes(Heterospecific, Total)) + geom_point() + theme_classic()
+ggExtra::ggMarginal(p, type = "histogram")
+
+
 
 #'  Massa poques dades per testar l'efecte sobre el pol·len heterospecífic, massa poques flors amb presència de pol·len heterospecífic i no em crec la falta de senyal.
 #'  

@@ -11,7 +11,7 @@ library(MuMIn)
 
 ## Functional_group_Rocka
 
-fitROFTotal_tot <- glmer(Homospecific_presence~Functional_group_Rocka+logVisitation_rate+Proportion_HB+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
+fitROFTotal_tot <- glmer(Homospecific_presence~Functional_group_Rocka+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
 
 hist(resid(fitROFTotal_tot))
 
@@ -22,7 +22,7 @@ summary(get.models(dd, 1)[[1]])
 
 ## Pollinator richness
 
-fitROFTotal_tot <- glmer(Homospecific_presence~Pollinator_richness+logVisitation_rate+Proportion_HB+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
+fitROFTotal_tot <- glmer(Homospecific_presence~Pollinator_richness+logVisitation_rate+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
 
 hist(resid(fitROFTotal_tot))
 
@@ -38,9 +38,17 @@ hist(resid(roftot))
 
 dd <- dredge(roftot)
 subset(dd, delta < 2)
-summary(get.models(dd, 2)[[1]])
+summary(get.models(dd, 1)[[1]])
 
+## Taxonomic groups proporcions
 
+roftot <- glmer(Homospecific_presence~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Coleoptera+(1|Plot/Plant), data=ROFpollenbitxos, family=binomial)  
+
+hist(resid(roftot))
+
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
 
 
 ######################################### TVUF #########################
@@ -78,6 +86,16 @@ subset(dd, delta < 2)
 summary(get.models(dd, 6)[[1]])
 
 
+## Taxonomic groups proporcions
+
+roftot <- glmer(Homospecific_presence~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Lepidoptera+(1|Plot/Plant), data=TVUFpollenbitxos, family=binomial)  
+
+hist(resid(roftot))
+
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
+
 
 ######################################### TVUH #########################
 
@@ -112,6 +130,17 @@ subset(dd, delta < 2)
 summary(get.models(dd, 3)[[1]])
 
 
+
+
+## Taxonomic groups proporcions
+
+roftot <- glmer(Homospecific_presence~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Coleoptera+(1|Plot/Plant), data=TVUHpollenbitxos, family=binomial)  
+
+hist(resid(roftot))
+
+dd <- dredge(roftot)
+subset(dd, delta < 2)
+summary(get.models(dd, 1)[[1]])
 
 
 

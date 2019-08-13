@@ -4,13 +4,10 @@ source("funcionalitat/netejar dades polinitzadors.R")
 source("funcionalitat/netejar dades plantes.R")
 
 
-############################ ARREGLAT
-
 ### analisis 1.1 bitxos - flors amb polen
 
 grupstaxonomicsspread <- grupstaxonomics %>%
-  spread(Taxonomic_group, Abundance) %>%
-  select(-c(Heteroptera,Mecoptera))
+  spread(Taxonomic_group, Abundance) 
 grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
 
 ROFpollenbitxos <- ROFpollen %>%
@@ -25,7 +22,12 @@ ROFpollenbitxos <- ROFpollen %>%
   mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
   mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
   mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
-  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate) %>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
 
 ROFpollenflowerswithpollen <- ROFpollen %>%
   filter(Homospecific>0)%>%
@@ -38,7 +40,12 @@ ROFpollenflowerswithpollen <- ROFpollen %>%
   mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
   mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
   mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
-  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
 
 TVUFpollenbitxos <- TVUFpollen %>%
   mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
@@ -59,12 +66,17 @@ TVUFpollenbitxos <- TVUFpollen %>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
-  mutate(Proportion_Homosp_Community = Grains_Homospecific/Grains_Total)%>%
-  mutate(Proportion_Homosp_Stigma = Homospecific / Total) %>%
-  mutate(sqrtProportion_Homosp_Community = sqrt(Proportion_Homosp_Community)) 
+  mutate(Proportion_Heterosp_Community = Grains_Heterospecific/Grains_Total)%>%
+  mutate(Proportion_Heterosp_Stigma = Heterospecific / Total) %>%
+  mutate(logProportion_Heterosp_Community = log(Proportion_Heterosp_Community)) %>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
 
 TVUFpollenbitxoswtna <- TVUFpollenbitxos %>%
-  filter(Proportion_Homosp_Stigma > -10)
+  filter(Proportion_Heterosp_Stigma > -10)
 
 TVUFpollenflowerswithpollen <- TVUFpollen %>%
   filter(Homospecific>0)%>%
@@ -83,11 +95,14 @@ TVUFpollenflowerswithpollen <- TVUFpollen %>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
-  mutate(Proportion_Homosp_Community = Grains_Homospecific/Grains_Total)%>%
-  mutate(Proportion_Homosp_Stigma = Homospecific / Total) %>%
-  mutate(sqrtProportion_Homosp_Community = sqrt(Proportion_Homosp_Community)) %>%
-  mutate(Plot=as.factor(Plot)) %>%
-  mutate(Plant=as.factor(Plant)) 
+  mutate(Proportion_Heterosp_Community = Grains_Heterospecific/Grains_Total)%>%
+  mutate(Proportion_Heterosp_Stigma = Heterospecific / Total) %>%
+  mutate(sqrtProportion_Heterosp_Community = sqrt(Proportion_Heterosp_Community)) %>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
 
 
 TVUHpollenbitxos <- TVUHpollen %>%
@@ -108,10 +123,15 @@ TVUHpollenbitxos <- TVUHpollen %>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
-  mutate(Proportion_Homosp_Community = Grains_Homospecific/Grains_Total)%>%
-  mutate(Proportion_Homosp_Stigma = Homospecific / Total) %>%
-  mutate(sqrtProportion_Homosp_Community = sqrt(Proportion_Homosp_Community)) %>%
-  filter(Pollinator_richness > -10)
+  mutate(Proportion_Heterosp_Community = Grains_Heterospecific/Grains_Total)%>%
+  mutate(Proportion_Heterosp_Stigma = Heterospecific / Total) %>%
+  mutate(sqrtProportion_Heterosp_Community = sqrt(Proportion_Heterosp_Community)) %>%
+  filter(Pollinator_richness > -10)%>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
 
 TVUHpollenflowerswithpollen <- TVUHpollen %>%
   filter(Homospecific>0)%>%
@@ -130,23 +150,86 @@ TVUHpollenflowerswithpollen <- TVUHpollen %>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
-  mutate(Proportion_Homosp_Community = Grains_Homospecific/Grains_Total)%>%
-  mutate(Proportion_Homosp_Stigma = Homospecific / Total) %>%
-  mutate(sqrtProportion_Homosp_Community = sqrt(Proportion_Homosp_Community)) %>%
-  filter(Pollinator_richness > -10)
+  mutate(Proportion_Heterosp_Community = Grains_Heterospecific/Grains_Total)%>%
+  mutate(Proportion_Heterosp_Stigma = Heterospecific / Total) %>%
+  mutate(sqrtProportion_Heterosp_Community = sqrt(Proportion_Heterosp_Community)) %>%
+  filter(Pollinator_richness > -10)%>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
 
-### analisis 3. polen - fruits i llavors tenint en compte els bitxos
+### analisis 2. polen - fruits i llavors tenint en compte els bitxos
 
-TVUFpollenperplanta <- TVUFpollen %>%
-  mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
+TVUFflowerswithpollenperplanta <- TVUFpollenbitxos %>%
   group_by(Plot, Plant, Species) %>% 
-  summarise(Mean_Homospecific=mean(Homospecific),Mean_Heterospecific=mean(Heterospecific),Mean_Total=mean(Total),Flowers_with_pollen=mean(Homospecific_presence))
+  summarise(Homospecific_presence=mean(Homospecific_presence))
+
+TVUFpollenflowerswithpollenperplanta <- TVUFpollenflowerswithpollen%>%
+  group_by(Plot, Plant, Species) %>% 
+  summarise(Mean_Homospecific=mean(Homospecific))
 
 TVUFpollenfruitsperplanta <- fruitset %>%
   filter(Species == "TVUF") %>%
   group_by(Plot, Plant, Species) %>% 
-  summarise(Fruit_set=mean(Fruits),Fecundity=mean(Seed))%>%
-  left_join(TVUFpollenperplanta,by=c("Plot", "Plant","Species"))%>%
+  summarise(Fruit_set=mean(Fruits),Fecundity=mean(Seed))
+
+TVUFpollenseedsperplanta <- seedset %>%
+  filter(Species == "TVUF") %>%
+  group_by(Plot, Plant, Species) %>% 
+  summarise(Seed_set=mean(Seed))
+  # filter(Mean_Homospecific < 8.1) 
+
+TVUFtotperplanta <- TVUFflowerswithpollenperplanta %>%
+  full_join(TVUFpollenflowerswithpollenperplanta,by=c("Plot", "Plant","Species"))%>%
+  full_join(TVUFpollenfruitsperplanta,by=c("Plot", "Plant","Species"))%>%
+  full_join(TVUFpollenseedsperplanta,by=c("Plot", "Plant","Species"))%>%
+  full_join(proporciomorfs,by="Plot")%>%
+  full_join(datapollinatorsall,by=c("Species","Plot"))%>%
+  mutate(logPollinator_richness = log(Pollinator_richness)) %>%
+  mutate(logVisitation_rate = log(Visitation_rate)) %>%
+  full_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
+  # filter(Mean_Homospecific > -1)%>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
+
+
+
+
+TVUHflowerswithpollenperplanta <- TVUHpollenbitxos %>%
+  group_by(Plot, Plant, Species) %>% 
+  summarise(Homospecific_presence=mean(Homospecific_presence))
+
+TVUHpollenflowerswithpollenperplanta <- TVUHpollenflowerswithpollen%>%
+  group_by(Plot, Plant, Species) %>% 
+  summarise(Mean_Homospecific=mean(Homospecific))
+
+TVUHpollenfruitsperplanta <- fruitset %>%
+  filter(Species == "TVUH") %>%
+  group_by(Plot, Plant, Species) %>% 
+  summarise(Fruit_set=mean(Fruits),Fecundity=mean(Seed))
+
+TVUHpollenseedsperplanta <- seedset %>%
+  filter(Species == "TVUH") %>%
+  group_by(Plot, Plant, Species) %>% 
+  summarise(Seed_set=mean(Seed))
+# filter(Mean_Homospecific < 8.1) 
+
+TVUHtotperplanta <- TVUHflowerswithpollenperplanta %>%
+  full_join(TVUHpollenflowerswithpollenperplanta,by=c("Plot", "Plant","Species"))%>%
+  full_join(TVUHpollenfruitsperplanta,by=c("Plot", "Plant","Species"))%>%
+  full_join(TVUHpollenseedsperplanta,by=c("Plot", "Plant","Species"))%>%
   left_join(proporciomorfs,by="Plot")%>%
   left_join(datapollinatorsall,by=c("Species","Plot"))%>%
   mutate(logPollinator_richness = log(Pollinator_richness)) %>%
@@ -159,51 +242,9 @@ TVUFpollenfruitsperplanta <- fruitset %>%
   mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
   mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
   mutate(Proportion_HB = Honeybees_VR/Visitation_rate)%>%
-  filter(Mean_Homospecific > -1)
-
-TVUFtotperplanta <- seedset %>%
-  filter(Species == "TVUF") %>%
-  group_by(Plot, Plant, Species) %>% 
-  summarise(Seed_set=mean(Seed))%>%
-  full_join(TVUFpollenfruitsperplanta,by=c("Plot", "Plant","Species"))%>%
-  filter(Mean_Homospecific > 0)
-
-
-TVUHpollenperplanta <- TVUHpollen %>%
-  mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
-  group_by(Plot, Plant, Species) %>% 
-  summarise(Mean_Homospecific=mean(Homospecific),Mean_Heterospecific=mean(Heterospecific),Mean_Total=mean(Total),Flowers_with_pollen=mean(Homospecific_presence))
-
-
-TVUHpollenfruitsperplanta <- fruitset %>%
-  filter(Species == "TVUH")  %>%
-  group_by(Plot, Plant, Species) %>% 
-  summarise(Fruit_set=mean(Fruits),Fecundity=mean(Seed))%>%
-  left_join(TVUHpollenperplanta,by=c("Plot", "Plant","Species"))%>%
-  left_join(proporciomorfs,by="Plot")%>%
-  left_join(datapollinatorsall,by=c("Species","Plot"))%>%
-  mutate(logPollinator_richness = log(Pollinator_richness)) %>%
-  mutate(logVisitation_rate = log(Visitation_rate)) %>%
-  left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
-  mutate(Proportion_HB = Honeybees_VR/Visitation_rate)
-
-
-TVUHpollenperplanta <- TVUHpollen %>%
-  mutate(Homospecific_presence=if_else(Homospecific>0,1,0)) %>%
-  group_by(Plot, Plant, Species) %>% 
-  summarise(Mean_Homospecific=mean(Homospecific),Mean_Heterospecific=mean(Heterospecific),Mean_Total=mean(Total),Flowers_with_pollen=mean(Homospecific_presence))
-
-TVUHtotperplanta <- seedset %>%
-  filter(Species == "TVUH") %>%
-  group_by(Plot, Plant, Species) %>% 
-  summarise(Seed_set=mean(Seed))%>%
-  full_join(TVUHpollenfruitsperplanta,by=c("Plot", "Plant","Species"))%>%
-  filter(Mean_Homospecific > -1)%>%
-  filter(Pollinator_richness > -1)
-
+  # filter(Mean_Homospecific > -1)%>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
