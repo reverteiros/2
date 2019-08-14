@@ -1,44 +1,7 @@
 
-source("funcionalitat/netejar dades polinitzadors.R")
-source("funcionalitat/netejar dades plantes.R")
-source("funcionalitat/netejar dades fruits i llavors.R")
+source("funcionalitat/netejar dades mitjana per parcela.R")
 
 library(MuMIn)
-
-
-
-proporcioF <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
-  select(., TVUF, TVUH) %>%
-  mutate(Plot = c(1:40)) %>%
-  mutate(TVU = TVUF+TVUH) %>%
-  mutate(ProporcioF = TVUF / TVU) %>%
-  select(., c(Plot,ProporcioF))
-
-pollenperplot <- pollenclean %>%
-  group_by(Plot, Species) %>% 
-  summarise(Mean_pollen=mean(Total),Mean_Homospecific=mean(Homospecific),Mean_Heterospecific=mean(Heterospecific))
-
-seeds <- fruitset %>%
-  filter(Fruits == 1) %>%
-  group_by(Plot, Species) %>% 
-  summarise(Seed_set=mean(Seed),Avorted_per_fruit=mean(Avorted))
-
-fruitsandfecundity <- fruitset %>%
-  group_by(Plot, Species) %>% 
-  summarise(Fecundity=mean(Seed),Fruit_set=mean(Fruits),Pollinated_ovules=mean(Pollinated),Avorted_total=mean(Avorted))
-
-meandataperplot <- datapollinatorsall %>%
-  left_join(fruitsandfecundity,by=c("Species","Plot")) %>%
-  left_join(seeds,by=c("Species","Plot")) %>%
-  left_join(pollenperplot,by=c("Species","Plot")) %>%
-  left_join(proporcioF,by="Plot")%>%
-  mutate(logPollinator_richness = log(Pollinator_richness)) %>%
-  mutate(logVisitation_rate = log(Visitation_rate)) %>%
-  mutate(logFunctional_group_Rocka = log(Functional_group_Rocka))%>%
-  mutate(logMean_pollen = log(Mean_pollen))
-
-
-
 
 ################################### ROF ####################################
 

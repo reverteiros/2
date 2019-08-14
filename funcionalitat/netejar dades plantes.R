@@ -50,17 +50,23 @@ pollenwtNA <- droplevels(dplyr::filter(pollenraw, !is.na(TVU) & !is.na(ROF)& !is
 ROFpollen <- filter(pollenwtNA, Species == "ROF") %>%
   mutate(Homospecific = ROF) %>%
   mutate(Heterospecific = TVU+OTHERS) %>%
-  left_join(granspollen,by="Plot")
+  left_join(granspollen,by="Plot")%>%
+  mutate(Total_presence=if_else(Total>0,1,0)) %>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) 
 
 TVUFpollen <- filter(pollenwtNA, Species == "TVUF") %>%
   mutate(Homospecific = TVU) %>%
   mutate(Heterospecific = ROF+OTHERS)%>%
-  left_join(granspollen,by="Plot")
+  left_join(granspollen,by="Plot")%>%
+  mutate(Total_presence=if_else(Total>0,1,0)) %>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) 
 
 TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
   mutate(Homospecific = TVU) %>%
   mutate(Heterospecific = ROF+OTHERS)%>%
-  left_join(granspollen,by="Plot")
+  left_join(granspollen,by="Plot")%>%
+  mutate(Total_presence=if_else(Total>0,1,0)) %>%
+  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0)) 
 
 pollenclean <- bind_rows(ROFpollen,TVUFpollen,TVUHpollen)
 

@@ -40,30 +40,28 @@ grupstaxonomics <- read.table("dades/censos grups taxonomics.txt",header=T) %>%
   distinct() %>% 
   filter(.,Species =="ROF" | Species =="TVUF" | Species =="TVUH")
 
-
-### grups funcionals rocka
-grupsfuncionals <- read.table("dades/grups funcionals rocka.txt",header=T) %>%
-  select(Plot,Functional_group_Rocka,Species,Abundance) %>%
-  group_by(Plot,Functional_group_Rocka,Species) %>% 
-  summarise(Abundance=sum(Abundance)) %>%
-  complete(Plot,Species) %>%
-  distinct() %>% 
-  filter(.,Species =="ROF" | Species =="TVUF" | Species =="TVUH")
-
-## nombre grups funcionals
-numerogrupsfuncionals <- read.table("dades/grups funcionals rocka.txt",header=T) %>%
-  group_by(Plot,Species) %>% 
-  summarise(Functional_groups=n_distinct(Functional_group_Rocka)) %>%
-  complete(Plot,Species) %>%
-  distinct() %>% 
-  filter(.,Species =="ROF" | Species =="TVUF" | Species =="TVUH")
-names(numerogrupsfuncionals) <- c("Plot","Species","Functional_group_Rocka")
+grupstaxonomicsspread <- grupstaxonomics %>%
+  spread(Taxonomic_group, Abundance) 
+grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
 
 
-###### join all datasets
+## database total
 datapollinatorsall <- pollinators %>%
   left_join(networkmetrics, by="Plot") %>%
-  select(.,-Shannon_diversity) %>%
-  left_join(numerogrupsfuncionals,by=c("Plot","Species"))
+  mutate(logVisitation_rate = log(Visitation_rate))%>%
+  mutate(logPollinator_richness = log(Pollinator_richness))%>%
+  left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
+  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
+  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
+  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
+  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
+  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
+  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
+  mutate(Proportion_HB = Honeybees_VR/Visitation_rate) %>%
+  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
+  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
+  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
 
 

@@ -35,7 +35,7 @@ subset(dd, delta < 2)
 
 ## Taxonomic groups per separat 
 
-roftot <- glmer(Heterospecific_presence~Bee_VR+Coleoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUHpollenbitxos, family=binomial(link = "logit"))  
+roftot <- glmer(Heterospecific_presence~Bee_VR+Lepidoptera_VR+Diptera_VR+Honeybees_VR+(1|Plot/Plant), data=TVUFpollenbitxos, family=binomial(link = "logit"))  
 
 hist(resid(roftot))
 
@@ -44,7 +44,7 @@ subset(dd, delta < 2)
 # summary(get.models(dd, 1)[[1]])
 
 
-
+roftot <- lmer(Proportion_Heterosp_Stigma~Proportion_HB+Proportion_Bee+Proportion_Diptera+Proportion_Lepidoptera+(1|Plot/Plant), data=TVUFpollenbitxoswtna)  
 
 
 

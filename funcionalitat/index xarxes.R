@@ -578,129 +578,129 @@ w40 <- plot40[,-(ncol(plot40))]
 
 
 
-networkmetrics<-matrix(0,40,2)
+networkmetrics<-matrix(0,40,3)
 
-colnames(networkmetrics)<-c("H2", "Shannon_diversity")
+colnames(networkmetrics)<-c("H2", "generality","vulnerability")
 
 
-b<-networklevel(w1, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w1, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[1,]<-b
 
-b<-networklevel(w2, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w2, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[2,]<-b
 
-b<-networklevel(w3, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w3, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[3,]<-b
 
-b<-networklevel(w4, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w4, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[4,]<-b
 
-b<-networklevel(w5, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w5, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[5,]<-b
 
-b<-networklevel(w6, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w6, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[6,]<-b
 
-b<-networklevel(w7, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w7, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[7,]<-b
 
-b<-networklevel(w8, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w8, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[8,]<-b
 
-b<-networklevel(w9, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w9, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[9,]<-b
 
-b<-networklevel(w10, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w10, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[10,]<-b
 
-b<-networklevel(w11, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w11, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[11,]<-b
 
-b<-networklevel(w12, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w12, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[12,]<-b
 
-b<-networklevel(w13, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w13, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[13,]<-b
 
-b<-networklevel(w14, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w14, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[14,]<-b
 
-b<-networklevel(w15, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w15, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[15,]<-b
 
-b<-networklevel(w16, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w16, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[16,]<-b
 
-b<-networklevel(w17, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w17, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[17,]<-b
 
-b<-networklevel(w18, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w18, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[18,]<-b
 
-b<-networklevel(w19, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w19, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[19,]<-b
 
-b<-networklevel(w20, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w20, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[20,]<-b
 
-b<-networklevel(w21, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w21, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[21,]<-b
 
-b<-networklevel(w22, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w22, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[22,]<-b
 
-b<-networklevel(w23, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w23, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[23,]<-b
 
-b<-networklevel(w24, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w24, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[24,]<-b
 
-b<-networklevel(w25, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w25, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[25,]<-b
 
-b<-networklevel(w26, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w26, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[26,]<-b
 
-b<-networklevel(w27, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w27, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[27,]<-b
 
-b<-networklevel(w28, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w28, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[28,]<-b
 
-b<-networklevel(w29, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w29, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[29,]<-b
 
-b<-networklevel(w30, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w30, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[30,]<-b
 
-b<-networklevel(w31, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w31, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[31,]<-b
 
-b<-networklevel(w32, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w32, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[32,]<-b
 
-b<-networklevel(w33, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w33, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[33,]<-b
 
-b<-networklevel(w34, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w34, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[34,]<-b
 
-b<-networklevel(w35, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w35, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[35,]<-b
 
-b<-networklevel(w36, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w36, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[36,]<-b
 
-b<-networklevel(w37, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w37, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[37,]<-b
 
-b<-networklevel(w38, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w38, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[38,]<-b
 
-b<-networklevel(w39, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w39, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[39,]<-b
 
-b<-networklevel(w40, index=c("H2","Shannon diversity"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
+b<-networklevel(w40, index=c("H2","generality"),level="both", weighted=TRUE,ISAmethod="Bluethgen", SAmethod = "Bluethgen", extinctmethod = "r", CCfun=median, dist="horn", normalise=TRUE, empty.web=TRUE,logbase="e", intereven="prod", H2_integer=TRUE, fcweighted=TRUE,fcdist="euclidean", legacy=FALSE)
 networkmetrics[40,]<-b
 
 
@@ -709,666 +709,5 @@ networkmetrics <- as.data.frame(networkmetrics)
 networkmetrics$Plot <- c(1:40)
 
 networkmetrics <- networkmetrics %>%
-  select(H2,Shannon_diversity,Plot)
-
-
-
-######## d'
-aa1 <- specieslevel(w1, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH") %>%
-  mutate(Plot = 1)
-
-aa2 <- specieslevel(w2, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 2)
-
-aa3 <- specieslevel(w3, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 3)
-
-aa4 <- specieslevel(w4, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 4)
-
-aa5 <- specieslevel(w5, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 5)
-
-aa6 <- specieslevel(w6, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 6)
-
-aa7 <- specieslevel(w7, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 7)
-
-aa8 <- specieslevel(w8, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 8)
-
-aa9 <- specieslevel(w9, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 9)
-
-aa10 <- specieslevel(w10, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 10)
-
-aa11 <- specieslevel(w11, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 11)
-
-aa12 <- specieslevel(w12, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 12)
-
-aa13 <- specieslevel(w13, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 13)
-
-aa14 <- specieslevel(w14, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 14)
-
-aa15 <- specieslevel(w15, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 15)
-
-aa16 <- specieslevel(w16, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 16)
-
-aa17 <- specieslevel(w17, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 17)
-
-aa18 <- specieslevel(w18, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 18)
-
-aa19 <- specieslevel(w19, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 19)
-
-aa20 <- specieslevel(w20, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 20)
-
-aa21 <- specieslevel(w21, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 21)
-
-aa22 <- specieslevel(w22, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 22)
-
-aa23 <- specieslevel(w23, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 23)
-
-aa24 <- specieslevel(w24, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 24)
-
-aa25 <- specieslevel(w25, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 25)
-
-aa26 <- specieslevel(w26, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 26)
-
-aa27 <- specieslevel(w27, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 27)
-
-aa28 <- specieslevel(w28, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 28)
-
-aa29 <- specieslevel(w29, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 29)
-
-aa30 <- specieslevel(w30, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 30)
-
-aa31 <- specieslevel(w31, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 31)
-
-aa32 <- specieslevel(w32, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 32)
-
-aa33 <- specieslevel(w33, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 33)
-
-aa34 <- specieslevel(w34, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 34)
-
-aa35 <- specieslevel(w35, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 35)
-
-aa36 <- specieslevel(w36, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 36)
-
-aa37 <- specieslevel(w37, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 37)
-
-aa38 <- specieslevel(w38, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 38)
-
-aa39 <- specieslevel(w39, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 39)
-
-aa40 <- specieslevel(w40, index="d", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 40)
-
-dprime <- bind_rows(aa1,aa2,aa3,aa4,aa5,aa6,aa7,aa8,aa9,aa10,aa11,aa12,aa13,aa14,aa15,aa16,aa17,aa18,aa19,aa20,aa21,aa22,aa23,aa24,aa25,aa26,aa27,aa28,aa29,aa30,aa31,aa32,aa33,aa34,aa35,aa36,aa37,aa38,aa39,aa40) %>%
-  group_by(Plot, Species) 
-
-
-####### closeness
-
-a1 <- specieslevel(w1, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 1)
-
-a2 <- specieslevel(w2, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 2)
-
-a3 <- specieslevel(w3, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 3)
-
-a4 <- specieslevel(w4, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 4)
-
-a5 <- specieslevel(w5, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 5)
-
-a6 <- specieslevel(w6, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 6)
-
-a7 <- specieslevel(w7, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 7)
-
-a8 <- specieslevel(w8, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 8)
-
-a9 <- specieslevel(w9, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 9)
-
-a10 <- specieslevel(w10, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 10)
-
-a11 <- specieslevel(w11, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 11)
-
-a12 <- specieslevel(w12, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 12)
-
-a13 <- specieslevel(w13, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 13)
-
-a14 <- specieslevel(w14, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 14)
-
-a15 <- specieslevel(w15, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 15)
-
-a16 <- specieslevel(w16, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 16)
-
-a17 <- specieslevel(w17, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 17)
-
-a18 <- specieslevel(w18, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 18)
-
-a19 <- specieslevel(w19, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 19)
-
-a20 <- specieslevel(w20, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 20)
-
-a21 <- specieslevel(w21, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 21)
-
-a22 <- specieslevel(w22, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 22)
-
-a23 <- specieslevel(w23, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 23)
-
-a24 <- specieslevel(w24, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 24)
-
-a25 <- specieslevel(w25, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 25)
-
-a26 <- specieslevel(w26, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 26)
-
-a27 <- specieslevel(w27, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 27)
-
-a28 <- specieslevel(w28, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 28)
-
-a29 <- specieslevel(w29, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 29)
-
-a30 <- specieslevel(w30, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 30)
-
-a31 <- specieslevel(w31, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 31)
-
-a32 <- specieslevel(w32, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 32)
-
-a33 <- specieslevel(w33, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 33)
-
-a34 <- specieslevel(w34, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 34)
-
-a35 <- specieslevel(w35, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 35)
-
-a36 <- specieslevel(w36, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 36)
-
-a37 <- specieslevel(w37, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 37)
-
-a38 <- specieslevel(w38, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 38)
-
-a39 <- specieslevel(w39, index="closeness", level="lower") %>%
-  mutate(Species = rownames(.)) %>%
-  select(., Species,weighted.closeness) %>%
-  filter(., Species == "ROF" | Species == "TVUF"| Species == "TVUH")%>%
-  mutate(Plot = 39)
-
-
-closenesss <- bind_rows(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39)
-
-
-
-
-
-####### apis d'
-
-a1 <- specieslevel(w1, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 1)
-
-a2 <- specieslevel(w2, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 2)
-
-a3 <- specieslevel(w3, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 3)
-
-a4 <- specieslevel(w4, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 4)
-
-a5 <- specieslevel(w5, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 5)
-
-a6 <- specieslevel(w6, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 6)
-
-a7 <- specieslevel(w7, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 7)
-
-a8 <- specieslevel(w8, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 8)
-
-a9 <- specieslevel(w9, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 9)
-
-a10 <- specieslevel(w10, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 10)
-
-a11 <- specieslevel(w11, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 11)
-
-a12 <- specieslevel(w12, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 12)
-
-a13 <- specieslevel(w13, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 13)
-
-a14 <- specieslevel(w14, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 14)
-
-a15 <- specieslevel(w15, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 15)
-
-a16 <- specieslevel(w16, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 16)
-
-a17 <- specieslevel(w17, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 17)
-
-a18 <- specieslevel(w18, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 18)
-
-a19 <- specieslevel(w19, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 19)
-
-a20 <- specieslevel(w20, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 20)
-
-a21 <- specieslevel(w21, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 21)
-
-a22 <- specieslevel(w22, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 22)
-
-a23 <- specieslevel(w23, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 23)
-
-a24 <- specieslevel(w24, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 24)
-
-a25 <- specieslevel(w25, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 25)
-
-a26 <- specieslevel(w26, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 26)
-
-a27 <- specieslevel(w27, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 27)
-
-a28 <- specieslevel(w28, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 28)
-
-a29 <- specieslevel(w29, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 29)
-
-a30 <- specieslevel(w30, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 30)
-
-a31 <- specieslevel(w31, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 31)
-
-a32 <- specieslevel(w32, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 32)
-
-a33 <- specieslevel(w33, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 33)
-
-a34 <- specieslevel(w34, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 34)
-
-a35 <- specieslevel(w35, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 35)
-
-a36 <- specieslevel(w36, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 36)
-
-a37 <- specieslevel(w37, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 37)
-
-a38 <- specieslevel(w38, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 38)
-
-a39 <- specieslevel(w39, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 39)
-
-a40 <- specieslevel(w40, index="d", level="higher") %>%
-  mutate(Species = rownames(.)) %>%
-  filter(., Species == "Apis")%>%
-  mutate(Plot = 40)
-
-apis <- bind_rows(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40) %>%
-  select(d,Plot)
-
-names(apis) <- c("d_apis","Plot") 
-
-
-
-
+  select(H2,generality,Plot)
 
