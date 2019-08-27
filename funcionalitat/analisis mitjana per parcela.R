@@ -2,141 +2,251 @@
 source("funcionalitat/netejar dades mitjana per parcela.R")
 
 library(MuMIn)
+library(caret)
 
 ################################### ROF ####################################
 
-meandataperplotROF <- meandataperplot %>%
-  filter(Species=="ROF") %>%
-  filter(!is.na(Pollinator_richness))
+###### Pollen presence
 
-hist(meandataperplotROF$Visitation_rate)        #skewed
-hist(meandataperplotROF$logVisitation_rate)     #normal
-hist(meandataperplotROF$Functional_group_Rocka) #normal
+fit <- glm(Total_presence~Pollinator_richness+Visitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen,data=meandataperplotROF)
+summary(fit)
 
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 ###### Mean pollen
 
-fitROFpollen <- lm(Mean_pollen~Functional_group_Rocka+logVisitation_rate, data=meandataperplotROF)
-options(na.action = "na.fail")
-dd <- dredge(fitROFpollen)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+fit <- lm(log(Mean_Total)~Pollinator_richness+Visitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotROF)
+summary(fit)
 
-hist(resid(fitROFpollen))
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 
 ################################### TVUF ####################################
 
-meandataperplotTVUF <- meandataperplot %>%
-  filter(Species=="TVUF") 
+###### Pollen presence
 
-hist(meandataperplotTVUF$Mean_pollen)                 #skewed
-hist(meandataperplotTVUF$logMean_pollen)              #normal
-hist(meandataperplotTVUF$Fecundity)                   #normal
-hist(meandataperplotTVUF$Fruit_set)                   #normal
-hist(meandataperplotTVUF$Seed_set)                    #normal
-hist(meandataperplotTVUF$Visitation_rate)             #skewed
-hist(meandataperplotTVUF$logVisitation_rate)          #normal
-hist(meandataperplotTVUF$Functional_group_Rocka)      #skewed
-hist(meandataperplotTVUF$logFunctional_group_Rocka)   #normal
-hist(meandataperplotTVUF$ProporcioF)                  #normal
-hist(meandataperplotTVUF$Pollinator_richness)         #skewed
-hist(meandataperplotTVUF$logPollinator_richness)      #normal
+fit <- glm(Total_presence~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
+summary(fit)
 
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 ###### Mean pollen
 
-fitTVUFpollen <- lm(logMean_pollen~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)
-dd <- dredge(fitTVUFpollen)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+fit <- lm(log(Mean_Total)~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUF)
+summary(fit)
 
-hist(resid(fitTVUFpollen))
+car::vif(fit)
 
+hist(resid(fit))
 
-###### Fecunditat
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
-fitTVUFfecundity <- lm(Fecundity~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)  
-dd <- dredge(fitTVUFfecundity)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+###### Proporcio Heterospecific
+fit <- glm(Proportion_Heterosp_Stigma~generality+Proportion_Heterosp_Community+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_heterospecific, data=meandataperplotTVUFheterosp)
+summary(fit)
 
-hist(resid(fitTVUFfecundity))
+car::vif(fit)
 
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
+
+###### Heterospecific presence
+
+fit <- glm(Heterospecific_presence~generality+Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
+summary(fit)
+
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 ###### Fruit set
 
-fitTVUFfruitset <- lm(Fruit_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)  
-dd <- dredge(fitTVUFfruitset)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+fit <- glm(Fruit_set~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_fruits, data=meandataperplotTVUF)  
+summary(fit)
 
-hist(resid(fitTVUFfruitset))
+car::vif(fit)
 
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 ###### Seed set
 
-fitTVUFseeds <- lm(Seed_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUF)  
-dd <- dredge(fitTVUFseeds)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+fit <- lm(log(Seed_set)~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUF)  
+summary(fit)
 
-hist(resid(fitTVUFseeds))
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
+
+
+###### Avorted
+
+fit <- lm(Avorted~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUF)  
+summary(fit)
+
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 
 ################################### TVUH ####################################
 
-meandataperplotTVUH <- meandataperplot %>%
-  filter(Species=="TVUH") %>%
-  filter(!is.na(Pollinator_richness))
+###### Pollen presence
 
-hist(meandataperplotTVUH$Mean_pollen)               #skewed
-hist(meandataperplotTVUH$logMean_pollen)            #normal
-hist(meandataperplotTVUH$Fecundity)                 #normal
-hist(meandataperplotTVUH$Fruit_set)                 #normal
-hist(meandataperplotTVUH$Seed_set)                  #normal
-hist(meandataperplotTVUH$Pollinator_richness)       #skewed
-hist(meandataperplotTVUH$logPollinator_richness)    #normal
-hist(meandataperplotTVUH$Visitation_rate)           #skewed
-hist(meandataperplotTVUH$logVisitation_rate)        #normal
-hist(meandataperplotTVUH$Functional_group_Rocka)    #sweked
-hist(meandataperplotTVUH$logFunctional_group_Rocka) #normal
+fit <- glm(Total_presence~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUH)
+summary(fit)
 
-######  Mean pollen
+car::vif(fit)
 
-fitTVUHpollen <- lm(logMean_pollen~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)
-dd <- dredge(fitTVUHpollen)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+hist(resid(fit))
 
-hist(resid(fitTVUHpollen))
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
+###### Mean pollen
 
-####### Fecunditat
+fit <- lm(log(Mean_Total)~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)
+summary(fit)
 
-fitTVUHfecundity <- lm(Fecundity~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)  
-dd <- dredge(fitTVUHfecundity)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+car::vif(fit)
 
-hist(resid(fitTVUHfecundity))
+hist(resid(fit))
 
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 ###### Fruit set
 
-fitTVUHfruitset <- lm(Fruit_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)  
-dd <- dredge(fitTVUHfruitset)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+fit <- lm(Fruit_set~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, weights=Individuals_fruits, data=meandataperplotTVUH)  
+summary(fit)
 
-hist(resid(fitTVUHfruitset))
+car::vif(fit)
 
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 ###### Seed set
 
-fitTVUHseeds <- lm(Seed_set~ProporcioF+logFunctional_group_Rocka+logVisitation_rate, data=meandataperplotTVUH)  
-dd <- dredge(fitTVUHseeds)
-subset(dd, delta < 2)
-summary(get.models(dd, 1)[[1]])
+fit <- lm(log(Seed_set)~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)  
+summary(fit)
 
-hist(resid(fitTVUHseeds))
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
+
+
+###### Avorted
+
+fit <- lm(Avorted~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)  
+summary(fit)
+
+car::vif(fit)
+
+hist(resid(fit))
+
+options(na.action = "na.fail")
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+# summary(get.models(dd, 1)[[1]])
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)

@@ -1,99 +1,46 @@
 
 source("funcionalitat/netejar dades mitjana per parcela.R")
 
+library(ggpubr)
+library(cowplot)
+library(gridExtra)
 library(ggplot2)
 library(ggExtra)
 library(corrplot)
 library(Hmisc)
-library("PerformanceAnalytics")
-library(vegan)
-library(betapart)
 
 
+ROF <- meandataperplot %>%
+  filter(Species=="ROF")%>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate)) %>%
+  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total))
 
-### grafics amb histogrames laterals
-
-library(ggplot2)
-p <- ggplot(TVUFpollenbitxoswtna, aes(Heterospecific, Total)) + geom_point() + theme_classic()
-ggExtra::ggMarginal(p, type = "histogram")
-
-
-## histograma estecificant ample banda
-qplot(TVUFpollenbitxos$Heterospecific,
-      geom="histogram",
-      binwidth = 0.5,  
-      xlim=c(-1, 80))
-
-
-## boxplots
-ggplot(dataclean, aes(y=Ratio_Heterosp_Homosp, x=Species)) +
-  geom_boxplot() +
-  theme_classic()
-
-
-## Corrplot
-ROF <- TVUFpollenbitxos %>%
-  left_join(pollenpergraph,by=c("Plot","Species"))%>%
-  filter(Species=="ROF") %>%
-  select(-c(Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit,ProporcioF,logVisitation_rate,logMean_pollen,logFunctional_group_Rocka,logPollinator_richness,Pollinator_abundance,Flower_Abundance,Mean_pollen))
-ROF <- as.data.frame(ROF) %>%
-  select(.,-c(Plot,Species))
-ROF <- ROF[-29,]
-
-res2<-rcorr(as.matrix(ROF))
-corrplot(res2$r, type="upper", order="hclust",
-         p.mat = res2$P, sig.level = 0.05, insig = "blank")
-
-
-## Taula correlacions
-chart.Correlation(ROF, histogram=TRUE, pch=19)
-
-
-## Corrplot
 TVUF <- meandataperplot %>%
-  filter(Species=="TVUF") %>%
-  select(Species,Visitation_rate,Pollinator_richness,generality,Proportion_HB,Proportion_Bee,Proportion_Diptera,Proportion_Lepidoptera)
+  filter(Species=="TVUF")%>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,ProporcioF)) %>%
+  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set,Avorted))
 
-TVUF <- as.data.frame(TVUF) %>%
-  select(.,-c(Plot,Species))
+Heterospecific <- meandataperplot %>%
+  filter(Species=="TVUF")%>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,ProporcioF,generality,Proportion_Heterosp_Community)) %>%
+  gather("Fitness_variable","Fitness_value",c(Heterospecific_presence,Proportion_Heterosp_Stigma))
 
-## Taula correlacions
-chart.Correlation(TVUF, histogram=TRUE, pch=19)
-
-
-
-
-
-## Corrplot
 TVUH <- meandataperplot %>%
-  filter(Species=="TVUH") %>%
-  select(-c(ProporcioF,logVisitation_rate,logMean_pollen,logFunctional_group_Rocka,logPollinator_richness,Pollinator_abundance,Flower_Abundance,Mean_pollen,Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit))
-# select(Fecundity,Fruit_set,Pollinated_ovules,Avorted_total,Seed_set,Avorted_per_fruit,Mean_pollen,Mean_Homospecific,Mean_Heterospecific)
+  filter(Species=="TVUH")%>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,ProporcioF)) %>%
+  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set,Avorted))
 
-TVUH <- as.data.frame(TVUH) %>%
-  select(.,-c(Plot,Species))
-TVUH <- TVUH[-c(7,18,23,25),]
-
-res2<-rcorr(as.matrix(TVUH))
-corrplot(res2$r, type="upper", order="hclust",
-         p.mat = res2$P, sig.level = 0.05, insig = "blank")
-
-
-## Taula correlacions
-chart.Correlation(TVUH, histogram=TRUE, pch=19)
+ggplot(TVUH, aes(x=Pollinator_value,y=Fitness_value)) +
+  geom_point(alpha=0.3) +
+  # geom_smooth()+
+  # theme_classic()+
+  facet_grid(Fitness_variable~Pollinator_variable,scales = "free")
 
 
 
 
 
-source("funcionalitat/analisis mitjana per parcela.R")
-source("funcionalitat/netejar dades polinitzadors.R")
 
-require(devtools)
-library(tidyverse)
-library(ggpubr)
-library(cowplot)
-library(gridExtra)
 
 
 # barplot visitation rate including taxonomic groups
@@ -112,25 +59,16 @@ a1 <- ggplot(datagroups, aes(fill=Pollinator_group, y=Visitation_rate, x=Species
   theme(legend.position = "top")+ 
   scale_fill_manual("legend", values = c("Bee" = "red", "Coleoptera" = "blue", "Diptera" = "black", "Honeybees" = "pink", "Lepidoptera" = "green", "Wasp" = "brown"))
 
-# Visitation rate total
-a2 <- ggplot(meandataperplot, aes(y=Visitation_rate, x=Species))+
-  geom_boxplot(aes(fill="blue"))+
-  scale_fill_manual(values=c("grey"))+
-  theme_classic()+
-  theme(legend.position = "none")
+
+colorspecies <- c("blue","green","yellow")
+
 
 # pollinator richness
-b1 <- ggplot(meandataperplot, aes(y=Pollinator_richness, x=Species))+
-  geom_boxplot(aes(fill="blue"))+
-  scale_fill_manual(values=c("grey"))+
+ggplot(meandataperplot, aes(y=Pollinator_richness, x=Species))+
+  geom_boxplot()+
   theme_classic()+
-  theme(legend.position = "none")
+  scale_fill_manual(values=c("blue","green","yellow"))
 
-b2 <- ggplot(meandataperplot, aes(y=Functional_group_Rocka, x=Species))+
-  geom_boxplot(aes(fill="blue"))+
-  scale_fill_manual(values=c("grey"))+
-  theme_classic()+
-  theme(legend.position = "none")
 
 # flowers with pollen
 pollenpergraph <- pollenclean %>%
@@ -174,7 +112,7 @@ f <- ggplot(data = fruits, aes(x=Species, y=Fruit_set)) +
 # fecundity and seed set
 fruitsseeds <- meandataperplot %>%
   filter(Species != "ROF")%>%
-  select(Plot,Species,Fecundity,Seed_set) %>%
+  select(Plot,Species,Seed_set,Avorted) %>%
   gather(Variable,Seeds,-c(Plot,Species)) 
 
 g <- ggplot(data = fruitsseeds, aes(x=Species, y=Seeds)) + 
@@ -192,30 +130,4 @@ final
 
 
 
-## logit regression presencia polen - taxa de visites
-
-ggplot(data = TVUFpollenbitxos, aes(x=Visitation_rate, y=Homospecific_presence)) + 
-  geom_point(alpha = .15) +
-  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
-  theme_classic()
-
-
-# taxa de visites i polen depositat
-p <- ggplot(data = meandataperplot, aes(x=Visitation_rate, y=Mean_pollen,color=Species)) + 
-  geom_point()+
-  facet_wrap(.~Species)+
-  theme_classic()+
-  theme(legend.position = "none")
-
-q <- ggplot(data = meandataperplot, aes(x=Pollinator_richness, y=Mean_pollen,color=Species)) + 
-  geom_point()+
-  facet_wrap(.~Species)+
-  theme_classic()+
-  theme(legend.position = "none")
-
-r <- ggplot(data = meandataperplot, aes(x=Functional_group_Rocka, y=Mean_pollen,color=Species)) + 
-  geom_point()+
-  facet_wrap(.~Species)+
-  theme_classic()+
-  theme(legend.position = "none")
 

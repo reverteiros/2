@@ -19,7 +19,18 @@ TVUFpollenbitxos <- TVUFpollen %>%
   mutate(Grains_Homospecific = TVU_pollen_community) %>%
   mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
   mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
-  mutate(Proportion_Heterosp_Community = Grains_Heterospecific/Grains_Total) 
+  mutate(Proportion_Heterosp_Community = Grains_Heterospecific/Grains_Total) %>%
+  mutate(Proportion_Heterosp_Stigma = Heterospecific/Total) 
+
+TVUFpollenbitxospropheterospstigma <- TVUFpollen %>%
+  left_join(datapollinatorsall,by=c("Species","Plot"))%>%
+  left_join(proporciomorfs,by="Plot")%>%
+  mutate(Grains_Homospecific = TVU_pollen_community) %>%
+  mutate(Grains_Heterospecific = Other_pollen_community+ROF_pollen_community) %>%
+  mutate(Grains_Total = ROF_pollen_community+Other_pollen_community+TVU_pollen_community) %>%
+  mutate(Proportion_Heterosp_Community = Grains_Heterospecific/Grains_Total) %>%
+  mutate(Proportion_Heterosp_Stigma = Heterospecific/Total) %>%
+  filter(Proportion_Heterosp_Stigma>-1)
 
 TVUFpollenflowerswithpollen <- TVUFpollenbitxos %>%
   filter(Total>0)
@@ -52,7 +63,7 @@ TVUFpollenflowerswithpollenperplanta <- TVUFpollenflowerswithpollen%>%
 TVUFpollenfruitsperplanta <- fruitset %>%
   filter(Species == "TVUF") %>%
   group_by(Plot, Plant, Species) %>% 
-  summarise(Fruit_set=mean(Fruits))
+  summarise(Fruit_set=mean(Fruits),Avorted=mean(Avorted))
 
 TVUFpollenseedsperplanta <- seedset %>%
   filter(Species == "TVUF") %>%
@@ -66,6 +77,9 @@ TVUFtotperplanta <- TVUFflowerswithpollenperplanta %>%
   full_join(proporciomorfs,by="Plot")%>%
   full_join(datapollinatorsall,by=c("Species","Plot"))
 
+TVUFtotperplantaavorted <- TVUFtotperplanta%>%
+  mutate(logAvorted = log(Avorted))%>%
+  filter(logAvorted > -1) 
 
 
 
@@ -80,7 +94,7 @@ TVUHpollenflowerswithpollenperplanta <- TVUHpollenflowerswithpollen%>%
 TVUHpollenfruitsperplanta <- fruitset %>%
   filter(Species == "TVUH") %>%
   group_by(Plot, Plant, Species) %>% 
-  summarise(Fruit_set=mean(Fruits))
+  summarise(Fruit_set=mean(Fruits),Avorted=mean(Avorted))
 
 TVUHpollenseedsperplanta <- seedset %>%
   filter(Species == "TVUH") %>%
@@ -92,4 +106,9 @@ TVUHtotperplanta <- TVUHflowerswithpollenperplanta %>%
   full_join(TVUHpollenfruitsperplanta,by=c("Plot", "Plant","Species"))%>%
   full_join(TVUHpollenseedsperplanta,by=c("Plot", "Plant","Species"))%>%
   left_join(proporciomorfs,by="Plot")%>%
-  left_join(datapollinatorsall,by=c("Species","Plot"))
+  left_join(datapollinatorsall,by=c("Species","Plot"))%>%
+  filter(Pollinator_richness > 0)
+
+TVUHtotperplantaavorted <- TVUHtotperplanta%>%
+  mutate(logAvorted = log(Avorted))%>%
+  filter(logAvorted > -1) 

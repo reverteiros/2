@@ -316,7 +316,7 @@ Parcela	Nom_definitiu	Codi_planta	Frequencia
 19	Lasioglossum_subhirtum	ROF	3
 19	Lasioglossum_transitorium_planulum	ROF	1
 19	Mosca_14	ROF	1
-19	Mosca_9	ROF	1
+19	Mosca_9	ROF	2
 19	Mosca_prima_1	ROF	1
 19	Sarcophagidae_4	ROF	1
 20	Adela_aldrovandella	ROF	3

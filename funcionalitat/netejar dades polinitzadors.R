@@ -29,7 +29,7 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
   left_join(flors, by = c("Plot","Species")) %>%
   mutate(Visitation_rate = Pollinator_abundance*1000/Flower_Abundance)
 
-
+pollinators[is.na(pollinators)] <- 0
 
 ### grups taxonomics
 grupstaxonomics <- read.table("dades/censos grups taxonomics.txt",header=T) %>%
@@ -44,24 +44,18 @@ grupstaxonomicsspread <- grupstaxonomics %>%
   spread(Taxonomic_group, Abundance) 
 grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
 
-
 ## database total
 datapollinatorsall <- pollinators %>%
   left_join(networkmetrics, by="Plot") %>%
-  mutate(logVisitation_rate = log(Visitation_rate))%>%
-  mutate(logPollinator_richness = log(Pollinator_richness))%>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
-  mutate(Bee_VR = (Bee*1000/(Flower_Abundance))) %>%
-  mutate(Coleoptera_VR = (Coleoptera*1000/(Flower_Abundance))) %>%
-  mutate(Diptera_VR = (Diptera*1000/(Flower_Abundance))) %>%
-  mutate(Lepidoptera_VR = (Lepidoptera*1000/(Flower_Abundance))) %>%
-  mutate(Wasp_VR = (Wasp*1000/(Flower_Abundance))) %>%
-  mutate(Honeybees_VR = (Honeybees*1000/(Flower_Abundance))) %>%
-  mutate(Proportion_HB = Honeybees_VR/Visitation_rate) %>%
-  mutate(Proportion_Bee = Bee_VR/Visitation_rate) %>%
-  mutate(Proportion_Coleoptera = Coleoptera_VR/Visitation_rate) %>%
-  mutate(Proportion_Diptera = Diptera_VR/Visitation_rate) %>%
-  mutate(Proportion_Lepidoptera = Lepidoptera_VR/Visitation_rate) %>%
-  mutate(Proportion_Wasp = Wasp_VR/Visitation_rate) 
+  mutate(Proportion_HB = Honeybees/Pollinator_abundance) %>%
+  mutate(Proportion_Bee = Bee/Pollinator_abundance) %>%
+  # mutate(Proportion_Coleoptera = Coleoptera/Pollinator_abundance) %>%
+  mutate(Proportion_Diptera = Diptera/Pollinator_abundance) %>%
+  # mutate(Proportion_Lepidoptera = Lepidoptera/Pollinator_abundance) %>%
+  select(-c(Pollinator_abundance,H2,Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
+  filter(Flower_Abundance > 0) %>%
+  mutate(Proportion_used = Proportion_Diptera+Proportion_Bee+Proportion_HB)
+
 
 
