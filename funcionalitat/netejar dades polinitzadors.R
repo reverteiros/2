@@ -13,12 +13,12 @@ names(censos) <- c("Plot","Pollinator","Species","Abundance")
 
 
 ############# flower abundance per plot
-flors <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
+flowers <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
   select(., ROF, TVUF, TVUH)%>%
   tidyr::gather(Species, "Flower_Abundance",1:3) %>%
   mutate(Flower_Abundance = Flower_Abundance*3)
 
-flors$Plot = c(1:40)
+flowers$Plot = c(1:40)
 
 # Pollinators 
 pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
@@ -26,7 +26,7 @@ pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "T
   summarise(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
   complete(Species, Plot) %>%
   distinct() %>%
-  left_join(flors, by = c("Plot","Species")) %>%
+  left_join(flowers, by = c("Plot","Species")) %>%
   mutate(Visitation_rate = Pollinator_abundance*1000/Flower_Abundance)
 
 pollinators[is.na(pollinators)] <- 0

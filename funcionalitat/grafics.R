@@ -46,86 +46,82 @@ ggplot(TVUH, aes(x=Pollinator_value,y=Fitness_value)) +
 # barplot visitation rate including taxonomic groups
 datagroups <- read.table("dades/pollinator groups.txt",header=T) %>%
   select(Plot,Species,Pollinator_group,Abundance)%>%
-  left_join(flors, by = c("Plot","Species")) %>%
+  left_join(flowers, by = c("Plot","Species")) %>%
   filter(.,Species =="ROF" | Species =="TVUF" | Species =="TVUH")%>%
   mutate(Visitation_rate = Abundance/Flower_Abundance*1000)%>%
   group_by(Species,Pollinator_group) %>% 
   summarise(Visitation_rate=mean(Visitation_rate)) %>%
   filter(.,Pollinator_group != "Mecoptera" & Pollinator_group != "Heteroptera")
 
-a1 <- ggplot(datagroups, aes(fill=Pollinator_group, y=Visitation_rate, x=Species)) + 
+a <- ggplot(datagroups, aes(fill=Pollinator_group, y=Visitation_rate, x=Species)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
   theme(legend.position = "top")+ 
   scale_fill_manual("legend", values = c("Bee" = "red", "Coleoptera" = "blue", "Diptera" = "black", "Honeybees" = "pink", "Lepidoptera" = "green", "Wasp" = "brown"))
 
 
-colorspecies <- c("blue","green","yellow")
-
+colorthreespecies <- c("blue","green","yellow")
+colortwospecies <- c("green","yellow")
 
 # pollinator richness
-ggplot(meandataperplot, aes(y=Pollinator_richness, x=Species))+
+b <- ggplot(meandataperplot, aes(y=Pollinator_richness, x=Species,fill=Species))+
   geom_boxplot()+
-  theme_classic()+
-  scale_fill_manual(values=c("blue","green","yellow"))
-
-
-# flowers with pollen
-pollenpergraph <- pollenclean %>%
-  mutate(Pollen_presence=if_else(Total>0,1,0)) %>%
-  group_by(Plot, Species) %>% 
-  summarise(Mean_pollen=mean(Total),Flowers_with_pollen=mean(Pollen_presence),
-            Mean_Homospecific=mean(Homospecific),Mean_Heterospecific=mean(Heterospecific),
-            Proporcio_Heterosp=(Mean_Heterospecific/Mean_pollen))
-
-d <- ggplot(pollenpergraph, aes(y=Flowers_with_pollen, x=Species))+
-  geom_boxplot(aes(fill="blue"))+
-  scale_fill_manual(values=c("grey"))+
-  theme_classic()+
-  coord_cartesian(ylim = c(0, 1))+
-  theme(legend.position = "none")
-
-# Homospecific i heterospecific pollen
-pollenboxplot <- pollenpergraph %>%
-  mutate(Homosp = Mean_Homospecific) %>%
-  mutate(Heterosp = Mean_Heterospecific) %>%
-  select(Plot,Species,Homosp,Heterosp) %>%
-  gather(Pollen,Pollen_grains,-c(Plot,Species))
-
-e <- ggplot(data = pollenboxplot, aes(x=Species, y=Pollen_grains)) + 
-  geom_boxplot(aes(fill=Pollen))+
+  # geom_point()+
+  scale_fill_manual(values=colorthreespecies)+
   theme_classic()+
   theme(legend.position = "top")
 
+
+# flowers with pollen and heterospecific
+pollenboxplot <- meandataperplot %>%
+  mutate(Total = Total_presence) %>%
+  mutate(Heterospecific = Heterospecific_presence) %>%
+  select(Plot,Species,Total,Heterospecific) %>%
+  gather(Pollen,Pollen_presence,-c(Plot,Species))
+
+c <- ggplot(data = pollenboxplot, aes(x=Pollen, y=Pollen_presence,fill=Species)) + 
+  geom_boxplot(aes(fill=Species))+
+  theme_classic()+
+  coord_cartesian(ylim = c(0, 1))+
+  scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")
+
+# Mean pollen on stigmas
+d <- ggplot(meandataperplot, aes(y=Mean_Total, x=Species,fill=Species))+
+  geom_boxplot()+
+  scale_fill_manual(values=colorthreespecies)+
+  theme_classic()+
+  # coord_cartesian(ylim = c(0, 1))+
+  theme(legend.position = "none")
 
 # fruit set
-fruits <- meandataperplot %>%
+meandataperplotwtROF <- meandataperplot %>%
   filter(Species != "ROF")
 
-f <- ggplot(data = fruits, aes(x=Species, y=Fruit_set)) + 
-  geom_boxplot(aes(fill="blue"))+
-  scale_fill_manual(values=c("grey"))+
+e <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Fruit_set,fill=Species)) + 
+  geom_boxplot()+
+  scale_fill_manual(values=colortwospecies)+
   theme_classic()+
   coord_cartesian(ylim = c(0, 1))+
   theme(legend.position = "none")
 
-# fecundity and seed set
-fruitsseeds <- meandataperplot %>%
-  filter(Species != "ROF")%>%
-  select(Plot,Species,Seed_set,Avorted) %>%
-  gather(Variable,Seeds,-c(Plot,Species)) 
+# avorted and seed set
+seedsboxplot <- meandataperplotwtROF %>%
+  gather(Seed_type,Number,c(Seed_set,Avorted))
 
-g <- ggplot(data = fruitsseeds, aes(x=Species, y=Seeds)) + 
-  geom_boxplot(aes(fill=Variable))+
+f <- ggplot(data = seedsboxplot, aes(x=Seed_type, y=Number, fill=Species)) + 
+  geom_boxplot(aes(fill=Species))+
   theme_classic()+
   coord_cartesian(ylim = c(0, 4))+
-  theme(legend.position = "top")
+  scale_fill_manual(values=colortwospecies)+
+  theme(legend.position = "none")
 
 # final graph tot junt
-polls <- ggarrange(a1, a2, b1, b2, ncol = 4, nrow = 1)
-pollen <- ggarrange(d,e,f,g, ncol = 4, nrow = 1)
+polls <- ggarrange(a, b, ncol = 2, nrow = 1)
+pollen <- ggarrange(c,d, ncol = 2, nrow = 1)
+seeds <- ggarrange(e,f, ncol = 2, nrow = 1)
 
-final <- ggarrange(polls,pollen,nrow=2)
+final <- ggarrange(polls,pollen,seeds,nrow=3)
 final
 
 
