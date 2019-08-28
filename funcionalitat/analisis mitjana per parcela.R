@@ -34,6 +34,18 @@ avgmod.95delta2 <- model.avg(ddd)
 summary(avgmod.95delta2) 
 confint(avgmod.95delta2)
 
+###### Heterospecific presence
+
+fit <- glm(Heterospecific_presence~generality+Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotROF)
+
+car::vif(fit)
+hist(resid(fit))
+
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
 
 ################################### TVUF ####################################
 
@@ -147,6 +159,20 @@ confint(avgmod.95delta2)
 ###### Mean pollen
 
 fit <- lm(log(Mean_Total)~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)
+
+car::vif(fit)
+hist(resid(fit))
+
+dd <- dredge(fit,extra="adjR^2")
+ddd <- subset(dd, delta < 2)
+avgmod.95delta2 <- model.avg(ddd) 
+summary(avgmod.95delta2) 
+confint(avgmod.95delta2)
+
+
+###### Heterospecific presence
+
+fit <- glm(Heterospecific_presence~generality+Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUH)
 
 car::vif(fit)
 hist(resid(fit))
