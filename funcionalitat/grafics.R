@@ -120,30 +120,51 @@ final
 
 
 
-ROF <- meandataperplot %>%
-  filter(Species=="ROF")%>%
-  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate)) %>%
+ROF <- meandataperplotROF %>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,logVisitation_rate, Visitation_rate)) %>%
   gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total))
 
-TVUF <- meandataperplot %>%
-  filter(Species=="TVUF")%>%
-  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,ProporcioF)) %>%
-  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set,Avorted))
+ggplot(ROF, aes(x=Pollinator_value,y=Fitness_value)) +
+  geom_point(alpha=0.3) +
+  facet_grid(Fitness_variable~Pollinator_variable,scales = "free")
 
-Heterospecific <- meandataperplot %>%
-  filter(Species=="TVUF")%>%
-  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,ProporcioF,generality,Proportion_Heterosp_Community)) %>%
-  gather("Fitness_variable","Fitness_value",c(Heterospecific_presence,Proportion_Heterosp_Stigma))
 
-TVUH <- meandataperplot %>%
-  filter(Species=="TVUH")%>%
+TVUF <- meandataperplotTVUF %>%
   gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,ProporcioF)) %>%
-  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set,Avorted))
+  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set))
+
+ggplot(TVUF, aes(x=Pollinator_value,y=Fitness_value)) +
+  geom_point(alpha=0.3) +
+  facet_grid(Fitness_variable~Pollinator_variable,scales = "free")
+
+
+Heterospecific <- meandataperplotTVUF %>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,loggenerality,generality,Proportion_Heterosp_Community)) %>%
+  gather("Fitness_variable","Fitness_value",c(Heterospecific_presence))
+
+ggplot(Heterospecific, aes(x=Pollinator_value,y=Fitness_value)) +
+  geom_point(alpha=0.3) +
+  facet_grid(Fitness_variable~Pollinator_variable,scales = "free")
+
+
+TVUH <- meandataperplotTVUH %>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,logVisitation_rate,Visitation_rate,ProporcioF)) %>%
+  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set))
 
 ggplot(TVUH, aes(x=Pollinator_value,y=Fitness_value)) +
   geom_point(alpha=0.3) +
-  # geom_smooth()+
-  # theme_classic()+
   facet_grid(Fitness_variable~Pollinator_variable,scales = "free")
+
+
+
+
+
+
+
+ggplot(meandataperplot, aes(x=Flower_Abundance,y=Pollinator_abundance)) +
+  geom_point(alpha=0.3) +
+  facet_grid(.~Species,scales = "free")
+
+
 
 

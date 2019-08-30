@@ -53,7 +53,7 @@ datapollinatorsall <- pollinators %>%
   # mutate(Proportion_Coleoptera = Coleoptera/Pollinator_abundance) %>%
   mutate(Proportion_Diptera = Diptera/Pollinator_abundance) %>%
   # mutate(Proportion_Lepidoptera = Lepidoptera/Pollinator_abundance) %>%
-  select(-c(Pollinator_abundance,H2,Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
+  select(-c(H2,Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
   filter(Flower_Abundance > 0) %>%
   mutate(Proportion_used = Proportion_Diptera+Proportion_Bee+Proportion_HB)
 

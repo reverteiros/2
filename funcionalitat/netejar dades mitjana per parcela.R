@@ -27,17 +27,6 @@ pollenflowerswpollen <- pollenclean %>%   ### gaussian distribution
   mutate(Proportion_Heterosp_Community = (Other_pollen_community+ROF_pollen_community)/(ROF_pollen_community+Other_pollen_community+TVU_pollen_community)) %>%
   select(-c(Other_pollen_community,ROF_pollen_community,TVU_pollen_community))
 
-heterospecificflowerswheterospecific <- pollenclean %>%   ### Mean heterospecific gaussian distribution, proportion = binomial dustribution
-  mutate(Total_presence=if_else(Total>0,1,0)) %>%
-  mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0))%>%
-  filter(Heterospecific_presence>0) %>%
-  group_by(Plot, Species,Plant) %>% 
-  summarise(Mean_Heterospecific=mean(Heterospecific),Flowers=n())%>%
-  group_by(Plot, Species) %>% 
-  summarise(Mean_Heterospecific=mean(Mean_Heterospecific),Flower_samples_heterospecific=sum(Flowers),Individuals_heterospecific=n())%>%
-  left_join(pollenflowerswpollen,by=c("Plot","Species"))%>%
-  mutate(Proportion_Heterosp_Stigma=Mean_Heterospecific/Mean_Total) %>%
-  select(Species,Mean_Heterospecific,Proportion_Heterosp_Stigma,Flower_samples_heterospecific,Individuals_heterospecific)
 
 
 seeds <- fruitset %>%    ### gaussian distribution
@@ -58,23 +47,26 @@ meandataperplot <- datapollinatorsall %>%
   left_join(seeds,by=c("Species","Plot")) %>%
   left_join(pollenflowerswpollen,by=c("Species","Plot")) %>%
   left_join(pollenpresence,by=c("Species","Plot")) %>%
-  left_join(heterospecificflowerswheterospecific,by=c("Species","Plot")) %>%
   left_join(proporciomorfs,by="Plot")
 
 meandataperplotROF <- meandataperplot %>%
   filter(Species=="ROF")%>%
-  filter(!is.na(Pollinator_richness))
+  filter(Pollinator_abundance > 1)%>%
+  mutate(logVisitation_rate = log(Visitation_rate))
 
 meandataperplotTVUF <- meandataperplot %>%
-  filter(Species=="TVUF")
-
-meandataperplotTVUFheterosp <- meandataperplot %>%
-  filter(Species=="TVUF")%>%
-  filter(Proportion_Heterosp_Stigma>0)
+  filter(Species=="TVUF") %>%
+  # filter(Pollinator_abundance>1) %>%
+  mutate(loggenerality = log(generality))
 
 meandataperplotTVUH <- meandataperplot %>%
   filter(Species=="TVUH")%>%
-  filter(Pollinator_richness>0)
+  filter(Proportion_Bee<1) %>%
+  mutate(logVisitation_rate = log(Visitation_rate))
+  
+meandataperploteliminats <- meandataperplot %>%
+  filter(Pollinator_abundance==1) 
+  
 
 ## Corrplot
 ROF <- meandataperplot %>%
