@@ -12,10 +12,11 @@ library(PerformanceAnalytics)
 pollenpresence <- pollenclean %>%     #### binomial distribution
   mutate(Total_presence=if_else(Total>0,1,0)) %>%
   mutate(Heterospecific_presence=if_else(Heterospecific>0,1,0))%>%
+  mutate(Homospecific_presence=if_else(Homospecific>0,1,0))%>%
   group_by(Plot, Species,Plant) %>% 
-  summarise(Flowers_with_Total=mean(Total_presence),Heterospecific_presence=mean(Heterospecific_presence),Flowers=n())%>%
+  summarise(Flowers_with_Total=mean(Total_presence),Heterospecific_presence=mean(Heterospecific_presence),Flowers=n(),Homospecific_presence=mean(Homospecific_presence))%>%
   group_by(Plot, Species) %>% 
-  summarise(Total_presence=mean(Flowers_with_Total),Heterospecific_presence=mean(Heterospecific_presence),Flower_samples_pollen=sum(Flowers),Individuals_pollen=n())
+  summarise(Homospecific_presence=mean(Homospecific_presence),Total_presence=mean(Flowers_with_Total),Heterospecific_presence=mean(Heterospecific_presence),Flower_samples_pollen=sum(Flowers),Individuals_pollen=n())
 
 pollenflowerswpollen <- pollenclean %>%   ### gaussian distribution
   filter(Total>0) %>%
@@ -27,7 +28,14 @@ pollenflowerswpollen <- pollenclean %>%   ### gaussian distribution
   mutate(Proportion_Heterosp_Community = (Other_pollen_community+ROF_pollen_community)/(ROF_pollen_community+Other_pollen_community+TVU_pollen_community)) %>%
   select(-c(Other_pollen_community,ROF_pollen_community,TVU_pollen_community))
 
-
+pollenflowerswhomospecific <- pollenclean %>%   ### gaussian distribution
+  filter(Homospecific>0) %>%
+  group_by(Plot, Species,Plant) %>% 
+  summarise(Mean_Homospecific=mean(Homospecific))%>%
+  group_by(Plot, Species) %>% 
+  summarise(Mean_Homospecific=mean(Mean_Homospecific))%>%
+  left_join(granspollen,by="Plot")%>%
+  select(Plot,Species,Mean_Homospecific)
 
 seeds <- fruitset %>%    ### gaussian distribution
   filter(Fruits == 1) %>%
@@ -46,13 +54,14 @@ meandataperplot <- datapollinatorsall %>%
   left_join(fruits,by=c("Species","Plot")) %>%
   left_join(seeds,by=c("Species","Plot")) %>%
   left_join(pollenflowerswpollen,by=c("Species","Plot")) %>%
+  left_join(pollenflowerswhomospecific,by=c("Species","Plot")) %>%
   left_join(pollenpresence,by=c("Species","Plot")) %>%
   left_join(proporciomorfs,by="Plot")
 
 meandataperplotROF <- meandataperplot %>%
   filter(Species=="ROF")%>%
   filter(Pollinator_abundance > 1)%>%
-  mutate(logVisitation_rate = log(Visitation_rate))
+  mutate(logVisitation_rate = log(Visitation_rate)) 
 
 meandataperplotTVUF <- meandataperplot %>%
   filter(Species=="TVUF") %>%
@@ -61,11 +70,9 @@ meandataperplotTVUF <- meandataperplot %>%
 
 meandataperplotTVUH <- meandataperplot %>%
   filter(Species=="TVUH")%>%
-  filter(Proportion_Bee<1) %>%
-  mutate(logVisitation_rate = log(Visitation_rate))
-  
-meandataperploteliminats <- meandataperplot %>%
-  filter(Pollinator_abundance==1) 
+  filter(Proportion_Bee>-1) %>%
+  mutate(logVisitation_rate = log(Visitation_rate)) %>%
+  mutate(sqrtProportion_Bee=sqrt((Proportion_Bee)))
   
 
 ## Corrplot

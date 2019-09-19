@@ -62,12 +62,12 @@ b <- ggplot(meandataperplot, aes(y=Pollinator_richness, x=Species,fill=Species))
 
 # flowers with pollen and heterospecific
 pollenboxplot <- meandataperplot %>%
-  mutate(Total = Total_presence) %>%
+  mutate(Homospecific = Homospecific_presence) %>%
   mutate(Heterospecific = Heterospecific_presence) %>%
-  select(Plot,Species,Total,Heterospecific) %>%
-  gather(Pollen,Pollen_presence,-c(Plot,Species))
+  select(Plot,Species,Homospecific,Heterospecific) %>%
+  gather(Pollen,Flowers_with_pollen,-c(Plot,Species))
 
-c <- ggplot(data = pollenboxplot, aes(x=Pollen, y=Pollen_presence,fill=Species)) + 
+c <- ggplot(data = pollenboxplot, aes(x=Pollen, y=Flowers_with_pollen,fill=Species)) + 
   geom_boxplot(aes(fill=Species))+
   theme_classic()+
   coord_cartesian(ylim = c(0, 1))+
@@ -75,7 +75,7 @@ c <- ggplot(data = pollenboxplot, aes(x=Pollen, y=Pollen_presence,fill=Species))
   theme(legend.position = "none")
 
 # Mean pollen on stigmas
-d <- ggplot(meandataperplot, aes(y=Mean_Total, x=Species,fill=Species))+
+d <- ggplot(meandataperplot, aes(y=Mean_Homospecific, x=Species,fill=Species))+
   geom_boxplot()+
   scale_fill_manual(values=colorthreespecies)+
   theme_classic()+
@@ -94,10 +94,7 @@ e <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Fruit_set,fill=Species
   theme(legend.position = "none")
 
 # avorted and seed set
-seedsboxplot <- meandataperplotwtROF %>%
-  gather(Seed_type,Number,c(Seed_set,Avorted))
-
-f <- ggplot(data = seedsboxplot, aes(x=Seed_type, y=Number, fill=Species)) + 
+f <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Seed_set, fill=Species)) + 
   geom_boxplot(aes(fill=Species))+
   theme_classic()+
   coord_cartesian(ylim = c(0, 4))+
@@ -120,9 +117,14 @@ final
 
 
 
+
+
+
+
+
 ROF <- meandataperplotROF %>%
   gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,logVisitation_rate, Visitation_rate)) %>%
-  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total))
+  gather("Fitness_variable","Fitness_value",c(Homospecific_presence,Mean_Homospecific))
 
 ggplot(ROF, aes(x=Pollinator_value,y=Fitness_value)) +
   geom_point(alpha=0.3) +
@@ -131,7 +133,7 @@ ggplot(ROF, aes(x=Pollinator_value,y=Fitness_value)) +
 
 TVUF <- meandataperplotTVUF %>%
   gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,Visitation_rate,ProporcioF)) %>%
-  gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set))
+  gather("Fitness_variable","Fitness_value",c(Homospecific_presence,Mean_Homospecific,Fruit_set,Seed_set))
 
 ggplot(TVUF, aes(x=Pollinator_value,y=Fitness_value)) +
   geom_point(alpha=0.3) +
@@ -148,7 +150,7 @@ ggplot(Heterospecific, aes(x=Pollinator_value,y=Fitness_value)) +
 
 
 TVUH <- meandataperplotTVUH %>%
-  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,Proportion_Bee,Proportion_Diptera,Pollinator_richness,logVisitation_rate,Visitation_rate,ProporcioF)) %>%
+  gather("Pollinator_variable","Pollinator_value",c(Proportion_HB,sqrtProportion_Bee,Proportion_Diptera,Pollinator_richness,logVisitation_rate,ProporcioF)) %>%
   gather("Fitness_variable","Fitness_value",c(Total_presence,Mean_Total,Fruit_set,Seed_set))
 
 ggplot(TVUH, aes(x=Pollinator_value,y=Fitness_value)) +
