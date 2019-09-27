@@ -10,6 +10,47 @@ library(corrplot)
 library(Hmisc)
 
 
+##### Figura 3
+
+tvufflowerswithpollen1 <- meandataperplotROF %>%
+  select(Proportion_HB,Proportion_Bee,Pollinator_richness,Homospecific_presence) 
+
+tvuf1 <- ggplot(tvufflowerswithpollen1, aes(x=Pollinator_richness,y=Homospecific_presence)) +
+  geom_point(alpha=0.3) +
+  theme_classic()+
+  theme(legend.position = "none")+
+  geom_abline(slope = 0.13376, intercept = -0.10188) + 
+  labs( x = "Pollinator richness", y = "Proportion of flowers with homospecific pollen",
+          title ="Thymus female")
+
+tvuf2 <- ggplot(tvufflowerswithpollen1, aes(x=Proportion_HB,y=Homospecific_presence)) +
+  geom_point(alpha=0.3) +
+  theme_classic()+
+  theme(legend.position = "none")+
+  geom_abline(slope = 1.57664, intercept = -0.10188) + 
+  labs( x = "Proportion honey bees", y = "Proportion of flowers with homospecific pollen",
+        title ="Thymus female")
+
+tvuf3 <- ggplot(tvufflowerswithpollen1, aes(x=Proportion_Bee,y=Homospecific_presence)) +
+  geom_point(alpha=0.3) +
+  theme_classic()+
+  theme(legend.position = "none")+
+  geom_abline(slope = 1.57405, intercept = -0.10188) + 
+  labs( x = "Proportion wild bees", y = "Proportion of flowers with homospecific pollen",
+        title ="Thymus female")
+
+
+
+# final graph tot junt
+polls <- ggarrange(a, b, ncol = 2, nrow = 1)
+pollen <- ggarrange(c,d, ncol = 2, nrow = 1)
+seeds <- ggarrange(e,f, ncol = 2, nrow = 1)
+
+final <- ggarrange(polls,pollen,seeds,nrow=3)
+final
+
+
+
 ggplot(meandataperplot, aes(x=Proportion_used)) +
   geom_histogram(alpha=0.3) +
   # geom_smooth()+
@@ -128,7 +169,14 @@ ROF <- meandataperplotROF %>%
 
 ggplot(ROF, aes(x=Pollinator_value,y=Fitness_value)) +
   geom_point(alpha=0.3) +
-  facet_grid(Fitness_variable~Pollinator_variable,scales = "free")
+  facet_grid(Fitness_variable~Pollinator_variable,scales = "free") +
+  theme_classic()+
+  theme(legend.position = "none")+
+  geom_abline(mapping = NULL, data = NULL, ..., slope, intercept,
+              na.rm = FALSE, show.legend = NA)
+
+
+
 
 
 TVUF <- meandataperplotTVUF %>%
