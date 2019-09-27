@@ -146,7 +146,7 @@ summary(avgmod.95delta2)
 
 ###### Seed set
 
-fit <- lm(log(Seed_set)~Pollinator_richness+ProporcioF+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)  
+fit <- lm(Seed_set~Pollinator_richness+ProporcioF+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)  
 
 car::vif(fit)
 hist(resid(fit))
