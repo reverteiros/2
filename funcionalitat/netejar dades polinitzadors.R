@@ -20,6 +20,17 @@ flowers <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header
 
 flowers$Plot = c(1:40)
 
+flowerrichness <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
+  tidyr::gather(Species, "Flower_Abundance") 
+
+flowerrichness$Plot = c(1:40)
+
+flowerrichness2 <- flowerrichness%>%
+  group_by(Plot) %>% 
+  summarise(Flower_richness=n_distinct(Flower_Abundance))
+
+
+
 # Pollinators 
 pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
   group_by(Plot, Species) %>% 
@@ -55,7 +66,8 @@ datapollinatorsall <- pollinators %>%
   # mutate(Proportion_Lepidoptera = Lepidoptera/Pollinator_abundance) %>%
   select(-c(H2,Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
   filter(Flower_Abundance > 0) %>%
-  mutate(Proportion_used = Proportion_Diptera+Proportion_Bee+Proportion_HB)
+  mutate(Proportion_used = Proportion_Diptera+Proportion_Bee+Proportion_HB)%>%
+  left_join(flowerrichness2, by="Plot")
 
 
 
