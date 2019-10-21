@@ -8,7 +8,7 @@ library(caret)
 
 ###### Pollen presence
 
-fit <- glm(Homospecific_presence~Pollinator_richness+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen,data=meandataperplotROF)
+fit <- glm(Homospecific_presence~log(Pollinator_richness)+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen,data=meandataperplotROF)
 
 car::vif(fit)
 hist(resid(fit))
@@ -23,7 +23,7 @@ summary(avgmod.95delta2)
 
 ###### Mean pollen
 
-fit <- lm(log(Mean_Homospecific)~Pollinator_richness+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotROF)
+fit <- lm(log(Mean_Homospecific)~log(Pollinator_richness)+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotROF)
 
 car::vif(fit)
 hist(resid(fit))
@@ -39,7 +39,7 @@ summary(avgmod.95delta2)
 
 ###### Pollen presence
 
-fit <- glm(Homospecific_presence~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
+fit <- glm(Homospecific_presence~log(Pollinator_richness)+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
 
 car::vif(fit)
 hist(resid(fit))
@@ -52,7 +52,7 @@ summary(avgmod.95delta2)
 
 ###### Mean pollen
 
-fit <- lm(log(Mean_Homospecific)~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUF)
+fit <- lm(log(Mean_Homospecific)~log(Pollinator_richness)+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUF)
 
 car::vif(fit)
 hist(resid(fit))
@@ -65,7 +65,7 @@ summary(avgmod.95delta2)
 
 ###### Heterospecific presence
 
-fit <- glm(Heterospecific_presence~loggenerality+Pollinator_richness+Visitation_rate+Proportion_Heterosp_Community+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
+fit <- glm(Heterospecific_presence~loggenerality+log(Pollinator_richness)+Visitation_rate+Proportion_Heterosp_Community+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
 
 car::vif(fit)
 hist(resid(fit))
@@ -78,7 +78,7 @@ summary(avgmod.95delta2)
 
 ###### Fruit set
 
-fit <- glm(Fruit_set~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_fruits, data=meandataperplotTVUF)  
+fit <- glm(Fruit_set~log(Pollinator_richness)+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_fruits, data=meandataperplotTVUF)  
 
 car::vif(fit)
 hist(resid(fit))
@@ -91,7 +91,7 @@ summary(avgmod.95delta2)
 
 ###### Seed set
 
-fit <- lm(Seed_set~Pollinator_richness+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUF)  
+fit <- lm(Seed_set~log(Pollinator_richness)+Visitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUF)  
 
 car::vif(fit)
 hist(resid(fit))
@@ -107,7 +107,7 @@ summary(avgmod.95delta2)
 
 ###### Pollen presence
 
-fit <- glm(Homospecific_presence~Pollinator_richness+logVisitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUH)
+fit <- glm(Homospecific_presence~log(Pollinator_richness)+logVisitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUH)
 
 car::vif(fit)
 hist(resid(fit))
@@ -120,7 +120,7 @@ summary(avgmod.95delta2)
 
 ###### Mean pollen
 
-fit <- lm(log(Mean_Homospecific)~Pollinator_richness+logVisitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)
+fit <- lm(log(Mean_Homospecific)~log(Pollinator_richness)+logVisitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)
 
 car::vif(fit)
 hist(resid(fit))
@@ -133,7 +133,7 @@ summary(avgmod.95delta2)
 
 ###### Fruit set
 
-fit <- glm(Fruit_set~Pollinator_richness+logVisitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_fruits, data=meandataperplotTVUH)  
+fit <- glm(Fruit_set~log(Pollinator_richness)+logVisitation_rate+ProporcioF+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_fruits, data=meandataperplotTVUH)  
 
 car::vif(fit)
 hist(resid(fit))
@@ -146,7 +146,7 @@ summary(avgmod.95delta2)
 
 ###### Seed set
 
-fit <- lm(Seed_set~Pollinator_richness+ProporcioF+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)  
+fit <- lm(Seed_set~log(Pollinator_richness)+ProporcioF+logVisitation_rate+Proportion_HB+Proportion_Bee+Proportion_Diptera, data=meandataperplotTVUH)  
 
 car::vif(fit)
 hist(resid(fit))

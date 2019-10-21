@@ -12,42 +12,69 @@ library(Hmisc)
 
 ##### Figura 3
 
-tvufflowerswithpollen1 <- meandataperplotROF %>%
-  select(Proportion_HB,Proportion_Bee,Pollinator_richness,Homospecific_presence) 
-
-tvuf1 <- ggplot(tvufflowerswithpollen1, aes(x=Pollinator_richness,y=Homospecific_presence)) +
-  geom_point(alpha=0.3) +
+tvuf1 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness, y=Homospecific_presence)) + 
+  geom_point(alpha=0.4) +
   theme_classic()+
-  theme(legend.position = "none")+
-  geom_abline(slope = 0.13376, intercept = -0.10188) + 
-  labs( x = "Pollinator richness", y = "Proportion of flowers with homospecific pollen",
-          title ="Thymus female")
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Pollinator richness", y = "Prop. flowers with homospecific")
 
-tvuf2 <- ggplot(tvufflowerswithpollen1, aes(x=Proportion_HB,y=Homospecific_presence)) +
-  geom_point(alpha=0.3) +
+tvuf2 <- ggplot(meandataperplotTVUF, aes(x=Proportion_HB,y=Homospecific_presence)) +
+  geom_point(alpha=0.4) +
   theme_classic()+
-  theme(legend.position = "none")+
-  geom_abline(slope = 1.57664, intercept = -0.10188) + 
-  labs( x = "Proportion honey bees", y = "Proportion of flowers with homospecific pollen",
-        title ="Thymus female")
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Proportion honey bees", y = "Prop. flowers with homospecific")
 
-tvuf3 <- ggplot(tvufflowerswithpollen1, aes(x=Proportion_Bee,y=Homospecific_presence)) +
-  geom_point(alpha=0.3) +
+tvuf3 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Bee,y=Homospecific_presence)) +
+  geom_point(alpha=0.4) +
   theme_classic()+
-  theme(legend.position = "none")+
-  geom_abline(slope = 1.57405, intercept = -0.10188) + 
-  labs( x = "Proportion wild bees", y = "Proportion of flowers with homospecific pollen",
-        title ="Thymus female")
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Proportion wild bees", y = "Prop. flowers with homospecific")
 
+tvuf4 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Heterosp_Community,y=Heterospecific_presence)) +
+  geom_point(alpha=0.4) +
+  theme_classic()+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Prop. Heterospecific in the Community", y = "Prop. flowers with heterospecific")
+
+tvuh1 <- ggplot(meandataperplotTVUH, aes(x=Visitation_rate,y=Homospecific_presence)) +
+  geom_point(alpha=0.4) +
+  theme_classic()+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Visitation rate", y = "Prop. flowers with homospecific")
 
 
 # final graph tot junt
-polls <- ggarrange(a, b, ncol = 2, nrow = 1)
-pollen <- ggarrange(c,d, ncol = 2, nrow = 1)
-seeds <- ggarrange(e,f, ncol = 2, nrow = 1)
+g1 <- ggarrange(tvuf1, tvuf2, ncol = 2, nrow = 1)
+g2 <- ggarrange(tvuf3,tvuf4, ncol = 2, nrow = 1)
 
-final <- ggarrange(polls,pollen,seeds,nrow=3)
+
+final <- ggarrange(g1,g2,nrow=2)
 final
+annotate_figure(final,top = text_grob("Thymus vulgaris female"))
+
+
+
+
+tvuf1 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness, y=Homospecific_presence)) + 
+  geom_point(alpha=0.4) +
+  theme_classic()+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Pollinator richness", y = "Prop. flowers with homospecific")
+
+
+tvuf2 <- ggplot(meandataperplotTVUF, aes(x=log(Pollinator_richness), y=Homospecific_presence)) + 
+  geom_point(alpha=0.4) +
+  theme_classic()+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Log Pollinator richness", y = "Prop. flowers with homospecific")
+
+final <- ggarrange(tvuf1,tvuf2,ncol=2)
+final
+
+
+
+
+
 
 
 

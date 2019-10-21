@@ -74,27 +74,27 @@ meandataperplotTVUH <- meandataperplot %>%
   mutate(logVisitation_rate = log(Visitation_rate)) %>%
   mutate(sqrtProportion_Bee=sqrt((Proportion_Bee)))
   
-
-## Corrplot
-ROF <- meandataperplot %>%
-  filter(Species=="ROF") %>%
-  select(Pollinator_richness,Visitation_rate,Proportion_HB,Proportion_Bee,Proportion_Diptera,Proportion_Coleoptera,Total_presence,Mean_Total)
-ROF <- as.data.frame(ROF) %>%
-  select(.,-c(Plot))
-chart.Correlation(ROF, histogram=TRUE, pch=19)
-
-## Corrplot
-TVUF <- meandataperplot %>%
-  filter(Species=="TVUF") %>%
-  select(Pollinator_richness,Visitation_rate,Proportion_HB,Proportion_Bee,Proportion_Diptera,Proportion_Lepidoptera,Total_presence,Mean_Total)
-TVUF <- as.data.frame(TVUF) %>%
-  select(.,-c(Plot))
-chart.Correlation(TVUF, histogram=TRUE, pch=19)
-
-## Corrplot
-TVUH <- meandataperplot %>%
-  filter(Species=="TVUH") %>%
-  select(Pollinator_richness,Visitation_rate,Proportion_HB,Proportion_Bee,Proportion_Diptera,Proportion_Lepidoptera,Total_presence,Mean_Total)
-TVUH <- as.data.frame(TVUH) %>%
-  select(.,-c(Plot))
-chart.Correlation(TVUH, histogram=TRUE, pch=19)
+# 
+# ## Corrplot
+# ROF <- meandataperplot %>%
+#   filter(Species=="ROF") %>%
+#   select(Pollinator_richness,Visitation_rate,Proportion_HB,Proportion_Bee,Proportion_Diptera,Proportion_Coleoptera,Total_presence,Mean_Total)
+# ROF <- as.data.frame(ROF) %>%
+#   select(.,-c(Plot))
+# chart.Correlation(ROF, histogram=TRUE, pch=19)
+# 
+# ## Corrplot
+# TVUF <- meandataperplot %>%
+#   filter(Species=="TVUF") %>%
+#   select(Pollinator_richness,Visitation_rate,Proportion_HB,Proportion_Bee,Proportion_Diptera,Proportion_Lepidoptera,Total_presence,Mean_Total)
+# TVUF <- as.data.frame(TVUF) %>%
+#   select(.,-c(Plot))
+# chart.Correlation(TVUF, histogram=TRUE, pch=19)
+# 
+# ## Corrplot
+# TVUH <- meandataperplot %>%
+#   filter(Species=="TVUH") %>%
+#   select(Pollinator_richness,Visitation_rate,Proportion_HB,Proportion_Bee,Proportion_Diptera,Proportion_Lepidoptera,Total_presence,Mean_Total)
+# TVUH <- as.data.frame(TVUH) %>%
+#   select(.,-c(Plot))
+# chart.Correlation(TVUH, histogram=TRUE, pch=19)
