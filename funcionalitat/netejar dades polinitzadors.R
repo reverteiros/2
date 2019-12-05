@@ -32,7 +32,7 @@ flowerrichness2 <- flowerrichness%>%
 
 
 # Pollinators 
-pollinators <- droplevels(dplyr::filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH")) %>% 
+pollinators <- filter(censos, Species == "ROF" | Species == "TVUF" | Species == "TVUH") %>% 
   group_by(Plot, Species) %>% 
   summarise(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
   complete(Species, Plot) %>%
@@ -57,14 +57,14 @@ grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
 
 ## database total
 datapollinatorsall <- pollinators %>%
-  left_join(networkmetrics, by="Plot") %>%
+  left_join(networkmetricsTVU, by="Plot") %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
   mutate(Proportion_HB = Honeybees/Pollinator_abundance) %>%
   mutate(Proportion_Bee = Bee/Pollinator_abundance) %>%
   # mutate(Proportion_Coleoptera = Coleoptera/Pollinator_abundance) %>%
   mutate(Proportion_Diptera = Diptera/Pollinator_abundance) %>%
   # mutate(Proportion_Lepidoptera = Lepidoptera/Pollinator_abundance) %>%
-  select(-c(H2,Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
+  select(-c(Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
   filter(Flower_Abundance > 0) %>%
   mutate(Proportion_used = Proportion_Diptera+Proportion_Bee+Proportion_HB)%>%
   left_join(flowerrichness2, by="Plot")

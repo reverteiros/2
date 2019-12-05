@@ -70,10 +70,14 @@ TVUHpollen <- filter(pollenwtNA, Species == "TVUH") %>%
 
 pollenclean <- bind_rows(ROFpollen,TVUFpollen,TVUHpollen)
 
+
+sum(TVUHpollen$Heterospecific_presence)
+
+
 proporciomorfs <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
   select(., TVUF, TVUH) %>%
   mutate(Plot = c(1:40)) %>%
   mutate(TVU = TVUF+TVUH) %>%
-  mutate(ProporcioF = TVUF / TVU) %>%
-  select(., c(Plot,ProporcioF))
+  mutate(ProporcioH = TVUH / TVU) %>%
+  select(., c(Plot,ProporcioH))
 
