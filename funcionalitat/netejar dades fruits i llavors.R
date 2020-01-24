@@ -3,28 +3,27 @@ require(devtools)
 library(tidyverse)
 library(DataCombine)
 library(vegan)
-source("funcionalitat/index xarxes.R")
 
 
-############## Seed viability and weight
-
-seedweightraw <- read.table("dades/pesos llavors.txt",header=T)
-
-# seed weight
-seedweight <- seedweightraw %>%
-  # filter(Embryo == "viable") %>%
-  group_by(Species,Plot) %>%
-  complete(Species, Plot) %>%
-  distinct() 
-
-# from the weighted seeds, proportion of them that has viable embryo
-seedweightandviability <- seedweightraw %>%
-  filter(!is.na(Embryo)) %>%
-  mutate(Embryo_Numeric=if_else(Embryo=="morta",0,1)) %>%
-  complete(Species, Plot) %>%
-  distinct() %>%
-  dplyr::left_join(., seedweight, by = c("Species","Plot","Embryo","Individual","Weight"))
-
+# ############## Seed viability and weight
+# 
+# seedweightraw <- read.table("dades/pesos llavors.txt",header=T)
+# 
+# # seed weight
+# seedweight <- seedweightraw %>%
+#   # filter(Embryo == "viable") %>%
+#   group_by(Species,Plot) %>%
+#   complete(Species, Plot) %>%
+#   distinct() 
+# 
+# # from the weighted seeds, proportion of them that has viable embryo
+# seedweightandviability <- seedweightraw %>%
+#   filter(!is.na(Embryo)) %>%
+#   mutate(Embryo_Numeric=if_else(Embryo=="morta",0,1)) %>%
+#   complete(Species, Plot) %>%
+#   distinct() %>%
+#   dplyr::left_join(., seedweight, by = c("Species","Plot","Embryo","Individual","Weight"))
+# 
 
 ############# Fruits and seeds
 

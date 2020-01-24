@@ -25,10 +25,8 @@ plot1 <- plot1[,-(1:2)]
 plot1 <- plot1*1000/plot1$Abundance
 plot1 <- as.matrix(plot1) 
 w1 <- plot1[,-(ncol(plot1))]
-w1TVU <- w1[c("TVUF", "TVUH"),] 
-i <- (colSums(w1TVU, na.rm=T) != 0)
-w1TVUnonzero <- w1TVU[, i] 
-subweb1 <- w1[, colnames(w1TVUnonzero)]
+w1TVU <- w1["TVUF",] 
+subweb1 <- w1[, c("Lasioglossum_malachurum","Apis","Pseudophilotes_panoptes")]
 
 
 plot2 <- a[a$Parcela == 2,]%>%
@@ -43,10 +41,8 @@ plot2 <- plot2[,-(1:2)]
 plot2 <- plot2*1000/plot2$Abundance
 plot2 <- as.matrix(plot2) 
 w2 <- plot2[,-(ncol(plot2))]
-w2TVU <- w2[c("TVUF", "TVUH"),] 
-i <- (colSums(w2TVU, na.rm=T) != 0)
-w2TVUnonzero <- w2TVU[, i] 
-subweb2 <- w2[, colnames(w2TVUnonzero)]
+w2TVU <- w2["TVUF",] 
+subweb2 <- w2[, c("Empididae","Apis")]
 
 
 plot3 <- a[a$Parcela == 3,]%>%
@@ -61,10 +57,8 @@ plot3 <- plot3[,-(1:2)]
 plot3 <- plot3*1000/plot3$Abundance
 plot3 <- as.matrix(plot3) 
 w3 <- plot3[,-(ncol(plot3))]
-w3TVU <- w3[c("TVUF", "TVUH"),] 
-i <- (colSums(w3TVU, na.rm=T) != 0)
-w3TVUnonzero <- w3TVU[, i] 
-subweb3 <- w3[, colnames(w3TVUnonzero)]
+w3TVU <- w3["TVUF",] 
+subweb3 <- w3[, c("Chalcididae_1","Chalcididae_3","Empididae")]
 
 
 plot4 <- a[a$Parcela == 4,]%>%
@@ -79,10 +73,8 @@ plot4 <- plot4[,-(1:2)]
 plot4 <- plot4*1000/plot4$Abundance
 plot4 <- as.matrix(plot4) 
 w4 <- plot4[,-(ncol(plot4))]
-w4TVU <- w4[c("TVUF", "TVUH"),] 
-i <- (colSums(w4TVU, na.rm=T) != 0)
-w4TVUnonzero <- w4TVU[, i] 
-subweb4 <- w4[, colnames(w4TVUnonzero)]
+w4TVU <- w4["TVUF",] 
+subweb4 <- w4[, c("Apis","Hylaeus_hyalinatus","Pseudophilotes_panoptes","Lasioglossum_transitorium_planulum","Sarcophagidae_1")]
 
 
 plot5 <- a[a$Parcela == 5,]%>%
@@ -97,10 +89,8 @@ plot5 <- plot5[,-(1:2)]
 plot5 <- plot5*1000/plot5$Abundance
 plot5 <- as.matrix(plot5) 
 w5 <- plot5[,-(ncol(plot5))]
-w5TVU <- w5[c("TVUF", "TVUH"),] 
-i <- (colSums(w5TVU, na.rm=T) != 0)
-w5TVUnonzero <- w5TVU[, i] 
-subweb5 <- w5[, colnames(w5TVUnonzero)]
+w5TVU <- w5["TVUF",] 
+subweb5 <- w5[, c("Apis","Nomada_sheppardana","Lasioglossum_transitorium_planulum")]
 
 
 plot6 <- a[a$Parcela == 6,]%>%
@@ -115,10 +105,8 @@ plot6 <- plot6[,-(1:2)]
 plot6 <- plot6*1000/plot6$Abundance
 plot6 <- as.matrix(plot6) 
 w6 <- plot6[,-(ncol(plot6))]
-w6TVU <- w6[c("TVUF", "TVUH"),] 
-i <- (colSums(w6TVU, na.rm=T) != 0)
-w6TVUnonzero <- w6TVU[, i] 
-subweb6 <- w6[, colnames(w6TVUnonzero)]
+w6TVU <- w6["TVUF",] 
+subweb6 <- w6[, c("Apis","Lasioglossum_mediterraneum")]
 
 
 plot7 <- a[a$Parcela == 7,]%>%
@@ -149,10 +137,8 @@ plot8 <- plot8[,-(1:2)]
 plot8 <- plot8*1000/plot8$Abundance
 plot8 <- as.matrix(plot8) 
 w8 <- plot8[,-(ncol(plot8))]
-w8TVU <- w8[c("TVUF", "TVUH"),] 
-i <- (colSums(w8TVU, na.rm=T) != 0)
-w8TVUnonzero <- w8TVU[, i] 
-subweb8 <- w8[, colnames(w8TVUnonzero)]
+w8TVU <- w8["TVUF",] 
+subweb8 <- w8[, c("Apis","Chamaesyrphus","Nomada_1","Lasioglossum_transitorium_planulum","Pseudophilotes_panoptes")]
 
 
 plot9 <- a[a$Parcela == 9,]%>%
@@ -167,10 +153,8 @@ plot9 <- plot9[,-(1:2)]
 plot9 <- plot9*1000/plot9$Abundance
 plot9 <- as.matrix(plot9) 
 w9 <- plot9[,-(ncol(plot9))]
-w9TVU <- w9[c("TVUF", "TVUH"),] 
-i <- (colSums(w9TVU, na.rm=T) != 0)
-w9TVUnonzero <- w9TVU[, i] 
-subweb9 <- w9[, colnames(w9TVUnonzero)]
+w9TVU <- w9["TVUF",] 
+subweb9 <- w9[, c("Apis","Hylaeus_garrulus","Sarcophagidae_4","Lasioglossum_transitorium_planulum")]
 
 
 plot10 <- a[a$Parcela == 10,]%>%
@@ -204,10 +188,9 @@ plot11 <- plot11[,-(1:2)]
 plot11 <- plot11*1000/plot11$Abundance
 plot11 <- as.matrix(plot11) 
 w11 <- plot11[,-(ncol(plot11))]
-w11TVU <- w11[c("TVUF", "TVUH"),] 
-i <- (colSums(w11TVU, na.rm=T) != 0)
-w11TVUnonzero <- w11TVU[, i] 
-subweb11 <- w11[, colnames(w11TVUnonzero)]
+w11TVU <- w11["TVUF",] 
+subweb11 <- w11[, c("Apis","Chamaesyrphus","Fals_conòpid","Empididae")]
+
 
 
 plot12 <- a[a$Parcela == 12,]%>%
@@ -222,10 +205,9 @@ plot12 <- plot12[,-(1:2)]
 plot12 <- plot12*1000/plot12$Abundance
 plot12 <- as.matrix(plot12) 
 w12 <- plot12[,-(ncol(plot12))]
-w12TVU <- w12[c("TVUF", "TVUH"),] 
-i <- (colSums(w12TVU, na.rm=T) != 0)
-w12TVUnonzero <- w12TVU[, i] 
-subweb12 <- w12[, colnames(w12TVUnonzero)]
+w12TVU <- w12["TVUF",] 
+subweb12 <- w12[, c("Apis","Polistes_gallicus","Lasioglossum_transitorium_planulum")]
+
 
 
 plot13 <- a[a$Parcela == 13,]%>%
@@ -240,10 +222,8 @@ plot13 <- plot13[,-(1:2)]
 plot13 <- plot13*1000/plot13$Abundance
 plot13 <- as.matrix(plot13) 
 w13 <- plot13[,-(ncol(plot13))]
-w13TVU <- w13[c("TVUF", "TVUH"),] 
-i <- (colSums(w13TVU, na.rm=T) != 0)
-w13TVUnonzero <- w13TVU[, i] 
-subweb13 <- w13[, colnames(w13TVUnonzero)]
+w13TVU <- w13["TVUF",] 
+subweb13 <- w13[, c("Apis","Pseudophilotes_panoptes","Chrysotoxum_intermedium","Sarcophagidae_1","Lasioglossum_transitorium_planulum")]
 
 
 plot14 <- a[a$Parcela == 14,]%>%
@@ -258,10 +238,8 @@ plot14 <- plot14[,-(1:2)]
 plot14 <- plot14*1000/plot14$Abundance
 plot14 <- as.matrix(plot14) 
 w14 <- plot14[,-(ncol(plot14))]
-w14TVU <- w14[c("TVUF", "TVUH"),] 
-i <- (colSums(w14TVU, na.rm=T) != 0)
-w14TVUnonzero <- w14TVU[, i] 
-subweb14 <- w14[, colnames(w14TVUnonzero)]
+w14TVU <- w14["TVUF",] 
+subweb14 <- w14[, c("Apis","Andrena_djelfensis","Andrena_nigroaenea","Lasioglossum_transitorium_planulum","Pseudophilotes_panoptes","Sarcophagidae_4")]
 
 
 plot15 <- a[a$Parcela == 15,]%>%
@@ -276,10 +254,8 @@ plot15 <- plot15[,-(1:2)]
 plot15 <- plot15*1000/plot15$Abundance
 plot15 <- as.matrix(plot15) 
 w15 <- plot15[,-(ncol(plot15))]
-w15TVU <- w15[c("TVUF", "TVUH"),] 
-i <- (colSums(w15TVU, na.rm=T) != 0)
-w15TVUnonzero <- w15TVU[, i] 
-subweb15 <- w15[, colnames(w15TVUnonzero)]
+w15TVU <- w15["TVUF",] 
+subweb15 <- w15[, c("Apis","Ceratina_cyanea","Chrysotoxum_cautum")]
 
 
 plot16 <- a[a$Parcela == 16,]%>%
@@ -294,10 +270,8 @@ plot16 <- plot16[,-(1:2)]
 plot16 <- plot16*1000/plot16$Abundance
 plot16 <- as.matrix(plot16) 
 w16 <- plot16[,-(ncol(plot16))]
-w16TVU <- w16[c("TVUF", "TVUH"),] 
-i <- (colSums(w16TVU, na.rm=T) != 0)
-w16TVUnonzero <- w16TVU[, i] 
-subweb16 <- w16[, colnames(w16TVUnonzero)]
+w16TVU <- w16["TVUF",] 
+subweb16 <- w16[, c("Apis","Andrena_nigroaenea","Sarcophagidae_4","Lasioglossum_interruptum","Pseudophilotes_panoptes")]
 
 
 plot17 <- a[a$Parcela == 17,]%>%
@@ -311,11 +285,11 @@ rownames(plot17) <- plot17$Codi_planta
 plot17 <- plot17[,-(1:2)]
 plot17 <- plot17*1000/plot17$Abundance
 plot17 <- as.matrix(plot17) 
-w17 <- plot17[,-(ncol(plot17))]
-w17TVU <- w17[c("TVUF", "TVUH"),] 
-i <- (colSums(w17TVU, na.rm=T) != 0)
-w17TVUnonzero <- w17TVU[, i] 
-subweb17 <- w17[, colnames(w17TVUnonzero)]
+w17 <- as.data.frame(plot17[,-(ncol(plot17))])
+w17TVU <- w17["TVUF",] 
+subweb17 <- as.data.frame(w17[, "Osmia_rufohirta"])
+names(subweb17) <- c("Osmia_rufohirta")
+
 
 
 plot18 <- a[a$Parcela == 18,]%>%
@@ -346,10 +320,8 @@ plot19 <- plot19[,-(1:2)]
 plot19 <- plot19*1000/plot19$Abundance
 plot19 <- as.matrix(plot19) 
 w19 <- plot19[,-(ncol(plot19))]
-w19TVU <- w19[c("TVUF", "TVUH"),] 
-i <- (colSums(w19TVU, na.rm=T) != 0)
-w19TVUnonzero <- w19TVU[, i] 
-subweb19 <- w19[, colnames(w19TVUnonzero)]
+w19TVU <- w19["TVUF",] 
+subweb19 <- w19[, c("Apis","Pseudophilotes_panoptes","Halictus_quadricinctus","Eumenes_coarctatus","Adela_aldrovandella","Andrena_nigroaenea","Lasioglossum_bimaculatum","Mosca_mitjana_1","Lasioglossum_subhirtum")]
 
 
 plot20 <- a[a$Parcela == 20,]%>%
@@ -364,10 +336,8 @@ plot20 <- plot20[,-(1:2)]
 plot20 <- plot20*1000/plot20$Abundance
 plot20 <- as.matrix(plot20) 
 w20 <- plot20[,-(ncol(plot20))]
-w20TVU <- w20[c("TVUF", "TVUH"),] 
-i <- (colSums(w20TVU, na.rm=T) != 0)
-w20TVUnonzero <- w20TVU[, i] 
-subweb20 <- w20[, colnames(w20TVUnonzero)]
+w20TVU <- w20["TVUF",] 
+subweb20 <- w20[, c("Apis","Adela_aldrovandella")]
 
 
 plot21 <- a[a$Parcela == 21,]%>%
@@ -382,10 +352,8 @@ plot21 <- plot21[,-(1:2)]
 plot21 <- plot21*1000/plot21$Abundance
 plot21 <- as.matrix(plot21) 
 w21 <- plot21[,-(ncol(plot21))]
-w21TVU <- w21[c("TVUF", "TVUH"),] 
-i <- (colSums(w21TVU, na.rm=T) != 0)
-w21TVUnonzero <- w21TVU[, i] 
-subweb21 <- w21[, colnames(w21TVUnonzero)]
+w21TVU <- w21["TVUF",] 
+subweb21 <- w21[, c("Apis","Empididae","Sarcophagidae_4","Chalcididae_5","Adela_aldrovandella")]
 
 
 plot22 <- a[a$Parcela == 22,]%>%
@@ -400,10 +368,8 @@ plot22 <- plot22[,-(1:2)]
 plot22 <- plot22*1000/plot22$Abundance
 plot22 <- as.matrix(plot22) 
 w22 <- plot22[,-(ncol(plot22))]
-w22TVU <- w22[c("TVUF", "TVUH"),] 
-i <- (colSums(w22TVU, na.rm=T) != 0)
-w22TVUnonzero <- w22TVU[, i] 
-subweb22 <- w22[, colnames(w22TVUnonzero)]
+w22TVU <- w22["TVUF",] 
+subweb22 <- w22[, c("Apis","Andrena_lepida","Nomada_succinta","Eumenes_coarctatus","Lasioglossum_bimaculatum","Adela_aldrovandella")]
 
 
 plot23 <- a[a$Parcela == 23,]%>%
@@ -434,10 +400,8 @@ plot24 <- plot24[,-(1:2)]
 plot24 <- plot24*1000/plot24$Abundance
 plot24 <- as.matrix(plot24) 
 w24 <- plot24[,-(ncol(plot24))]
-w24TVU <- w24[c("TVUF", "TVUH"),] 
-i <- (colSums(w24TVU, na.rm=T) != 0)
-w24TVUnonzero <- w24TVU[, i] 
-subweb24 <- w24[, colnames(w24TVUnonzero)]
+w24TVU <- w24["TVUF",] 
+subweb24 <- w24[, c("Apis","Lasioglossum_transitorium_planulum")]
 
 
 plot25 <- a[a$Parcela == 25,]%>%
@@ -468,10 +432,8 @@ plot26 <- plot26[,-(1:2)]
 plot26 <- plot26*1000/plot26$Abundance
 plot26 <- as.matrix(plot26) 
 w26 <- plot26[,-(ncol(plot26))]
-w26TVU <- w26[c("TVUF", "TVUH"),] 
-i <- (colSums(w26TVU, na.rm=T) != 0)
-w26TVUnonzero <- w26TVU[, i] 
-subweb26 <- w26[, colnames(w26TVUnonzero)]
+w26TVU <- w26["TVUF",] 
+subweb26 <- w26[, c("Apis","Lasioglossum_griseolum")]
 
 
 plot27 <- a[a$Parcela == 27,]%>%
@@ -486,10 +448,9 @@ plot27 <- plot27[,-(1:2)]
 plot27 <- plot27*1000/plot27$Abundance
 plot27 <- as.matrix(plot27) 
 w27 <- plot27[,-(ncol(plot27))]
-w27TVU <- w27[c("TVUF", "TVUH"),] 
-i <- (colSums(w27TVU, na.rm=T) != 0)
-w27TVUnonzero <- w27TVU[, i] 
-subweb27 <- w27[, colnames(w27TVUnonzero)]
+w27TVU <- w27[("TVUF"),] 
+subweb27 <- as.data.frame(w27[, c("Apis")])
+names(subweb27) <- c("Apis")
 
 
 plot28 <- a[a$Parcela == 28,]%>%
@@ -504,10 +465,8 @@ plot28 <- plot28[,-(1:2)]
 plot28 <- plot28*1000/plot28$Abundance
 plot28 <- as.matrix(plot28) 
 w28 <- plot28[,-(ncol(plot28))]
-w28TVU <- w28[c("TVUF", "TVUH"),] 
-i <- (colSums(w28TVU, na.rm=T) != 0)
-w28TVUnonzero <- w28TVU[, i] 
-subweb28 <- w28[, colnames(w28TVUnonzero)]
+w28TVU <- w28["TVUF",] 
+subweb28 <- w28[, c("Apis","Meligethes_aeneus","Empididae","Lasioglossum_transitorium_planulum")]
 
 
 plot29 <- a[a$Parcela == 29,]%>%
@@ -522,10 +481,8 @@ plot29 <- plot29[,-(1:2)]
 plot29 <- plot29*1000/plot29$Abundance
 plot29 <- as.matrix(plot29) 
 w29 <- plot29[,-(ncol(plot29))]
-w29TVU <- w29[c("TVUF", "TVUH"),] 
-i <- (colSums(w29TVU, na.rm=T) != 0)
-w29TVUnonzero <- w29TVU[, i] 
-subweb29 <- w29[, colnames(w29TVUnonzero)]
+w29TVU <- w29["TVUF",] 
+subweb29 <- w29[, c("Apis","Nomada_flavoguttata","Hylaeus_hyalinatus","Empididae","Pseudophilotes_panoptes")]
 
 
 plot30 <- a[a$Parcela == 30,]%>%
@@ -540,10 +497,8 @@ plot30 <- plot30[,-(1:2)]
 plot30 <- plot30*1000/plot30$Abundance
 plot30 <- as.matrix(plot30) 
 w30 <- plot30[,-(ncol(plot30))]
-w30TVU <- w30[c("TVUF", "TVUH"),] 
-i <- (colSums(w30TVU, na.rm=T) != 0)
-w30TVUnonzero <- w30TVU[, i] 
-subweb30 <- w30[, colnames(w30TVUnonzero)]
+w30TVU <- w30["TVUF",] 
+subweb30 <- w30[, c("Apis","Andrena_djelfensis","Mosca_9","Nomada_flavoguttata","Empididae","Pseudophilotes_panoptes")]
 
 
 plot31 <- a[a$Parcela == 31,]%>%
@@ -558,10 +513,8 @@ plot31 <- plot31[,-(1:2)]
 plot31 <- plot31*1000/plot31$Abundance
 plot31 <- as.matrix(plot31) 
 w31 <- plot31[,-(ncol(plot31))]
-w31TVU <- w31[c("TVUF", "TVUH"),] 
-i <- (colSums(w31TVU, na.rm=T) != 0)
-w31TVUnonzero <- w31TVU[, i] 
-subweb31 <- w31[, colnames(w31TVUnonzero)]
+w31TVU <- w31["TVUF",] 
+subweb31 <- w31[, c("Apis","Lasioglossum_transitorium_planulum","Sarcophagidae_5")]
 
 
 plot32 <- a[a$Parcela == 32,]%>%
@@ -576,10 +529,8 @@ plot32 <- plot32[,-(1:2)]
 plot32 <- plot32*1000/plot32$Abundance
 plot32 <- as.matrix(plot32) 
 w32 <- plot32[,-(ncol(plot32))]
-w32TVU <- w32[c("TVUF", "TVUH"),] 
-i <- (colSums(w32TVU, na.rm=T) != 0)
-w32TVUnonzero <- w32TVU[, i] 
-subweb32 <- w32[, colnames(w32TVUnonzero)]
+w32TVU <- w32["TVUF",] 
+subweb32 <- w32[, c("Apis","Lasioglossum_transitorium_planulum","Empididae","Bombylius_discolor")]
 
 
 plot33 <- a[a$Parcela == 33,]%>%
@@ -594,10 +545,8 @@ plot33 <- plot33[,-(1:2)]
 plot33 <- plot33*1000/plot33$Abundance
 plot33 <- as.matrix(plot33) 
 w33 <- plot33[,-(ncol(plot33))]
-w33TVU <- w33[c("TVUF", "TVUH"),] 
-i <- (colSums(w33TVU, na.rm=T) != 0)
-w33TVUnonzero <- w33TVU[, i] 
-subweb33 <- w33[, colnames(w33TVUnonzero)]
+w33TVU <- w33["TVUF",] 
+subweb33 <- w33[, c("Apis","Chamaesyrphus","Empididae","Mosca_16","Hylaeus_hyalinatus","Lasioglossum_transitorium_planulum")]
 
 
 plot34 <- a[a$Parcela == 34,]%>%
@@ -612,10 +561,8 @@ plot34 <- plot34[,-(1:2)]
 plot34 <- plot34*1000/plot34$Abundance
 plot34 <- as.matrix(plot34) 
 w34 <- plot34[,-(ncol(plot34))]
-w34TVU <- w34[c("TVUF", "TVUH"),] 
-i <- (colSums(w34TVU, na.rm=T) != 0)
-w34TVUnonzero <- w34TVU[, i] 
-subweb34 <- w34[, colnames(w34TVUnonzero)]
+w34TVU <- w34["TVUF",] 
+subweb34 <- w34[, c("Apis","Anthophora_acervorum","Lasioglossum_mediterraneum","Mosca_8","Rodanthidium_sticticum","Lobonyx_aeneus","Microlepidoptera","Paragus_tibialis","Sarcophagidae_4","Sarcophagidae_5","Pseudophilotes_panoptes")]
 
 
 plot35 <- a[a$Parcela == 35,]%>%
@@ -630,10 +577,8 @@ plot35 <- plot35[,-(1:2)]
 plot35 <- plot35*1000/plot35$Abundance
 plot35 <- as.matrix(plot35) 
 w35 <- plot35[,-(ncol(plot35))]
-w35TVU <- w35[c("TVUF", "TVUH"),] 
-i <- (colSums(w35TVU, na.rm=T) != 0)
-w35TVUnonzero <- w35TVU[, i] 
-subweb35 <- w35[, colnames(w35TVUnonzero)]
+w35TVU <- w35["TVUF",] 
+subweb35 <- w35[, c("Apis","Eristalinus_aeneus","Meligethes_aeneus","Musca_1","Mosca_mitjana_1","Mosca_normal_1")]
 
 
 plot36 <- a[a$Parcela == 36,]%>%
@@ -648,10 +593,8 @@ plot36 <- plot36[,-(1:2)]
 plot36 <- plot36*1000/plot36$Abundance
 plot36 <- as.matrix(plot36) 
 w36 <- plot36[,-(ncol(plot36))]
-w36TVU <- w36[c("TVUF", "TVUH"),] 
-i <- (colSums(w36TVU, na.rm=T) != 0)
-w36TVUnonzero <- w36TVU[, i] 
-subweb36 <- w36[, colnames(w36TVUnonzero)]
+w36TVU <- w36["TVUF",] 
+subweb36 <- w36[, c("Apis","Empididae_2","Fals_conòpid","Lasioglossum_mediterraneum","Lasioglossum_transitorium_planulum","Microlepidoptera","Mosca_3","Nomada_succinta","Polistes_gallicus","Pseudophilotes_panoptes","Sarcophagidae_5")]
 
 
 plot37 <- a[a$Parcela == 37,]%>%
@@ -666,10 +609,8 @@ plot37 <- plot37[,-(1:2)]
 plot37 <- plot37*1000/plot37$Abundance
 plot37 <- as.matrix(plot37) 
 w37 <- plot37[,-(ncol(plot37))]
-w37TVU <- w37[c("TVUF", "TVUH"),] 
-i <- (colSums(w37TVU, na.rm=T) != 0)
-w37TVUnonzero <- w37TVU[, i] 
-subweb37 <- w37[, colnames(w37TVUnonzero)]
+w37TVU <- w37["TVUF",] 
+subweb37 <- w37[, c("Apis","Andrena_djelfensis","Andrena_lepida","Andrena_nana","Chrysotoxum_cautum","Lasioglossum_interruptum","Lasioglossum_transitorium_planulum","Microlepidoptera","Mosca_7")]
 
 
 plot38 <- a[a$Parcela == 38,]%>%
@@ -684,10 +625,8 @@ plot38 <- plot38[,-(1:2)]
 plot38 <- plot38*1000/plot38$Abundance
 plot38 <- as.matrix(plot38) 
 w38 <- plot38[,-(ncol(plot38))]
-w38TVU <- w38[c("TVUF", "TVUH"),] 
-i <- (colSums(w38TVU, na.rm=T) != 0)
-w38TVUnonzero <- w38TVU[, i] 
-subweb38 <- w38[, colnames(w38TVUnonzero)]
+w38TVU <- w38["TVUF",] 
+subweb38 <- w38[, c("Apis","Empididae","Vespa_parasita_negra_potes_taronja","Andrena_nana","Sarcophagidae_1","Sarcophagidae_5","Lasioglossum_transitorium_planulum","Microlepidoptera","Mosca_7","Mosca_16","Fals_conòpid","Hylaeus_hyalinatus","Lasioglossum_griseolum","Lasioglossum_subhirtum","Mosca_17","Mosca_18")]
 
 
 plot39 <- a[a$Parcela == 39,]%>%
@@ -702,10 +641,8 @@ plot39 <- plot39[,-(1:2)]
 plot39 <- plot39*1000/plot39$Abundance
 plot39 <- as.matrix(plot39) 
 w39 <- plot39[,-(ncol(plot39))]
-w39TVU <- w39[c("TVUF", "TVUH"),] 
-i <- (colSums(w39TVU, na.rm=T) != 0)
-w39TVUnonzero <- w39TVU[, i] 
-subweb39 <- w39[, colnames(w39TVUnonzero)]
+w39TVU <- w39["TVUF",] 
+subweb39 <- w39[, c("Apis","Lasioglossum_transitorium_planulum")]
 
 
 plot40 <- a[a$Parcela == 40,]%>%
@@ -720,11 +657,9 @@ plot40 <- plot40[,-(1:2)]
 plot40 <- plot40*1000/plot40$Abundance
 plot40 <- as.matrix(plot40) 
 w40 <- plot40[,-(ncol(plot40))]
-w40TVU <- w40[c("TVUF", "TVUH"),] 
-i <- (colSums(w40TVU, na.rm=T) != 0)
-w40TVUnonzero <- w40TVU[, i] 
-subweb40 <- w40[, colnames(w40TVUnonzero)]
-
+w40TVU <- w40["TVUF",] 
+subweb40 <- as.data.frame(w40[, "Pseudophilotes_panoptes"])
+names(subweb40) <- c("Pseudophilotes_panoptes")
 
 
 
