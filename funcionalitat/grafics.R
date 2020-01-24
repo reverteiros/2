@@ -8,6 +8,170 @@ library(ggplot2)
 library(ggExtra)
 library(corrplot)
 library(Hmisc)
+library(grid)
+library(plyr)
+
+##### Figura 1
+
+meandataperplotwtROF <- meandataperplot %>%
+  filter(Species != "ROF")
+
+meandataperplotwtROF$Species <- revalue(meandataperplotwtROF$Species, c("TVUF"="Female"))
+meandataperplotwtROF$Species <- revalue(meandataperplotwtROF$Species, c("TVUH"="Hermaphrodite"))
+
+
+
+a1 <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Homospecific_presence)) + 
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Proportion of flowers with\nhomospecific pollen")
+
+tvua1 <- arrangeGrob(a1, top = textGrob("a)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
+
+
+a2 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Mean_Homospecific)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  # coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Stigmatic pollen loads")
+
+tvua2 <- arrangeGrob(a2, top = textGrob("b)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
+
+
+a3 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Heterospecific_presence)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Proportion of flowers with\nheterospecific pollen")
+
+tvua3 <- arrangeGrob(a3, top = textGrob("c)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
+
+a4 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Fruit_set)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Fruit set")
+
+
+tvua4 <- arrangeGrob(a4, top = textGrob("d)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
+
+a5 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Seed_set)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  coord_cartesian(ylim = c(1, 4))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Seed set")
+
+tvua5 <- arrangeGrob(a5, top = textGrob("e)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
+
+grid.arrange(tvua1,tvua2,tvua3,tvua4,tvua5, ncol = 3)
+
+
+##### Figura 2
+
+meandataperplotwtROF <- meandataperplot %>%
+  filter(Species != "ROF")
+
+meandataperplotwtROF$Species <- revalue(meandataperplotwtROF$Species, c("TVUF"="Female"))
+meandataperplotwtROF$Species <- revalue(meandataperplotwtROF$Species, c("TVUH"="Hermaphrodite"))
+
+
+
+a1 <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Pollinator_richness)) + 
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  # coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Pollinator richness")
+
+tvua1 <- arrangeGrob(a1, top = textGrob("a)", x = unit(0, "npc")
+                                        , y   = unit(1, "npc"), just=c("left","top"),
+                                        gp=gpar(col="black", fontsize=14)))
+
+
+a2 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Visitation_rate)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  # coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Visitation rate")
+
+tvua2 <- arrangeGrob(a2, top = textGrob("b)", x = unit(0, "npc")
+                                        , y   = unit(1, "npc"), just=c("left","top"),
+                                        gp=gpar(col="black", fontsize=14)))
+
+
+a3 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Proportion_HB)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Proportion of visits\nby honey bees")
+
+tvua3 <- arrangeGrob(a3, top = textGrob("c)", x = unit(0, "npc")
+                                        , y   = unit(1, "npc"), just=c("left","top"),
+                                        gp=gpar(col="black", fontsize=14)))
+
+a4 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Proportion_Bee)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Proportion of visits\nby wild bees")
+
+
+tvua4 <- arrangeGrob(a4, top = textGrob("d)", x = unit(0, "npc")
+                                        , y   = unit(1, "npc"), just=c("left","top"),
+                                        gp=gpar(col="black", fontsize=14)))
+
+a5 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Proportion_Diptera)) +
+  geom_boxplot()+
+  theme_classic()+
+  theme(axis.title.x = element_blank())+
+  coord_cartesian(ylim = c(0, 1))+
+  # scale_fill_manual(values=colorthreespecies)+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Proportion of visits\nby dipterans")
+
+tvua5 <- arrangeGrob(a5, top = textGrob("e)", x = unit(0, "npc")
+                                        , y   = unit(1, "npc"), just=c("left","top"),
+                                        gp=gpar(col="black", fontsize=14)))
+
+grid.arrange(tvua1,tvua2,tvua3,tvua4,tvua5, ncol = 3)
+
 
 
 ##### Figura 3
@@ -15,61 +179,95 @@ library(Hmisc)
 tvuf1 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness, y=Homospecific_presence)) + 
   geom_point(alpha=0.4) +
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14))+
+  ggtitle("Female")+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Pollinator richness", y = "Prop. flowers with homospecific")
+  scale_y_continuous(name = "Proportion of flowers with\nhomospecific pollen") +
+  scale_x_continuous(name = "Pollinator richness")
+
+tvuf11 <- arrangeGrob(tvuf1, top = textGrob("a)", x = unit(0, "npc")
+                                               , y   = unit(1, "npc"), just=c("left","top"),
+                                               gp=gpar(col="black", fontsize=14)))
 
 tvuf2 <- ggplot(meandataperplotTVUF, aes(x=Proportion_HB,y=Homospecific_presence)) +
   geom_point(alpha=0.4) +
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+        axis.title.y = element_blank())+
+  ggtitle("Female")+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Proportion honey bees", y = "Prop. flowers with homospecific")
+  scale_x_continuous(name = "Proportion of honey bees")
+
+
+tvuf21 <- arrangeGrob(tvuf2, top = textGrob("b)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
+
 
 tvuf3 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Bee,y=Homospecific_presence)) +
   geom_point(alpha=0.4) +
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+        axis.title.y = element_blank())+
+  ggtitle("Female")+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Proportion wild bees", y = "Prop. flowers with homospecific")
+  scale_x_continuous(name = "Proportion of wild bees")
 
-tvuf4 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Heterosp_Community,y=Heterospecific_presence)) +
+tvuf31 <- arrangeGrob(tvuf3, top = textGrob("c)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
+
+tvuf4 <- ggplot(meandataperplotTVUF, aes(x=Visitation_rate,y=Heterospecific_presence)) +
   geom_point(alpha=0.4) +
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14))+
+  ggtitle("Female")+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Prop. Heterospecific in the Community", y = "Prop. flowers with heterospecific")
+  scale_y_continuous(name = "Proportion of flowers with\nheterospecific pollen") +
+  scale_x_continuous(name = "Visitation rate")
+
+
+tvuf41 <- arrangeGrob(tvuf4, top = textGrob("e)", x = unit(0, "npc")
+                                             , y   = unit(1, "npc"), just=c("left","top"),
+                                             gp=gpar(col="black", fontsize=14)))
+
+tvuf5 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness,y=Heterospecific_presence)) +
+  geom_point(alpha=0.4) +
+  theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14))+
+  ggtitle("Female")+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  scale_y_continuous(name = "Proportion of flowers with\nheterospecific pollen") +
+  scale_x_continuous(name = "Pollinator richness")
+
+
+tvuf51 <- arrangeGrob(tvuf5, top = textGrob("e)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
 
 tvuh1 <- ggplot(meandataperplotTVUH, aes(x=Visitation_rate,y=Homospecific_presence)) +
   geom_point(alpha=0.4) +
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14))+
+  ggtitle("Hermaphrodite")+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Visitation rate", y = "Prop. flowers with homospecific")
+  scale_y_continuous(name = "Proportion of flowers with\nhomospecific pollen") +
+  scale_x_continuous(name = "Visitation rate")
 
-
-# final graph tot junt
-g1 <- ggarrange(tvuf1, tvuf2, ncol = 2, nrow = 1)
-g2 <- ggarrange(tvuf3,tvuf4, ncol = 2, nrow = 1)
-
-
-final <- ggarrange(g1,g2,nrow=2)
-final
-annotate_figure(final,top = text_grob("Thymus vulgaris female"))
+tvuh11 <- arrangeGrob(tvuh1, top = textGrob("d)", x = unit(0, "npc")
+                                            , y   = unit(1, "npc"), just=c("left","top"),
+                                            gp=gpar(col="black", fontsize=14)))
 
 
 
-
-tvuf1 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness, y=Homospecific_presence)) + 
-  geom_point(alpha=0.4) +
-  theme_classic()+
-  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Pollinator richness", y = "Prop. flowers with homospecific")
+grid.arrange(tvuf11,tvuf21,tvuf31,tvuh11,tvuf41,tvuf51, ncol = 3)
 
 
-tvuf2 <- ggplot(meandataperplotTVUF, aes(x=log(Pollinator_richness), y=Homospecific_presence)) + 
-  geom_point(alpha=0.4) +
-  theme_classic()+
-  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Log Pollinator richness", y = "Prop. flowers with homospecific")
 
-final <- ggarrange(tvuf1,tvuf2,ncol=2)
-final
+
+
+
+
 
 
 
@@ -120,10 +318,10 @@ colorthreespecies <- c("blue","green","yellow")
 colortwospecies <- c("green","yellow")
 
 # pollinator richness
-b <- ggplot(meandataperplot, aes(y=Pollinator_richness, x=Species,fill=Species))+
+b <- ggplot(meandataperplot, aes(y=Pollinator_richness, x=Species))+
   geom_boxplot()+
   # geom_point()+
-  scale_fill_manual(values=colorthreespecies)+
+  # scale_fill_manual(values=colorthreespecies)+
   theme_classic()+
   theme(legend.position = "top")
 
@@ -154,9 +352,9 @@ d <- ggplot(meandataperplot, aes(y=Mean_Homospecific, x=Species,fill=Species))+
 meandataperplotwtROF <- meandataperplot %>%
   filter(Species != "ROF")
 
-e <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Fruit_set,fill=Species)) + 
+e <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Fruit_set)) + 
   geom_boxplot()+
-  scale_fill_manual(values=colortwospecies)+
+  # scale_fill_manual(values=colortwospecies)+
   theme_classic()+
   coord_cartesian(ylim = c(0, 1))+
   theme(legend.position = "none")
