@@ -11,20 +11,77 @@ library(Hmisc)
 library(grid)
 library(plyr)
 
+
+colortwospecies <- c("darkgreen","darkolivegreen1")
+
+
+## figure pollinators defensa
+datapollinatorsall <- pollinators %>%
+  filter(Species != "ROF") %>%
+  # left_join(networkmetricsTVU, by="Plot") %>%
+  left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
+  mutate(Proportion_HB = Honeybees/Pollinator_abundance) %>%
+  mutate(Proportion_Bee = Bee/Pollinator_abundance) %>%
+  mutate(Proportion_Coleoptera = Coleoptera/Pollinator_abundance) %>%
+  mutate(Proportion_Diptera = Diptera/Pollinator_abundance) %>%
+  mutate(Proportion_Lepidoptera = Lepidoptera/Pollinator_abundance) %>%
+  mutate(Proportion_Wasps = Wasp/Pollinator_abundance) %>%
+  select(-c(Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
+  filter(Flower_Abundance > 0) %>%
+  mutate(Proportion_used = Proportion_Diptera+Proportion_Bee+Proportion_HB)%>%
+  left_join(flowerrichness2, by="Plot")
+
+datapollinatorsall$Species <- revalue(datapollinatorsall$Species, c("TVUF"="Female"))
+datapollinatorsall$Species <- revalue(datapollinatorsall$Species, c("TVUH"="Hermaphrodite"))
+
+rich <- ggplot(datapollinatorsall, aes(y=Pollinator_richness, x=Species,fill=Species))+
+  geom_boxplot(aes(fill=Species))+
+  scale_fill_manual(values=colortwospecies)+
+  theme_classic()+ 
+  # theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Pollinator richness")
+
+vrate <- ggplot(datapollinatorsall, aes(y=Visitation_rate, x=Species,fill=Species))+
+  geom_boxplot(aes(fill=Species))+
+  scale_fill_manual(values=colortwospecies)+
+  theme_classic()+ 
+  theme(legend.position = "none")+ 
+  scale_y_continuous(name = "Visitation rate\n(pollinators / 1000 flowers)")
+
+
+pollenboxplot <- datapollinatorsall %>%
+  mutate(Wild_bees=Proportion_Bee)%>%
+  mutate(Honey_bees=Proportion_HB)%>%
+  mutate(Wasps=Proportion_Wasps)%>%
+  mutate(Dipterans=Proportion_Diptera)%>%
+  mutate(Coleopterans=Proportion_Coleoptera)%>%
+  mutate(Lepidopterans=Proportion_Lepidoptera)%>%
+  select(Plot,Species,Wild_bees,Honey_bees,Wasps,Dipterans,Coleopterans,Lepidopterans) %>%
+  gather(Pollinator_group,Proportion,-c(Plot,Species))
+
+pollenboxplot$Pollinator_group <- factor(pollenboxplot$Pollinator_group,levels = c("Honey_bees", "Wild_bees", "Dipterans", "Lepidopterans","Coleopterans","Wasps"))
+
+c <- ggplot(data = pollenboxplot, aes(x=Pollinator_group, y=Proportion,fill=Species)) + 
+  geom_boxplot(aes(fill=Species))+
+  theme_classic()+
+  coord_cartesian(ylim = c(0, 1))+
+  scale_fill_manual(values=colortwospecies)+
+  theme(legend.position = "none")
+
+
+
 ##### Figura 1
 
-meandataperplotwtROF <- meandataperplot %>%
-  filter(Species != "ROF")
-
-meandataperplotwtROF$Species <- revalue(meandataperplotwtROF$Species, c("TVUF"="Female"))
-meandataperplotwtROF$Species <- revalue(meandataperplotwtROF$Species, c("TVUH"="Hermaphrodite"))
+meandataperplot$Species <- revalue(meandataperplot$Species, c("TVUF"="Female"))
+meandataperplot$Species <- revalue(meandataperplot$Species, c("TVUH"="Hermaphrodite"))
 
 
 
-a1 <- ggplot(data = meandataperplotwtROF, aes(x=Species, y=Homospecific_presence)) + 
-  geom_boxplot()+
+a1 <- ggplot(data = meandataperplot, aes(x=Species, y=Homospecific_presence,fill=Species)) + 
+  geom_boxplot(aes(fill=Species))+
   theme_classic()+
   theme(axis.title.x = element_blank())+
+  scale_fill_manual(values=colortwospecies)+
   coord_cartesian(ylim = c(0, 1))+
   # scale_fill_manual(values=colorthreespecies)+
   theme(legend.position = "none")+ 
@@ -35,10 +92,11 @@ tvua1 <- arrangeGrob(a1, top = textGrob("a)", x = unit(0, "npc")
                                             gp=gpar(col="black", fontsize=14)))
 
 
-a2 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Mean_Homospecific)) +
-  geom_boxplot()+
+a2 <- ggplot(meandataperplot, aes(x=Species,y=Mean_Homospecific,fill=Species)) +
+  geom_boxplot(aes(fill=Species))+
   theme_classic()+
   theme(axis.title.x = element_blank())+
+  scale_fill_manual(values=colortwospecies)+
   # coord_cartesian(ylim = c(0, 1))+
   # scale_fill_manual(values=colorthreespecies)+
   theme(legend.position = "none")+ 
@@ -49,10 +107,11 @@ tvua2 <- arrangeGrob(a2, top = textGrob("b)", x = unit(0, "npc")
                                             gp=gpar(col="black", fontsize=14)))
 
 
-a3 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Heterospecific_presence)) +
-  geom_boxplot()+
+a3 <- ggplot(meandataperplot, aes(x=Species,y=Heterospecific_presence,fill=Species)) +
+  geom_boxplot(aes(fill=Species))+
   theme_classic()+
   theme(axis.title.x = element_blank())+
+  scale_fill_manual(values=colortwospecies)+
   coord_cartesian(ylim = c(0, 1))+
   # scale_fill_manual(values=colorthreespecies)+
   theme(legend.position = "none")+ 
@@ -62,10 +121,11 @@ tvua3 <- arrangeGrob(a3, top = textGrob("c)", x = unit(0, "npc")
                                             , y   = unit(1, "npc"), just=c("left","top"),
                                             gp=gpar(col="black", fontsize=14)))
 
-a4 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Fruit_set)) +
-  geom_boxplot()+
+a4 <- ggplot(meandataperplot, aes(x=Species,y=Fruit_set,fill=Species)) +
+  geom_boxplot(aes(fill=Species))+
   theme_classic()+
   theme(axis.title.x = element_blank())+
+  scale_fill_manual(values=colortwospecies)+
   coord_cartesian(ylim = c(0, 1))+
   # scale_fill_manual(values=colorthreespecies)+
   theme(legend.position = "none")+ 
@@ -76,10 +136,11 @@ tvua4 <- arrangeGrob(a4, top = textGrob("d)", x = unit(0, "npc")
                                             , y   = unit(1, "npc"), just=c("left","top"),
                                             gp=gpar(col="black", fontsize=14)))
 
-a5 <- ggplot(meandataperplotwtROF, aes(x=Species,y=Seed_set)) +
-  geom_boxplot()+
+a5 <- ggplot(meandataperplot, aes(x=Species,y=Seed_set,fill=Species)) +
+  geom_boxplot(aes(fill=Species))+
   theme_classic()+
   theme(axis.title.x = element_blank())+
+  scale_fill_manual(values=colortwospecies)+
   coord_cartesian(ylim = c(1, 4))+
   # scale_fill_manual(values=colorthreespecies)+
   theme(legend.position = "none")+ 

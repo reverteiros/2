@@ -72,11 +72,6 @@ meandataperplot <- datapollinatorsall %>%
   left_join(flowers_example,by="Plot") %>%
   mutate(Proportion_plant = Flower_Abundance/Overall_flowers)
 
-meandataperplotROF <- meandataperplot %>%
-  filter(Species=="ROF")%>%
-  filter(Pollinator_abundance > 1)%>%
-  mutate(logVisitation_rate = log(Visitation_rate)) 
-
 meandataperplotTVUF <- meandataperplot %>%
   filter(Species=="TVUF") 
 
