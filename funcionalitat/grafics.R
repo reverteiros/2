@@ -10,79 +10,172 @@ library(corrplot)
 library(Hmisc)
 
 
-##### Figura 3
+##### Figura 1
+
+meandataperplotwtROF <- meandataperplot %>%
+  filter(Species!="ROF") %>%
+  select(Homospecific_presence,Mean_Homospecific,Heterospecific_presence,Fruit_set,Seed_set,Species) 
+
+
+m1 <- ggplot(meandataperplotwtROF, aes(y = Homospecific_presence, x =Species)) + 
+  geom_boxplot() +
+  theme_classic()+
+  scale_x_discrete(labels=c("TVUF" = "Female", "TVUH" = "Hermaphrodite"))+
+  theme(axis.title.x = element_blank())+
+  labs( y = "Proportion of flowers with\n homospecific pollen")+
+  ylim(0, 1) +
+  geom_segment(aes(x = 0.8, y = 0.3, xend = 2.2, yend = 0.3))+
+  annotate("text", x = 1.5, y = 0.25, label = "ns")
+
+m2 <- ggplot(meandataperplotwtROF, aes(y = Mean_Homospecific, x =Species)) + 
+  geom_boxplot() +
+  theme_classic()+
+  scale_x_discrete(labels=c("TVUF" = "Female", "TVUH" = "Hermaphrodite"))+
+  theme(axis.title.x = element_blank())+
+  labs( y = "\nStigmatic pollen loads")+
+  ylim(0, 35)+
+  geom_segment(aes(x = 0.8, y = 32, xend = 2.2, yend = 32))+
+  annotate("text", x = 1.5, y = 33, label = "*", fontface ="bold")
+
+m3 <- ggplot(meandataperplotwtROF, aes(y = Heterospecific_presence, x =Species)) + 
+  geom_boxplot() +
+  theme_classic()+
+  scale_x_discrete(labels=c("TVUF" = "Female", "TVUH" = "Hermaphrodite"))+
+  theme(axis.title.x = element_blank())+
+  labs( y = "Proportion of flowers with\n heterospecific pollen")+
+  ylim(0, 1)+
+  geom_segment(aes(x = 0.8, y = 0.9, xend = 2.2, yend = 0.9))+
+  annotate("text", x = 1.5, y = 0.92, label = "*", fontface ="bold")
+
+m4 <- ggplot(meandataperplotwtROF, aes(y = Fruit_set, x =Species)) + 
+  geom_boxplot() +
+  theme_classic()+
+  scale_x_discrete(labels=c("TVUF" = "Female", "TVUH" = "Hermaphrodite"))+
+  theme(axis.title.x = element_blank())+
+  labs( y = "\nFruit set")+
+  ylim(0, 1)+
+  geom_segment(aes(x = 0.8, y = 0.96, xend = 2.2, yend = 0.96))+
+  annotate("text", x = 1.5, y = 0.98, label = "*", fontface ="bold")
+
+m5 <- ggplot(meandataperplotwtROF, aes(y = Seed_set, x =Species)) + 
+  geom_boxplot() +
+  theme_classic()+
+  scale_x_discrete(labels=c("TVUF" = "Female", "TVUH" = "Hermaphrodite"))+
+  theme(axis.title.x = element_blank())+
+  labs( y = "\nSeed set")+
+  ylim(1, 4)+
+  geom_segment(aes(x = 0.8, y = 3.8, xend = 2.2, yend = 3.8))+
+  annotate("text", x = 1.5, y = 3.9, label = "*", fontface ="bold")
+
+
+ggarrange(m1, m2, m3, m4, m5, ncol = 3, nrow = 2,labels = c("(a)", "(b)", "(c)", "(d)", "(e)"))
+###• export en 5 x 8 inches
+
+
+
+##### Figura 2
 
 tvuf1 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness, y=Homospecific_presence)) + 
   geom_point(alpha=0.4) +
+  ggtitle("Female")+
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5))+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Pollinator richness", y = "Prop. flowers with homospecific")
+  labs( x = "Pollinator richness", y = "Proportion of flowers with\n homospecific pollen")+
+  ylim(0.4, 1)
 
 tvuf2 <- ggplot(meandataperplotTVUF, aes(x=Proportion_HB,y=Homospecific_presence)) +
   geom_point(alpha=0.4) +
+  ggtitle("Female")+
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title.y = element_blank())+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Proportion honey bees", y = "Prop. flowers with homospecific")
+  labs( x = "Proportion of honey bees", y = "Proportion of flowers with\n homospecific pollen")+
+  ylim(0.4, 1)
 
 tvuf3 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Bee,y=Homospecific_presence)) +
   geom_point(alpha=0.4) +
+  ggtitle("Female")+
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5))+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Proportion wild bees", y = "Prop. flowers with homospecific")
-
-tvuf4 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Heterosp_Community,y=Heterospecific_presence)) +
-  geom_point(alpha=0.4) +
-  theme_classic()+
-  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Prop. Heterospecific in the Community", y = "Prop. flowers with heterospecific")
+  labs( x = "Proportion of wild bees", y = "Proportion of flowers with\n homospecific pollen")+
+  ylim(0.4, 1)
 
 tvuh1 <- ggplot(meandataperplotTVUH, aes(x=Visitation_rate,y=Homospecific_presence)) +
   geom_point(alpha=0.4) +
+  ggtitle("Hermaphrodite")+
   theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title.y = element_blank())+
   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Visitation rate", y = "Prop. flowers with homospecific")
+  labs( x = "Visitation rate", y = "Proportion of flowers with\n homospecific pollen")+
+  ylim(0.4, 1)
+
+
+# final graph tot junt
+ggarrange(tvuf1, tvuf2, tvuf3, tvuh1, ncol = 2, nrow = 2,labels = c("(a)", "(b)", "(c)", "(d)"))
+
+# export 6 x 6.2 inches
+
+
+
+##### Figura 2
+
+tvuf1 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness, y=Homospecific_presence)) + 
+  geom_point(alpha=0.4) +
+  ggtitle("Female")+
+  theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Pollinator richness", y = "Proportion of flowers with\n homospecific pollen")
+
+tvuf2 <- ggplot(meandataperplotTVUF, aes(x=Proportion_HB,y=Homospecific_presence)) +
+  geom_point(alpha=0.4) +
+  ggtitle("Female")+
+  theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5),
+          axis.title.y = element_blank())+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Proportion of honey bees", y = "Proportion of flowers with\n homospecific pollen")
+
+tvuf3 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Bee,y=Homospecific_presence)) +
+  geom_point(alpha=0.4) +
+  ggtitle("Female")+
+  theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Proportion of wild bees", y = "Proportion of flowers with\n homospecific pollen")
+
+# tvuf4 <- ggplot(meandataperplotTVUF, aes(x=Proportion_Heterosp_Community,y=Heterospecific_presence)) +
+#   geom_point(alpha=0.4) +
+#   theme_classic()+
+#   stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+#   labs( x = "Prop. Heterospecific in the Community", y = "Prop. flowers with heterospecific")
+
+tvuh1 <- ggplot(meandataperplotTVUH, aes(x=Visitation_rate,y=Homospecific_presence)) +
+  geom_point(alpha=0.4) +
+  ggtitle("Hermaphrodite")+
+  theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title.y = element_blank())+
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
+  labs( x = "Visitation rate", y = "Proportion of flowers with\n homospecific pollen")
 
 
 # final graph tot junt
 g1 <- ggarrange(tvuf1, tvuf2, ncol = 2, nrow = 1)
-g2 <- ggarrange(tvuf3,tvuf4, ncol = 2, nrow = 1)
+g2 <- ggarrange(tvuf3,tvuh1, ncol = 2, nrow = 1)
 
 
 final <- ggarrange(g1,g2,nrow=2)
 final
-annotate_figure(final,top = text_grob("Thymus vulgaris female"))
+# annotate_figure(final,top = text_grob("Thymus vulgaris female"))
 
 
 
 
-tvuf1 <- ggplot(meandataperplotTVUF, aes(x=Pollinator_richness, y=Homospecific_presence)) + 
-  geom_point(alpha=0.4) +
-  theme_classic()+
-  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Pollinator richness", y = "Prop. flowers with homospecific")
-
-
-tvuf2 <- ggplot(meandataperplotTVUF, aes(x=log(Pollinator_richness), y=Homospecific_presence)) + 
-  geom_point(alpha=0.4) +
-  theme_classic()+
-  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)+ 
-  labs( x = "Log Pollinator richness", y = "Prop. flowers with homospecific")
-
-final <- ggarrange(tvuf1,tvuf2,ncol=2)
-final
-
-
-
-
-
-
-
-
-ggplot(meandataperplot, aes(x=Proportion_used)) +
-  geom_histogram(alpha=0.3) +
-  # geom_smooth()+
-  theme_classic()+
-  facet_grid(.~Species)
 
 
 # barplot visitation rate including taxonomic groups

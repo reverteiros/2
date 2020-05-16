@@ -5,7 +5,7 @@ library(tidyverse)
 library(DataCombine)
 library(vegan)
 library(betapart)
-source("funcionalitat/index xarxes.R")
+# source("funcionalitat/index xarxes.R")
 
 
 censos <- read.table("dades/censos.txt",header=T)
@@ -57,7 +57,7 @@ grupstaxonomicsspread[is.na(grupstaxonomicsspread)] <- 0
 
 ## database total
 datapollinatorsall <- pollinators %>%
-  left_join(networkmetricsTVU, by="Plot") %>%
+  # left_join(networkmetricsTVU, by="Plot") %>%
   left_join(grupstaxonomicsspread,by=c("Species","Plot")) %>%
   mutate(Proportion_HB = Honeybees/Pollinator_abundance) %>%
   mutate(Proportion_Bee = Bee/Pollinator_abundance) %>%
