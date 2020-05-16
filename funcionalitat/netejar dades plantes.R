@@ -81,3 +81,9 @@ proporciomorfs <- read.table("dades/flors quantitatiu separant thymus morfs.txt"
   mutate(ProporcioH = TVUH / TVU) %>%
   select(., c(Plot,ProporcioH))
 
+
+
+
+database2 <- read.table("dades/Database3.txt",header=T)
+
+

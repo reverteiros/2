@@ -50,18 +50,27 @@ fruits <- fruitset %>%   #### binomial distribution
   group_by(Plot, Species) %>% 
   summarise(Fruit_set=mean(Fruit_set),Avorted = mean(Mean_Avorted),Individuals_fruits=n(),Flower_samples_fruits=sum(Flowers))
 
+
+flowers_total <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
+  tidyr::gather(Species, "Flower_Abundance") %>%
+  mutate(Flower_Abundance = Flower_Abundance*3) 
+
+flowers_total$Plot = c(1:40)
+
+flowers_example <- flowers_total %>%
+  group_by(Plot) %>% 
+  summarise(Overall_flowers = sum(Flower_Abundance))
+
+
 meandataperplot <- datapollinatorsall %>%
   left_join(fruits,by=c("Species","Plot")) %>%
   left_join(seeds,by=c("Species","Plot")) %>%
   left_join(pollenflowerswpollen,by=c("Species","Plot")) %>%
   left_join(pollenflowerswhomospecific,by=c("Species","Plot")) %>%
   left_join(pollenpresence,by=c("Species","Plot")) %>%
-  left_join(proporciomorfs,by="Plot")
-
-meandataperplotROF <- meandataperplot %>%
-  filter(Species=="ROF")%>%
-  filter(Pollinator_abundance > 1)%>%
-  mutate(logVisitation_rate = log(Visitation_rate)) 
+  left_join(proporciomorfs,by="Plot")%>%
+  left_join(flowers_example,by="Plot") %>%
+  mutate(Proportion_plant = Flower_Abundance/Overall_flowers)
 
 meandataperplotTVUF <- meandataperplot %>%
   filter(Species=="TVUF") 

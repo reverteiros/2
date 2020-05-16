@@ -36,8 +36,12 @@ summary(avgmod.95delta2)
 
 ###### Heterospecific presence
 
+<<<<<<< HEAD
+fit <- glm(Heterospecific_presence~log(Pollinator_richness)+Visitation_rate+Proportion_plant+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
+=======
 mean(meandataperplotTVUF$Heterospecific_presence)
 fit <- glm(Heterospecific_presence~generalityTVU+log(Pollinator_richness)+Visitation_rate+Proportion_Heterosp_Community+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
+>>>>>>> 0627d644d1ae834f0fb4022f5bc1fd6c92575174
 
 car::vif(fit)
 hist(resid(fit))
