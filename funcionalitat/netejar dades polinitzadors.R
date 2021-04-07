@@ -1,17 +1,7 @@
-# 
-# 
-require(devtools)
-library(tidyverse)
-<<<<<<< HEAD
-library(DataCombine)
-library(vegan)
-library(betapart)
-=======
-# library(DataCombine)
-# library(vegan)
-# library(betapart)
->>>>>>> 181b693be3211956233a7ef4f44a9e84d15198d4
-# source("funcionalitat/index xarxes.R")
+
+
+library(dplyr)
+library(tidyr)
 
 
 censos <- read.table("dades/censos.txt",header=T)
@@ -20,27 +10,17 @@ names(censos) <- c("Plot","Pollinator","Species","Abundance")
 
 ############# flower abundance per plot
 flowers <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
-  select(., ROF, TVUF, TVUH)%>%
-  tidyr::gather(Species, "Flower_Abundance",1:3) %>%
+  select(., TVUF, TVUH)%>%
+  tidyr::gather(Species, "Flower_Abundance",1:2) %>%
   mutate(Flower_Abundance = Flower_Abundance*3)
 
 flowers$Plot = c(1:40)
 
-flowerrichness <- read.table("dades/flors quantitatiu separant thymus morfs.txt",header=T) %>%
-  tidyr::gather(Species, "Flower_Abundance") 
 
-flowerrichness$Plot = c(1:40)
-
-flowerrichness2 <- flowerrichness%>%
-  group_by(Plot) %>% 
-  summarise(Flower_richness=n_distinct(Flower_Abundance))
-
-
-
-# Pollinators 
+# Pollinators
 pollinators <- censos %>% 
   group_by(Plot, Species) %>% 
-  summarise(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
+  dplyr::summarize(Pollinator_abundance=sum(Abundance),Pollinator_richness=n_distinct(Pollinator))%>%
   complete(Species, Plot) %>%
   distinct() %>%
   left_join(flowers, by = c("Plot","Species")) %>%
@@ -53,7 +33,7 @@ pollinators[is.na(pollinators)] <- 0
 grupstaxonomics <- read.table("dades/censos grups taxonomics.txt",header=T) %>%
   select(Plot,Taxonomic_group,Species,Abundance) %>%
   group_by(Plot,Taxonomic_group,Species) %>% 
-  summarise(Abundance=sum(Abundance)) %>%
+  dplyr::summarise(Abundance=sum(Abundance)) %>%
   complete(Plot,Species) %>%
   distinct() %>% 
   filter(., Species =="TVUF" | Species =="TVUH")
@@ -72,10 +52,8 @@ datapollinatorsall <- pollinators %>%
   mutate(Proportion_Diptera = Diptera/Pollinator_abundance) %>%
   mutate(Proportion_Lepidoptera = Lepidoptera/Pollinator_abundance) %>%
   mutate(Proportion_Wasps = Wasp/Pollinator_abundance) %>%
-  select(-c(Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Mecoptera,Heteroptera)) %>%
-  filter(Flower_Abundance > 0) %>%
-  # mutate(Proportion_used = Proportion_Diptera+Proportion_Bee+Proportion_HB)%>%
-  left_join(flowerrichness2, by="Plot")
+  select(-c(Bee,Coleoptera,Diptera,Honeybees,Wasp,Lepidoptera,Heteroptera)) %>%
+  filter(Flower_Abundance > 0) 
 
 
 

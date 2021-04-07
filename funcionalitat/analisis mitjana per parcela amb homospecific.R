@@ -10,7 +10,7 @@ options(na.action = "na.fail")
 
 ###### Pollen presence
 
-fit <- glm(Homospecific_presence~log(Pollinator_richness)+Visitation_rate+ProporcioH+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
+fit <- glm(Conspecific_presence~log(Pollinator_richness)+Visitation_rate+ProporcioH+Proportion_HB+Proportion_Bee+Proportion_Diptera,family=binomial, weights=Individuals_pollen, data=meandataperplotTVUF)
 
 car::vif(fit)
 hist(resid(fit))

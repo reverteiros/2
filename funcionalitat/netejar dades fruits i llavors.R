@@ -1,8 +1,4 @@
 
-require(devtools)
-library(tidyverse)
-library(DataCombine)
-library(vegan)
 
 
 # ############## Seed viability and weight
